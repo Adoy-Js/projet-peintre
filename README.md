@@ -1,32 +1,29 @@
-# Questions project-peintre
+## ARTISTE PEINTRE
 
-## Contenu
+Site portfolio d’un artiste-peintre afin qu’il puisse exposer ses œuvres.
 
-- Biographie
-- photo
-- photo de son atelier
-- description des techniques utilisées
-- Ses oeuvres (triées si possible), avec un nom, une description
-- Comment classes-tu tes œuvres ?
-- Ses coordonnées
-- son matériel
-- logo ?
-- la taille des tableaux ?
-- page actualité ?
-  
-## Question technique
+yarn :
+    - yo oclock-react
+    - yarn init
+    - yarn
+    - yarn add webpack
+    - yarn add babel
+    - yarn add babel-loader
 
-- portfolio ou vente ?
-- menu sur le coté ou au milieu ?
-- des images qui défilent sur la page d'accueil (avec les oeuvres principales, etc...)
-- différentes pages ? ou une page avec défilement ?
-- Pour chaque page, concorder la page avec le type dessin en fond
+## Etape 1 : On structure
 
-## Accueil
+Création des fichiers et de la tructure dans le fichier index
 
-- Quel style visuel, quel photo à mettre, police de caractere ? quel technique de dessin à ressortir ?
+- Créer 4 blocs "div" dans le composant Accueil/Portrait/Croquis/Peinture/ Peinture murale/
 
-## Question esthétique
+- Créer 2 blocs "div" dans le composant Biographie/Actualité/Contact
 
-- Palette de couleur
-- modele à nous montrer ?
+
+## Etape 2 : HTML + CSS 
+
+- Créer base HTML
+- Création du style.css
+
+## Etape 3 : Composants
+
+- distribuer le code dans les composants
