@@ -7,7 +7,10 @@ import React from 'react';
 import './styles.scss';
 
 const New = () => (
-  <h1>New</h1>
+  <New className="New">
+    <h1 className="title-wall-paintings">Actualités</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </New>
 );
 
 export default New;

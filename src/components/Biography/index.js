@@ -7,7 +7,10 @@ import React from 'react';
 import './styles.scss';
 
 const Biography = () => (
-  <h1>Biography</h1>
+  <Biography className="Biography">
+    <h1 className="title-wall-paintings">Biographie</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+  </Biography>
 );
 
 export default Biography;

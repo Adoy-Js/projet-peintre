@@ -10,6 +10,7 @@ import Portrait from 'src/components/Portrait';
 import Painting from 'src/components/Painting';
 // Ajout du composant WallPainting
 import WallPainting from 'src/components/WallPainting';
+
 // Ajout du composant Biography
 import Biography from 'src/components/Biography';
 // Ajout du composant New
