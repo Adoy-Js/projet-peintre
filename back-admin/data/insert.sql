@@ -19,4 +19,5 @@ INSERT INTO news (date, place, description) VALUES
 
 INSERT INTO picture (name, image, description, news_id, artwork_id, artist_id) VALUES
 ('oiseau qui vole', 'oiseau.png', 'quel bel oiseau!', NULL, 1, NULL),
+('oiseau qui vole plus', 'oiseau2.png', 'bel oiseau!', NULL, 1, NULL),
 ('Paris', 'paris.png', 'bel expo !', 1, NULL, NULL);
