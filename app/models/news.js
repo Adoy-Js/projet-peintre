@@ -9,7 +9,7 @@ class News {
 
   static async findAll() {
     try {
-      const sqlQuery = "SELECT * FROM news;";
+      const sqlQuery = "SELECT * FROM news FULL OUTER JOIN picture ON picture.news_id = news.id;";
 
       const { rows } = await pool.query(sqlQuery);
 

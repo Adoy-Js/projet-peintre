@@ -18,7 +18,7 @@ CREATE TABLE category (
 
 CREATE TABLE artwork (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
+  name_artwork VARCHAR(50) NOT NULL,
   date TIMESTAMP NOT NULL,
   place VARCHAR(100) NOT NULL, 
   height INT NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE news (
 
 CREATE TABLE picture (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(50),
+  name_picture VARCHAR(50),
   image text NOT NULL,
   description TEXT,
   news_id INT REFERENCES news(id),

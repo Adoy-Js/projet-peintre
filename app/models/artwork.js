@@ -7,22 +7,25 @@ class Artwork {
     }
   }
 
-  // static async findAll() {
-  //   try {
-  //     const sqlQuery = "SELECT * FROM artwork JOIN picture ON artwork.id = picture.artwork_id;";
+  static async findByCategory(category) {
+    try {
+      const query = {
+        text: `SELECT * FROM artwork
+        JOIN category ON category.id = artwork.category_id 
+        JOIN picture ON picture.artwork_id = artwork.id
+        WHERE category.name = $1;`,
+        values: [category],
+      };
 
-  //     const { rows } = await pool.query(sqlQuery);
+      const { rows } = await pool.query(query);
 
-  //     return rows ? rows.map((row) => new this(row)) : false;
-  //   } catch (err) {
-  //     console.error(err);
-  //     if (err.detail) {
-  //       throw new Error(err.detail);
-  //     } else {
-  //       throw err;
-  //     }
-  //   }
-  // }
+      console.log(rows);
+
+      return rows ? rows.map((row) => new this(row)) : false;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   static async findOne(id) {
     try {
@@ -41,22 +44,6 @@ class Artwork {
       } else {
         throw err;
       }
-    }
-  }
-
-  static async findByCategory(category){
-    try {
-      const query = {
-        text: "SELECT * FROM artwork JOIN category ON artwork.category_id = category.id WHERE category.name = '$1'",
-        values: [category]
-      }
-
-      const {rows} = await pool.query(query);
-
-      return new Artwork(rows[0]);
-
-    } catch (error) {
-      console.log(error);
     }
   }
 
@@ -108,4 +95,4 @@ class Artwork {
   }
 }
 
-module.exports = News;
+module.exports = Artwork;
