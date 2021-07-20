@@ -1,0 +1,8 @@
+### GET ONE CATEGORY
+GET http://localhost:5000/artwork/portrait
+
+### GET ONE ARTWORK
+GET http://localhost:5000/artwork/sketch/2
+
+### GET ALL NEWS
+GET http://localhost:5000/news
