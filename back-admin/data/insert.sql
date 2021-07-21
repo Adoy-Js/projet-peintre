@@ -1,5 +1,5 @@
-INSERT INTO artist (logo, biography, mail, password) 
-VAlUES ('logo.png', 'je suis un artiste', 'artiste@gamil.com', 'artist');
+INSERT INTO artist (logo, name, biography, mail, password) 
+VAlUES ('logo.png', 'Camille', 'je suis un artiste', 'artiste@gmail.com', '1234');
 
 
 INSERT INTO category (name) VALUES 
@@ -15,10 +15,17 @@ INSERT INTO artwork (name_artwork, date, place, height, width, support, category
 ('maison', '2020-04-04'::TIMESTAMP, 'Saint-Maximin', 30, 50, 'toile', 3, 1);
 
 INSERT INTO news (date, place, description) VALUES
-('2019-05-17'::TIMESTAMP, 'Paris', "j'ai fait une expo"),
+('2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
 ('2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
 
-INSERT INTO picture (name_picture, image, description, news_id, artwork_id, artist_id) VALUES
-('oiseau qui vole', 'oiseau.png', 'quel bel oiseau!', NULL, 1, NULL),
-('oiseau qui vole plus', 'oiseau2.png', 'bel oiseau!', NULL, 1, NULL),
-('Paris', 'paris.png', 'bel expo !', 1, NULL, NULL);
+INSERT INTO picture (name_picture, image, description, artist_id) VALUES
+('oiseau qui vole', 'oiseau.png', 'quel bel oiseau!', 1,),
+('oiseau qui vole plus', 'oiseau2.png', 'bel oiseau!', 1),
+('Paris', 'paris.png', 'bel expo !', 1);
+
+INSERT INTO news_has_picture (news_id, picture_id) VALUES
+(1, 3);
+
+INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES
+(1, 1),
+(1, 2);
