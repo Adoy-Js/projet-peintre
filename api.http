@@ -9,3 +9,6 @@ GET http://localhost:5000/news
 
 ### GET INFO ARTIST
 GET http://localhost:5000/about
+
+### GET ALL PAINTINGS
+GET http://localhost:5000/artwork/paintings

@@ -16,9 +16,9 @@ class News {
 
       console.log(rows);
 
-      const results = rows.filter(row => row.id_news !== null);
+      // const results = rows.filter(row => row.id_news !== null);
 
-      return results ? results.map((row) => new this(row)) : false;
+      return rows ? rows.map((row) => new this(row)) : false;
 
     } catch (err) {
       console.error(err);
