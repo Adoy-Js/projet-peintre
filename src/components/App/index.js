@@ -6,6 +6,8 @@ import React from 'react';
 import Menu from 'src/components/Menu';
 // Ajout du composant Home
 import Home from 'src/components/Home';
+// Ajout du composant Footer
+import Footer from 'src/components/Footer';
 
 import './styles.scss';
 
@@ -14,6 +16,7 @@ const App = () => (
   <div className="app">
     <Menu />
     <Home />
+    <Footer />
   </div>
 );
 

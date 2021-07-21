@@ -1,5 +1,6 @@
 // == Import npm
 import React from 'react';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 // == Import
 import img1 from './Accueil_1.jpg';
@@ -11,11 +12,17 @@ import './styles.scss';
 // == Composant
 const Home = () => (
   <div className="app">
-    <div>
-      <img src={img1} alt="mer" className="mer" />
-      <img src={img2} alt="neige" className="neige" />
-      <img src={img3} alt="falaise" className="falaise" />
-    </div>
+    <Splide>
+      <SplideSlide className="mer">
+        <img src={img1} alt="mer" />
+      </SplideSlide>
+      <SplideSlide className="neige">
+        <img src={img2} alt="neige" />
+      </SplideSlide>
+      <SplideSlide className="falaise">
+        <img src={img3} alt="falaise" />
+      </SplideSlide>
+    </Splide>
   </div>
 );
 

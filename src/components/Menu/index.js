@@ -1,5 +1,8 @@
 // == Import de la lib React
 import React from 'react';
+// Ajout du composant LoginForm
+import LoginForm from 'src/components/LoginForm';
+
 
 // == Import npm
 
@@ -8,6 +11,7 @@ import './styles.scss';
 
 const Menu = () => (
   <nav className="link">
+    <LoginForm />
     <a className="link_menu">Camille PAUL</a>
     <a className="link_menu">Croquis</a>
     <a className="link_menu">Peintures</a>
