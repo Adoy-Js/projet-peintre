@@ -1,3 +1,6 @@
+###GET ALL ARTWORKS
+GET http://localhost:5000/artwork
+
 ### GET ONE CATEGORY
 GET http://localhost:5000/artwork/portrait
 
@@ -12,3 +15,12 @@ GET http://localhost:5000/about
 
 ### GET ALL PAINTINGS
 GET http://localhost:5000/artwork/paintings
+
+###LOGIN
+POST http://localhost:5000/admin
+content-type: application/json
+
+{
+    "mail": "artiste@gmail.com",
+    "password" : "1234"
+}
