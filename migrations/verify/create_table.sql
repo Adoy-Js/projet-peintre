@@ -8,5 +8,7 @@ SELECT * FROM category WHERE false;
 SELECT * FROM artwork WHERE false;
 SELECT * FROM news WHERE false;
 SELECT * FROM picture WHERE false;
+SELECT * FROM news_has_picture WHERE false;
+SELECT * FROM artwork_has_picture WHERE false;
 
 ROLLBACK;

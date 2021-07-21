@@ -5,7 +5,8 @@ BEGIN;
 -- XXX Add DDLs here.
 CREATE TABLE artist (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  logo VARCHAR(50) NOT NULL,
+  name VARCHAR(50) NOT NULL,
+  logo VARCHAR(50),
   biography TEXT,
   mail VARCHAR(50) NOT NULL UNIQUE,
   password VARCHAR(50) NOT NULL
@@ -40,9 +41,19 @@ CREATE TABLE picture (
   name_picture VARCHAR(50),
   image text NOT NULL,
   description TEXT,
-  news_id INT REFERENCES news(id),
-  artwork_id INT REFERENCES artwork(id),
   artist_id INT REFERENCES artist(id)
+);
+
+CREATE TABLE news_has_picture (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  news_id INT REFERENCES news(id),
+  picture_id INT REFERENCES picture(id)
+);
+
+CREATE TABLE artwork_has_picture (
+  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  artwork_id INT REFERENCES artwork(id),
+  picture_id INT REFERENCES picture(id)
 );
 
 COMMIT;
