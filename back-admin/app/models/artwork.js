@@ -10,10 +10,7 @@ class Artwork {
   static async findByCategory(category) {
     try {
       const query = {
-        text: `SELECT * FROM artwork
-        JOIN category ON category.id = artwork.category_id 
-        JOIN picture ON picture.artwork_id = artwork.id
-        WHERE category.name = $1;`,
+        text: `SELECT * FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name = $1;`,
         values: [category],
       };
 
@@ -30,7 +27,7 @@ class Artwork {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM artwork WHERE id = $1;",
+        text: "SELECT * FROM artwork FULL JOIN artwork_has_picture ON artwork_has_picture.artwork_id = artwork.id_artwork FULL JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE id_artwork = $1;",
         values: [id],
       };
 
