@@ -9,6 +9,11 @@ const port = process.env.PORT;
 
 app.use(express.json());
 
+//on va pouvoir utiliser le req.body via urlencoded
+app.use(express.urlencoded({
+  extended: true,
+}));
+
 app.use(router);
 
 app.listen(port, () => {

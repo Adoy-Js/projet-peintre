@@ -7,6 +7,22 @@ class Artwork {
     }
   }
 
+  static async findAll(){
+    try {
+      const query = {
+        text: `SELECT * FROM artwork;`
+      };
+
+      const { rows } = await pool.query(query);
+
+      console.log(rows);
+
+      return rows ? rows.map((row) => new this(row)) : false;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   static async findByCategory(category) {
     try {
       const query = {
@@ -33,7 +49,7 @@ class Artwork {
 
       const { rows } = await pool.query(sqlQuery);
 
-      return rows ? rows.map((row) => new this(row)) : false;
+      return new this(rows[0]);
     } catch (err) {
       console.error(err);
       if (err.detail) {
