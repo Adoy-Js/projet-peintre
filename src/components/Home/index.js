@@ -1,26 +1,23 @@
-// == Import de la lib React
+// == Import npm
 import React from 'react';
 
-// == Import npm
+// == Import
+import img1 from './Accueil_1.jpg';
+import img2 from './Accueil_2.jpg';
+import img3 from './Accueil_3.jpg';
 
-// == Imports locaux
 import './styles.scss';
-import img1 from './';
-import img2 from './img2/Accueil_2.jpg';
-import img3 from './img2/Accueil_3.jpg';
 
+// == Composant
 const Home = () => (
-  <Home className="Home">
-    {/*<img src="//" alt="Logo" id="logo" />*/}
-    <div className="img-home">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <div>
-        <img src={img1} alt="mer" />
-        {/*<img src={img2} alt="hiver" />*/}
-        {/*<img src={img3} alt="falaise" />*/}
-      </div>
+  <div className="app">
+    <div>
+      <img src={img1} alt="mer" className="mer" />
+      <img src={img2} alt="neige" className="neige" />
+      <img src={img3} alt="falaise" className="falaise" />
     </div>
-  </Home>
+  </div>
 );
 
+// == Export
 export default Home;
