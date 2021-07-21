@@ -9,11 +9,17 @@ class News {
 
   static async findAll() {
     try {
-      const sqlQuery = "SELECT * FROM news FULL OUTER JOIN picture ON picture.news_id = news.id;";
+      const sqlQuery =
+        "SELECT * FROM news FULL JOIN news_has_picture ON news_has_picture.news_id = news.id_news FULL JOIN picture ON picture.id_picture = news_has_picture.picture_id;";
 
       const { rows } = await pool.query(sqlQuery);
 
-      return rows ? rows.map((row) => new this(row)) : false;
+      console.log(rows);
+
+      const results = rows.filter(row => row.id_news !== null);
+
+      return results ? results.map((row) => new this(row)) : false;
+
     } catch (err) {
       console.error(err);
       if (err.detail) {
