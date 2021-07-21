@@ -33,6 +33,22 @@ const artworkController = {
       next();
     }
   },
+
+  getAllPaintings: async (req, res, next) => {
+
+    try {
+      const results = await Artwork.findAllPaintings();
+
+      if (results) {
+        res.json(results);
+      } else {
+        next();
+      }
+    } catch (err) {
+      console.error(err);
+      next();
+    }
+  },
 };
 
 module.exports = artworkController;

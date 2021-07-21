@@ -90,6 +90,22 @@ class Artwork {
       }
     }
   }
+
+  static async findAllPaintings() {
+    try {
+        const {rows} = await db.query(`SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name IN ('oil-painting', 'acrylic_painting')` );
+
+        console.log(rows);
+
+        return rows.map(row => new Artist(row));
+    } catch (error) {
+        if (error.detail) {
+            throw new Error(error.detail);
+        } else {
+            throw error;
+        }
+    }
+}
 }
 
 module.exports = Artwork;
