@@ -4,37 +4,34 @@ const jwtMiddleware = require("../middleware/jwt");
 
 const adminController = {
   login: async (req, res, next) => {
-
     console.log("je suis dans admincontroller");
 
-    const submittedEmail = req.body.mail;
-    const submittedPassword = req.body.password;
+    const { mail, password } = req.body;
 
-    if (submittedEmail == null ||  submittedPassword == null) {
-      return res.status(400).json({ 'error': 'missing parameters' });
+    if (mail == null || password == null) {
+      return res.status(400).json({ error: "missing parameters" });
     }
 
-    const artistFounded = await Artist.findByMail(submittedEmail);
-    console.log(artistFounded);
+    const artistFounded = await Artist.findByMail(mail);
+
     const storedPassword = artistFounded.password;
 
-    if (submittedPassword === storedPassword) {
-      const token = await jwtMiddleware.generateToken(artistFounded)
+    if (password === storedPassword) {
+      const token = await jwtMiddleware.generateToken(artistFounded);
       console.log(token);
       res.json({
-        'userId' : artistFounded.id_artist,
-        'token': token
+        userId: artistFounded.id_artist,
+        token: token,
       });
-      next();
-    }
-    else{
-      return res.status(400).json({ 'error': 'bad parameters' });
+      res.redirect('/admin/artwork');
+    } else {
+      return res.status(400).json({ error: "bad parameters" });
     }
   },
 
-  // isAdmin: async(req, res, next)=>{
-
-  // }
+  isAdmin: async (req, res, next) => {
+    const authHeader = req.headers.authorization;
+  },
 };
 
 module.exports = adminController;
