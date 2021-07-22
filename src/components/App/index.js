@@ -11,8 +11,6 @@ import Home from 'src/components/Home';
 import Footer from 'src/components/Footer';
 // Ajout du composant LoginForm
 import LoginForm from 'src/components/LoginForm';
-// Ajout du composant NotFound
-import NotFound from 'src/components/NotFound';
 
 import './styles.scss';
 

@@ -13,13 +13,13 @@ import './styles.scss';
 const Home = () => (
   <div className="app">
     <Splide>
-      <SplideSlide className="mer">
+      <SplideSlide className="sea">
         <img src={img1} alt="mer" />
       </SplideSlide>
-      <SplideSlide className="neige">
+      <SplideSlide className="snow">
         <img src={img2} alt="neige" />
       </SplideSlide>
-      <SplideSlide className="falaise">
+      <SplideSlide className="cliff">
         <img src={img3} alt="falaise" />
       </SplideSlide>
     </Splide>

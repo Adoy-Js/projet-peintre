@@ -1,15 +1,24 @@
-.mer {
-  background-image: linear-gradient(#2980B9, #6DD5FA, #FFFFFF);
-  background-repeat: no-repeat;
+.sea {
+  // à voir comment flouter davantage avec backdrop-filter
+  background: url(./Background_1.jpg) no-repeat;
+	position: relative;
+  background-position: center center;
+  background-size: cover; 
+  
 }
-.neige {
-  background-image: linear-gradient(#0a0808, #eaf4f5);
-  background-repeat: no-repeat;
+.snow {
+  background: url(./Accueil_2.jpg) no-repeat;
+	position: relative;
+  background-position: center center;
+  background-size: cover; 
+  
 }
 
-.falaise {
-  background-image: linear-gradient(#0f0b0bbb, #cfbdb2);
-  background-repeat: no-repeat;
+.cliff {
+  background: url(./Accueil_3.jpg) no-repeat;
+	position: relative;
+  background-position: center center;
+  background-size: cover; 
 }
 
 @keyframes splide-loading {
