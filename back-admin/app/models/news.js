@@ -55,10 +55,13 @@ class News {
       let sqlQuery;
 
       if (id) {
-        sqlQuery = {
+        sqlQueryNews = {
           text: "UPDATE news SET date = $1, place = $2, description = $3 WHERE id = $4",
           values: [this.date, this.place, this.description, id],
         };
+        sqlQueryPicture = {
+          
+        }
       } else {
         sqlQuery = {
           text: "INSERT INTO news(date, place, description) VALUES ($1,$2,$3) RETURNING id;",
