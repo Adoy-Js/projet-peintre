@@ -2,9 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// == Import : local
-import './styles.scss';
-
 // == Composant
 const Field = ({
   value,
@@ -28,7 +25,6 @@ const Field = ({
         // infos de base
         id={inputId}
         type={type}
-        className="field-input"
         placeholder={placeholder}
         name={name}
       />

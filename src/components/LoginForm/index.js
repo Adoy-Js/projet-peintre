@@ -35,19 +35,16 @@ class LoginForm extends React.Component {
           Connexion
         </div>
         <div className="Form_mail">
-          Adresse mail :
-          <input className="Form_mail_input" name="mail" type="text" value={this.state.email} onChange={this.handleEmailChange} />
+          <input className="Form_input" name="mail" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
         </div>
         <div className="Form_password">
-          Mot de passe :
-          <input className="Form_password_input" name="password" type="text" value={this.state.password} onChange={this.handlePasswordChange} />
+          <input className="Form_input" name="password" type="text" placeholder="Mot de passe" value={this.state.password} onChange={this.handlePasswordChange} />
         </div>
         <div className="Form_submit">
-          <input className="Form_submit_input" type="submit" value="Envoyer" />
+          <input className="Form_input" type="submit" value="Envoyer" />
         </div>
       </form>
     );
-
   }
 }
 
