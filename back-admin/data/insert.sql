@@ -14,7 +14,7 @@ INSERT INTO artwork (name_artwork, date, place, height, width, support, category
 ('bateau', '2021-03-19'::TIMESTAMP, 'Angers', 20, 20, 'papier', 2, 1),
 ('maison', '2020-04-04'::TIMESTAMP, 'Saint-Maximin', 30, 50, 'toile', 3, 1);
 
-INSERT INTO news (date, place, description) VALUES
+INSERT INTO news (date, place, article) VALUES
 ('2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
 ('2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
 

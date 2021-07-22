@@ -33,7 +33,7 @@ CREATE TABLE news (
   id_news INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   date TIMESTAMP NOT NULL,
   place VARCHAR(150) NOT NULL,
-  description TEXT NOT NULL
+  article TEXT NOT NULL
 );
 
 CREATE TABLE picture (
@@ -45,20 +45,20 @@ CREATE TABLE picture (
 
 CREATE TABLE news_has_picture (
   id_news_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  news_id INT REFERENCES news(id_news),
-  picture_id INT REFERENCES picture(id_picture)
+  news_id INT REFERENCES news(id_news) ON DELETE CASCADE,
+  picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
 );
 
 CREATE TABLE artwork_has_picture (
   id_artwork_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  artwork_id INT REFERENCES artwork(id_artwork),
-  picture_id INT REFERENCES picture(id_picture)
+  artwork_id INT REFERENCES artwork(id_artwork) ON DELETE CASCADE,
+  picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
 );
 
 CREATE TABLE artist_has_picture (
   id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   artist_id INT REFERENCES artist(id_artist),
-  picture_id INT REFERENCES picture(id_picture)
+  picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
 );
 
 COMMIT;
