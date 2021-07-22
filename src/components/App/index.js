@@ -1,6 +1,6 @@
 // == Import npm
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 // == Import
 // Ajout du composant Menu
@@ -11,23 +11,25 @@ import Home from 'src/components/Home';
 import Footer from 'src/components/Footer';
 // Ajout du composant LoginForm
 import LoginForm from 'src/components/LoginForm';
+// Ajout du composant NotFound
+import NotFound from 'src/components/NotFound';
 
 import './styles.scss';
 
 // == Composant
 const App = () => (
-  <BrowserRouter className="app">
+  <div className="app">
     <Menu />
-    <Switch>
+    <BrowserRouter>
       <Route path="/:admin" exact>
         <LoginForm />
       </Route>
       <Route path="/" exact>
         <Home />
       </Route>
-    </Switch>
+    </BrowserRouter>
     <Footer />
-  </BrowserRouter>
+  </div>
 );
 
 // == Export
