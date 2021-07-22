@@ -1,8 +1,5 @@
 @use 'src/styles/vars';
 
-body{
-  background-color: purple;
-}
 .Form{
   background-color: rgb(132, 196, 187);
   border: 1px solid rgb(48, 90, 84);
@@ -10,10 +7,21 @@ body{
   margin: 2em;
   width: 300px;
   height: 250px;
+  
+
+  &_label{
+    border: 2px solid rgb(48, 90, 84);
+    background-color: rgb(46, 82, 77);
+    color: white;
+    font-size: vars.$size;
+    padding: 1em;
+  }
 
   &_mail {
+    margin: .5em;
     font-size: vars.$size;
-    padding: vars.$padd;
+    padding-bottom: vars.$padd;
+    padding-right: 1em;
   }
 
   &_submit {
@@ -23,12 +31,14 @@ body{
 
   &_password{
     font-size: vars.$size;
-    padding: vars.$padd;
+    padding-top: vars.$padd;
+    padding-right: 1em;
   }  
 
   &_submit_input{
     border: 2px solid rgb(48, 90, 84);
     border-radius: 2em;
+    margin-bottom: 3em;
     padding: 0.5em;
   }
 

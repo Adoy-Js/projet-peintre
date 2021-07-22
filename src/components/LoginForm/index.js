@@ -31,6 +31,9 @@ class LoginForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className="Form">
+        <div className="Form_label">
+          Connexion
+        </div>
         <div className="Form_mail">
           Adresse mail :
           <input className="Form_mail_input" name="mail" type="text" value={this.state.email} onChange={this.handleEmailChange} />
