@@ -31,9 +31,17 @@ router.get("/about", artistController.getAll);
 
 router.post('/admin', adminController.login)
 
+//Home
+
+router.get('/admin/home', adminController.isAdmin, artistController.getAll);
+router.post('/admin/home', adminController.isAdmin, artistController.add);
+router.delete('/admin/home/:id', adminController.isAdmin, artistController.delete);
+router.patch('/admin/home/:id', adminController.isAdmin, artistController.update);
+
+
 //Artwork
 
-router.get('/admin/artwork', adminController.isAdmin, artworkController.getAll)
+router.get('/admin/artwork', adminController.isAdmin, artworkController.getAll);
 // router.get('/admin/artwork/:category', adminController.isAdmin, artworkController.getAllByCategory);
 // router.post('/admin/artwork/:category', adminController.isAdmin, artworkController.addArtwork);
 // router.delete('/admin/artwork/:category/:id', adminController.isAdmin, artworkController.deleteArtwork);
@@ -41,10 +49,10 @@ router.get('/admin/artwork', adminController.isAdmin, artworkController.getAll)
 
 //News
 
-// router.get('/admin/news', adminController.isAdmin, newsController.getAll);
-// router.post('/admin/news', adminController.isAdmin, newsController.addNews);
-// router.delete('/admin/news/:id', adminController.isAdmin, newsController.deleteNews);
-// router.patch('/admin/news/:id', adminController.isAdmin, newsController.updateNews);
+router.get('/admin/news', adminController.isAdmin, newsController.getAll);
+router.post('/admin/news', adminController.isAdmin, newsController.addNews);
+router.delete('/admin/news/:id', adminController.isAdmin, newsController.deleteNews);
+router.patch('/admin/news/:id', adminController.isAdmin, newsController.updateNews);
 
 
 
