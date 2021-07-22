@@ -1,29 +1,36 @@
 @use 'src/styles/vars';
 
-.login-form {
-
-  &-element {
-    display: flex;
-    align-items: center;
-  }
-
-  &-message {
-    margin: .3em 1em;
-  }
-
-  &-logged {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  &-button {
-    font-size: 1em;
-    color: #fff;
-    background-color: rgb(74, 74, 165);
-    border-radius: .3em;
-    border: 0;
-    padding: .7em;
-    height: 2.5em;
-  }
+body{
+  background-color: purple;
 }
+.Form{
+  background-color: rgb(132, 196, 187);
+  border: 1px solid rgb(48, 90, 84);
+  border-radius: 10px;
+  margin: 2em;
+  width: 300px;
+  height: 250px;
+
+  &_mail {
+    font-size: vars.$size;
+    padding: vars.$padd;
+  }
+
+  &_submit {
+    font-size: vars.$size;
+    padding: vars.$padd;
+  }
+
+  &_password{
+    font-size: vars.$size;
+    padding: vars.$padd;
+  }  
+
+  &_submit_input{
+    border: 2px solid rgb(48, 90, 84);
+    border-radius: 2em;
+    padding: 0.5em;
+  }
+
+}
+

@@ -1,90 +1,50 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// Ajout du composant Reac
-
-import Field from './Field';
 
 import './styles.scss';
 
-const LoginForm = ({
-  email,
-  password,
-  handleLogin,
-  changeField,
-  handleLogout,
-  isLogged,
-  loggedMessage,
-}) => {
-  const handleSubmit = (evt) => {
+class LoginForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+    };
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleEmailChange(event) {
+    this.setState({ email: event.target.value });
+  }
+
+  handlePasswordChange(event) {
+    this.setState({ password: event.target.value });
+  }
+
+  handleSubmit(evt) {
     evt.preventDefault();
-    handleLogin();
-  };
+    this.LoginForm();
+  }
 
-  return (
-    <div className="login-form">
-      {isLogged && (
-        <div className="login-form-logged">
-          <p className="login-form-message">
-            {loggedMessage}
-          </p>
-          <button
-            type="button"
-            className="login-form-button"
-            onClick={handleLogout}
-          >
-            Déconnexion
-          </button>
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit} className="Form">
+        <div className="Form_mail">
+          Adresse mail :
+          <input className="Form_mail_input" name="mail" type="text" value={this.state.email} onChange={this.handleEmailChange} />
         </div>
-      )}
-      {!isLogged && (
-
-        <form autoComplete="off" className="login-form-element" onSubmit={handleSubmit}>
-          <Field
-            name="email"
-            placeholder="Adresse Email"
-            onChange={changeField}
-            value={email}
-          />
-          <Field
-            name="password"
-            type="password"
-            placeholder="Mot de passe"
-            onChange={changeField}
-            value={password}
-          />
-          <button
-            type="submit"
-            className="login-form-button"
-          >
-            OK
-          </button>
-        </form>
-      )}
-    </div>
-  );
-};
-
-LoginForm.propTypes = {
-  // Valeur du champ email
-  email: PropTypes.string.isRequired,
-  // Valeur du champ password
-  password: PropTypes.string.isRequired,
-  // Fonction permettant de modifier les valeurs des champs
-  // Elle donne 2 paramètres, la valeur et le nom du champ
-  changeField: PropTypes.func.isRequired,
-  // Fonction déclenchée à la soumission du formulaire de connexion
-  handleLogin: PropTypes.func.isRequired,
-  // Fonction déclenchée au clic du bouton déconnexion
-  handleLogout: PropTypes.func.isRequired,
-  // Booléen qui représente l'état connecté/déconnecté
-  isLogged: PropTypes.bool,
-  // Message qui s'affiche quand on est connecté
-  loggedMessage: PropTypes.string,
-};
-
-LoginForm.defaultProps = {
-  isLogged: false,
-  loggedMessage: 'Connecté',
-};
+        <div className="Form_password">
+          Mot de passe :
+          <input className="Form_password_input" name="password" type="text" value={this.state.password} onChange={this.handlePasswordChange} />
+        </div>
+        <div className="Form_submit">
+          <input className="Form_submit_input" type="submit" value="Envoyer" />
+        </div>
+      </form>
+    );
+  }
+}
 
 export default LoginForm;
