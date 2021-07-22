@@ -19,7 +19,7 @@ const App = () => (
   <div className="app">
     <Menu />
     <BrowserRouter>
-      <Route path="/:admin" exact>
+      <Route path="/admin" exact>
         <LoginForm />
       </Route>
       <Route path="/" exact>
