@@ -2,9 +2,8 @@
 
 .Form{
   background-color: rgb(132, 196, 187);
-  border: 1px solid rgb(48, 90, 84);
   border-radius: 10px;
-  margin: 2em;
+  margin: 15% auto;
   width: 300px;
   height: 250px;
   
@@ -36,7 +35,7 @@
   }  
 
   &_submit_input{
-    border: 2px solid rgb(48, 90, 84);
+    border: 1px solid rgb(48, 90, 84);
     border-radius: 2em;
     margin-bottom: 3em;
     padding: 0.5em;
