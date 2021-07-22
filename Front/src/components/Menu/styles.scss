@@ -1,0 +1,21 @@
+.link{
+  padding: 1em;
+  background-color: #ffffff;
+
+  &_menu {
+    padding: 20px;
+    margin: 0 1rem;
+    cursor: pointer;
+    color: black;
+
+    &--selected {
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: white;
+      background-color: rgb(5, 77, 71);
+    }
+    }
+  }
+
