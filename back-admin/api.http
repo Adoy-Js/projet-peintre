@@ -1,3 +1,6 @@
+###ACCUEIL
+GET http://localhost:5000/
+
 ###GET ALL ARTWORKS
 GET http://localhost:5000/artwork
 
@@ -24,3 +27,4 @@ content-type: application/json
     "mail": "artiste@gmail.com",
     "password" : "1234"
 }
+

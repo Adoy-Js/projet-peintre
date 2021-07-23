@@ -9,13 +9,16 @@ const adminController = require('./controllers/adminController')
 
 /*     CLIENT       */
 
+//Accueil
+router.get("/", artistController.getAll);
+
 //Artwork
 
 router.get('/artwork', artworkController.getAll);
-
+router.get('/artwork/paintings', artworkController.getAllPaintings);
 router.get("/artwork/:category", artworkController.getAllByCategory);
 router.get("/artwork/:category/:id", artworkController.getOne);
-router.get('/artwork/paintings', artworkController.getAllPaintings);
+
 
 //News
 
