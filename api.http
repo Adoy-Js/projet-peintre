@@ -1,5 +1,11 @@
+###ACCUEIL
+GET http://localhost:5000/
+
 ###GET ALL ARTWORKS
 GET http://localhost:5000/artwork
+
+###GET ALL PAINTINGS
+GET http://localhost:5000/paintings
 
 ### GET ONE CATEGORY
 GET http://localhost:5000/artwork/portrait
@@ -13,8 +19,6 @@ GET http://localhost:5000/news
 ### GET INFO ARTIST
 GET http://localhost:5000/about
 
-### GET ALL PAINTINGS
-GET http://localhost:5000/artwork/paintings
 
 ###LOGIN
 POST http://localhost:5000/admin
@@ -24,3 +28,43 @@ content-type: application/json
     "mail": "artiste@gmail.com",
     "password" : "1234"
 }
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000
+
+### GET ALL PAINTINGS
+GET http://localhost:5000/admin/artwork/:category/:id
+
+### GET ALL PAINTINGS
+GET http://localhost:5000/admin/news
+
+### GET ALL PAINTINGS
+GET http://localhost:5000/admin/news
+
+### GET ALL PAINTINGS
+GET http://localhost:5000/admin/news/:id
+
+### GET ALL PAINTINGS
+GET http://localhost:5000/admin/news/:id
