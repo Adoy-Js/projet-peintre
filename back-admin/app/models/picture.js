@@ -32,22 +32,24 @@ class Picture {
       let sqlQuery;
 
       if (id) {
+        console.log("je suis dans le modele Picture ,j'update la nouvelle photo");
         sqlQuery = {
-          text: "UPDATE picture SET name_picture = $1, image = $2, description = $3 WHERE id = $4",
+          text: "UPDATE picture SET name_picture = $1, image = $2, description = $3 WHERE id_picture = $4",
           values: [this.name_picture, this.image, this.description, id],
         };
       } else {
+        console.log("j'insere la nouvelle photo");
         sqlQuery = {
-          text: "INSERT INTO picture(name_picture, image, description) VALUES ($1,$2,$3) RETURNING id;",
+          text: "INSERT INTO picture(name_picture, image, description) VALUES ($1,$2,$3) RETURNING id_picture;",
           values: [this.name_picture, this.image, this.description],
         };
         
       }
       const { rows } = await pool.query(sqlQuery);
 
-      this.id = rows[0].id;
+      this.id_picture = rows[0].id_picture;
 
-      return rows ? true : false;
+      return rows[0];
 
     } catch (err) {
       console.error(err);

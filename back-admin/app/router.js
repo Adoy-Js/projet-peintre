@@ -15,7 +15,7 @@ router.get("/", artistController.getAll);
 //Artwork
 
 router.get('/artwork', artworkController.getAll);
-router.get('/artwork/paintings', artworkController.getAllPaintings);
+router.get('/artwork/painting', artworkController.getAllPaintings);
 router.get("/artwork/:category", artworkController.getAllByCategory);
 router.get("/artwork/:category/:id", artworkController.getOne);
 
@@ -34,7 +34,7 @@ router.get("/about", artistController.getAll);
 
 router.post('/admin', adminController.login)
 
-//Home
+//Artist Picture for home
 
 router.get('/admin/home', adminController.isAdmin, artistController.getAll);
 router.post('/admin/home', adminController.isAdmin, artistController.add);

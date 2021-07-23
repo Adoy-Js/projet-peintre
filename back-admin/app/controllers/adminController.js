@@ -27,7 +27,7 @@ const adminController = {
         userId: artistFounded.id_artist,
         token: token,
       });
-      res.redirect('/admin/artwork');
+      // res.redirect('/admin/artwork');
     } else {
       return res.status(400).json({ error: "bad parameters" });
 
