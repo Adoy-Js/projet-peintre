@@ -5,9 +5,11 @@ import React from 'react';
 
 // == Imports locaux
 import './styles.scss';
+import './img/Portrait 1.jpg'
 
 const Portrait = () => (
   <div>
+    coucou
   </div>
 );
 
