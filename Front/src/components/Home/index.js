@@ -18,7 +18,7 @@ class Home extends PureComponent {
     }
   
     componentDidMount() {
-      axios.get(`http://localhost:5000/about`)
+      axios.get(`https://projet-peintre.herokuapp.com/about`)
         .then(res => {
           const images = res.data;
           this.setState({ images });
@@ -30,7 +30,7 @@ class Home extends PureComponent {
   <div className="app">
     <Splide>
       <SplideSlide className="image">
-      { this.state.images.map(image => <li>{image.id}</li>)}
+      { this.state.images.map(image => <li>{image.id_picture}</li>)}
       </SplideSlide>
     </Splide>
   </div>
