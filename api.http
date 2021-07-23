@@ -5,7 +5,7 @@ GET http://localhost:5000/
 GET http://localhost:5000/artwork
 
 ###GET ALL PAINTINGS
-GET http://localhost:5000/paintings
+GET http://localhost:5000/artwork/painting
 
 ### GET ONE CATEGORY
 GET http://localhost:5000/artwork/portrait
@@ -19,6 +19,7 @@ GET http://localhost:5000/news
 ### GET INFO ARTIST
 GET http://localhost:5000/about
 
+#################ADMIN####################
 
 ###LOGIN
 POST http://localhost:5000/admin
@@ -29,42 +30,74 @@ content-type: application/json
     "password" : "1234"
 }
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+### GET ADMIN HOME WITH ALL ARTWORK
+GET http://localhost:5000/admin/home
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+### ADD PICTURE FOR HOME
+POST http://localhost:5000/admin/home
+content-type: application/json
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+{
+    "name_picture": "moi dans le désert",
+    "image" : "desert.png",
+    "description": "j'adore le désert"
+}
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+### DELETE HOME PICTURE
+DELETE http://localhost:5000/admin/home/1
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+### UPDATE HOME PICTURE
+PATCH http://localhost:5000/admin/home/1
 
+### GET ALL ARTWORK
+GET http://localhost:5000/admin/artwork
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+### GET ALL ARTWORK OF ONE CATEGORY
+GET http://localhost:5000/admin/artwork/:category
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+### ADD ARTWORK 
+POST http://localhost:5000/admin/artwork/:category
+content-type: application/json
 
-### GET ALL PAINTINGS
-GET http://localhost:5000
+{
+    "name_artwork": "champ de blé",
+    "date" : "2019-05-20",
+    "place": "Orleans",
+    "height": 20,
+    "width": 30,
+    "support": "papier",
+    "category_id": 1,
+    "artist":1
+}
 
-### GET ALL PAINTINGS
-GET http://localhost:5000/admin/artwork/:category/:id
+### DELETE ARTWORK BY CATEGORY
+DELETE http://localhost:5000/admin/artwork/portrait/1
 
-### GET ALL PAINTINGS
+### UPDATE ARTWORK BY CATEGORY
+PATCH http://localhost:5000/admin/artwork/portrait/1
+
+### GET ALL NEWS
 GET http://localhost:5000/admin/news
 
-### GET ALL PAINTINGS
-GET http://localhost:5000/admin/news
+### ADD NEWS
+POST http://localhost:5000/admin/news
+content-type: application/json
 
-### GET ALL PAINTINGS
-GET http://localhost:5000/admin/news/:id
+{
+    "date": "2017-05-23",
+    "place": "Lille",
+    "article": "expo à Lille"
+}
 
-### GET ALL PAINTINGS
-GET http://localhost:5000/admin/news/:id
+### DELETE NEWS
+DELETE http://localhost:5000/admin/news/1
+
+### UPDATE NEWS
+PATCH http://localhost:5000/admin/news/1
+content-type: application/json
+
+{
+    "date": "2017-05-23",
+    "place": "Nantes",
+    "article": "update de expo à Lille"
+}

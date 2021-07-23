@@ -15,22 +15,29 @@ const artistController = {
   },
 
   add: async (req, res, next) => {
+    console.log("je suis dans le controller pour ajouter une photo de l'artiste");
     try {
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
       const insertPicture = await newPicture.save();
 
+      console.log("photo inséré en base");
+
       //Ajout de la relation avec l'artiste dans la table de liaison
       //l'id de lartiste sera toujours 1
       const artist_id = 1;
-      const picture_id = insertPicture.id;
+      const picture_id = insertPicture.id_picture;
+      console.log(insertPicture);
+      console.log(`id de la picture : ${picture_id}`);
       const new_artist_has_picture = new Artist_has_picture({
         artist_id: 1,
-        picture_id,
+        picture_id
       });
 
       new_artist_has_picture.save();
+
+      console.log("relation artiste=>photo inséré en base");
     } catch (error) {
       console.error(error);
       next();
