@@ -5,14 +5,16 @@ import { BrowserRouter, Route } from 'react-router-dom';
 // == Import
 // Ajout du composant Menu
 import Menu from 'src/components/Menu';
+// Ajout du composant LoginForm
+import LoginForm from 'src/components/LoginForm';
 // Ajout du composant Home
 import Home from 'src/components/Home';
 // Ajout du composant Footer
 import Footer from 'src/components/Footer';
-// Ajout du composant LoginForm
-import LoginForm from 'src/components/LoginForm';
 // Ajout du composant Portrait
 import Portrait from 'src/components/Portrait';
+// Ajout du composant Contact
+import Contact from 'src/components/Contact';
 
 
 
@@ -31,6 +33,9 @@ const App = () => (
       </Route>
       <Route path="/portraits" exact>
         <Portrait />
+      </Route>
+      <Route path="/contact" exact>
+        <Contact />
       </Route>
     </BrowserRouter>
     <Footer />
