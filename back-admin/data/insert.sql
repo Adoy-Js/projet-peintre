@@ -19,7 +19,7 @@ INSERT INTO news (date, place, article) VALUES
 ('2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
 
 INSERT INTO picture (name_picture, image, description) VALUES
-('oiseau qui vole', 'oiseau.png', 'quel bel oiseau!'),
+('jimmy', 'data/picture/jimmy.png', 'bon guitariste'),
 ('oiseau qui vole plus', 'oiseau2.png', 'bel oiseau!'),
 ('Paris', 'paris.png', 'bel expo !'),
 ('Moi dans la foret', 'foret.png', 'la foret c''est beau');
