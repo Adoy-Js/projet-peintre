@@ -75,4 +75,4 @@ class Artwork_has_picture {
   }
 }
 
-module.exports = News_has_picture;
+module.exports = Artwork_has_picture;
