@@ -11,30 +11,44 @@ import axios from 'axios';
 
 import './styles.scss';
 
+const api = axios.create({
+  baseURL: `http://projet-peintre.herokuapp.com/about`
+})
+
 // == Composant
 class Home extends PureComponent {
-    state = {
-      images: []
-    }
-  
-    componentDidMount() {
-      axios.get(`https://projet-peintre.herokuapp.com/about`)
-        .then(res => {
-          const images = res.data;
-          this.setState({ images });
-        })
-    }
+  state = {
+    images: []
 
-  render() {
-    return(
-  <div className="app">
-    <Splide>
-      <SplideSlide className="image">
-      { this.state.images.map(image => <li>{image.id_picture}</li>)}
-      </SplideSlide>
-    </Splide>
-  </div>
-)}};
+  }
+  constructor() {
+    super();
+    api.get('/').then(res => {
+      const images = res.data; 
+      this.setState({ images: res.data });
+    })
+  }
+
+
+  //componentDidMount() {
+  // axios.get(`https://projet-peintre.herokuapp.com/about`)
+  // .then(res => {
+  // const images = res.data;
+  //this.setState({ images });
+//)
+// }
+
+render() {
+  return (
+    <div className="app">
+      <Splide>
+        <SplideSlide className="image">
+          {this.state.images.map(image => <img key={image.picture_id}>{image.image}</img>)}
+        </SplideSlide>
+      </Splide>
+    </div>
+  )
+};}
 
 // == Export
 export default Home;
