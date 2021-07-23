@@ -66,13 +66,13 @@ class Artwork {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE news SET date = $1, place = $2, description = $3 WHERE id = $4",
-          values: [this.date, this.place, this.description, id],
+          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, height=$4, width=$5, support=$6, category_id=$7, artist_id=$8 WHERE id = $9",
+          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.category_id, this.artist_id, id],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO news(date, place, description) VALUES ($1,$2,$3) RETURNING id;",
-          values: [this.date, this.place, this.description],
+          text: "INSERT INTO artwork(name_artwork, date, place, height, width, support, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id;",
+          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.category_id, this.artist_id],
         };
       }
 

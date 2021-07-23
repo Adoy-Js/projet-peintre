@@ -91,16 +91,7 @@ const newsController = {
           const insertPicture = await newPicture.save();
         }
 
-        const news_id = insertNews.id;
-        const picture_id = insertPicture.id;
-
-        //on insert la relation entre l'actu et la photo dans la table de liaison
-        const new_news_has_picture = new News_has_picture({
-          news_id,
-          picture_id,
-        });
-
-        const insertNews_has_picture = await new_news_has_picture.save();
+        
       //et si il update sans photo
       }else{
         const picture_associate = await News_has_picture.findByNewsId(id_news);

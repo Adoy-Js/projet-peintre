@@ -1,3 +1,6 @@
+###ACCUEIL
+GET http://localhost:5000/
+
 ###GET ALL ARTWORKS
 GET http://localhost:5000/artwork
 
@@ -25,5 +28,3 @@ content-type: application/json
     "password" : "1234"
 }
 
-###PERMETTRE A L'ARTISTE D'ACCEDER A TOUTES SES OEUVRES COTE ADMIN
-GET http://localhost:5000/admin/artwork
