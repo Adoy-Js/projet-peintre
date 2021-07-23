@@ -10,15 +10,14 @@ class Artist_has_picture {
   static async findByPictureId(picture_id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM artist_has_picture WHERE id_picture = $1;",
+        text: "SELECT * FROM artist_has_picture WHERE picture_id = $1;",
         values: [picture_id],
       };
 
+      const { rows } = await pool.query(sqlQuery);
       if (rows) {
-        const { rows } = await pool.query(sqlQuery);
-
         return rows[0] ? new this(rows[0]) : new Error("not found");
-      }else{
+      } else {
         return false;
       }
     } catch (err) {
@@ -60,7 +59,7 @@ class Artist_has_picture {
       let sqlQuery;
 
       sqlQuery = {
-        text: "DELETE FROM news_has_picture WHERE id=$1",
+        text: "DELETE FROM artist_has_picture WHERE id=$1",
         values: [id],
       };
     } catch (error) {
