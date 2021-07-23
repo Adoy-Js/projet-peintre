@@ -11,6 +11,10 @@ import Home from 'src/components/Home';
 import Footer from 'src/components/Footer';
 // Ajout du composant LoginForm
 import LoginForm from 'src/components/LoginForm';
+// Ajout du composant Portrait
+import Portrait from 'src/components/Portrait';
+
+
 
 import './styles.scss';
 
@@ -24,6 +28,9 @@ const App = () => (
       </Route>
       <Route path="/" exact>
         <Home />
+      </Route>
+      <Route path="/portraits" exact>
+        <Portrait />
       </Route>
     </BrowserRouter>
     <Footer />
