@@ -6,14 +6,17 @@ const jwt = require('jsonwebtoken');
 const adminController = {
   login: async (req, res, next) => {
     console.log("je suis dans admincontroller");
-
-    const { mail, password } = req.body;
+    const password = req.body.password;
+    const mail = req.body.mail;
 
     if (mail == null || password == null) {
       return res.status(400).json({ error: "missing parameters" });
     }
 
     const artistFounded = await Artist.findByMail(mail);
+    if (artistFounded) {
+      console.log(artistFounded);
+    }
 
     const storedPassword = artistFounded.password;
 
@@ -24,30 +27,31 @@ const adminController = {
         userId: artistFounded.id_artist,
         token: token,
       });
-      //res.redirect('/admin/artwork');
+      res.redirect('/admin/artwork');
     } else {
       return res.status(400).json({ error: "bad parameters" });
+
+
     }
   },
 
   isAdmin: async (req, res, next) => {
-
-    const authHeader = req.headers.authorization;
-
-    if (authHeader) {
-      const token = authHeader.split(' ')[1];
-
-      jwt.verify(token, jwtMiddleware.JWT_SIGN_SECRET, (err, user) => {
-          if (err) {
-              return res.sendStatus(403);
-          }
-          req.user = user;
-          next();
-          console.log('tout sest bien passé');
-      });
-  } else {
-      res.sendStatus(401);
-  }
+    console.log('je suis dans isAdmin');
+    next();
+    // const authHeader = req.headers.authorization;
+    // if(authHeader){
+    //   const token = authHeader.split(' ')[1];
+    //   jwt.verify(token, jwtMiddleware.JWT_SIGN_SECRET, (err, user) => {
+    //           if (err) {
+    //               return res.sendStatus(403);
+    //           }else{
+    //           console.log('ça s est bien passé');
+    //           req.user = user;
+    //           next();
+    //           }
+              
+    //       });
+    //     }
   },
 };
 
