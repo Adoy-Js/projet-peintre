@@ -8,15 +8,16 @@ class Picture {
   }
 
   static async findOne(id) {
+    console.log(id);
     try {
       const sqlQuery = {
-        text: "SELECT * FROM picture WHERE id = $1;",
-        values: [id],
+        text: "SELECT * FROM picture WHERE id_picture=$1;",
+        values: [id]
       };
-
-      const { rows } = await pool.query(sqlQuery);
-
-      return rows[0] ? new this(rows[0]) : new Error("not found");
+      
+      const {rows}  = await pool.query(sqlQuery);
+      const result =  new Picture(rows[0]);
+      return new Picture(rows[0]);
     } catch (err) {
       console.error(err);
       if (err.detail) {
@@ -61,14 +62,14 @@ class Picture {
     }
   }
 
-  async delete(id) {
+  async delete() {
     try {
-      let sqlQuery;
-
-      sqlQuery = {
-        text: "DELETE FROM picture WHERE id=$1",
+      const id = this.id_picture;
+      const sqlQuery = {
+        text: "DELETE FROM picture WHERE id_picture = $1",
         values: [id],
       };
+      await pool.query(sqlQuery)
       return true;
     } catch (error) {
       console.error(err);

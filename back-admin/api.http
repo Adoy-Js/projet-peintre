@@ -14,7 +14,7 @@ GET http://localhost:5000/artwork/portrait
 GET http://localhost:5000/artwork/portrait/2
 
 ### GET ALL NEWS
-GET http://localhost:5000/news
+GET http://localhost:5000/news/
 
 ### GET INFO ARTIST
 GET http://localhost:5000/about
@@ -44,7 +44,7 @@ content-type: application/json
 }
 
 ### DELETE HOME PICTURE
-DELETE http://localhost:5000/admin/home/1
+DELETE http://localhost:5000/admin/home/2
 
 ### UPDATE HOME PICTURE
 PATCH http://localhost:5000/admin/home/1
