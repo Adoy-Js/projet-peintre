@@ -24,3 +24,6 @@ content-type: application/json
     "mail": "artiste@gmail.com",
     "password" : "1234"
 }
+
+###PERMETTRE A L'ARTISTE D'ACCEDER A TOUTES SES OEUVRES COTE ADMIN
+GET http://localhost:5000/admin/artwork
