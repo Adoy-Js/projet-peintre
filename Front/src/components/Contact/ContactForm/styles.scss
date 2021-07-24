@@ -1,0 +1,52 @@
+@use 'src/styles/vars';
+
+.contactForm {
+  float: right;
+  width: 50%;
+  height: 870px;
+  font-family: vars.$family;
+  font-size: 25px;
+  text-align: left;
+  text-align: center;
+
+  &_mail, &_name, &_message{
+    margin: 2em;
+  }
+
+  &_input_name{
+    margin: 1em;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    width: 20em;
+  }
+
+  &_input_mail{
+    margin: 1em;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    width: 20em;
+  }
+
+  &_input_message{
+    margin: 1em;
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    width: 45em;
+    height: 20em;
+  }
+
+  &_input_submit{
+    padding: .6em;
+    border-radius: 10px;
+    width: 10em;
+    border: 1px solid black;
+  }
+
+}
+
+input {
+  border: none;
+}

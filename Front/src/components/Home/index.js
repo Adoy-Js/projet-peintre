@@ -13,7 +13,7 @@ import './styles.scss';
 const Home = () => (
   <div className="app">
     <h1 className="welcome">Mon nom est Camille PAUL
-      <br></br> Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art</h1>
+      <br /> Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art</h1>
     <div className="slider">
       <Splide>
         <SplideSlide className="sea">

@@ -1,15 +1,54 @@
 @use 'src/styles/vars';
 
+
 .contact {
+  float: left;
+  width: 50%;
+  height: 870px;
   font-family: vars.$family;
   font-size: 25px;
-  padding: 1em;
+  padding: 2.5em;
+  text-align: left;
 
-  &_title{
-    font-weight: bold;
+
+  &_title {
+    font-weight: bolder;
+    font-size: 2em;
+    padding-left: 3.5em;
   }
 
-  &_message, &_description, &_footer{
+  &_footer,
+  &_message,
+  &_description,
+  &_descriptions_list,
+  &_footer_message {
     padding: .4em;
+    text-align: left;
   }
+
+  &_descriptions_list {
+    text-align: left;
+    font-style: italic;
+  }
+
+  &_descriptions_text {
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding: 0.4em;
+    margin-bottom: 1em;
+    text-align: left;
+  }
+
+  &_descriptions {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    list-style: inside;
+    list-style-position: inside;
+  }
+
+  &_footer {
+    margin-top: 1.5em;
+  }
+
 }

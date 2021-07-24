@@ -9,13 +9,13 @@ export default {
     ],
 
   descriptions: [
-    'Idées de projets réalisables (déjà réalisés)  :',
+    
     'Peinture Murale Intérieur comme Extérieur',
     'Commande de Portraits (Peintures,dessins)',
     'Réalisation de portraits en live, pour un évènement spécial (enfants, adultes, personnes âgées, animaux…) '
   ],
   footermessages: [
-    'À Bientôt',
+    'À Bientôt,',
     'Camille'
   ]
 
