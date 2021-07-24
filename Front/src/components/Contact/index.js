@@ -1,32 +1,36 @@
 // == Import de la lib React
 import React from 'react';
+// Ajout de la librairie de validation des props
+import PropTypes from 'prop-types';
 
-// == Import npm
 
 // == Imports locaux
 import './styles.scss';
 
-const Contact = () => (
+const Contact = ({ descriptions }) => (
   <div>
     <h1>Contact</h1>
-    <p>Ecrivez-moi un message ici, si vous souhaitez acheter une œuvre ou me présenter votre projet artistique !</p>
-    <p>J’étudierai cela tranquillement et reviendrai vers vous . 
-    Je suis ouvert à toute proposition…  n’hésitez pas !  
-    </p>
-    <p>Idées de projets réalisables (déjà réalisés)  :</p>
-    <ul>
-      <li>
-      Peinture Murale Intérieur comme Extérieur
-      </li>
-      <li>
-      Commande de Portraits (Peintures,dessins)
-      </li>
-      <li>
-      Réalisation de portraits en live, pour un évènement spécial (enfants adultes, personnes âgées, animaux...)
-      </li>
+    <div>
+      
+    </div>
+    <ul className="descriptions">
+
+      {descriptions.map((description) => (
+        <li
+          className="description"
+          key={description}
+        >
+          {description}
+        </li>
+      ))}
     </ul>
   </div>
-  
 );
+
+// Validation des props
+Contact.propTypes = {
+  descriptions: PropTypes.array.isRequired,
+};
+
 
 export default Contact;

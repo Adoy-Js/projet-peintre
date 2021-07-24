@@ -16,6 +16,8 @@ import Portrait from 'src/components/Portrait';
 // Ajout du composant Contact
 import Contact from 'src/components/Contact';
 
+// Ajout du composant contactData
+import contactData from 'src/data/contact';
 
 
 import './styles.scss';
@@ -35,12 +37,15 @@ const App = () => (
         <Portrait />
       </Route>
       <Route path="/contact" exact>
-        <Contact />
+        <Contact
+      descriptions={contactData.descriptions} 
+        />
       </Route>
     </BrowserRouter>
     <Footer />
   </div>
 );
+
 
 // == Export
 export default App;
