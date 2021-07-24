@@ -1,12 +1,29 @@
-.link{
+@use 'src/styles/vars';
+
+.link {
   padding: 1em;
-  background-color: #ffffff;
+  background-color: rgb(87, 164, 187);
 
   &_menu {
+    font-family: vars.$family;
+    font-size: large;
+    font-weight: lighter;
     padding: 20px;
     margin: 0 1rem;
     cursor: pointer;
-    color: black;
+    color: white;
+    transition: 0.3s;
+
+    &_logo {
+      font-family: vars.$family;
+      font-size: large;
+      font-weight: lighter;
+      padding: 20px;
+      margin: 0 1rem;
+      cursor: pointer;
+      color: white;
+      transition: 0.3s;
+    }
 
     &--selected {
       text-decoration: underline;
@@ -16,6 +33,26 @@
       color: white;
       background-color: rgb(38, 109, 131);
     }
-    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  menu {
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    width: auto;
+    float: none;
+    margin-left: 0;
+    height: auto;
+    margin-bottom: 0;
+
   }
 
+  nav {
+    padding: 1rem;
+    margin-top:0;
+        text-align: center;
+  }
+}
