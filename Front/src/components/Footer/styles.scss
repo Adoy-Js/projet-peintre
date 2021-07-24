@@ -1,7 +1,11 @@
+@use 'src/styles/vars';
+
 h1{
   position:absolute;
   bottom:0;
   width:100%;
   padding-top:5px;
   padding-bottom: 5px;
+  font-family: vars.$family;
+  
 }

@@ -7,7 +7,7 @@ import './styles.scss';
 const Menu = () => (
   <menu className="menu">
     <nav className="link">
-      <a className="link_menu" href="/">Camille PAUL</a>
+      <a className="link_menu_logo" href="/">Camille PAUL</a>
       <a className="link_menu" href="/sketches">Croquis</a>
       <a className="link_menu" href="/portrait">Portrait</a>
       <a className="link_menu" href="/paintings">Peintures</a>
