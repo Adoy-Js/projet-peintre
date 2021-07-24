@@ -39,6 +39,8 @@ const App = () => (
       <Route path="/contact" exact>
         <Contact
       descriptions={contactData.descriptions} 
+      messages={contactData.messages} 
+      footermessages={contactData.footermessages} 
         />
       </Route>
     </BrowserRouter>

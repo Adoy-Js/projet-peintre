@@ -1,0 +1,15 @@
+@use 'src/styles/vars';
+
+.contact {
+  font-family: vars.$family;
+  font-size: 25px;
+  padding: 1em;
+
+  &_title{
+    font-weight: bold;
+  }
+
+  &_message, &_description, &_footer{
+    padding: .4em;
+  }
+}

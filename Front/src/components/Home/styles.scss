@@ -1,27 +1,10 @@
 @use 'src/styles/vars';
 
 
-.sea {
+.sea, .snow, .cliff {
   // à voir comment flouter davantage avec backdrop-filter
   background: url(./Background_1.jpg) no-repeat;
   //filter: blur(1.5rem);
-  position: relative;
-  background-position: center center;
-  background-size: cover;
-}
-
-
-
-.snow {
-  background: url(./Accueil_2.jpg) no-repeat;
-  position: relative;
-  background-position: center center;
-  background-size: cover;
-
-}
-
-.cliff {
-  background: url(./Accueil_3.jpg) no-repeat;
   position: relative;
   background-position: center center;
   background-size: cover;
