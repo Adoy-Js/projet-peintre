@@ -41,17 +41,14 @@ class ContactForm extends React.Component {
           <div className="contactForm_connexion">
 
             <div className="contactForm_name">
-              Nom: <br />
               <input className="contactForm_input_name" name="name" type="text" placeholder="Nom/Prénom" value={this.state.name} onChange={this.handleNameChange} />
             </div>
 
             <div className="contactForm_mail">
-              Mail: <br />
               <input className="contactForm_input_mail" name="mail" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
             </div>
 
             <div className="contactForm_message">
-              Votre message: <br />
               <input className="contactForm_input_message" name="message" type="text" placeholder="Votre message" value={this.state.message} onChange={this.handleMessageChange} />
             </div>
 

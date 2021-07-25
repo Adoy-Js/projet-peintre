@@ -1,36 +1,31 @@
 @use 'src/styles/vars';
 
 .contactForm {
-  float: right;
+  display: flex;
   width: 50%;
-  height: 870px;
-  font-family: vars.$family;
+  position: relative;
   font-size: 25px;
-  text-align: left;
   text-align: center;
 
   &_mail, &_name, &_message{
-    margin: 2em;
+    margin: 2em 2em;
   }
 
   &_input_name{
-    margin: 1em;
     border-radius: 10px;
     padding: 1em;
     box-shadow: 10px 5px 5px rgb(226, 226, 226);
-    width: 20em;
+    width: 100%;
   }
 
   &_input_mail{
-    margin: 1em;
     border-radius: 10px;
     padding: 1em;
     box-shadow: 10px 5px 5px rgb(226, 226, 226);
-    width: 20em;
+    width: 100%;
   }
 
   &_input_message{
-    margin: 1em;
     border-radius: 10px;
     padding: 1em;
     box-shadow: 10px 5px 5px rgb(226, 226, 226);
@@ -39,10 +34,19 @@
   }
 
   &_input_submit{
-    padding: .6em;
+    height: 84px;
     border-radius: 10px;
-    width: 10em;
-    border: 1px solid black;
+    width: 87%;
+    background: rgb(38, 109, 131);
+    color: #fff;
+    font-size: .875rem;
+    text-transform: uppercase;
+  }
+
+  &_input_submit:hover {
+    background: rgba(38, 109, 131, 0.87);
+    cursor: pointer;
+    transition: 0.3s;
   }
 
 }

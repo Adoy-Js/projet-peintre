@@ -1,20 +1,28 @@
 @use 'src/styles/vars';
 
+.Contact {
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  line-height: 2em;
+}
 
 .contact {
-  float: left;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
   width: 50%;
-  height: 870px;
-  font-family: vars.$family;
-  font-size: 25px;
-  padding: 2.5em;
-  text-align: left;
+  font-size: 1.5rem;
+  padding: 2.5em 2.5em;
 
 
   &_title {
     font-weight: bolder;
     font-size: 2em;
-    padding-left: 3.5em;
   }
 
   &_footer,
@@ -22,14 +30,10 @@
   &_description,
   &_descriptions_list,
   &_footer_message {
-    padding: .4em;
+    padding: .2em;
     text-align: left;
   }
 
-  &_descriptions_list {
-    text-align: left;
-    font-style: italic;
-  }
 
   &_descriptions_text {
     font-weight: bolder;
