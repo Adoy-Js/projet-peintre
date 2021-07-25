@@ -1,6 +1,5 @@
 @use 'src/styles/vars';
 
-
 .sea{
   background: url(./Background_1.jpg) no-repeat;
   position: relative;
@@ -26,7 +25,8 @@
 }
 
 .welcome{
-  margin-bottom: 780px;
+  margin-top: 1em;
+  margin-bottom: .1;
   color: black;
   font-family: vars.$family;
   font-size: xx-large;
@@ -83,7 +83,6 @@
 .splide__slide {
   position: relative;
   outline: none;
-  margin-top: 100px;
   padding-top: 50px;
   padding-bottom: 50px;
 }

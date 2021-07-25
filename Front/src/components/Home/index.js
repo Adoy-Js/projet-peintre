@@ -11,9 +11,11 @@ import './styles.scss';
 
 // == Composant
 const Home = () => (
-  <div className="app">
-    <h1 className="welcome">Mon nom est Camille PAUL
-      <br /> Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art</h1>
+  <div className="home">
+    <div className="welcome">
+      Mon nom est Camille PAUL
+      <br /> Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art
+    </div>
     <div className="slider">
       <Splide>
         <SplideSlide className="sea">

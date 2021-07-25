@@ -3,7 +3,7 @@ export default {
   id: 1234,
   title: 'Contact',
   messages:[
-    'Ecrivez-moi un message ici, si vous souhaitez acheter une œuvre ou me présenter votre projet artistique !',
+    'Si vous souhaitez acheter une œuvre ou me présenter votre projet artistique, veuillez remplir ce formulaire pour me contacter !',
     'J’étudierai cela tranquillement et reviendrai vers vous .',
     'Je suis ouvert à toute proposition…  n’hésitez pas ! ',
     ],

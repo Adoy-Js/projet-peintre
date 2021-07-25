@@ -8,11 +8,13 @@ class ContactForm extends React.Component {
     this.state = {
       email: '',
       name: '',
+      firstName: '',
       message: '',
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -29,6 +31,10 @@ class ContactForm extends React.Component {
     this.setState({ message: event.target.value });
   }
 
+  handleFirstNameChange(event){
+    this.state({firstName: event.target.value});
+  }
+
   handleSubmit(evt) {
     evt.preventDefault();
     this.LoginForm();
@@ -41,7 +47,11 @@ class ContactForm extends React.Component {
           <div className="contactForm_connexion">
 
             <div className="contactForm_name">
-              <input className="contactForm_input_name" name="name" type="text" placeholder="Nom/Prénom" value={this.state.name} onChange={this.handleNameChange} />
+              <input className="contactForm_input_name" name="name" type="text" placeholder="Nom" value={this.state.name} onChange={this.handleNameChange} />
+            </div>
+
+            <div className="contactForm_firstName">
+              <input className="contactForm_input_firstName" name="firstName" type="text" placeholder="Prénom" value={this.state.name} onChange={this.handleFirstNameChange} />
             </div>
 
             <div className="contactForm_mail">
