@@ -65,8 +65,8 @@ const newsController = {
 
       // on instancie la nouvelle actu
       const newNews = new News({
-        place: req.body.place,
         date: req.body.date,
+        place: req.body.place,
         article: req.body.article,
       });
 
@@ -76,7 +76,7 @@ const newsController = {
       //si l'actu est accompagnée d'une photo, alors on instancie la photo, on l'insert dans la base
       if (req.body.name_picture || req.body.image || req.body.description) {
         const newPicture = new Picture({
-          name_picture: req.body.name_picure,
+          name_picture: req.body.name_picture,
           image: req.body.image,
           description: req.body.description,
         });
@@ -84,26 +84,37 @@ const newsController = {
         //on la retrouve (ou non) grace a l'id de la news et a la table de liaison
         const picture_associate = await News_has_picture.findByNewsId(id_news);
 
+        console.log(picture_associate);
+
         //si il y'avait une photo avant l'update
         if(picture_associate){
-          const insertPicture = await newPicture.save(picture_associate.id);
+          console.log("il y'avait deja une photo, je l'update");
+          const insertPicture = await newPicture.save(picture_associate.picture_id);
         //pas de photo avant l'update
         }else{
+          console.log("il n'y avait de photo, je la crée");
           const insertPicture = await newPicture.save();
+          const new_news_has_picture = new News_has_picture({
+            news_id : id_news,
+            picture_id : insertPicture.id_picture,
+          });
+  
+          const insertNews_has_picture = await new_news_has_picture.save();
         }
 
         
       //et si il update sans photo
       }else{
         const picture_associate = await News_has_picture.findByNewsId(id_news);
+        console.log(picture_associate);
         //si y'avait une photo avant l'update
         if(picture_associate){
-          picture_associate.delete();
+          News_has_picture.delete(picture_associate.id_news_has_picture);
         }
       }
 
     } catch (error) {
-      console.error(err);
+      console.error(error);
       next();
     }
   },
