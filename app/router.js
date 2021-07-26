@@ -29,7 +29,7 @@ router.get("/news", newsController.getAll);
 
 router.get("/about", artistController.getAll);
 
-//Conatct
+//Contact
 
 router.post('/contact', contactController.sendMessage);
 

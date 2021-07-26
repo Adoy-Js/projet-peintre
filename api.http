@@ -19,6 +19,18 @@ GET http://localhost:5000/news/
 ### GET INFO ARTIST
 GET http://localhost:5000/about
 
+###SEND MESSAGE
+POST http://localhost:5000/contact
+content-type: application/json
+
+{
+    "name": "VIR",
+    "firstname" : "Flo",
+    "subject": "salutation",
+    "email": "flo.vir@outlook.com",
+    "message": "salut!!" 
+}
+
 #################ADMIN####################
 
 ###LOGIN
