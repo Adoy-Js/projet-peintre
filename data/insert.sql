@@ -22,7 +22,7 @@ INSERT INTO picture (name_picture, image, description) VALUES
 ('jimmy', 'sdsd.png', 'bon guitariste'),
 ('sdff qui vole plus', 'oiseau2.png', 'bel oiseau!'),
 ('Paris', 'paris.png', 'bel expo !'),
-('jimmy', 'data/picture/jimmy.png', 'bon guitariste');
+('jimmy', 'data/picture/jimmy.jpg', 'bon guitariste');
 
 INSERT INTO news_has_picture (news_id, picture_id) VALUES
 (1, 3);
