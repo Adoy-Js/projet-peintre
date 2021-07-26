@@ -10,16 +10,14 @@ class Artwork_has_picture {
   static async findByArtworkId(artwork_id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM artwork_has_picture WHERE id_news = $1;",
+        text: "SELECT * FROM artwork_has_picture WHERE artwork_id = $1;",
         values: [artwork_id],
       };
 
+      const { rows } = await pool.query(sqlQuery);
       if (rows) {
-        const { rows } = await pool.query(sqlQuery);
-
         return rows ? rows.map((row) => new this(row)) : false;
-    
-      }else{
+      } else {
         return false;
       }
     } catch (err) {
@@ -37,7 +35,7 @@ class Artwork_has_picture {
       let sqlQuery;
 
       sqlQuery = {
-        text: "INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES ($1,$2) RETURNING id;",
+        text: "INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES ($1,$2) RETURNING id_artwork_has_picture;",
         values: [this.artwork_id, this.picture_id],
       };
 
