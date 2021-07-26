@@ -32,7 +32,7 @@ class ContactForm extends React.Component {
   }
 
   handleFirstNameChange(event){
-    this.state({firstName: event.target.value});
+    this.setState({ firstName: event.target.value });
   }
 
   handleSubmit(evt) {
@@ -51,7 +51,7 @@ class ContactForm extends React.Component {
             </div>
 
             <div className="contactForm_firstName">
-              <input className="contactForm_input_firstName" name="firstName" type="text" placeholder="Prénom" value={this.state.name} onChange={this.handleFirstNameChange} />
+              <input className="contactForm_input_firstName" name="firstName" type="text" placeholder="Prénom" value={this.state.firstName} onChange={this.handleFirstNameChange} />
             </div>
 
             <div className="contactForm_mail">
