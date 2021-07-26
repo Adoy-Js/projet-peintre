@@ -7,37 +7,37 @@ class News_has_picture {
     }
   }
 
-  static async findByNewsId(news_id) {
-    try {
-      const sqlQuery = {
-        text: "SELECT * FROM news_has_picture WHERE id_news = $1;",
-        values: [news_id],
-      };
+  // static async findByNewsId(news_id) {
+  //   try {
+  //     const sqlQuery = {
+  //       text: "SELECT * FROM news_has_picture WHERE id_news = $1;",
+  //       values: [news_id],
+  //     };
 
-      if (rows) {
-        const { rows } = await pool.query(sqlQuery);
+  //     if (rows) {
+  //       const { rows } = await pool.query(sqlQuery);
 
-        return rows ? rows.map((row) => new this(row)) : false;
+  //       return rows ? rows.map((row) => new this(row)) : false;
     
-      }else{
-        return false;
-      }
-    } catch (err) {
-      console.error(err);
-      if (err.detail) {
-        throw new Error(err.detail);
-      } else {
-        throw err;
-      }
-    }
-  }
+  //     }else{
+  //       return false;
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //     if (err.detail) {
+  //       throw new Error(err.detail);
+  //     } else {
+  //       throw err;
+  //     }
+  //   }
+  // }
 
   async save(id = null) {
     try {
       let sqlQuery;
 
       sqlQuery = {
-        text: "INSERT INTO news_has_picture (news_id, picture_id) VALUES ($1,$2) RETURNING id;",
+        text: "INSERT INTO news_has_picture (news_id, picture_id) VALUES ($1,$2) RETURNING id_news_has_picture;",
         values: [this.news_id, this.picture_id],
       };
 

@@ -92,16 +92,19 @@ const artworkController = {
       const insert_picture = await newPicture.save();
 
       //Instanciation dans la table de liaison
-      const picture_id = insert_picture.id;
-      const artwork_id = insert_artwork.id;
-      const new_artwork_has_picture = new Artwork_has_picture(
+      const artwork_id = insert_artwork.id_artwork;
+      const picture_id = insert_picture.id_picture;
+      console.log(artwork_id, picture_id);
+      const new_artwork_has_picture = new Artwork_has_picture({
         artwork_id,
-        picture_id
-      );
+        picture_id,
+      });
 
-      const insert_artwork_has_picture = await new_artwork_has_picture.save();
+      console.log(new_artwork_has_picture);
+
+      await new_artwork_has_picture.save();
     } catch (error) {
-      console.error(err);
+      console.error(error);
       next();
     }
   },
@@ -133,18 +136,16 @@ const artworkController = {
           description: req.body.description,
         });
         //pour l'update, on a besoin de son id, on va le trouver dans la table de liaison
-        const picture_associate = await Artwork_has_picture.finByArtworkId(id);
+        const picture_associate = await Artwork_has_picture.findByArtworkId(id);
         const insert_picture = update_picture.save(picture_associate.id);
-      };
-
-    
+      }
     } catch (error) {
-      console.error(err);
+      console.error(error);
       next();
     }
   },
-  
-  deleteArtwork:async(req, res, next)=>{
+
+  deleteArtwork: async (req, res, next) => {
     const { id } = req.params;
 
     try {
@@ -152,18 +153,18 @@ const artworkController = {
       const artworkDeleted = await Artwork.findOne(id);
 
       // 2. on retrouve la ligne correspondante dans artwork_has_picture grace a l'id de la news
-      const relation_picture = await Artwork_has_picture.findByArtworkId(id);
+      // const relation_picture = await Artwork_has_picture.findByArtworkId(id);
 
       // 3. on supprime tout ça
       //on supprime la relation et non la photo, car elle peut etre utilisée autre part
-      relation_picture.delete();
-      artworkDeleted.delete();
-
+      // relation_picture.delete();
+     
+      await Artwork.delete(artworkDeleted.id_artwork);
     } catch (error) {
-      console.error(err);
+      console.error(error);
       next();
     }
-  }
+  },
 };
 
 module.exports = artworkController;
