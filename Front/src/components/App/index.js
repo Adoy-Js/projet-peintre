@@ -47,9 +47,9 @@ const App = () => (
       </Route>
       <Route path="/contact" exact>
         <Contact
-      descriptions={contactData.descriptions} 
-      messages={contactData.messages} 
-      footermessages={contactData.footermessages} 
+          descriptions={contactData.descriptions}
+          messages={contactData.messages}
+          footermessages={contactData.footermessages}
         />
       </Route>
       <Route path="/biography" exact>
