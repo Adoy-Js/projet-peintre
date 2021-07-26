@@ -12,11 +12,11 @@ class Picture {
     try {
       const sqlQuery = {
         text: "SELECT * FROM picture WHERE id_picture=$1;",
-        values: [id]
+        values: [id],
       };
-      
-      const {rows}  = await pool.query(sqlQuery);
-      const result =  new Picture(rows[0]);
+
+      const { rows } = await pool.query(sqlQuery);
+      const result = new Picture(rows[0]);
       return new Picture(rows[0]);
     } catch (err) {
       console.error(err);
@@ -33,7 +33,9 @@ class Picture {
       let sqlQuery;
 
       if (id) {
-        console.log("je suis dans le modele Picture ,j'update la nouvelle photo");
+        console.log(
+          "je suis dans le modele Picture ,j'update la nouvelle photo"
+        );
         sqlQuery = {
           text: "UPDATE picture SET name_picture = $1, image = $2, description = $3 WHERE id_picture = $4",
           values: [this.name_picture, this.image, this.description, id],
@@ -42,16 +44,13 @@ class Picture {
         console.log("j'insere la nouvelle photo");
         sqlQuery = {
           text: "INSERT INTO picture(name_picture, image, description) VALUES ($1,$2,$3) RETURNING id_picture;",
-          values: [this.name_picture, this.image, this.description],
+          values: [this.name_picture, this.image, this.description]
         };
-        
+       
       }
       const { rows } = await pool.query(sqlQuery);
-
       this.id_picture = rows[0].id_picture;
-
       return rows[0];
-
     } catch (err) {
       console.error(err);
       if (err.detail) {
@@ -69,7 +68,7 @@ class Picture {
         text: "DELETE FROM picture WHERE id_picture = $1",
         values: [id],
       };
-      await pool.query(sqlQuery)
+      await pool.query(sqlQuery);
       return true;
     } catch (error) {
       console.error(err);
