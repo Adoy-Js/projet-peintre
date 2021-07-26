@@ -53,10 +53,7 @@ const App = () => (
         />
       </Route>
       <Route path="/biography" exact>
-        <Biography 
-        title={biographyData.title}
-        title={biographyData.message}
-        title={biographyData.footerMessages}/>
+        <Biography />
       </Route>
       <Route path="/sketches" exact>
         <Sketches />
