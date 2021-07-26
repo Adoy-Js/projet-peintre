@@ -15,12 +15,15 @@ import Footer from 'src/components/Footer';
 import Portrait from 'src/components/Portrait';
 // Ajout du composant Contact
 import Contact from 'src/components/Contact';
+// Ajout du composant Biography
+import Biography from 'src/components/Biography';
 
 // Ajout du composant contactData
 import contactData from 'src/data/contact';
 
 
 import './styles.scss';
+
 
 // == Composant
 const App = () => (
@@ -39,6 +42,12 @@ const App = () => (
       <Route path="/contact" exact>
         <Contact
       descriptions={contactData.descriptions} 
+      messages={contactData.messages} 
+      footermessages={contactData.footermessages} 
+        />
+      </Route>
+      <Route path="/biography" exact>
+        <Biography
       messages={contactData.messages} 
       footermessages={contactData.footermessages} 
         />
