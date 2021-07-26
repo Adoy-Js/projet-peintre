@@ -66,19 +66,19 @@ class Artwork {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, height=$4, width=$5, support=$6, category_id=$7, artist_id=$8 WHERE id = $9",
+          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, height=$4, width=$5, support=$6, category_id=$7, artist_id=$8 WHERE id_artwork = $9",
           values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.category_id, this.artist_id, id],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO artwork(name_artwork, date, place, height, width, support, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id;",
+          text: "INSERT INTO artwork(name_artwork, date, place, height, width, support, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id_artwork;",
           values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.category_id, this.artist_id],
         };
       }
 
       const { rows } = await pool.query(sqlQuery);
 
-      return rows ? true : false;
+      return rows[0];
     } catch (err) {
       console.error(err);
       if (err.detail) {
@@ -89,14 +89,16 @@ class Artwork {
     }
   }
 
-  async delete(id) {
+  static async delete(id) {
     try {
       let sqlQuery;
 
       sqlQuery = {
-        text: "DELETE FROM artwork WHERE id=$1",
+        text: "DELETE FROM artwork WHERE id_artwork=$1",
         values: [id],
       };
+      const { rows } = await pool.query(sqlQuery);
+      return true;
     } catch (error) {
       console.error(err);
       if (err.detail) {

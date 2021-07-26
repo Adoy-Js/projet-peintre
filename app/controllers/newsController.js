@@ -22,28 +22,29 @@ const newsController = {
     try {
       // on instancie la nouvelle actu
       const newNews = new News({
-        place: req.body.place,
         date: req.body.date,
+        place: req.body.place,
         article: req.body.article,
       });
 
       // on l'insert dans la base
       const insertNews = await newNews.save();
-
+      console.log(insertNews);
       //si l'actu est accompagnée d'une photo, alors on instancie la photo, on l'insert dans la base
       if (req.body.name_picture || req.body.image || req.body.description) {
         const newPicture = new Picture({
-          name_picture: req.body.name_picure,
+          name_picture: req.body.name_picture,
           image: req.body.image,
           description: req.body.description,
         });
 
         const insertPicture = await newPicture.save();
 
-        const news_id = insertNews.id;
-        const picture_id = insertPicture.id;
+        const news_id = insertNews.id_news;
+        const picture_id = insertPicture.id_picture;
 
         //on insert la relation entre l'actu et la photo dans la table de liaison
+        console.log(news_id);
         const new_news_has_picture = new News_has_picture({
           news_id,
           picture_id,
@@ -52,7 +53,7 @@ const newsController = {
         const insertNews_has_picture = await new_news_has_picture.save();
       }
     } catch (error) {
-      console.error(err);
+      console.error(error);
       next();
     }
   },
@@ -113,17 +114,16 @@ const newsController = {
     try {
       // 1. on retrouve la news
       const newsDeleted = await News.findOne(id);
-
       // 2. on retrouve la ligne correspondante dans news_has_picture grace a l'id de la news
-      const relation_picture = await News_has_picture.findByNewsId(id);
+      // const relation_picture = await News_has_picture.findByNewsId(id);
 
       // 3. on supprime tout ça
       //on supprime la relation et non la photo, car elle peut etre utilisée autre part
-      relation_picture.delete();
+      // relation_picture.delete();
       newsDeleted.delete();
 
     } catch (error) {
-      console.error(err);
+      console.error(error);
       next();
     }
   },

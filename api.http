@@ -44,7 +44,7 @@ content-type: application/json
 }
 
 ### DELETE HOME PICTURE
-DELETE http://localhost:5000/admin/home/2
+DELETE http://localhost:5000/admin/home/5
 
 ### UPDATE HOME PICTURE
 PATCH http://localhost:5000/admin/home/1
@@ -53,7 +53,7 @@ PATCH http://localhost:5000/admin/home/1
 GET http://localhost:5000/admin/artwork
 
 ### GET ALL ARTWORK OF ONE CATEGORY
-GET http://localhost:5000/admin/artwork/:category
+GET http://localhost:5000/admin/artwork/portrait
 
 ### ADD ARTWORK 
 POST http://localhost:5000/admin/artwork/:category
@@ -67,14 +67,32 @@ content-type: application/json
     "width": 30,
     "support": "papier",
     "category_id": 1,
-    "artist":1
+    "artist_id":1,
+    "name_picture": "blé",
+    "image": "data/picture/ble.png",
+    "description": "un beau champ de blé"
 }
 
 ### DELETE ARTWORK BY CATEGORY
 DELETE http://localhost:5000/admin/artwork/portrait/1
 
 ### UPDATE ARTWORK BY CATEGORY
-PATCH http://localhost:5000/admin/artwork/portrait/1
+PATCH http://localhost:5000/admin/artwork/portrait/2
+content-type: application/json
+
+{
+    "name_artwork": "bateau_update",
+    "date" : "2019-05-20",
+    "place": "Orleans_update",
+    "height": 20,
+    "width": 30,
+    "support": "papier",
+    "category_id": 1,
+    "artist_id":1,
+    "name_picture": "blé",
+    "image": "data/picture/ble.png",
+    "description": "un nouveau beau champ de blé"
+}
 
 ### GET ALL NEWS
 GET http://localhost:5000/admin/news
@@ -86,7 +104,10 @@ content-type: application/json
 {
     "date": "2017-05-23",
     "place": "Lille",
-    "article": "expo à Lille"
+    "article": "expo à Lille",
+    "name_picture": "expo_lille",
+    "image": "expo_lille.png",
+    "description": "cool Lille"
 }
 
 ### DELETE NEWS
