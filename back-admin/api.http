@@ -114,11 +114,14 @@ content-type: application/json
 DELETE http://localhost:5000/admin/news/1
 
 ### UPDATE NEWS
-PATCH http://localhost:5000/admin/news/1
+PATCH http://localhost:5000/admin/news/2
 content-type: application/json
 
 {
     "date": "2017-05-23",
-    "place": "Nantes",
-    "article": "update de expo à Lille"
+    "place": "Lille",
+    "article": "update de expo à Paris",
+    "name_picture": "Lille_expo", 
+    "image": "Lille_expo.png",
+    "description": "expo a Lille cool"
 }

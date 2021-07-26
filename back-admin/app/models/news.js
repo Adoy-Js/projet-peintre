@@ -57,18 +57,19 @@ class News {
       if (id) {
         sqlQuery = {
           text: "UPDATE news SET date = $1, place = $2, article = $3 WHERE id_news = $4",
-          values: [this.date, this.place, this.description, id],
+          values: [this.date, this.place, this.article, id],
         };
       } else {
         sqlQuery = {
           text: "INSERT INTO news(date, place, article) VALUES ($1,$2,$3) RETURNING id_news;",
           values: [this.date, this.place, this.article],
         };
-        
+        this.id_news = rows[0].id_news;
       }
       const { rows } = await pool.query(sqlQuery);
+      console.log(rows);
 
-      this.id_news = rows[0].id_news;
+      
 
       return rows[0];
 

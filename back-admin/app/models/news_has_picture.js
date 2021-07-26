@@ -7,30 +7,29 @@ class News_has_picture {
     }
   }
 
-  // static async findByNewsId(news_id) {
-  //   try {
-  //     const sqlQuery = {
-  //       text: "SELECT * FROM news_has_picture WHERE id_news = $1;",
-  //       values: [news_id],
-  //     };
+  static async findByNewsId(news_id) {
+    try {
+      const sqlQuery = {
+        text: "SELECT * FROM news_has_picture WHERE news_id = $1;",
+        values: [news_id],
+      };
 
-  //     if (rows) {
-  //       const { rows } = await pool.query(sqlQuery);
+      const { rows } = await pool.query(sqlQuery);
 
-  //       return rows ? rows.map((row) => new this(row)) : false;
-    
-  //     }else{
-  //       return false;
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //     if (err.detail) {
-  //       throw new Error(err.detail);
-  //     } else {
-  //       throw err;
-  //     }
-  //   }
-  // }
+      if (rows) {
+        return rows[0];
+      } else {
+        return false;
+      }
+    } catch (err) {
+      console.error(err);
+      if (err.detail) {
+        throw new Error(err.detail);
+      } else {
+        throw err;
+      }
+    }
+  }
 
   async save(id = null) {
     try {
@@ -56,14 +55,17 @@ class News_has_picture {
     }
   }
 
-  async delete(id) {
+  static async delete(id) {
     try {
       let sqlQuery;
 
       sqlQuery = {
-        text: "DELETE FROM news_has_picture WHERE id=$1",
+        text: "DELETE FROM news_has_picture WHERE id_news_has_picture=$1",
         values: [id],
       };
+
+      const { rows } = await pool.query(sqlQuery);
+      return true;
     } catch (error) {
       console.error(err);
       if (err.detail) {
