@@ -4,22 +4,31 @@ import React from 'react';
 // == Imports locaux
 import './styles.scss';
 
-const Biography = () => (
+const Biography = ({ footerMessages, title, message }) => (
   <div className="Contact">
     <div className="contact">
-      <p className="contact_title">Biographie</p>
+      <p className="contact_title">{title}</p>
       <div className='contact_div'>
         <div>
-          Coucou, moi c'est Camille.
+          {message}
         </div>
         <div className="contact_footer">
-          Allez salut hein ! <br />
-          signé l'artiste moderne
+          {footerMessages.map((footerMessage) => (
+            <p className="contact_footer_message" key={footerMessage}>{footerMessage}</p>
+          ))}
         </div>
       </div>
     </div>
   </div>
 
 );
+
+// Validation des props
+Biography.propTypes = {
+  message: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  footerMessages: PropTypes.string.isRequired,
+};
+
 
 export default Biography;
