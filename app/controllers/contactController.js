@@ -8,6 +8,7 @@ const contactController = {
     <ul>  
       <li>Name: ${req.body.name}</li>
       <li>Firstname: ${req.body.firstname}</li>
+      <li>Firstname: ${req.body.subject}</li>
       <li>Email: ${req.body.email}</li>
     </ul>
     <h3>Message</h3>
