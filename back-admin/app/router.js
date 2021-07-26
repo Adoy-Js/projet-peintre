@@ -5,7 +5,8 @@ const router = Router();
 const artworkController = require("./controllers/artworkController.js");
 const newsController = require("./controllers/newsController");
 const artistController = require("./controllers/artistController");
-const adminController = require('./controllers/adminController') 
+const adminController = require('./controllers/adminController')
+const contactController = require('./controllers/contactController')  
 
 /*     CLIENT       */
 
@@ -27,6 +28,10 @@ router.get("/news", newsController.getAll);
 //Artist
 
 router.get("/about", artistController.getAll);
+
+//Conatct
+
+router.post('/contact', contactController.sendMessage);
 
 
 
