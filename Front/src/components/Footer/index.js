@@ -7,7 +7,9 @@ import React from 'react';
 import './styles.scss';
 
 const Footer = () => (
-  <h1>@Copyright Camille PAUL 2021</h1>
+  <div className="footer">
+    <h1>@Copyright Camille PAUL 2021</h1>
+  </div>
 );
 
 export default Footer;

@@ -1,3 +1,5 @@
+@use 'src/styles/vars';
+
 html {
   height: 100vh;
 }
@@ -7,4 +9,5 @@ body {
   height: 100vh;
   text-align: center;
   background-color: #f5f5f5;
+  font-family: vars.$family;
 }

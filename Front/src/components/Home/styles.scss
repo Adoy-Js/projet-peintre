@@ -1,23 +1,35 @@
-.sea {
-  // à voir comment flouter davantage avec backdrop-filter
+@use 'src/styles/vars';
+
+.sea{
   background: url(./Background_1.jpg) no-repeat;
-	position: relative;
+  position: relative;
   background-position: center center;
   background-size: cover;
 }
+
+
+
 .snow {
   background: url(./Accueil_2.jpg) no-repeat;
-	position: relative;
+  position: relative;
   background-position: center center;
-  background-size: cover; 
-  
+  background-size: cover;
+
 }
 
 .cliff {
   background: url(./Accueil_3.jpg) no-repeat;
-	position: relative;
+  position: relative;
   background-position: center center;
-  background-size: cover; 
+  background-size: cover;
+}
+
+.welcome{
+  margin-top: 1em;
+  margin-bottom: .1;
+  color: black;
+  font-family: vars.$family;
+  font-size: xx-large;
 }
 
 @keyframes splide-loading {
@@ -65,20 +77,20 @@
 
 .splide {
   visibility: hidden;
-  margin: 0 auto
 }
 
 .splide,
 .splide__slide {
   position: relative;
-  outline: none
+  outline: none;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .splide__slide {
   box-sizing: border-box;
   list-style-type: none !important;
-  margin: 0;
-  flex-shrink: 0
+  flex-shrink: 0;
 }
 
 .splide__slide img {
@@ -629,4 +641,8 @@
 .splide--ttb>.splide__pagination .splide__pagination__page {
   width: 5px;
   height: 20px
+}
+
+@media (orientation: portrait), screen and (max-width: 500px) {
+  
 }

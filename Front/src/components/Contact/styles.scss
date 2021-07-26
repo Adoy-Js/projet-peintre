@@ -1,0 +1,57 @@
+@use 'src/styles/vars';
+
+.Contact {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  line-height: 2em;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  width: 50%;
+  font-size: 1.5rem;
+  padding: 2.5em 2.5em;
+
+
+  &_title {
+    font-weight: bolder;
+    font-size: 2em;
+    margin-bottom: .5em;
+  }
+
+  &_footer,
+  &_message,
+  &_description,
+  &_descriptions_list,
+  &_footer_message {
+    padding: .2em;
+    text-align: left;
+  }
+
+
+  &_descriptions_text {
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding: 0.4em;
+    margin-bottom: 1em;
+    text-align: left;
+  }
+
+  &_descriptions {
+    margin-top: 1.5em;
+    display: flex;
+    flex-direction: column;
+    list-style: inside;
+    list-style-position: inside;
+  }
+
+  &_footer {
+    margin-top: 1.5em;
+  }
+
+}

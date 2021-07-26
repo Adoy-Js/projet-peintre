@@ -1,7 +1,6 @@
-h1{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  padding-top:5px;
-  padding-bottom: 5px;
+@use 'src/styles/vars';
+
+.footer {
+  position: absolute;
+  left: 44%;;
 }

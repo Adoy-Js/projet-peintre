@@ -1,0 +1,62 @@
+@use 'src/styles/vars';
+
+.contactForm {
+  display: flex;
+  width: 50%;
+  position: relative;
+  font-size: 25px;
+  text-align: center;
+  margin: 1em;
+
+  &_mail, &_message, &_name, &_firstName{
+    margin: 2em 2em;
+  }
+
+  &_input_name, &_input_firstName{
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    width: 45%;
+  }
+
+  &_input_name{
+    float: left;
+  }
+
+
+  &_input_mail{
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    width: 100%;
+  }
+
+  &_input_message{
+    border-radius: 10px;
+    padding: 1em;
+    box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    width: 45em;
+    height: 20em;
+  }
+
+  &_input_submit{
+    height: 84px;
+    border-radius: 10px;
+    width: 87%;
+    background: rgb(38, 109, 131);
+    color: #fff;
+    font-size: .875rem;
+    text-transform: uppercase;
+  }
+
+  &_input_submit:hover {
+    background: rgba(38, 109, 131, 0.87);
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+}
+
+input {
+  border: none;
+}
