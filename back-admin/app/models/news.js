@@ -33,7 +33,7 @@ class News {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM news WHERE id = $1;",
+        text: "SELECT * FROM news WHERE id_news = $1;",
         values: [id],
       };
 
@@ -56,21 +56,22 @@ class News {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE news SET date = $1, place = $2, article = $3 WHERE id = $4",
-          values: [this.date, this.place, this.description, id],
+          text: "UPDATE news SET date = $1, place = $2, article = $3 WHERE id_news = $4",
+          values: [this.date, this.place, this.article, id],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO news(date, place, article) VALUES ($1,$2,$3) RETURNING id;",
+          text: "INSERT INTO news(date, place, article) VALUES ($1,$2,$3) RETURNING id_news;",
           values: [this.date, this.place, this.article],
         };
-        
+        this.id_news = rows[0].id_news;
       }
       const { rows } = await pool.query(sqlQuery);
+      console.log(rows);
 
-      this.id = rows[0].id;
+      
 
-      return rows ? true : false;
+      return rows[0];
 
     } catch (err) {
       console.error(err);
@@ -82,21 +83,22 @@ class News {
     }
   }
 
-  async delete(id) {
+  async delete() {
     try {
       let sqlQuery;
 
       sqlQuery = {
-        text: "DELETE FROM news WHERE id=$1",
-        values: [id],
+        text: "DELETE FROM news WHERE id_news=$1",
+        values: [this.id_news],
       };
+      const { rows } = await pool.query(sqlQuery);
       return true;
     } catch (error) {
-      console.error(err);
-      if (err.detail) {
-        throw new Error(err.detail);
+      console.error(error);
+      if (error.detail) {
+        throw new Error(error.detail);
       } else {
-        throw err;
+        throw error;
       }
     }
   }

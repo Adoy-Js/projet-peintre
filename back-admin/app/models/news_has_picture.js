@@ -10,16 +10,15 @@ class News_has_picture {
   static async findByNewsId(news_id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM news_has_picture WHERE id_news = $1;",
+        text: "SELECT * FROM news_has_picture WHERE news_id = $1;",
         values: [news_id],
       };
 
-      if (rows) {
-        const { rows } = await pool.query(sqlQuery);
+      const { rows } = await pool.query(sqlQuery);
 
-        return rows ? rows.map((row) => new this(row)) : false;
-    
-      }else{
+      if (rows) {
+        return rows[0];
+      } else {
         return false;
       }
     } catch (err) {
@@ -37,7 +36,7 @@ class News_has_picture {
       let sqlQuery;
 
       sqlQuery = {
-        text: "INSERT INTO news_has_picture (news_id, picture_id) VALUES ($1,$2) RETURNING id;",
+        text: "INSERT INTO news_has_picture (news_id, picture_id) VALUES ($1,$2) RETURNING id_news_has_picture;",
         values: [this.news_id, this.picture_id],
       };
 
@@ -56,14 +55,17 @@ class News_has_picture {
     }
   }
 
-  async delete(id) {
+  static async delete(id) {
     try {
       let sqlQuery;
 
       sqlQuery = {
-        text: "DELETE FROM news_has_picture WHERE id=$1",
+        text: "DELETE FROM news_has_picture WHERE id_news_has_picture=$1",
         values: [id],
       };
+
+      const { rows } = await pool.query(sqlQuery);
+      return true;
     } catch (error) {
       console.error(err);
       if (err.detail) {
