@@ -5,14 +5,14 @@ import React from 'react';
 import './styles.scss';
 
 const Biography = () => (
-  <div className="Contact">
-    <div className="contact">
+  <div className="Biography">
+    <div className="biography">
       <p className="contact_title">Biographie</p>
-      <div className='contact_div'>
+      <div className="biography_div">
         <div>
           Coucou, moi c'est Camille.
         </div>
-        <div className="contact_footer">
+        <div className="biography_footer">
           Allez salut hein ! <br />
           signé l'artiste moderne
         </div>

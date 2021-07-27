@@ -1,0 +1,33 @@
+@use 'src/styles/vars';
+
+.Biography {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  line-height: 2em;
+}
+
+.biography {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  width: 50%;
+  font-size: 1.5rem;
+  padding: 2.5em 2.5em;
+
+
+  &_title {
+    font-weight: bolder;
+    font-size: 2em;
+    margin-bottom: .5em;
+  }
+
+  &_footer{
+    padding: .2em;
+    text-align: left;
+    margin-top: 1.5em;
+  }
+
+}

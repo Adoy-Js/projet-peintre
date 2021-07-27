@@ -1,6 +1,6 @@
 export default {
 
-  id: 1234,
+  id: 1,
   title: 'Contact',
   messages:[
     'Si vous souhaitez acheter une œuvre ou me présenter votre projet artistique, veuillez remplir ce formulaire pour me contacter !',

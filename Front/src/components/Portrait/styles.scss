@@ -1,0 +1,34 @@
+.portrait {
+
+  display: flex;
+  flex-direction: row;
+  margin: 5em;
+
+  &_introPortrait {
+    margin: 1em;
+    font-size: xx-large;
+  }
+
+  &_p1, &_p2{
+    margin: .5em;
+    font-size: large;
+    text-align: center;
+  }
+
+  &_1, &_2{
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    transition: 1s;
+    padding: 30px;
+    width: 400px;
+    &:hover{
+      transform: scale(1.1);
+    }
+
+    &_zoom{
+      width: 100%;
+    }
+  }
+}
