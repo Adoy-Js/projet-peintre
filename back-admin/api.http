@@ -8,7 +8,7 @@ GET http://localhost:5000/artwork
 GET http://localhost:5000/artwork/painting
 
 ### GET ONE CATEGORY
-GET http://localhost:5000/artwork/portrait
+GET http://localhost:5000/artwork/mural-painting
 
 ### GET ONE ARTWORK
 GET http://localhost:5000/artwork/portrait/2

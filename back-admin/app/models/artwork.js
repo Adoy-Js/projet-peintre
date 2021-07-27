@@ -66,13 +66,13 @@ class Artwork {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, height=$4, width=$5, description =$6, support=$7, category_id=$8, artist_id=$9 WHERE id_artwork = $10",
-          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.description, this.category_id, this.artist_id, id],
+          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, format=$4, description =$5, main_picture=$6, category_id=$7, artist_id=$8 WHERE id_artwork = $9",
+          values: [this.name_artwork, this.date, this.place, this.format, this.description, this.main_picture, this.category_id, this.artist_id, id],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO artwork(name_artwork, date, place, height, width, support, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id_artwork;",
-          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.description, this.category_id, this.artist_id],
+          text: "INSERT INTO artwork(name_artwork, date, place, format, description, main_picture, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id_artwork;",
+          values: [this.name_artwork, this.date, this.place, this.format, this.description, this.main_picture, this.category_id, this.artist_id],
         };
       }
 
@@ -111,7 +111,7 @@ class Artwork {
 
   static async findAllPaintings() {
     try {
-        const {rows} = await db.query(`SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name IN ('oil-painting', 'acrylic_painting')` );
+        const {rows} = await pool.query(`SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name IN ('oil-painting', 'acrylic_painting')` );
 
         console.log(rows);
 

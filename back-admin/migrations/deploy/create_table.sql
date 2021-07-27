@@ -17,14 +17,20 @@ CREATE TABLE category (
   name VARCHAR(50) NOT NULL UNIQUE
 );
 
+CREATE TABLE picture (
+  id_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name_picture VARCHAR(50),
+  image text NOT NULL
+);
+
 CREATE TABLE artwork (
   id_artwork INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name_artwork VARCHAR(50) NOT NULL,
   date INT NOT NULL,
   place VARCHAR(100), 
-  height INT NOT NULL,
-  width INT NOT NULL,
+  format varchar(50),
   description TEXT,
+  main_picture INT REFERENCES picture (id_picture),
   category_id INT REFERENCES category(id_category),
   artist_id INT REFERENCES artist(id_artist)
 );
@@ -36,11 +42,7 @@ CREATE TABLE news (
   article TEXT NOT NULL
 );
 
-CREATE TABLE picture (
-  id_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name_picture VARCHAR(50),
-  image text NOT NULL
-);
+
 
 CREATE TABLE news_has_picture (
   id_news_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

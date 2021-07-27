@@ -73,9 +73,9 @@ const artworkController = {
         name_artwork: req.body.name_artwork,
         date: req.body.date,
         place: req.body.place,
-        height: req.body.height,
-        width: req.body.width,
-        support: req.body.support,
+        format: req.body.format,
+        description : req.body.description,
+        main_picture: req.body.main_picture,
         category_id: req.body.category_id,
         artist_id: req.body.artist_id,
       });
@@ -86,7 +86,6 @@ const artworkController = {
       const newPicture = new Picture({
         name_picture: req.body.name_picture,
         image: req.body.image,
-        description: req.body.description,
       });
 
       const insert_picture = await newPicture.save();
@@ -100,7 +99,6 @@ const artworkController = {
         picture_id,
       });
 
-      console.log(new_artwork_has_picture);
 
       await new_artwork_has_picture.save();
     } catch (error) {
@@ -118,9 +116,9 @@ const artworkController = {
         name_artwork: req.body.name_artwork,
         date: req.body.date,
         place: req.body.place,
-        height: req.body.height,
-        width: req.body.width,
-        support: req.body.support,
+        format: req.body.format,
+        description: req.body.description,
+        main_picture: req.body.main_picture,
         category_id: req.body.category_id,
         artist_id: req.body.artist_id,
       });
@@ -128,12 +126,11 @@ const artworkController = {
       const insert_artwork = update_artwork.save(id);
 
       //si l'admin modifie la photo
-      if (req.body.name_picture && req.body.image && req.body.description) {
+      if (req.body.name_picture && req.body.image) {
         //on instancie et insert la nouvelle photo
         const update_picture = new Picture({
           name_picture: req.body.name_picture,
-          image: req.body.image,
-          description: req.body.description,
+          image: req.body.image
         });
         //pour l'update, on a besoin de son id, on va le trouver dans la table de liaison
         const picture_associate = await Artwork_has_picture.findByArtworkId(id);

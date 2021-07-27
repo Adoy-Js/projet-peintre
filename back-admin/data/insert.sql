@@ -10,75 +10,13 @@ INSERT INTO category (name) VALUES
 ('acrylic-painting'),
 ('mural-painting');
 
-INSERT INTO artwork (name_artwork, date, place, height, width, description, category_id, artist_id) VALUES
-('Sur un air de guitare', 2017, '', 50, 75, 'Technique mixte sur papier Antaimoro', 4, 1),
-('Portait homme', 2018, '', 29.7, 21, 'Dessin au Crayon graphite', 2, 1),
-('Portait femme', 2018, '', 29.7, 21, 'Dessin au Crayon graphite',2, 1),
-('Spirit', 2021, '', 80, 130, 'Pigment naturel et acrylique sur toile de lin naturel', 4, 1),
-('Greenstone Hike', 2021, '', 27, 41, 'Peinture à l’huile sur toile de lin naturel', 3, 1),
-('Isthmus Peak', 2021, '', 60, 120, 'Peinture à l’huile sur toile de lin naturel', 3, 1),
-('Castlemaine Bushes', 2021, '', 40, 40, 'Peinture à l’huile sur toile', 3, 1),
-('The Grampians', 2021, '', 70, 52, 'Peinture à l’huile sur toile', 3, 1),
-('Projet Durtal', 2019, 'Durtal', 200, 1500, 'Voici la peinture du patrimoine historique de la ville de Durtal que j’ai réalisée en Septembre 2019 dans le jeu de boule du « Petit Tivoli » à Durtal. Représentant le Château, avec le pont fleuri traversant le Loir rejoignant la porte Véron.
-On aperçoit dans ce paysage le barrage avec quelques oiseaux dans leur milieu naturel, martin pêcheur, aigrette, quelques canards et oiseaux dans les tours du château …
-J’ai réalisé cette peinture sur 3 semaines, entouré d’une ambiance chaleureuse et conviviale.
-Je vous invite à lire la photo de l’article de presse paru dans le courrier de l’ouest expliquant davantage l’histoire de ce projet.
-', 5, 1),
-('Dans le monde imaginaire de Narnia', 2020, 'Australie', 230, 400, 'L’histoire et déroulement du projet :
-
-Tout d’abord, pour commencer nous avons avec Carrie (la Maman) réfléchi aux différents éléments de composition de l’image : un paysage Printanier ensoleillé avec quelques éléments naturels (roche, végétation, fleur), Aslan le lion, et le château.
-
-Je commence alors quelques croquis, puis peins cette petite vignette pour lui donner une idée de la composition et de la palette de couleurs choisis. 
- 
-Elle sourit… et dit : Ouiii !!! (Excitée)
- 
-Les tracés sur le mur commencent alors à prendre forme. J’utilise une mine graphite mise au bout de plusieurs petit bout de bambou assemblés ensemble, pour avoir du recul et esquisser.
- 
-Le lendemain matin avec les enfants nous sortons la peinture des tubes, et je leur montre comment obtenir différentes couleurs à partir des couleurs primaires et de blanc. Un peu de jaune, un peu de bleu, puis un joli vert apparaît, probablement pour la plaine, puis un certain jaune-orangé pour le Lion… Wouahhh (disent les enfants) Incroyable ce qui se passe là sous nos yeux… 
- 
-Je trempe le pinceau dans la peinture, regarde Nathan, et lui dit : maintenant… c’est parti !
- 
-Il prend le pinceau, se dirige sur le lion et commence à le peindre. 
-
-Carrie, étonnée, souris, sa réaction inattendue est géniale ! 
-Sa fille peu de temps après arrive rejoindre son frère avec une autre couleur sur le mur. Les enfants commencent ainsi la peinture, ils sont excités et concentrés à la fois, c’est beau ce qui se passe, c’est calme et magique …
- 
-Après un moment ils me laissent, je m’enferme dans sa chambre et continue à peindre.
-Personne n’aura réellement idée de ce qu’il se passera, c’est la surprise pour son anniversaire …
-Une semaine plus tard, impatient, Nathan ouvrira tout doucement la porte de sa chambre…
-Je crois que quelque chose de magique s’est passé… 
-                                                                                                       
-Un grand merci à Carrie, David et leurs enfants pour leur accueil si chaleureux et cette incroyable expérience tous ensemble.
- 
- 
-Technique : Peinture acrylique sur mur', 5, 1),
-('Piwakawaka', 2018, 'Nouvelle-Zélande', 350, 350, 'Voici ma peinture du Piwakawaka, oiseau emblématique de la Nouvelle-Zélande. C’est le nom d’origine que les maoris lui ont attribué. Il est aussi connu sous le nom de Fantail ! 
- 
-Après avoir étudié et peint une dizaine d’autres oiseaux Néo-zélandais sur les murs des chambres à Kinloch Lodge, le début du voyage commençait pour moi… l''apprentissage de la langue et de leur culture… 
- 
- “L’oiseau posé sur la branche, est prêt à s''envoler …”
- 
-j’ai réalisé cette peinture au courant de l’hiver au milieu des montagnes enneigées durant mon séjour chez Danelle à Glenorchy, un petit village sublime situé au sud de l’île du sud auquel j’accorde une valeur très particulière.
- 
-La Nouvelle Zélande est absolument fantastique, la richesse et diversité de ses paysages, ses couleurs absolument incroyable, les gens, l’énergie vivante qui émane de leurs terre et toutes ses rencontres m''ont touché profondément …
- 
-Un grand merci à mon amie Martine (photographe) pour ses jolies photos et toutes ses belles rencontres !
- 
- 
-Technique : Peinture acrylique 
-Support : Bardage bois ', 5, 1);
-
-INSERT INTO news (date, place, article) VALUES
-('2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
-('2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
-
 INSERT INTO picture (name_picture, image) VALUES
 ('Sur un air de guitare', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D1.%20Sur%20un%20ai[…]?alt=media&token=d9d1e9e3-9e50-4188-91a5-00547c342b83'),
 ('Portrait homme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35'),
 ('Portait femme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D3.%20Portrait%202.jpg?alt=media&token=c1525ca6-4be7-4a86-b853-35cbb69c63c5'),
 ('Camille sur un rocher', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_sur_rocher.jpg?alt=media&token=f8a301d1-3406-4511-a29d-cb5db6c60ffd'),
 ('Camille qui dessine avec un long crayon', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_crayon.jpg?alt=media&token=89227e25-5195-4ed4-bed8-ad47409a0d18'),
-('Chevalet devant une rivière', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Chevalet_riviere.jpg?alt=media&token=932f8e16-7377-4087-a662-37c2062c52e8 '),
+('Chevalet devant une rivière', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Chevalet_riviere.jpg?alt=media&token=932f8e16-7377-4087-a662-37c2062c52e8'),
 ('Spirit','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/SPIRIT.jpg?alt=media&token=52a3e5ea-4f89-4a26-a779-1c3b462a0574'),
 ('Greenstone Hike','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/GREENSTONE%20HIKE.jpg?alt=media&token=63a88fa7-970b-4315-ba78-0bb17dac4032'),
 ('Isthmus Peak','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/ISTHMUS%20PEAK.jpg?alt=media&token=48e6c8c8-b1dc-42b1-aea7-3a26db6babd2'),
@@ -109,6 +47,70 @@ INSERT INTO picture (name_picture, image) VALUES
 ('piwakawaka4', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%204.jpg?alt=media&token=29afbca6-dc16-490a-a19b-c3b37ed18f21'),
 ('piwakawaka5', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%205.jpg?alt=media&token=b4d970bd-70ff-4f7f-983e-c09e7a7ad409'),
 ('piwakawaka6', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%206.jpg?alt=media&token=94c41dc5-003c-4422-b1a3-2244bd06e6f4');
+
+INSERT INTO artwork (name_artwork, date, place, format, description, main_picture, category_id, artist_id) VALUES
+('Sur un air de guitare', 2017, '','50 x 75 cm', 'Technique mixte sur papier Antaimoro', null, 4, 1),
+('Portait homme', 2018, '', '29.7 x 21 cm', 'Dessin au Crayon graphite', null, 2, 1),
+('Portait femme', 2018, '', '29.7 x 21 cm', 'Dessin au Crayon graphite',null, 2, 1),
+('Spirit', 2021, '', '80 x 130 cm', 'Pigment naturel et acrylique sur toile de lin naturel', null, 4, 1),
+('Greenstone Hike', 2021, '', '27 x 41 cm', 'Peinture à l’huile sur toile de lin naturel', null, 3, 1),
+('Isthmus Peak', 2021, '', '60 x 120 cm', 'Peinture à l’huile sur toile de lin naturel', null, 3, 1),
+('Castlemaine Bushes', 2021, '', '40 x 40 cm', 'Peinture à l’huile sur toile', null, 3, 1),
+('The Grampians', 2021, '', '70 x 52 cm', 'Peinture à l’huile sur toile', null, 3, 1),
+('Projet Durtal', 2019, 'Durtal', '200 x 1500 cm', 'Voici la peinture du patrimoine historique de la ville de Durtal que j’ai réalisée en Septembre 2019 dans le jeu de boule du « Petit Tivoli » à Durtal. Représentant le Château, avec le pont fleuri traversant le Loir rejoignant la porte Véron.
+On aperçoit dans ce paysage le barrage avec quelques oiseaux dans leur milieu naturel, martin pêcheur, aigrette, quelques canards et oiseaux dans les tours du château …
+J’ai réalisé cette peinture sur 3 semaines, entouré d’une ambiance chaleureuse et conviviale.
+Je vous invite à lire la photo de l’article de presse paru dans le courrier de l’ouest expliquant davantage l’histoire de ce projet.
+', 15, 5, 1),
+('Dans le monde imaginaire de Narnia', 2020, 'Australie', '230 x 400 cm', 'L’histoire et déroulement du projet :
+
+Tout d’abord, pour commencer nous avons avec Carrie (la Maman) réfléchi aux différents éléments de composition de l’image : un paysage Printanier ensoleillé avec quelques éléments naturels (roche, végétation, fleur), Aslan le lion, et le château.
+
+Je commence alors quelques croquis, puis peins cette petite vignette pour lui donner une idée de la composition et de la palette de couleurs choisis. 
+ 
+Elle sourit… et dit : Ouiii !!! (Excitée)
+ 
+Les tracés sur le mur commencent alors à prendre forme. J’utilise une mine graphite mise au bout de plusieurs petit bout de bambou assemblés ensemble, pour avoir du recul et esquisser.
+ 
+Le lendemain matin avec les enfants nous sortons la peinture des tubes, et je leur montre comment obtenir différentes couleurs à partir des couleurs primaires et de blanc. Un peu de jaune, un peu de bleu, puis un joli vert apparaît, probablement pour la plaine, puis un certain jaune-orangé pour le Lion… Wouahhh (disent les enfants) Incroyable ce qui se passe là sous nos yeux… 
+ 
+Je trempe le pinceau dans la peinture, regarde Nathan, et lui dit : maintenant… c’est parti !
+ 
+Il prend le pinceau, se dirige sur le lion et commence à le peindre. 
+
+Carrie, étonnée, souris, sa réaction inattendue est géniale ! 
+Sa fille peu de temps après arrive rejoindre son frère avec une autre couleur sur le mur. Les enfants commencent ainsi la peinture, ils sont excités et concentrés à la fois, c’est beau ce qui se passe, c’est calme et magique …
+ 
+Après un moment ils me laissent, je m’enferme dans sa chambre et continue à peindre.
+Personne n’aura réellement idée de ce qu’il se passera, c’est la surprise pour son anniversaire …
+Une semaine plus tard, impatient, Nathan ouvrira tout doucement la porte de sa chambre…
+Je crois que quelque chose de magique s’est passé… 
+                                                                                                       
+Un grand merci à Carrie, David et leurs enfants pour leur accueil si chaleureux et cette incroyable expérience tous ensemble.
+ 
+ 
+Technique : Peinture acrylique sur mur', 19, 5, 1),
+('Piwakawaka', 2018, 'Nouvelle-Zélande', '350 x 350 cm', 'Voici ma peinture du Piwakawaka, oiseau emblématique de la Nouvelle-Zélande. C’est le nom d’origine que les maoris lui ont attribué. Il est aussi connu sous le nom de Fantail ! 
+ 
+Après avoir étudié et peint une dizaine d’autres oiseaux Néo-zélandais sur les murs des chambres à Kinloch Lodge, le début du voyage commençait pour moi… l''apprentissage de la langue et de leur culture… 
+ 
+ “L’oiseau posé sur la branche, est prêt à s''envoler …”
+ 
+j’ai réalisé cette peinture au courant de l’hiver au milieu des montagnes enneigées durant mon séjour chez Danelle à Glenorchy, un petit village sublime situé au sud de l’île du sud auquel j’accorde une valeur très particulière.
+ 
+La Nouvelle Zélande est absolument fantastique, la richesse et diversité de ses paysages, ses couleurs absolument incroyable, les gens, l’énergie vivante qui émane de leurs terre et toutes ses rencontres m''ont touché profondément …
+ 
+Un grand merci à mon amie Martine (photographe) pour ses jolies photos et toutes ses belles rencontres !
+ 
+ 
+Technique : Peinture acrylique 
+Support : Bardage bois ', 31, 5, 1);
+
+-- INSERT INTO news (date, place, article) VALUES
+-- ('2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
+-- ('2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
+
+
 
 -- INSERT INTO news_has_picture (news_id, picture_id) VALUES
 -- (1, 3);
