@@ -1,6 +1,6 @@
 const Artist = require("../models/artist");
 const bcrypt = require("bcrypt");
-const jwtMiddleware = require("../middleware/jwt");
+const jwtMiddleware = require("../service/jwt");
 const jwt = require('jsonwebtoken');
 
 const adminController = {

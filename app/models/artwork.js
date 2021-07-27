@@ -66,13 +66,13 @@ class Artwork {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, height=$4, width=$5, support=$6, category_id=$7, artist_id=$8 WHERE id_artwork = $9",
-          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.category_id, this.artist_id, id],
+          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, height=$4, width=$5, description =$6, support=$7, category_id=$8, artist_id=$9 WHERE id_artwork = $10",
+          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.description, this.category_id, this.artist_id, id],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO artwork(name_artwork, date, place, height, width, support, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id_artwork;",
-          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.category_id, this.artist_id],
+          text: "INSERT INTO artwork(name_artwork, date, place, height, width, support, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING id_artwork;",
+          values: [this.name_artwork, this.date, this.place, this.height, this.width, this.support, this.description, this.category_id, this.artist_id],
         };
       }
 
