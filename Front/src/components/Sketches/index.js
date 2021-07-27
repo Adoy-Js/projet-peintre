@@ -7,7 +7,9 @@ import React from 'react';
 import './styles.scss';
 
 const Sketches = () => (
-  <h1>Sketches</h1>
+  <div className="sketches">
+      Muni de mon crayon fétiche et de mon carnet je vous présente ici mes croquis les plus incroyables
+  </div>
 );
 
 export default Sketches;

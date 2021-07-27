@@ -23,8 +23,6 @@ import Sketches from 'src/components/Sketches';
 
 // Ajout du composant contactData
 import contactData from 'src/data/contact';
-// Ajout du composant biographyData
-import biographyData from 'src/components/biography';
 
 
 
