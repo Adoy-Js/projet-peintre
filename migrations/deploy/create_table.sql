@@ -20,11 +20,11 @@ CREATE TABLE category (
 CREATE TABLE artwork (
   id_artwork INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name_artwork VARCHAR(50) NOT NULL,
-  date TIMESTAMP NOT NULL,
-  place VARCHAR(100) NOT NULL, 
+  date INT NOT NULL,
+  place VARCHAR(100), 
   height INT NOT NULL,
   width INT NOT NULL,
-  support VARCHAR(50) NOT NULL,
+  description TEXT,
   category_id INT REFERENCES category(id_category),
   artist_id INT REFERENCES artist(id_artist)
 );
@@ -32,15 +32,14 @@ CREATE TABLE artwork (
 CREATE TABLE news (
   id_news INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   date TIMESTAMP NOT NULL,
-  place VARCHAR(150) NOT NULL,
+  place VARCHAR(150),
   article TEXT NOT NULL
 );
 
 CREATE TABLE picture (
   id_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name_picture VARCHAR(50),
-  image text NOT NULL,
-  description TEXT
+  image text NOT NULL
 );
 
 CREATE TABLE news_has_picture (
