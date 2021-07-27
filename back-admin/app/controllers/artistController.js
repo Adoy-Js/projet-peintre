@@ -17,7 +17,6 @@ const artistController = {
   add: async (req, res, next) => {
 
     try {
-      multerService.uploadHome.single(req.body.name_picture.split(' ').join('_'));
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
@@ -48,8 +47,6 @@ const artistController = {
     try {
 
       const {id} = req.params;
-
-      multerService.uploadHome.single(req.body.name_picture.split(' ').join('_'));
 
       const updatePicture = new Picture(req.body);
 
