@@ -5,9 +5,6 @@ BEGIN;
 -- XXX Add DDLs here.
 CREATE TABLE artist (
   id_artist INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name VARCHAR(50) NOT NULL,
-  logo VARCHAR(50),
-  biography TEXT,
   mail VARCHAR(50) NOT NULL UNIQUE,
   password VARCHAR(50) NOT NULL
 );
