@@ -7,20 +7,8 @@ import imgPortrait2 from './img/Portrait_2.jpg'
 
 // == Imports locaux
 import './styles.scss';
-<<<<<<< HEAD
 
 const Portrait = () => (
-<<<<<<< HEAD
-  <h1>Coucou</h1>
-=======
-import './img/Portrait 1.jpg'
-
-const Portrait = () => (
-  <div>
-    coucou
-  </div>
->>>>>>> origin/css
-=======
   <div>
     <p className="portrait_introPortrait">Pourquoi vous contenter d'un selfie quand le dessin existe ?</p>
     <div className="portrait">
@@ -42,7 +30,6 @@ const Portrait = () => (
       </div>
     </div>
   </div>
->>>>>>> e731ce9ce66e1e2d4a4df275770e14d448979863
 );
 
 export default Portrait;

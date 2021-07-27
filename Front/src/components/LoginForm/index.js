@@ -36,7 +36,6 @@ class LoginForm extends React.Component {
   console.log(res.data);
       })
   }
-<<<<<<< HEAD
   
   render() {
     return (
@@ -64,30 +63,5 @@ class LoginForm extends React.Component {
     );
   }
   }
-=======
-
-  
-
-
-render() {
-  return (
-    <form onSubmit={this.handleSubmit} className="Form">
-      <div className="Form_label">
-        Connexion
-      </div>
-      <div className="Form_mail">
-        <input className="Form_input" name="mail" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
-      </div>
-      <div className="Form_password">
-        <input className="Form_input" name="password" type="text" placeholder="Mot de passe" value={this.state.password} onChange={this.handlePasswordChange} />
-      </div>
-      <div className="Form_submit">
-        <input className="Form_input" type="submit" value="Envoyer" />
-      </div>
-    </form>
-  );
-}
-}
->>>>>>> origin/css
 
 export default LoginForm;

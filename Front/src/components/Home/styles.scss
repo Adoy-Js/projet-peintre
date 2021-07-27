@@ -1,16 +1,10 @@
-<<<<<<< HEAD
 @use 'src/styles/vars';
 
 .sea{
-=======
-.image {
-  // à voir comment flouter davantage avec backdrop-filter
->>>>>>> origin/css
   background: url(./Background_1.jpg) no-repeat;
   position: relative;
   background-position: center center;
   background-size: cover;
-<<<<<<< HEAD
 }
 
 
@@ -36,9 +30,6 @@
   color: black;
   font-family: vars.$family;
   font-size: xx-large;
-=======
-
->>>>>>> origin/css
 }
 
 @keyframes splide-loading {
