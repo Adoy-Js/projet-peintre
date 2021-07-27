@@ -38,13 +38,13 @@ class Picture {
         );
         sqlQuery = {
           text: "UPDATE picture SET name_picture = $1, image = $2 WHERE id_picture = $3",
-          values: [this.name_picture, this.image, id],
+          values: [this.name_picture, this.image+' ', id],
         };
       } else {
         console.log("j'insere la nouvelle photo");
         sqlQuery = {
           text: "INSERT INTO picture(name_picture, image) VALUES ($1,$2) RETURNING id_picture;",
-          values: [this.name_picture, this.image]
+          values: [this.name_picture, this.image+' ']
         };
        
       }
