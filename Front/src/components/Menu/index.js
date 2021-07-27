@@ -1,22 +1,55 @@
 // import NPM
-import React from 'react';
+import React from 'react'
+import { useState } from "react"
 
 // == Imports locaux
 import './styles.scss';
 
-const Menu = () => (
-  <menu className="menu">
-    <nav className="link">
-      <a className="link_menu_logo" href="/">Camille PAUL</a>
-      <a className="link_menu" href="/sketches">Croquis</a>
-      <a className="link_menu" href="/portrait">Portrait</a>
-      <a className="link_menu" href="/paintings">Peintures</a>
-      <a className="link_menu" href="/mural-paintings">Peintures murales</a>
-      <a className="link_menu" href="/news">Actualités</a>
-      <a className="link_menu" href="/biography">Biographie</a>
-      <a className="link_menu" href="/contact">Contact</a>
+function Menu () {
+
+  const [showLinks, setShowLinks] = useState(false)
+
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks)
+  }
+
+  console.log(showLinks);
+
+  return (
+    <nav className={`menu ${showLinks ? "show-nav" : "hide-nav"} `}>
+      <a href="/" className="item_menu menu_logo"><img className="logo_menu" src="" alt="" />Camille Paul</a>
+      <ul className="links_menu">
+        <li className="item_menu slideInDown-1">
+          <a href="/" className="link_menu none">Accueil</a>
+        </li>
+        <li className="item_menu slideInDown-2">
+          <a href="/sketches" className="link_menu">Croquis</a>
+        </li>
+        <li className="item_menu slideInDown-3">
+          <a href="/portrait" className="link_menu">Portrait</a>
+        </li>
+        <li className="item_menu slideInDown-4">
+          <a href="/paintings" className="link_menu">Peintures</a>
+        </li>
+        <li className="item_menu slideInDown-5">
+          <a href="/mural-paintings" className="link_menu">Peintures murales</a>
+        </li>
+        <li className="item_menu slideInDown-6">
+          <a href="/news" className="link_menu">Actualités</a>
+        </li>
+        <li className="item_menu slideInDown-7">
+          <a href="/biography" className="link_menu">Biographie</a>
+        </li>
+        <li className="item_menu slideInDown-8">
+          <a href="/contact" className="link_menu">Contact</a>
+        </li>
+      </ul>
+
+      <button className="menu_burger" onClick={handleShowLinks}>
+        <span className="burger-bar"></span>  
+      </button> 
     </nav>
-  </menu>
-);
+  )
+}
 
 export default Menu;
