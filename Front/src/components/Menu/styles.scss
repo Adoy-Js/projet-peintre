@@ -148,8 +148,17 @@
     transform: translateY(0);
   }
 
+<<<<<<< HEAD
   .show-nav .slideInDown-1 {
     transition: all 1s ease-out;
+=======
+    &:hover {
+      color: white;
+      background-color: rgb(38, 109, 131);
+    }
+    
+    }
+>>>>>>> origin/css
   }
   
   .show-nav .slideInDown-2 {

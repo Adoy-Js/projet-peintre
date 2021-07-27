@@ -11,6 +11,7 @@ import LoginForm from 'src/components/LoginForm';
 import Home from 'src/components/Home';
 // Ajout du composant Footer
 import Footer from 'src/components/Footer';
+<<<<<<< HEAD
 // Ajout du composant Portrait
 import Portrait from 'src/components/Portrait';
 // Ajout du composant Contact
@@ -20,6 +21,12 @@ import Biography from 'src/components/Biography';
 
 // Ajout du composant contactData
 import contactData from 'src/data/contact';
+=======
+// Ajout du composant LoginForm
+import LoginForm from 'src/components/LoginForm';
+// Ajout du composant Portrait
+import Portrait from 'src/components/Portrait';
+>>>>>>> origin/css
 
 
 import './styles.scss';
@@ -39,6 +46,7 @@ const App = () => (
       <Route path="/portraits" exact>
         <Portrait />
       </Route>
+<<<<<<< HEAD
       <Route path="/contact" exact>
         <Contact
       descriptions={contactData.descriptions} 
@@ -52,6 +60,8 @@ const App = () => (
       footermessages={contactData.footermessages} 
         />
       </Route>
+=======
+>>>>>>> origin/css
     </BrowserRouter>
     <Footer />
   </div>
