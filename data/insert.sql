@@ -74,7 +74,7 @@ INSERT INTO news (date, place, article) VALUES
 
 INSERT INTO picture (name_picture, image) VALUES
 ('Sur un air de guitare', 'data/picture/acrylic-painting/Sur_un_air_de_guitare.jpg'),
-('Portrait homme', 'data/picture/portrait/portait_homme.jpg'),
+('Portrait homme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35'),
 ('Portait femme', 'data/picture/portrait/portait_femme.jpg'),
 ('Camille sur un rocher', 'data/picture/home/camille_sur_rocher.jpg'),
 ('Camille qui dessine avec un long crayon', 'data/picture/home/camille_crayon.jpg'),

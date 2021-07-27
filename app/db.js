@@ -1,6 +1,6 @@
 const { Pool } = require('pg');
 let pool = new Pool({
-    connectionString: process.env.PG_URL,
+    connectionString: process.env.DATABSE_URL,
     ssl: {
         rejectUnauthorized: false
     }
