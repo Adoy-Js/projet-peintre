@@ -2,6 +2,10 @@ const { Router } = require("express");
 
 const router = Router();
 
+
+
+//CONTROLLER
+
 const artworkController = require("./controllers/artworkController.js");
 const newsController = require("./controllers/newsController");
 const artistController = require("./controllers/artistController");
