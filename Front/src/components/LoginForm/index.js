@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import './styles.scss';
 
@@ -25,7 +26,15 @@ class LoginForm extends React.Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.LoginForm();
+    const admin = {
+      name: this.state.name
+    };
+  
+    axios.post(`http://localhost:5000/admin`, { admin })
+      .then(res => {
+      console.log(res);
+  console.log(res.data);
+      })
   }
   
   render() {

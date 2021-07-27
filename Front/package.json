@@ -1,5 +1,5 @@
 {
-  "name": "projectpeintre",
+  "name": "projet-peintre",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack serve --config config/webpack.dev.js",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js",
@@ -41,7 +41,7 @@
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "terser-webpack-plugin": "^5.1.1",
-    "webpack": "^5.45.1",
+    "webpack": "^5.46.0",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
@@ -57,13 +57,9 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-modal": "^3.14.3",
-    "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
   },
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:O-clock-Sinbad/project-peintre.git",
-  "author": "<an.lebrun1998@gmail.com>",
   "license": "MIT"
 }

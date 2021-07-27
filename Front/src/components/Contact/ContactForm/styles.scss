@@ -43,16 +43,21 @@
     height: 84px;
     border-radius: 10px;
     width: 87%;
-    background: rgb(38, 109, 131);
-    color: #fff;
-    font-size: .875rem;
+    border: 2px solid rgb(38, 109, 131);
+    color: rgb(38, 109, 131);
+    font-size: 0.6em;
+    font-weight: bold;
     text-transform: uppercase;
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   }
 
   &_input_submit:hover {
-    background: rgba(38, 109, 131, 0.87);
+    color: #fff;
+    outline: 0;
+    box-shadow: 0 0 40px 40px rgb(38, 109, 131) inset;
     cursor: pointer;
-    transition: 0.3s;
+    border: none;
   }
 
 }

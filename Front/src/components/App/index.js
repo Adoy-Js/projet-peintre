@@ -11,20 +11,19 @@ import LoginForm from 'src/components/LoginForm';
 import Home from 'src/components/Home';
 // Ajout du composant Footer
 import Footer from 'src/components/Footer';
+// Ajout du composant Portrait
+import Portrait from 'src/components/Portrait';
 // Ajout du composant Contact
 import Contact from 'src/components/Contact';
 // Ajout du composant Biography
 import Biography from 'src/components/Biography';
 // Ajout du composant Sketches
 import Sketches from 'src/components/Sketches';
-// Ajout du composant Portrait
-import Portrait from 'src/components/Portrait';
 
 
 
 // Ajout du composant contactData
 import contactData from 'src/data/contact';
-
 
 
 import './styles.scss';
