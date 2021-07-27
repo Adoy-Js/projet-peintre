@@ -15,23 +15,20 @@ const artistController = {
   },
 
   add: async (req, res, next) => {
-    console.log("je suis dans le controller pour ajouter une photo de l'artiste");
+
     try {
+      multerService.uploadHome.single(req.body.name_picture.split(' ').join('_'));
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
       const insertPicture = await newPicture.save();
 
-   
-
-      console.log("photo inséré en base");
 
       //Ajout de la relation avec l'artiste dans la table de liaison
       //l'id de lartiste sera toujours 1
       const artist_id = 1;
       const picture_id = insertPicture.id_picture;
-      console.log(insertPicture);
-      console.log(`id de la picture : ${picture_id}`);
+  
       const new_artist_has_picture = new Artist_has_picture({
         artist_id: 1,
         picture_id
@@ -40,7 +37,7 @@ const artistController = {
       new_artist_has_picture.save();
 
       res.json({newPicture, new_artist_has_picture});
-      console.log("relation artiste=>photo inséré en base");
+      
     } catch (error) {
       console.error(error);
       next();
@@ -51,6 +48,8 @@ const artistController = {
     try {
 
       const {id} = req.params;
+
+      multerService.uploadHome.single(req.body.name_picture.split(' ').join('_'));
 
       const updatePicture = new Picture(req.body);
 
