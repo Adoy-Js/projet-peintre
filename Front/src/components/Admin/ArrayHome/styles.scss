@@ -1,0 +1,25 @@
+@use 'src/styles/vars';
+
+::before, ::after{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.arrayHome{
+  width: 1em;
+  
+  &_head, &_body{
+  display: flex;
+  flex-direction: row;
+  }
+
+  &_head_title, &_body_colummn{
+    padding: .5em;
+  }
+
+  &_head_title{
+    font-size: x-large;
+    font-weight: bold;
+  }
+}

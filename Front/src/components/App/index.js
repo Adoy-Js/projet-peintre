@@ -4,21 +4,25 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 // == Import
 // Ajout du composant Menu
-import Menu from 'src/components/Menu';
-// Ajout du composant LoginForm
-import LoginForm from 'src/components/LoginForm';
+import Menu from 'src/components/Client/Menu';
 // Ajout du composant Home
-import Home from 'src/components/Home';
+import Home from 'src/components/Client/Home';
 // Ajout du composant Footer
-import Footer from 'src/components/Footer';
+import Footer from 'src/components/Client/Footer';
 // Ajout du composant Portrait
-import Portrait from 'src/components/Portrait';
+import Portrait from 'src/components/Client/Portrait';
 // Ajout du composant Contact
-import Contact from 'src/components/Contact';
+import Contact from 'src/components/Client/Contact';
 // Ajout du composant Biography
-import Biography from 'src/components/Biography';
+import Biography from 'src/components/Client/Biography';
 // Ajout du composant Sketches
-import Sketches from 'src/components/Sketches';
+import Sketches from 'src/components/Client/Sketches';
+
+
+// Ajout du composant LoginForm
+import LoginForm from 'src/components/Client/LoginForm';
+// Ajout du composant ArrayHome
+import ArrayHome from 'src/components/Admin/ArrayHome';
 
 
 
@@ -34,15 +38,23 @@ const App = () => (
   <div className="app">
     <Menu />
     <BrowserRouter>
+
       <Route path="/admin" exact>
         <LoginForm />
       </Route>
+
+      <Route path="/arrayHome" exact>
+        <ArrayHome />
+      </Route>
+
       <Route path="/" exact>
         <Home />
       </Route>
+
       <Route path="/portraits" exact>
         <Portrait />
       </Route>
+
       <Route path="/contact" exact>
         <Contact
           descriptions={contactData.descriptions}
@@ -50,15 +62,19 @@ const App = () => (
           footermessages={contactData.footermessages}
         />
       </Route>
+      
       <Route path="/biography" exact>
         <Biography />
       </Route>
+
       <Route path="/sketches" exact>
         <Sketches />
       </Route>
+
       <Route path="/portrait" exact>
         <Portrait />
       </Route>
+      
     </BrowserRouter>
     <Footer />
   </div>
