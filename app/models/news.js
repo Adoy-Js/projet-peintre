@@ -16,10 +16,9 @@ class News {
 
       console.log(rows);
 
-      const results = rows.filter(row => row.id_news !== null);
+      const results = rows.filter((row) => row.id_news !== null);
 
       return results ? results.map((row) => new this(row)) : false;
-
     } catch (err) {
       console.error(err);
       if (err.detail) {
@@ -64,15 +63,13 @@ class News {
           text: "INSERT INTO news(date, place, article) VALUES ($1,$2,$3) RETURNING id_news;",
           values: [this.date, this.place, this.article],
         };
-        this.id_news = rows[0].id_news;
       }
-      const { rows } = await pool.query(sqlQuery);
-      console.log(rows);
 
-      
+      const { rows } = await pool.query(sqlQuery);
+
+      this.id_news = rows[0].id_news;
 
       return rows[0];
-
     } catch (err) {
       console.error(err);
       if (err.detail) {
