@@ -1,25 +1,52 @@
 @use 'src/styles/vars';
 
-::before, ::after{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.arrayHome{
-  width: 1em;
-  
-  &_head, &_body{
+.arrayHome {
+  margin-top: 5%;
+  margin-left: 20%;
+  font-size: large;
+  font-weight: bold;
+  border: 3px solid black;
+  width: 38.5em;
   display: flex;
-  flex-direction: row;
-  }
-
-  &_head_title, &_body_colummn{
-    padding: .5em;
-  }
-
-  &_head_title{
-    font-size: x-large;
-    font-weight: bold;
-  }
+  flex-direction: column;
 }
+
+.cell_picture{
+  border: 1px solid black;
+  padding: 1em;
+  padding-left: 2.93em;
+  padding-right: 2.93em;
+}
+
+.cell_edit, .cell_delete{
+  border: 1px solid black;
+  padding-left: 4em;
+  padding-right: 4.5em;
+}
+
+.cell_body {
+  border: 1px solid black;
+  padding-left: 3.5em;
+  padding-right: 3.5em;
+}
+
+
+.cell_body_input_edit, .cell_body_input_delete{
+  border: 1px solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 1em;
+  background-color: rgb(192, 192, 192);
+}
+
+.cell_body_input_edit:hover{
+  background-color: rgb(224, 200, 255);
+  text-decoration: underline;
+}
+
+.cell_body_input_delete:hover{
+  background-color: rgb(255, 170, 170);
+  text-decoration: underline;
+}
+
+
