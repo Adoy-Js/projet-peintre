@@ -9,6 +9,10 @@ import Menu from 'src/components/Menu';
 import LoginForm from 'src/components/LoginForm';
 // Ajout du composant Home
 import Home from 'src/components/Home';
+// Ajout du composant Paintings
+import Paintings from 'src/components/Paintings';
+// Ajout du composant WallPainting
+import MuralPaintings from 'src/components/MuralPaintings';
 // Ajout du composant Footer
 import Footer from 'src/components/Footer';
 // Ajout du composant Portrait
@@ -19,6 +23,7 @@ import Contact from 'src/components/Contact';
 import Biography from 'src/components/Biography';
 // Ajout du composant Sketches
 import Sketches from 'src/components/Sketches';
+
 
 
 
@@ -40,6 +45,12 @@ const App = () => (
       <Route path="/" exact>
         <Home />
       </Route>
+      <Route path="/paintings" exact>
+        <Paintings />
+        </Route>
+        <Route path="/mural-paintings" exact>
+        <MuralPaintings />
+        </Route>
       <Route path="/portraits" exact>
         <Portrait />
       </Route>

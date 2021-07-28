@@ -1,0 +1,31 @@
+.header_paintings {
+    margin-top: 2vh;
+}
+
+.header_paintings h1 {
+    font-size: 2rem;
+}
+
+.header_paintings p {
+    font-size: 1.5rem;
+}
+
+.description_header_paintings {
+    padding: 1rem 0;
+}
+
+.content_mural_paintings {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5vh;
+    width: 100%;
+    height: auto;
+}
+
+.image_mural_paintings {
+    border: 1px solid black;
+    width: 1500px;
+    height: 700px;
+    margin: 0 4rem 4rem;
+}

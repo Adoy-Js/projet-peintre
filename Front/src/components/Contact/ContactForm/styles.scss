@@ -43,8 +43,8 @@
     height: 84px;
     border-radius: 10px;
     width: 87%;
-    border: 2px solid rgb(38, 109, 131);
-    color: rgb(38, 109, 131);
+    border: 2px solid rgb(224, 224, 224);
+    color: rgb(42, 42, 42);
     font-size: 0.6em;
     font-weight: bold;
     text-transform: uppercase;
@@ -53,9 +53,9 @@
   }
 
   &_input_submit:hover {
-    color: #fff;
+    color: rgb(42, 42, 42);
     outline: 0;
-    box-shadow: 0 0 40px 40px rgb(38, 109, 131) inset;
+    box-shadow: 0 0 40px 40px rgb(224, 224, 224) inset;
     cursor: pointer;
     border: none;
   }

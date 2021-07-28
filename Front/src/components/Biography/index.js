@@ -7,7 +7,7 @@ import './styles.scss';
 const Biography = () => (
   <div className="Biography">
     <div className="biography">
-      <p className="contact_title">Biographie</p>
+      <h1 className="biography_title">Biographie</h1>
       <div className="biography_div">
         <div>
           Coucou, moi c'est Camille.
