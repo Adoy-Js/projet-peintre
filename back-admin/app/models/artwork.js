@@ -10,12 +10,11 @@ class Artwork {
   static async findAll(){
     try {
       const query = {
-        text: `SELECT * FROM artwork;`
+        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category;`
       };
 
       const { rows } = await pool.query(query);
 
-      console.log(rows);
 
       return rows ? rows.map((row) => new this(row)) : false;
     } catch (error) {
@@ -115,7 +114,7 @@ class Artwork {
 
         console.log(rows);
 
-        return rows.map(row => new Artist(row));
+        return rows.map(row => new Artwork(row));
     } catch (error) {
         if (error.detail) {
             throw new Error(error.detail);

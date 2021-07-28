@@ -19,7 +19,6 @@ router.get("/", artistController.getAll);
 
 //Artwork
 
-router.get('/artwork', artworkController.getAll);
 router.get('/artwork/painting', artworkController.getAllPaintings);
 router.get("/artwork/:category", artworkController.getAllByCategory);
 router.get("/artwork/:category/:id", artworkController.getOne);
