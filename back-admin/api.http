@@ -35,7 +35,7 @@ POST http://localhost:5000/admin
 content-type: application/json
 
 {
-    "mail": "artiste@gmail.com",
+    "email": "camillepaul.pro@gmail.com",
     "password" : "1234"
 }
 
