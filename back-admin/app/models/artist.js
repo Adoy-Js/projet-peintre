@@ -35,7 +35,7 @@ class Artist {
   static async findByMail(mail) {
     try {
       const query = {
-        text: `SELECT * from artist WHERE mail = $1`,
+        text: `SELECT * from artist WHERE email = $1`,
         values: [mail],
       };
       const { rows } = await db.query(query);

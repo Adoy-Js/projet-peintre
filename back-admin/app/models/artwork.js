@@ -10,12 +10,11 @@ class Artwork {
   static async findAll(){
     try {
       const query = {
-        text: `SELECT * FROM artwork;`
+        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category;`
       };
 
       const { rows } = await pool.query(query);
 
-      console.log(rows);
 
       return rows ? rows.map((row) => new this(row)) : false;
     } catch (error) {
@@ -26,7 +25,7 @@ class Artwork {
   static async findByCategory(category) {
     try {
       const query = {
-        text: `SELECT * FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name = $1;`,
+        text: `SELECT * FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name_category = $1;`,
         values: [category],
       };
 
@@ -115,7 +114,7 @@ class Artwork {
 
         console.log(rows);
 
-        return rows.map(row => new Artist(row));
+        return rows.map(row => new Artwork(row));
     } catch (error) {
         if (error.detail) {
             throw new Error(error.detail);

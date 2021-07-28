@@ -1,9 +1,9 @@
 BEGIN;
 
-INSERT INTO artist (name, logo, biography, mail, password) 
-VAlUES ('logo.png', 'Camille', 'je suis un artiste', 'artiste@gmail.com', '1234');
+INSERT INTO artist (email, password) 
+VAlUES ('camillepaul.pro@gmail.com', '1234');
 
-INSERT INTO category (name) VALUES 
+INSERT INTO category (name_category) VALUES 
 ('sketch'),
 ('portrait'),
 ('oil-painting'),

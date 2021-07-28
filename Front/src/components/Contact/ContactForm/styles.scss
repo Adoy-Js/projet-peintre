@@ -46,10 +46,6 @@
     border: 2px solid rgb(224, 224, 224);
     color: rgb(42, 42, 42);
     font-size: 0.6em;
-    font-weight: bold;
-    text-transform: uppercase;
-    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
-    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   }
 
   &_input_submit:hover {
