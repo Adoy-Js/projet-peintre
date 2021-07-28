@@ -53,8 +53,7 @@ router.patch('/admin/home/:id', adminController.isAdmin, artistController.update
 //Artwork
 
 router.get('/admin/artwork', adminController.isAdmin, artworkController.getAll);
-router.get('/admin/artwork/:category', adminController.isAdmin, artworkController.getAllByCategory);
-router.post('/admin/artwork/:category', adminController.isAdmin, artworkController.addArtwork);
+router.post('/admin/artwork', adminController.isAdmin, artworkController.addArtwork);
 router.delete('/admin/artwork/:category/:id', adminController.isAdmin, artworkController.deleteArtwork);
 router.patch('/admin/artwork/:category/:id', adminController.isAdmin, artworkController.updateArtwork);
 
