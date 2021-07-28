@@ -5,9 +5,7 @@
   justify-content: space-between;
   padding: .5em;
   width: 100%;
-  min-height: 75px;
-  z-index: 10;
-  background-color: #f6f6f6;
+  background-color: #ebe9e9;
   color: rgb(42, 42, 42);
   font-size: 1.2em;
 }
@@ -22,7 +20,7 @@
 }
 
 .link_menu:hover {
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(209, 207, 207);
   transition: 0.3s;
 }
 

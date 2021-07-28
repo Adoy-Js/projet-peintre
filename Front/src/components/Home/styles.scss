@@ -1,28 +1,9 @@
 @use 'src/styles/vars';
 
-.sea{
-  background: url(./Background_1.jpg) no-repeat;
-  position: relative;
-  background-position: center center;
-  background-size: cover;
-}
-
-
-
-.snow {
-  background: url(./Accueil_2.jpg) no-repeat;
-  position: relative;
-  background-position: center center;
-  background-size: cover;
-
-}
-
-.cliff {
-  background: url(./Accueil_3.jpg) no-repeat;
-  position: relative;
-  background-position: center center;
-  background-size: cover;
-}
+.image_slider{
+    width: 30%;
+    object-fit: cover;
+  }
 
 .welcome{
   margin-top: 1em;
