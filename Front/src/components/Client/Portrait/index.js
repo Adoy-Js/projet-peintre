@@ -19,7 +19,7 @@ class Portrait extends PureComponent {
         const images = res.data;
         this.setState({ images });
         const descriptions = res.data;
-        this.setState({ descriptions},);
+        this.setState({ descriptions },);
         const formats = res.data;
         this.setState({ formats });
         const dates = res.data;
@@ -29,20 +29,19 @@ class Portrait extends PureComponent {
 
   render() {
     return (
-      <div className="portraits">
-        <p>Pourquoi vous contenter d'un selfie quand le dessin existe ?</p>
+      <div>
+        <p className="portraits">Pourquoi vous contenter d'un selfie quand le dessin existe ?</p>
         <div className="portrait">
 
           {this.state.images.map(image => <img className="portrait_image" key={image.picture_id} src={image.image}></img>)}
+
+          {this.state.descriptions.map(description => <span className="description_description" key={description.picture_id}>{description.description}</span>)}
+          </div>
           
-          {this.state.descriptions.map(description => <span className="portrait_images" key={description.picture_id}>{description.description}</span>)}
-
-          {this.state.formats.map(format => <span className="portrait_format" key={format.picture_id}>{format.format}</span>)}
-
-            {this.state.dates.map(date => <span className="portrait_date" key={date.picture_id}>{date.date}</span>)}
-
-        </div>
-      </div>
+          {this.state.formats.map(format => <span className="description_format" key={format.picture_id}>{format.format}</span>)}
+          
+          {this.state.dates.map(date => <span className="description_date" key={date.picture_id}>{date.date}</span>)}
+      </div >
     )
   }
 };

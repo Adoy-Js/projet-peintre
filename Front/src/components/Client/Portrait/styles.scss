@@ -1,17 +1,25 @@
-.portrait {
+.portraits{
+  font-size: xx-large;
+  font-weight: bold;
+  margin: 1em;
+}
 
+.portrait {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  font-size: medium;
+  font-weight: normal;
+  
 
   &_image{
-    width: 25%;
+    width: 20%;
     transition: 1s;
+    margin: 1em;
     &:hover{
       cursor: pointer;
     }
-  }
-
-  &_format{
-    
   }
 }
