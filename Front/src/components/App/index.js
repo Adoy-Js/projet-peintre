@@ -51,7 +51,7 @@ const App = () => (
         <Home />
       </Route>
 
-      <Route path="/portraits" exact>
+      <Route path="/artwork/portrait" exact>
         <Portrait />
       </Route>
 
@@ -69,10 +69,6 @@ const App = () => (
 
       <Route path="/sketches" exact>
         <Sketches />
-      </Route>
-
-      <Route path="/portrait" exact>
-        <Portrait />
       </Route>
       
     </BrowserRouter>
