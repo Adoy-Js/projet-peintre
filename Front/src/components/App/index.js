@@ -64,11 +64,11 @@ const App = () => (
         />
       </Route>
       
-      <Route path="/biography" exact>
+      <Route path="/about" exact>
         <Biography />
       </Route>
 
-      <Route path="/sketches" exact>
+      <Route path="/artwork/sketches" exact>
         <Sketches />
       </Route>
       

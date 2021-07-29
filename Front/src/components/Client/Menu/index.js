@@ -23,22 +23,22 @@ function Menu () {
           <a href="/" className="link_menu none">Accueil</a>
         </li>
         <li className="item_menu slideInDown-2">
-          <a href="/sketches" className="link_menu">Croquis</a>
+          <a href="/artwork/sketche" className="link_menu">Croquis</a>
         </li>
         <li className="item_menu slideInDown-3">
-          <a href="/portrait" className="link_menu">Portrait</a>
+          <a href="/artwork/portrait" className="link_menu">Portrait</a>
         </li>
         <li className="item_menu slideInDown-4">
-          <a href="/paintings" className="link_menu">Peintures</a>
+          <a href="/artwork/painting" className="link_menu">Peintures</a>
         </li>
         <li className="item_menu slideInDown-5">
-          <a href="/mural-paintings" className="link_menu">Peintures murales</a>
+          <a href="/artwork/mural-painting" className="link_menu">Peintures murales</a>
         </li>
         <li className="item_menu slideInDown-6">
           <a href="/news" className="link_menu">Actualités</a>
         </li>
         <li className="item_menu slideInDown-7">
-          <a href="/biography" className="link_menu">Biographie</a>
+          <a href="/about" className="link_menu">Biographie</a>
         </li>
         <li className="item_menu slideInDown-8">
           <a href="/contact" className="link_menu">Contact</a>
