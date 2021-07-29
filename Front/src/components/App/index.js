@@ -7,10 +7,16 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import Menu from 'src/components/Client/Menu';
 // Ajout du composant Home
 import Home from 'src/components/Client/Home';
+// Ajout du composant Paintings
+import Paintings from 'src/components/Client/Paintings';
+//Ajout du composant MuralPaintings
+import MuralPaintings from 'src/components/Client/MuralPaintings';
 // Ajout du composant Footer
 import Footer from 'src/components/Client/Footer';
 // Ajout du composant Portrait
 import Portrait from 'src/components/Client/Portrait';
+// Ajout du composant News
+import News from 'src/components/Client/News';
 // Ajout du composant Contact
 import Contact from 'src/components/Client/Contact';
 // Ajout du composant Biography
@@ -44,8 +50,20 @@ const App = () => (
         <LoginForm />
       </Route>
 
+      <Route path="/artwork/painting" exact>
+        <Paintings />
+      </Route>
+
+      <Route path="/artwork/mural-painting" exact>
+        <MuralPaintings />
+      </Route>
+
       <Route path="/admin/artwork" exact>
         <ArrayHome />
+      </Route>
+
+      <Route path="/news" exact>
+        <News />
       </Route>
 
       <Route path="/" exact>
