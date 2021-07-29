@@ -26,7 +26,7 @@ import Sketches from 'src/components/Client/Sketches';
 
 
 // Ajout du composant LoginForm
-import LoginForm from 'src/components/Client/LoginForm';
+import LoginForm from 'src/components/Admin/LoginForm';
 // Ajout du composant ArrayHome
 import ArrayHome from 'src/components/Admin/ArrayHome';
 
@@ -69,6 +69,7 @@ const App = () => (
       <Route path="/" exact>
         <Home />
       </Route>
+
       <Route path="/artwork/portrait" exact>
         <Portrait />
       </Route>
