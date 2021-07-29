@@ -43,9 +43,8 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    //{this.state.isLogged && (return <Redirect to='/' />)} 
     return (
-      this.state.isLogged ? <Redirect to="/" /> :
+      this.state.isLogged ? <Redirect to="/admin/artwork" /> :
         <form onSubmit={this.handleSubmit} className="Form">
 
           <div className="Form_label">

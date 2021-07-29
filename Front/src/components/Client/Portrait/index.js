@@ -7,7 +7,10 @@ import './styles.scss';
 
 class Portrait extends PureComponent {
   state = {
-    images: []
+    images: [],
+    descriptions: [],
+    formats: [],
+    dates: [],
   }
 
   componentDidMount() {
@@ -15,6 +18,12 @@ class Portrait extends PureComponent {
       .then(res => {
         const images = res.data;
         this.setState({ images });
+        const descriptions = res.data;
+        this.setState({ descriptions},);
+        const formats = res.data;
+        this.setState({ formats });
+        const dates = res.data;
+        this.setState({ dates });
       })
   }
 
@@ -23,12 +32,15 @@ class Portrait extends PureComponent {
       <div className="portraits">
         <p>Pourquoi vous contenter d'un selfie quand le dessin existe ?</p>
         <div className="portrait">
-          {this.state.images.map(image => <img className="portrait_images" key={image.picture_id} src={image.image}></img>)}
-          <span>
-            Dessin au Crayon graphite <br />
-            21 x 29,7 cm (A4) <br />
-            2018
-          </span>
+
+          {this.state.images.map(image => <img className="portrait_image" key={image.picture_id} src={image.image}></img>)}
+          
+          {this.state.descriptions.map(description => <span className="portrait_images" key={description.picture_id}>{description.description}</span>)}
+
+          {this.state.formats.map(format => <span className="portrait_format" key={format.picture_id}>{format.format}</span>)}
+
+            {this.state.dates.map(date => <span className="portrait_date" key={date.picture_id}>{date.date}</span>)}
+
         </div>
       </div>
     )
