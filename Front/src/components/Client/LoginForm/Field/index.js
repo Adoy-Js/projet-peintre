@@ -9,6 +9,7 @@ const Field = ({
   name,
   placeholder,
   onChange,
+  password,
 }) => {
   const handleChange = (evt) => {
     onChange(evt.target.value, name);
@@ -27,6 +28,7 @@ const Field = ({
         type={type}
         placeholder={placeholder}
         name={name}
+        password={password}
       />
     </div>
   );
@@ -38,6 +40,7 @@ Field.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  password:PropTypes.string.isRequired,
 };
 
 // Valeurs par défaut pour les props

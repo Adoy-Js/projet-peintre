@@ -43,7 +43,7 @@ const App = () => (
         <LoginForm />
       </Route>
 
-      <Route path="/arrayHome" exact>
+      <Route path="/admin/artwork" exact>
         <ArrayHome />
       </Route>
 

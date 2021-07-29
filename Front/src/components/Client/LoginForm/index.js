@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import './styles.scss';
+import { Redirect } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: '',
       password: '',
+      redirection: false
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -27,19 +29,35 @@ class LoginForm extends React.Component {
   handleSubmit(evt) {
     evt.preventDefault();
     const admin = {
-      mail: this.state.email,
+      email: this.state.email,
       password: this.state.password
     };
-    
 
     axios.post(`http://localhost:5000/admin`, admin)
       .then(res => {
+        const { token } = res.data
+
+        
+        if (res.status === 200 ) {
+          localStorage.setItem('token', token);
+          this.setState({ redirection: true });
+        } else {
+          console.log(error)
+        }
         console.log(res);
         console.log(res.data);
       })
   }
 
   render() {
+
+    const { redirection } = this.state;
+    if(redirection){ 
+      <Redirect to ='/admin/artwork' />
+     } else { 
+      <LoginForm />
+    }
+
     return (
       <form onSubmit={this.handleSubmit} className="Form">
 
