@@ -51,7 +51,7 @@ const App = () => (
         <Route path="/mural-paintings" exact>
         <MuralPaintings />
         </Route>
-      <Route path="/portraits" exact>
+      <Route path="/artwork/portrait" exact>
         <Portrait />
       </Route>
       <Route path="/contact" exact>

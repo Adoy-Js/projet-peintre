@@ -37,7 +37,7 @@ class Portrait extends PureComponent {
           21 x 29,7 cm (A4) <br />
           2018
         </span>
-        </div>
+      </div>
     </div>
   </div>
   )
