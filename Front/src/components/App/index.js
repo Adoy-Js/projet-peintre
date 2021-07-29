@@ -51,16 +51,6 @@ const App = () => (
       <Route path="/" exact>
         <Home />
       </Route>
-<<<<<<< HEAD
-      <Route path="/paintings" exact>
-        <Paintings />
-        </Route>
-        <Route path="/mural-paintings" exact>
-        <MuralPaintings />
-        </Route>
-=======
-
->>>>>>> develop
       <Route path="/artwork/portrait" exact>
         <Portrait />
       </Route>
