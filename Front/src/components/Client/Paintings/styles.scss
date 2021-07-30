@@ -10,10 +10,12 @@
   color: rgb(42, 42, 42);
   font-size: 1.2em;
   margin-left: 4vh;
+  border-left: 4px solid black;
+  height: 200px;
 }
 
 .menu_item {
-    padding: 1.5rem 0;
+  padding: 1.5rem 0;
 }
 
 .menu_item:hover {
@@ -23,65 +25,70 @@
   color: red;
 }
 
-.header_paintings {
-    margin-top: 2vh;
-}
+.painting {
+  margin-top: 2vh;
 
-.description_content_paintings {
-    padding: 1rem 0;
-}
+  &_title {
+    margin: 1em;
+    font-size: 3em;
+    font-weight: bold;
+  }
 
-.header_paintings h1 {
-    font-size: 2rem;
-}
-
-.header_paintings p {
+  &_description {
+    font-style: italic;
     font-size: 1.5em;
+    margin: 1em;
+  }
 }
 
 .content_paintings {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    margin: 0 auto;
-    width: auto;
-    margin-top: 5vh;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin: 0 auto;
+  width: auto;
+  margin-top: 5vh;
 }
 
 .image_paintings {
-    border: 1px solid black;
-    width: 1500px;
-    height: 500px;
-    margin: 0 4rem 4rem;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  width: 650px;
+  height: 350px;
+  margin: 0 4rem 4rem;
 }
 
 
 @media screen and (max-width: 1024px) {
-    .menu_paintings {
-        flex-direction: row;
-        width: 90%;
-        margin: 0 auto;
-        height: 5vh;
-        align-items: center;
-        float: none;
-    }
-    .menu_links {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 2vh;
-    }
-    .menu_item {
-        padding: 1rem 2rem;
-    }
+  .menu_paintings {
+    flex-direction: row;
+    width: 90%;
+    margin: 0 auto;
+    height: 5vh;
+    align-items: center;
+    float: none;
+    border-left: none;
+  }
 
-    @media screen and (max-width: 767px) {
-        .menu_item {
-            font-size: 1rem;
-            padding: 0.8rem 1.8rem;
-        }
+  .menu_links {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2vh;
+  }
+
+  .menu_item {
+    padding: 1rem 2rem;
+  }
+
+  @media screen and (max-width: 767px) {
+    .menu_item {
+      font-size: 1rem;
+      padding: 0.8rem 1.8rem;
     }
+  }
 }

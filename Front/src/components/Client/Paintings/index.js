@@ -53,9 +53,9 @@ class Paintings extends PureComponent {
     </div> */
 
       <div className="Paintings">
-        <div className="header_paintings" >
-          <h1 className="description_header_paintings">Peintures</h1>
-          <p className="description_header_paintings">Retrouvez mes peintures à l'huile ainsi qu'à l'acryliques</p>
+        <div className="painting" >
+          <h1 className="painting_title">Peintures</h1>
+          <p className="painting_description">Retrouvez mes peintures à l'huile ainsi qu'à l'acryliques</p>
         </div >
 
         <nav className="menu_paintings">

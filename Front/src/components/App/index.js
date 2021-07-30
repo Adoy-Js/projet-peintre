@@ -86,7 +86,7 @@ const App = () => (
         <Biography />
       </Route>
 
-      <Route path="/artwork/sketches" exact>
+      <Route path="/artwork/sketche" exact>
         <Sketches />
       </Route>
       

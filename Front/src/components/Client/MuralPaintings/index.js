@@ -6,9 +6,9 @@ import './styles.scss';
 
 const MuralPaintings = () => (
      <div className="Mural_paintings">
-        <div className="header_paintings">
-          <h1 className="description_header_paintings">Peintures murales</h1>
-          <p className="description_header_paintings">Retrouvez mes projets de peintures murales</p>
+        <div className="mural-painting">
+          <h1 className="mural-painting_title">Peintures murales</h1>
+          <p className="mural-painting_description">Retrouvez mes projets de peintures murales</p>
         </div>
 
         <div className="content_mural_paintings">
