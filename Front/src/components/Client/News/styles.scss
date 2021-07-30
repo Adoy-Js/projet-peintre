@@ -1,0 +1,23 @@
+@use 'src/styles/vars';
+
+.new {
+  margin: 4em;
+  line-height: 2em;
+
+  &_title {
+    font-weight: bolder;
+    font-size: 3em;
+    margin-bottom: .5em;
+  }
+}
+
+.news{
+  margin: 4em;
+  text-align: left;
+  font-size: 1.5em;
+
+  &_footer{
+    padding: .2em;
+    margin-top: 1.5em;
+  }
+}

@@ -1,27 +1,34 @@
 @use 'src/styles/vars';
 
-.Biography {
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  line-height: 2em;
+
+
+.bioImage{
+  float: left;
+  margin-top: 12em;
+  margin-left: 5em;
+  margin-right: 5em;
+  width : 530px; height : 380px;
+  border: none;
+  border-radius : 200px;
 }
 
 .biography {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  margin: 0 auto;
+  line-height: 1.7em;
   position: relative;
-  width: 50%;
   font-size: 1.5rem;
   padding: 2.5em 2.5em;
 
+  &_div{
+    text-indent: 100px; 
+    margin: 3em;
+    text-align: left;
+  }
 
   &_title {
     font-weight: bolder;
     font-size: 2em;
-    margin-bottom: .5em;
+    margin-bottom: 4em;
   }
 
   &_footer{

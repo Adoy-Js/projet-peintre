@@ -1,4 +1,13 @@
 .sketches{
-  padding: 2.5em;
-  font-size: xx-large;
+  
+  &_title{
+    font-weight: bolder;
+    font-size: 3em;
+    margin: 1em;
+  }
+
+  &_intro{
+    font-size: 1.5em;
+    font-style: italic;
+  }
 }

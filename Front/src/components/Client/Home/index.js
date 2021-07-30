@@ -23,9 +23,14 @@ class Home extends PureComponent {
     return (
       <div className="home">
         <div className="welcome">
+          <div className="welcome_title">
           Mon nom est Camille PAUL
-          <br /> Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art
+          </div>
+          <div className="welcome_description"> 
+            Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art
+          </div>
         </div>
+        
         <div className="app">
           <Splide className="image">
             <SplideSlide className="slide">

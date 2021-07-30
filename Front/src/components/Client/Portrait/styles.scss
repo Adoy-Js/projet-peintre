@@ -1,17 +1,37 @@
-.portrait {
+.title{
+  margin: 1em;
+  font-size: 3em;
+  font-weight: bold;
+}
 
+.portraits{
+  font-style: italic;
+  font-size: 1.5em;
+  margin: 1em;
+}
+
+.portrait {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
+  font-size: medium;
+  font-weight: normal;
+  
 
   &_image{
-    width: 25%;
+    width: 20%;
     transition: 1s;
-    &:hover{
-      cursor: pointer;
+    margin: 1em;
+    &:active{
+      transform: scale(2.2);
     }
   }
 
-  &_format{
-    
-  }
+}
+
+.description{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
 }

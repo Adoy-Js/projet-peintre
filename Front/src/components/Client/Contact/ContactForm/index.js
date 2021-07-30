@@ -59,7 +59,7 @@ class ContactForm extends React.Component {
             </div>
 
             <div className="contactForm_message">
-              <input className="contactForm_input_message" name="message" type="text" placeholder="Votre message" value={this.state.message} onChange={this.handleMessageChange} />
+              <textarea className="contactForm_input_message" name="message" type="textarea" placeholder="Votre message" value={this.state.message} onChange={this.handleMessageChange} />
             </div>
 
             <div className="contactForm_submit">

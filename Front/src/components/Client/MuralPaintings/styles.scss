@@ -1,15 +1,18 @@
-.header_paintings {
-    margin-top: 2vh;
-}
+.mural-painting {
+  margin-top: 2vh;
 
-.header_paintings h1 {
-    font-size: 2rem;
-}
+  &_title {
+    margin: 1em;
+    font-size: 3em;
+    font-weight: bold;
+  }
 
-.header_paintings p {
-    font-size: 1.5rem;
+  &_description{
+  font-style: italic;
+  font-size: 1.5em;
+  margin: 1em;
+  }
 }
-
 .description_header_paintings {
     padding: 1rem 0;
 }
@@ -25,7 +28,7 @@
 
 .image_mural_paintings {
     border: 1px solid black;
-    width: 1500px;
-    height: 700px;
+    width: 1200px;
+    height: 550px;
     margin: 0 4rem 4rem;
 }
