@@ -10,7 +10,7 @@ export default {
 
   descriptions: [
     
-    'Peinture Murale Intérieur comme Extérieur',
+    'Peinture Mural, Intérieur comme Extérieur',
     'Commande de Portraits (Peintures,dessins)',
     'Réalisation de portraits en live, pour un évènement spécial (enfants, adultes, personnes âgées, animaux…) '
   ],
