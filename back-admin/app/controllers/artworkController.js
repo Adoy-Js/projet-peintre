@@ -195,19 +195,13 @@ const artworkController = {
 
   deleteArtwork: async (req, res, next) => {
     const { id } = req.params;
-
+    console.log(id);
     try {
       // 1. on retrouve l'artwork
-      const artworkDeleted = await Artwork.findOne(id);
+      //const artworkDeleted = await Artwork.findOne(id);
+      //console.log(artworkDeleted);
 
-      // 2. on retrouve la ligne correspondante dans artwork_has_picture grace a l'id de la news
-      // const relation_picture = await Artwork_has_picture.findByArtworkId(id);
-
-      // 3. on supprime tout ça
-      //on supprime la relation et non la photo, car elle peut etre utilisée autre part
-      // relation_picture.delete();
-
-      await Artwork.delete(artworkDeleted.id_artwork);
+      await Artwork.delete(id);
     } catch (error) {
       console.error(error);
       next();

@@ -110,7 +110,7 @@ class Artwork {
 
   static async findAllPaintings() {
     try {
-        const {rows} = await pool.query(`SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name IN ('oil-painting', 'acrylic_painting')` );
+        const {rows} = await pool.query(`SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name_category IN ('oil-painting', 'acrylic-painting')` );
 
         console.log(rows);
 
