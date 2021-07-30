@@ -36,6 +36,21 @@ class Home extends PureComponent {
             <SplideSlide className="slide">
               {this.state.images.map(image => <img className="image" key={image.id_picture} src={image.image} className="image_slider"></img>)}
             </SplideSlide>
+            <SplideSlide className="slide">
+              {this.state.images.map(image => <img className="image" key={image.id_picture} src={image.image} className="image_slider"></img>)}
+            </SplideSlide>
+            <SplideSlide className="slide">
+              {this.state.images.map(image => <img className="image" key={image.id_picture} src={image.image} className="image_slider"></img>)}
+            </SplideSlide>
+            <SplideSlide className="slide">
+              {this.state.images.map(image => <img className="image" key={image.id_picture} src={image.image} className="image_slider"></img>)}
+            </SplideSlide>
+            <SplideSlide className="slide">
+              {this.state.images.map(image => <img className="image" key={image.id_picture} src={image.image} className="image_slider"></img>)}
+            </SplideSlide>
+            <SplideSlide className="slide">
+              {this.state.images.map(image => <img className="image" key={image.id_picture} src={image.image} className="image_slider"></img>)}
+            </SplideSlide>
           </Splide>
         </div>
       </div>

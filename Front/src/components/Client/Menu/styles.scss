@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   justify-content: space-between;
-  position: sticky;
   padding: .5em;
   width: 100%;
   background-color: #ebe9e9;
@@ -51,7 +50,7 @@
     padding: 2rem;
     width: 0;
     visibility: hidden;
-    z-index: 11;
+    z-index: 100;
     background-color: #f6f6f6;
     color: rgb(42, 42, 42);
     transition: all .8s ease-in-out;
