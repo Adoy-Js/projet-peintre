@@ -12,3 +12,22 @@ body {
   font-family: vars.$family;
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+
+  border: solid 0 transparent;
+	border-right-width: 4px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #e5e5e5;
+}
+
+body::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(38, 109, 131);
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(38, 109, 131, 0.815);
+}
