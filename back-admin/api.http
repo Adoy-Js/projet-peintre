@@ -2,7 +2,7 @@
 GET http://localhost:5000/
 
 ###GET ALL PAINTINGS
-GET http://localhost:5000/artwork/oil-painting
+GET http://localhost:5000/artwork/painting
 
 ### GET ONE CATEGORY
 GET http://localhost:5000/artwork/mural-painting
@@ -69,18 +69,18 @@ POST http://localhost:5000/admin/artwork
 content-type: application/json
 
 {
-    "name_artwork": "champ de blé",
+    "name_artwork": "Portrait test",
     "date" : "2019",
     "place": "Orleans",
     "format": "30 x 30 cm",
-    "description": "peinture peint sur du lin",
-    "category_id": 5,
+    "description": "peinture sur du lin",
+    "category_id": 2,
     "artist_id":1,
-    "image": ["main_picture", "secondPicture", "thirdPicture"]
+    "image": "https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35"
 }
 
 ### DELETE ARTWORK BY CATEGORY
-DELETE http://localhost:5000/admin/artwork/portrait/1
+DELETE http://localhost:5000/admin/artwork/12
 
 ### UPDATE ARTWORK BY CATEGORY
 PATCH http://localhost:5000/admin/artwork/portrait/2

@@ -35,7 +35,7 @@ const adminController = {
 
   isAdmin: async (req, res, next) => {
     console.log("je suis dans isAdmin");
-    next();
+    //next();
     const authHeader = req.headers.Authorization;
     if (authHeader) {
       const token = authHeader.split(" ")[1];
