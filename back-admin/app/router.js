@@ -21,7 +21,7 @@ router.get("/", artistController.getAll);
 
 router.get('/artwork/painting', artworkController.getAllPaintings);
 router.get("/artwork/:category", artworkController.getAllByCategory);
-router.get("/artwork/:category/:id", artworkController.getOne);
+router.get("/artwork/mural-painting/:id", artworkController.getOne);
 
 
 //News

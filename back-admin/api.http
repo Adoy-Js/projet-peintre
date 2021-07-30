@@ -8,8 +8,7 @@ GET http://localhost:5000/artwork/painting
 GET http://localhost:5000/artwork/mural-painting
 
 ### GET ONE ARTWORK
-GET http://localhost:5000/artwork/portrait/2
-
+GET http://localhost:5000/artwork/mural-painting/10
 ### GET ALL NEWS
 GET http://localhost:5000/news/
 
@@ -80,7 +79,7 @@ content-type: application/json
 }
 
 ### DELETE ARTWORK BY CATEGORY
-DELETE http://localhost:5000/admin/artwork/12
+DELETE http://localhost:5000/admin/artwork/14
 
 ### UPDATE ARTWORK BY CATEGORY
 PATCH http://localhost:5000/admin/artwork/portrait/2

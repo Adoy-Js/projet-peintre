@@ -99,7 +99,7 @@ const artworkController = {
               place: req.body.place,
               format: req.body.format,
               description: req.body.description,
-              main_picture : insert_picture.id_picture,
+              main_picture : image,
               category_id: req.body.category_id,
               artist_id: req.body.artist_id,
             });
