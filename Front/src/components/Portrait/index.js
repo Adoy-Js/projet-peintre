@@ -3,10 +3,6 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 
 
-import imgPortrait1 from './img/Portrait_1.jpg'
-import imgPortrait2 from './img/Portrait_2.jpg'
-
-
 // == Imports locaux
 import './styles.scss';
 

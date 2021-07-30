@@ -31,13 +31,24 @@ class ContactForm extends React.Component {
     this.setState({ message: event.target.value });
   }
 
-  handleFirstNameChange(event){
+  handleFirstNameChange(event) {
     this.setState({ firstName: event.target.value });
   }
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.LoginForm();
+    const contact = {
+      email: this.state.email,
+      name: this.state.name,
+      firstName: this.state.firstName,
+      message: this.state.message,
+    };
+
+    axios.post(`http://localhost:5000/contact`, contact)
+      .then(res => {
+        console.log(res);
+        console.log(res.data);
+      })
   }
 
   render() {
