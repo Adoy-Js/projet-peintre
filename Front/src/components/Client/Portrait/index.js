@@ -29,7 +29,7 @@ class Portrait extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="Portraits">
 
         <div className="title">
           Portraits
