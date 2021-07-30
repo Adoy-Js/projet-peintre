@@ -27,7 +27,7 @@ CREATE TABLE artwork (
   place VARCHAR(100), 
   format varchar(50),
   description TEXT,
-  main_picture INT REFERENCES picture (id_picture),
+  main_picture TEXT,
   category_id INT REFERENCES category(id_category),
   artist_id INT REFERENCES artist(id_artist)
 );
