@@ -1,25 +1,12 @@
 @use 'src/styles/vars';
 
 .image_slider {
-  width: 30%;
+  width: 33%;
   object-fit: cover;
 }
 
 .welcome {
-  margin-top: 2vh;
   animation: apparition 0.8s ease-out;
-
-  &_title {
-    margin: 1em;
-    font-size: 3em;
-    font-weight: bold;
-  }
-
-  &_description {
-    font-style: italic;
-    font-size: 1.5em;
-    margin: 1em;
-  }
 }
 
 @keyframes apparition {
@@ -85,8 +72,6 @@
 .splide__slide {
   position: relative;
   outline: none;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .splide__slide {

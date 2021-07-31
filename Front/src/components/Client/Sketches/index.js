@@ -8,12 +8,12 @@ import './styles.scss';
 
 const Sketches = () => (
   <div className="sketches">
-    <div className="sketches_title">
+    <h1>
       Croquis
-    </div>
-    <div className="sketches_intro">
+    </h1>
+    <h2>
       Muni de mon crayon fétiche et de mon carnet je vous présente ici mes croquis les plus incroyables
-    </div>
+    </h2>
   </div>
 );
 

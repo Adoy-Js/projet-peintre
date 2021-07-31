@@ -2,68 +2,32 @@
   animation: apparition 0.8s ease-out;
 }
 
-.menu_paintings {
-  display: flex;
-  float: left;
-  flex-direction: column;
-  justify-content: center;
-  width: 25vh;
-  height: 70vh;
-  background-color: #f6f6f6;
-  border: #f6f6f6;
-  color: rgb(42, 42, 42);
-  font-size: 1.2em;
-  margin-left: 4vh;
-  border-left: 4px solid black;
-  height: 200px;
-}
-
-.menu_item {
-  padding: 1.5rem 0;
-}
-
-.menu_item:hover {
-  background-color: rgb(224, 224, 224);
-  transition: 0.3s;
-  cursor: pointer;
-}
-
 .painting {
-  margin-top: 2vh;
-
-  &_title {
-    margin: 1em;
-    font-size: 3em;
-    font-weight: bold;
-  }
-
-  &_description {
-    font-style: italic;
-    font-size: 1.5em;
-    margin: 1em;
-  }
-}
-
-.content_paintings {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: flex;
   justify-content: center;
-  height: auto;
-  margin: 0 auto;
-  width: auto;
-  margin-top: 5vh;
+  flex-wrap: wrap;
+  font-size: medium;
+  font-weight: normal;
+  
+
+  &_image{
+    width: 35%;
+    transition: 1s;
+    margin: 1em;
+    &:active{
+      transform: scale(2.2);
+    }
+  }
+
 }
 
-.image_paintings {
+.description{
   display: flex;
   flex-direction: row;
-  border: 1px solid black;
-  width: 650px;
-  height: 350px;
-  margin: 0 4rem 4rem;
-}
+  justify-content: space-around;
 
+}
 
 @media screen and (max-width: 1024px) {
   .menu_paintings {
