@@ -6,6 +6,8 @@
   flex-wrap: wrap;
   width: 85%;
   margin: 0 auto;
+
+  animation: apparition 0.8s ease-out;
 }
 
 .biography_title {
@@ -15,18 +17,14 @@
   color: black;
 }
 
-.biography_block{
-  margin-top: 10em;
-  margin-left: 8em;
-  margin-right: 8em;
-}
+
 
 .bioImage{
   width: 35%;
   margin: 0 2em 2em 0;
-  border-radius : 200px;
+  border-radius : 15px;
   float: left;
-  margin-left: 8em;
+  
 }
 
 
@@ -36,7 +34,7 @@
   margin: 2em 0;
   line-height: 1.5em;
   font-size: 1.5em;
-  text-align: center;
+  text-align: left;
   }
 
   &_date{
