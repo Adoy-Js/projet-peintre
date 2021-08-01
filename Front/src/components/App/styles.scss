@@ -1,13 +1,16 @@
 @use 'src/styles/vars';
 
 html {
-  height: 100vh;
+  height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100%;
+
   text-align: center;
   background-color: #f5f5f5;
   font-family: vars.$family;
