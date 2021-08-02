@@ -1,36 +1,39 @@
 // == Import de la lib React
-import React from 'react';
+import React, { PureComponent } from 'react';
+import axios from 'axios';
 
 // == Imports locaux
 import './styles.scss';
 
-const MuralPaintings = () => (
-     <div className="Mural_paintings">
-        <div className="mural-painting">
-          <h1 className="mural-painting_title">Peintures murales</h1>
-          <p className="mural-painting_description">Retrouvez mes projets de peintures murales</p>
+class MuralPaintings extends PureComponent {
+  state = {
+    images: [],
+  }
+
+  componentDidMount() {
+    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting`)
+      .then(res => {
+        const images = res.data;
+        this.setState({ images });
+      })
+  }
+
+  render() {
+    return (
+      <div className="mural_paintings">
+
+        <h1 className="title_mural">
+          Peinture murales
+        </h1>
+
+        <div className="mural">
+          {this.state.images.map((image) => <img className="mural_image" key={image.picture_id} src={image.main_picture}></img>)} 
         </div>
 
-        <div className="content_mural_paintings">
-          <div className="image_mural_paintings">
-            <span className="img"></span>
-            <p className="description_mural_paintings">Nom du projet</p>
-          </div>
-          <div className="image_mural_paintings">
-            <span className="img"></span>
-            <p className="description_mural_paintings">Nom du projet</p>
-          </div>
-          <div className="image_mural_paintings">
-            <span className="img"></span>
-            <p className="description_mural_paintings">Nom du projet</p>
-          </div>
-          <div className="image_mural_paintings">
-            <span className="img"></span>
-            <p className="description_mural_paintings">Nom du projet</p>
-          </div>
-        </div>
-      </div>
-    );
+      </div >
+    )
+  }
+};
 
 // == Export
 export default MuralPaintings;

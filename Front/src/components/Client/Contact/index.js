@@ -14,7 +14,7 @@ import './styles.scss';
 const Contact = ({ descriptions, messages, footermessages }) => (
   <div className="Contact">
     <div className="contact">
-      <p className="contact_title">Contactez-moi</p>
+      <h1>Contactez-moi</h1>
       <div className='contact_div'>
         <div>
           {messages.map((message) => (

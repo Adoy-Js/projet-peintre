@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 
 const contactController = {
-  sendMessage: (req, res, next) => {
+  sendMessage: (req, res) => {
+    console.log(req.body);
     const output = `
     <p>You have a new message</p>
     <h3>Contact Details</h3>

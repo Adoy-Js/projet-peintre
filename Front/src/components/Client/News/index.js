@@ -6,14 +6,14 @@ import './styles.scss';
 
 const News = () => (
   <div className="new">
-    <div className="new_title">
+    <h1>
       Actualité
-    </div>
+    </h1>
       
       <div className="news">
-        <div className="news_div">
+        <h2>
           J'aimerais bien exposer mes oeuvres mais je préfère regarder les oiseaux assis sur ma falaise. j'aime bien, c'est beau les oiseaux.
-        </div>
+        </h2>
         <div className="news_footer">
           Ce serait aussi pratique que je trouve comment descendre rip le confort d'un bon matelat.  <br />
           signé l'artiste moderne

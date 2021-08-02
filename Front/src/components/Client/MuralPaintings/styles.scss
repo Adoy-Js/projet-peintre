@@ -1,3 +1,7 @@
+.Mural_paintings {
+  animation: apparition 0.8s ease-out;
+}
+
 .mural-painting {
   margin-top: 2vh;
 
@@ -13,6 +17,11 @@
   margin: 1em;
   }
 }
+
+.mural_image{
+  width: 40%;
+}
+
 .description_header_paintings {
     padding: 1rem 0;
 }

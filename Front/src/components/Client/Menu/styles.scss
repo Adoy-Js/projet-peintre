@@ -9,6 +9,19 @@
   background-color: #ebe9e9;
   color: rgb(42, 42, 42);
   font-size: 1.2em;
+  animation: apparition-menu 1.1s ease-out;
+}
+
+@keyframes apparition-menu {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .links_menu {

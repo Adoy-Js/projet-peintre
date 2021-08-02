@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import './styles.scss';
 
@@ -8,7 +9,7 @@ class ContactForm extends React.Component {
     this.state = {
       email: '',
       name: '',
-      firstName: '',
+      firstname: '',
       message: '',
     };
 
@@ -17,6 +18,8 @@ class ContactForm extends React.Component {
     this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
     this.handleMessageChange = this.handleMessageChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    
+
   }
 
   handleEmailChange(event) {
@@ -32,7 +35,7 @@ class ContactForm extends React.Component {
   }
 
   handleFirstNameChange(event) {
-    this.setState({ firstName: event.target.value });
+    this.setState({ firstname: event.target.value });
   }
 
   handleSubmit(evt) {
@@ -40,7 +43,7 @@ class ContactForm extends React.Component {
     const contact = {
       email: this.state.email,
       name: this.state.name,
-      firstName: this.state.firstName,
+      firstname: this.state.firstname,
       message: this.state.message,
     };
 
@@ -62,11 +65,11 @@ class ContactForm extends React.Component {
             </div>
 
             <div className="contactForm_firstName">
-              <input className="contactForm_input_firstName" name="firstName" type="text" placeholder="Prénom" value={this.state.firstName} onChange={this.handleFirstNameChange} />
+              <input className="contactForm_input_firstName" name="firstName" type="text" placeholder="Prénom" value={this.state.firstname} onChange={this.handleFirstNameChange} />
             </div>
 
             <div className="contactForm_mail">
-              <input className="contactForm_input_mail" name="mail" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
+              <input className="contactForm_input_mail" name="email" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
             </div>
 
             <div className="contactForm_message">

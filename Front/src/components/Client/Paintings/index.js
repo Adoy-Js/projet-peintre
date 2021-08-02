@@ -6,7 +6,7 @@ import axios from 'axios';
 import './styles.scss';
 
 class Paintings extends PureComponent {
-  /*state = {
+  state = {
     titles: [],
     images: [],
     descriptions: [],
@@ -16,7 +16,7 @@ class Paintings extends PureComponent {
 
   componentDidMount() {
     axios.get(`https://projet-peintre.herokuapp.com/artwork/painting`)
-      .then(res => {
+ .then(res => {
         const images = res.data;
         this.setState({ images });
         const descriptions = res.data;
@@ -25,64 +25,33 @@ class Paintings extends PureComponent {
         this.setState({ formats });
         const dates = res.data;
         this.setState({ dates });
-        const titles = res.data;
-        this.setState({ titles });
       })
-  }*/
+  }
 
   render() {
     return (
-      /*<div className="Paintings">
-
-        <div className="content_paintings">
-          {this.state.titles.map(title => <img className="description_paintings" key={title.picture_id} src={title.title}></img>)}
-        </div>
-
-        <div className="content_paintings">
-          <div className="image_paintings">
-            {this.state.images.map(image => <img className="portrait_image" key={image.picture_id} src={image.image}></img>)}
-          </div>
-        </div>
-
-        <div>
-          {this.state.formats.map(format => <span className="format" key={format.picture_id}>{format.format}</span>)}
-        </div>   
-
-        <div>
-          {this.state.dates.map(date => <span className="date" key={date.picture_id}>{date.date}</span>)}
-    </div> */
-
       <div className="Paintings">
-        <div className="painting" >
-          <h1 className="painting_title">Peintures</h1>
-          <p className="painting_description">Retrouvez mes peintures à l'huile ainsi qu'à l'acryliques</p>
-        </div >
 
-        <nav className="menu_paintings">
-          <ul className="menu_links">
-            <li className="menu_item">Toutes les peintures</li>
-            <li className="menu_item">Peintures acryliques</li>
-            <li className="menu_item">Peintures à l'huile d'olive</li>
-          </ul>
-        </nav>
+        <h1>
+          Peintures
+        </h1>
 
-        <div className="content_paintings">
-          <div className="image_paintings">
-            <span className="img"></span>
-            <p className="description_paintings">Nom du projet</p>
-          </div>
-          <div className="image_paintings">
-            <span className="img"></span>
-            <p className="description_paintings">Nom du projet</p>
-          </div>
-          <div className="image_paintings">
-            <span className="img"></span>
-            <p className="description_paintings">Nom du projet</p>
-          </div>
-          <div className="image_paintings">
-            <span className="img"></span>
-            <p className="description_paintings">Nom du projet</p>
-          </div>
+        <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
+
+        <div className="painting">
+          {this.state.images.map(image => <img className="painting_image" key={image.picture_id} src={image.image}></img>)}
+        </div>
+
+        <div className="description">
+          {this.state.descriptions.map(description => <span className="description" key={description.picture_id}>{description.description}</span>)}
+        </div>
+
+        <div className="description">
+          {this.state.formats.map(format => <span className="description_format" key={format.picture_id}>{format.format}</span>)}
+        </div>
+
+        <div className="description">
+          {this.state.dates.map(date => <span className="description_date" key={date.picture_id}>{date.date}</span>)}
         </div>
 
       </div >

@@ -1,25 +1,25 @@
 @use 'src/styles/vars';
 
-.image_slider{
-    width: 30%;
-    object-fit: cover;
+.image_slider {
+  width: 33%;
+  object-fit: cover;
+}
+
+.welcome {
+  animation: apparition 0.8s ease-out;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
   }
 
-  .welcome {
-    margin-top: 2vh;
-  
-    &_title {
-      margin: 1em;
-      font-size: 3em;
-      font-weight: bold;
-    }
-  
-    &_description{
-    font-style: italic;
-    font-size: 1.5em;
-    margin: 1em;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
+}
 
 @keyframes splide-loading {
   0% {
@@ -72,8 +72,6 @@
 .splide__slide {
   position: relative;
   outline: none;
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 
 .splide__slide {
@@ -632,6 +630,5 @@
   height: 20px
 }
 
-@media (orientation: portrait), screen and (max-width: 500px) {
-  
-}
+@media (orientation: portrait),
+screen and (max-width: 500px) {}

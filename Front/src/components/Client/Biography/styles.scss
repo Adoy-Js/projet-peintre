@@ -1,40 +1,77 @@
 @use 'src/styles/vars';
 
+body{
+  background-image: url('./img/FOND\ GRIS2\ .jpg') ;
+}
+
+.Biography {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 85%;
+  margin: 0 auto;
+  animation: apparition 0.8s ease-out;
+}
+
+.biography_title {
+  font-size: 3em;
+  font-weight: 700;
+  margin: 1em 0;
+  color: black;
+}
+
 
 
 .bioImage{
+  width: 35%;
+  margin: 0 2em 2em 0;
+  border-radius : 15px;
   float: left;
-  margin-top: 12em;
-  margin-left: 5em;
-  margin-right: 5em;
-  width : 530px; height : 380px;
-  border: none;
-  border-radius : 200px;
+  
 }
 
-.biography {
-  margin: 0 auto;
-  line-height: 1.7em;
-  position: relative;
-  font-size: 1.5rem;
-  padding: 2.5em 2.5em;
 
-  &_div{
-    text-indent: 100px; 
-    margin: 3em;
-    text-align: left;
+.biography{
+
+  &_div {
+  margin: 2em 0;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  text-align: left;
   }
 
-  &_title {
-    font-weight: bolder;
-    font-size: 2em;
-    margin-bottom: 4em;
+  &_date{
+    font-weight: bold;
+  }
+  &_country{
+    color: rgb(0, 0, 0);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .Biography {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .bioImage {
+    float: none;
+    margin: 0 0 2em 0;
+    width: 82%;
   }
 
-  &_footer{
-    padding: .2em;
-    text-align: left;
-    margin-top: 1.5em;
+  .biography_div {
+    text-align: center justify;
+    margin: 0 0 2em 0;
+  }
+}
+
+@media screen and (max-width: 397px) {
+  .biography_div {
+    font-size: 1.2em;
   }
 
+  .bioImage {
+    width: 100%;
+  }
 }

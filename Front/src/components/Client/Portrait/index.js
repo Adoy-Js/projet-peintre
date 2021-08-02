@@ -29,30 +29,29 @@ class Portrait extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="Portraits">
 
-        <div className="title">
+        <h1>
           Portraits
-        </div>
+        </h1>
 
-        <p className="portraits">Pourquoi vous contenter d'un selfie quand le dessin existe ?</p>
+        <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
 
         <div className="portrait">
           {this.state.images.map(image => <img className="portrait_image" key={image.picture_id} src={image.image}></img>)}
         </div>
 
-        <div className="description">
-          {this.state.descriptions.map(description => <span className="description" key={description.picture_id}>{description.description}</span>)}
-        </div>
+          <div className="description">
+            {this.state.descriptions.map(description => <span className="description" key={description.picture_id}>{description.description}</span>)}
+          </div>
 
-        <div className="description">
-          {this.state.formats.map(format => <span className="description_format" key={format.picture_id}>{format.format}</span>)}
-        </div>
+          <div className="description">
+            {this.state.formats.map(format => <span className="description_format" key={format.picture_id}>{format.format}</span>)}
+          </div>
 
-        <div className="description">
-          {this.state.dates.map(date => <span className="description_date" key={date.picture_id}>{date.date}</span>)}
-        </div>
-
+          <div className="description">
+            {this.state.dates.map(date => <span className="description_date" key={date.picture_id}>{date.date}</span>)}
+          </div>
       </div >
     )
   }

@@ -3,12 +3,8 @@
 .new {
   margin: 4em;
   line-height: 2em;
+  animation: apparition 0.8s ease-out;
 
-  &_title {
-    font-weight: bolder;
-    font-size: 3em;
-    margin-bottom: .5em;
-  }
 }
 
 .news{

@@ -6,6 +6,7 @@
   flex-wrap: wrap;
   justify-content: space-around;
   line-height: 2em;
+  animation: apparition 0.8s ease-out;
 }
 
 .contact {
@@ -17,12 +18,6 @@
   font-size: 1.5rem;
   padding: 2.5em 2.5em;
 
-
-  &_title {
-    font-weight: bolder;
-    font-size: 2em;
-    margin-bottom: .5em;
-  }
 
   &_footer,
   &_message,
