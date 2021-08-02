@@ -2,13 +2,14 @@
 
 .welcome {
   animation: apparition 0.8s ease-out;
+  height: 100vh;
+}
+
+.slide img {
+  max-height: 625px;
 }
 
 .carousel .thumbs {
-  display: none;
-}
-
-.carousel .control-dots {
   display: none;
 }
 
@@ -20,10 +21,55 @@
   width: 50%;
 }
 
-.control-arrow {
-  color:  red;
+.carousel.carousel-slider {
+  overflow: inherit;
 }
 
+.carousel .control-next.control-arrow, .carousel .control-next.control-arrow:hover{
+  background-color: transparent;
+  right: 20%;
+}
+
+.carousel .control-prev.control-arrow, .carousel .control-prev.control-arrow:hover {
+  background-color: transparent;
+  left: 20%;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+  opacity: 1;
+}
+
+.carousel .control-next.control-arrow:before {
+  content: '';
+  border: solid rgb(135, 170, 128);
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 14px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.carousel .control-prev.control-arrow:before {
+  content: '';
+  border: solid rgb(135, 170, 128);
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 14px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.carousel .dot {
+  color: rgb(96, 122, 91);
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .control-arrow {
+    display: none;
+  }
+}
 
 @media screen and (max-width: 767px) {
   .carousel .slide img {
