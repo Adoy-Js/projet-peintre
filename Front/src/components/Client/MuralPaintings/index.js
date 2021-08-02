@@ -26,8 +26,11 @@ class MuralPaintings extends PureComponent {
           Peinture murales
         </h1>
 
-        <div className="mural">
-          {this.state.images.map((image) => <img className="mural_image" key={image.picture_id} src={image.main_picture}></img>)} 
+        <div className="mural_gallery">
+          {this.state.images.map((image) => 
+          <div className="mural_div">
+            <img className="mural_image" key={image.picture_id} src={image.main_picture}></img>
+          </div>)} 
         </div>
 
       </div >
