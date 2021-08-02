@@ -1,31 +1,27 @@
 .Portraits {
   animation: apparition 0.8s ease-out;
+  height: 100vh auto;
 }
 
-.portrait {
+.portrait_gallery {
   display: flex;
-  flex-direction: row;
-  margin: 5%;
-  font-size: medium;
-  font-weight: normal;
-
-
-  &_image {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 20%;
-    transition: 1s;
-    margin: 1em;
-    cursor: pointer;
-
-  }
-
-  &:active {
-    transform: scale(2.2);
-  }
-
-&_div {
-  padding: 1em;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 70px auto 150px;
 }
 
+.portrait_div {
+  padding: 50px;
+}
+
+.portrait_image {
+  width: 600px;
+  height: 600px;
+}
+
+@media screen and (max-width: 767px) {
+  .portrait_image{
+    width: 100%;
+    height: auto;
+  }
 }
