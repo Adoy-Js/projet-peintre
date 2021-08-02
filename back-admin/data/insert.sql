@@ -11,7 +11,7 @@ INSERT INTO category (name_category) VALUES
 ('mural-painting');
 
 INSERT INTO picture (name_picture, image) VALUES
-('Sur un air de guitare', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D1.%20Sur%20un%20ai[…]?alt=media&token=d9d1e9e3-9e50-4188-91a5-00547c342b83'),
+('Sur un air de guitare', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D1.%20Sur%20un%20air%20de%20musique%20HD%202017.jpg?alt=media&token=d9d1e9e3-9e50-4188-91a5-00547c342b83'),
 ('Portrait homme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35'),
 ('Portait femme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D3.%20Portrait%202.jpg?alt=media&token=c1525ca6-4be7-4a86-b853-35cbb69c63c5'),
 ('Camille sur un rocher', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_sur_rocher.jpg?alt=media&token=f8a301d1-3406-4511-a29d-cb5db6c60ffd'),
@@ -21,7 +21,7 @@ INSERT INTO picture (name_picture, image) VALUES
 ('Greenstone Hike','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/GREENSTONE%20HIKE.jpg?alt=media&token=63a88fa7-970b-4315-ba78-0bb17dac4032'),
 ('Isthmus Peak','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/ISTHMUS%20PEAK.jpg?alt=media&token=48e6c8c8-b1dc-42b1-aea7-3a26db6babd2'),
 ('Castlemaine Bushes','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/BUSH%20PAINTING%20.jpg?alt=media&token=f450dcc3-1dad-440a-8968-ac1d90ef9bf5'),
-('The Grampians','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/THE%20GRAMPIANS.jpg?alt=media&token=9f0c1c39-7c5b-464c-8aa9-e40cc526465d'),
+('The Grampians','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/THE%20GRAMPIANS%20(1).jpg?alt=media&token=78a4c7d1-9c73-426c-88c1-5ff4df57cf00'),
 ('Atelier', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/1.jpg?alt=media&token=4960c70b-7bc5-4387-beb9-4414569bab67'),
 ('Porte-manteau', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/3.jpg?alt=media&token=504441c0-3d7c-44cb-b240-980d9dbd20ef'),
 ('Matériau', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/2.jpg?alt=media&token=5f6d52d1-f236-4e1a-b924-f36cdf0c94c2'),

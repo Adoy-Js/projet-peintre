@@ -19,7 +19,7 @@ class Artist {
   static async findAll() {
     try {
       const { rows } = await db.query(
-        "SELECT * FROM artist JOIN artist_has_picture ON artist_has_picture.artist_id = artist.id_artist JOIN picture ON picture.id_picture = artist_has_picture.picture_id"
+        "SELECT id_artist, array_agg(image) as image FROM artist JOIN artist_has_picture ON artist_has_picture.artist_id = artist.id_artist JOIN picture ON picture.id_picture = artist_has_picture.picture_id GROUP BY id_artist"
       );
 
       return rows.map((row) => new Artist(row));
