@@ -1,7 +1,6 @@
 @use 'src/styles/vars';
 
 body{
-  background-image: url('./img/FOND\ GRIS2\ .jpg') ;
 }
 
 .Biography {
@@ -11,6 +10,7 @@ body{
   width: 85%;
   margin: 0 auto;
   animation: apparition 0.8s ease-out;
+
 }
 
 .biography_title {
@@ -23,11 +23,9 @@ body{
 
 
 .bioImage{
-  width: 35%;
-  margin: 0 2em 2em 0;
-  border-radius : 15px;
-  float: left;
-  
+  width: 30%;
+  margin: 1em 0  0 1em;
+  border-radius: 10px;
 }
 
 
@@ -38,6 +36,10 @@ body{
   line-height: 1.5em;
   font-size: 1.5em;
   text-align: left;
+  justify-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  text-indent: 5%;
   }
 
   &_date{

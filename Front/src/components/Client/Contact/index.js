@@ -12,9 +12,11 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Contact = ({ descriptions, messages, footermessages }) => (
-  <div className="Contact">
-    <div className="contact">
-      <h1>Contactez-moi</h1>
+    <div className="Contact">
+    <div className="cont">
+      <div className="title">
+          <h1>Contactez-moi</h1>
+      </div>
       <div className='contact_div'>
         <div>
           {messages.map((message) => (
@@ -45,7 +47,6 @@ const Contact = ({ descriptions, messages, footermessages }) => (
       <Form />
     </div>
   </div>
-
 );
 
 // Validation des props
