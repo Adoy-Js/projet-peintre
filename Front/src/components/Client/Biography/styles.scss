@@ -1,12 +1,15 @@
 @use 'src/styles/vars';
 
+body{
+  background-image: url('./img/FOND\ GRIS2\ .jpg') ;
+}
+
 .Biography {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   width: 85%;
   margin: 0 auto;
-
   animation: apparition 0.8s ease-out;
 }
 

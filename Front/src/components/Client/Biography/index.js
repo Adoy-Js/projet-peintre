@@ -7,8 +7,8 @@ import './styles.scss';
 
 const Biography = () => (
   <div className="Biography">
+    <h1>Biographie</h1>
     <div className="biography">
-      <h1>Biographie</h1>
       <img className="bioImage" src={bioImage} alt="biographie"></img>
       <div className="biography_block">
         <div className="biography_div">
