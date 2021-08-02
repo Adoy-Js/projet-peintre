@@ -8,9 +8,6 @@ import './styles.scss';
 class Portrait extends PureComponent {
   state = {
     images: [],
-    descriptions: [],
-    formats: [],
-    dates: [],
   }
 
   componentDidMount() {
@@ -18,12 +15,6 @@ class Portrait extends PureComponent {
       .then(res => {
         const images = res.data;
         this.setState({ images });
-        const descriptions = res.data;
-        this.setState({ descriptions },);
-        const formats = res.data;
-        this.setState({ formats });
-        const dates = res.data;
-        this.setState({ dates });
       })
   }
 
@@ -38,20 +29,11 @@ class Portrait extends PureComponent {
         <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
 
         <div className="portrait">
-          {this.state.images.map(image => <img className="portrait_image" key={image.picture_id} src={image.image}></img>)}
+          {this.state.images.map(image => <div className="portrait_div" key={image.id_artwork}>
+            <img className="portrait_image" key={image.picture_id} src={image.image}></img>
+            <div className="portrait_description">{image.description}{image.format}{image.date}</div>
+          </div>)}
         </div>
-
-          <div className="description">
-            {this.state.descriptions.map(description => <span className="description" key={description.picture_id}>{description.description}</span>)}
-          </div>
-
-          <div className="description">
-            {this.state.formats.map(format => <span className="description_format" key={format.picture_id}>{format.format}</span>)}
-          </div>
-
-          <div className="description">
-            {this.state.dates.map(date => <span className="description_date" key={date.picture_id}>{date.date}</span>)}
-          </div>
       </div >
     )
   }

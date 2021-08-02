@@ -5,26 +5,27 @@
 .portrait {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  margin: 5%;
   font-size: medium;
   font-weight: normal;
-  
 
-  &_image{
+
+  &_image {
+    flex-wrap: wrap;
+    justify-content: center;
     width: 20%;
     transition: 1s;
     margin: 1em;
-    &:active{
-      transform: scale(2.2);
-    }
+    cursor: pointer;
+
   }
 
+  &:active {
+    transform: scale(2.2);
+  }
+
+&_div {
+  padding: 1em;
 }
 
-.description{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
 }

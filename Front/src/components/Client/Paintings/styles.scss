@@ -4,28 +4,30 @@
 
 .painting {
   display: flex;
-  flex-direction: flex;
   justify-content: center;
   flex-wrap: wrap;
-  font-size: medium;
   font-weight: normal;
+  
   
 
   &_image{
-    width: 35%;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
     transition: 1s;
     margin: 1em;
+    cursor: pointer;
     &:active{
       transform: scale(2.2);
     }
   }
 
-}
-
-.description{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  &_description{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    justify-content: left;
+  }
 
 }
 

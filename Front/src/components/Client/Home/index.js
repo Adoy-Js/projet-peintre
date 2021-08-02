@@ -1,6 +1,7 @@
 // == Import npm
 import React, { PureComponent } from 'react';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
 
 import './styles.scss';
@@ -21,27 +22,19 @@ class Home extends PureComponent {
 
   render() {
     return (
-      <div className="home">
-        <div className="welcome">
-          <h1>beuleu beuleu beuleu</h1>
-          <h2>
-            Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art
-          </h2>
-        </div>
-
-        <div className="app">
-        <Splide className="image">
-              {this.state.images.map((image) => (
-                <SplideSlide className="slide">
-                      <img key={image.id_artist} className="image"src={image.image} className="image_slider"/>
-                 </SplideSlide>
-             ))}
-          </Splide>
-        </div>
+      <div>
+        <h1>Camille PAUL</h1>
+        <Carousel autoPlay interval={6000} infiniteLoop showStatus={false}>
+        {this.state.images.map(image =>
+        <img key={image.id_artist} className="Home_image"src={image.image} className="image_slider"/>)}
+      </Carousel>
       </div>
+      
     )
+  
   }
-};
+}
+
 
 // == Export
 export default Home;

@@ -32,7 +32,8 @@ class Paintings extends PureComponent {
           {this.state.images.map(image =>
             <div className="painting_image" key={image.id_artwork}>
               <img className="painting_image" src={image.image}></img>
-              {image.name_artwork}{image.format}{image.date}</div>)}
+              <div className="painting_description">{image.name_artwork} {image.format} {image.date}</div>
+              </div>)}
         </div>
       </div >
     )
