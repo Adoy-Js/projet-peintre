@@ -19,7 +19,11 @@
 }
 
 .mural_image{
-  width: 40%;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  margin: 3em;
+  width: 70%;
 }
 
 .description_header_paintings {

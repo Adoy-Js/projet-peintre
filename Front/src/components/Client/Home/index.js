@@ -8,7 +8,7 @@ import './styles.scss';
 // == Composant
 class Home extends PureComponent {
   state = {
-    images: []
+    images: [],
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class Home extends PureComponent {
     return (
       <div className="home">
         <div className="welcome">
-          <h1>Mon nom est Camille PAUL</h1>
+          <h1>beuleu beuleu beuleu</h1>
           <h2>
             Je souhaite vous montrer qui je suis et vous partager mes voyages à travers mon art
           </h2>
@@ -33,7 +33,7 @@ class Home extends PureComponent {
         <Splide className="image">
               {this.state.images.map((image) => (
                 <SplideSlide className="slide">
-                      <img className="image" key={image.id_picture} src={image.image} className="image_slider"/>
+                      <img key={image.id_artist} className="image"src={image.image} className="image_slider"/>
                  </SplideSlide>
              ))}
           </Splide>
