@@ -15,7 +15,7 @@ const contactController = {
   `;
 
     const transporter = nodemailer.createTransport({
-      service: "smtp.gmail.com",
+      service: "gmail",
       auth: {
         user: process.env.EMAIL,
         pass: process.env.PASS,
