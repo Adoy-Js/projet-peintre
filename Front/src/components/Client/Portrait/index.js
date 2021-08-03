@@ -35,10 +35,10 @@ class Portrait extends PureComponent {
             <div className="portrait_div" key={image.id_artwork}>
             
               <img className="portrait_image" key={image.picture_id} src={image.image}></img>
-              <p className="portrait_description">{image.description}{image.format}{image.date}</p>
+              <p className="portrait_description">{image.description} {image.format} {image.date}</p>
             
           </div> )}
-          </div>
+        </div>
 
       </div >
     )

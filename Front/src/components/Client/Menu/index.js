@@ -19,8 +19,8 @@ function Menu () {
     <nav className={`menu ${showLinks ? "show-nav" : "hide-nav"} `}>
       <a href="/" className="item_menu menu_logo"><img className="logo_menu" src="" alt="" /></a>
       <ul className="links_menu">
-        <li className="item_menu slideInDown-1">
-          <a href="/" className="link_menu none">Accueil</a>
+        <li className="item_menu slideInDown-2">
+          <a href="/" className="link_menu">Accueil</a>
         </li>
         <li className="item_menu slideInDown-2">
           <a href="/artwork/sketche" className="link_menu">Croquis</a>
