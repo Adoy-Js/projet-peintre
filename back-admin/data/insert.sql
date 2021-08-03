@@ -17,7 +17,7 @@ INSERT INTO picture (name_picture, image) VALUES
 ('Camille sur un rocher', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_sur_rocher.jpg?alt=media&token=f8a301d1-3406-4511-a29d-cb5db6c60ffd'),
 ('Camille qui dessine avec un long crayon', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_crayon.jpg?alt=media&token=89227e25-5195-4ed4-bed8-ad47409a0d18'),
 ('Chevalet devant une rivière', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Chevalet_riviere.jpg?alt=media&token=932f8e16-7377-4087-a662-37c2062c52e8'),
-('Spirit','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/SPIRIT.jpg?alt=media&token=52a3e5ea-4f89-4a26-a779-1c3b462a0574'),
+('Spirit','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/SPIRIT%20(1).jpg?alt=media&token=2a47b954-20bb-4c45-aa16-9648abdce949'),
 ('Greenstone Hike','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/GREENSTONE%20HIKE.jpg?alt=media&token=63a88fa7-970b-4315-ba78-0bb17dac4032'),
 ('Isthmus Peak','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/ISTHMUS%20PEAK.jpg?alt=media&token=48e6c8c8-b1dc-42b1-aea7-3a26db6babd2'),
 ('Castlemaine Bushes','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/BUSH%20PAINTING%20.jpg?alt=media&token=f450dcc3-1dad-440a-8968-ac1d90ef9bf5'),

@@ -25,7 +25,7 @@ class Artwork {
   static async findByCategory(category) {
     try {
       const query = {
-        text: `SELECT id_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name_category = $1 GROUP BY id_artwork;`,
+        text: `SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name_category = $1 GROUP BY id_artwork;`,
         values: [category],
       };
 
@@ -42,7 +42,7 @@ class Artwork {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT id_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN artwork_has_picture ON artwork_has_picture.artwork_id = artwork.id_artwork FULL JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE id_artwork = $1 GROUP BY id_artwork;",
+        text: "SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN artwork_has_picture ON artwork_has_picture.artwork_id = artwork.id_artwork FULL JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE id_artwork = $1 GROUP BY id_artwork;",
         values: [id],
       };
 
