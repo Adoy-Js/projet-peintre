@@ -28,6 +28,14 @@ class Paintings extends PureComponent {
 
         <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
 
+      <nav className="menu_paintings">
+        <ul className="menu_links">
+          <li className="menu_item">Toutes les peintures</li>
+          <li className="menu_item">Peintures acryliques</ li>
+          <li className="menu_item">Peintures à l'huile</li>
+        </ul>
+      </nav>
+
         <div className="painting_gallery">
 
           {this.state.images.map(image =>

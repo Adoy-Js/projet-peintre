@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 70px auto 150px;
+  margin: 70px 0 320px 150px;
 }
 
 .painting_div{
@@ -15,13 +15,88 @@
 }
 
 .painting_image {
-  width: 400px;
+  width: 600px;
   height: auto;
+}
+
+.menu_paintings {
+  display: flex;
+  float: left;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  width: 20vh;
+  height: 70vh;
+  background: transparent;
+  border: #f6f6f6;
+  color: rgb(42, 42, 42);
+  font-size: 1.2em;
+  margin-left: 4vh;
+}
+
+.menu_item {
+    padding: 1.5rem 0;
+    margin: 1rem 0;
+    border-bottom: 1px solid rgb(135, 170, 128);
+}
+
+.menu_item:hover {
+  background-color: rgb(135, 170, 128);
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+  .painting_gallery {
+    margin: 0 auto;
+  }
+  
+  .menu_paintings {
+      flex-direction: row;
+      width: 90%;
+      margin: 0 auto;
+      height: 5vh;
+      align-items: center;
+      float: none;
+  }
+
+  .menu_links {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 2vh;
+  }
+
+  .menu_item {
+      padding: 1rem 2rem;
+      margin: 0 1rem;
+  }
+
+  .menu_paintings {
+    position: sticky;
+  }
 }
 
 @media screen and (max-width: 767px) {
   .painting_image {
     width: 100%;
     height: auto;
+  }
+
+  .menu_item {
+    font-size: 1rem;
+    padding: 0.8rem 1.8rem;
+    margin: 0 0.5rem;
+}
+
+}
+
+@media screen and (max-width: 397px) {
+  .menu_item {
+    border: none;
   }
 }
