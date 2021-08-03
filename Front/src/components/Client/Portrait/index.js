@@ -36,7 +36,7 @@ class Portrait extends PureComponent {
             
               <img className="portrait_image" key={image.picture_id} src={image.image}></img>
               <p className="portrait_description">{image.description} {image.format} {image.date}</p>
-            
+              <hr></hr>
           </div> )}
         </div>
 

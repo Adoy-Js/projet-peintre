@@ -20,7 +20,7 @@
 .portrait_div:active {
   transform: scale(2);
 
-  background: rgba(0, 0, 0, 0.301);
+  background: rgba(36, 51, 34, 0.37);
 }
 
 .portrait_image {
@@ -28,9 +28,22 @@
   height: 420px;
 }
 
+hr {
+  border: none;
+}
+
 @media screen and (max-width: 767px) {
   .portrait_image{
     width: 100%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 997px) {
+  hr {
+    width: 90%;
+    border: 1px solid rgb(135, 170, 128);
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 }
