@@ -5,6 +5,7 @@ import axios from 'axios';
 // == Imports locaux
 import './styles.scss';
 
+
 class MuralPaintings extends PureComponent {
   state = {
     images: [],
@@ -26,11 +27,17 @@ class MuralPaintings extends PureComponent {
           Peinture murales
         </h1>
 
-        <div className="mural_gallery">
-          {this.state.images.map((image) => 
-          <div className="mural_div">
-            <img className="mural_image" key={image.picture_id} src={image.main_picture}></img>
-          </div>)} 
+        <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
+
+        <div className="mural">
+          {this.state.images.map((image) =>
+              <div className="mural_div">
+                <h3 className="mural_title"> {image.name_artwork} </h3>
+                <a href={`/artwork/mural-painting/${image.id_artwork}`} className="link_muralPainting"> <img className="mural_image" key={image.picture_id} src={image.main_picture} /></a>
+                <div className="mural_information"> {image.place} {image.format} {image.date}</div>
+                <hr  className="line" />
+              </div>
+          )}
         </div>
 
       </div >

@@ -5,6 +5,17 @@
   height: 100vh;
 }
 
+.underline {
+  border-bottom: 4px solid rgb(135, 170, 128);
+  transition: 0.5s;
+}
+
+.underline:hover {
+  background: rgb(135, 170, 128);
+  color: white;
+  transition: 0.5s;
+}
+
 .slide img {
   max-height: 625px;
 }
