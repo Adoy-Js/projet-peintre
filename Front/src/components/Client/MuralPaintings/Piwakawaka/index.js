@@ -3,13 +3,13 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 
 
-class Narnia extends PureComponent {
+class Piwakawaka extends PureComponent {
   state = {
     images: [],
   }
 
   componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/10`)
+    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/11`)
       .then(res => {
         const images = res.data;
         this.setState({ images });
@@ -21,7 +21,7 @@ class Narnia extends PureComponent {
       <div className="mural_paintings">
 
         <h1 className="title_mural">
-          Narnia
+        Piwakawaka
         </h1>
 
         <div className="mural_gallery">
@@ -38,5 +38,4 @@ class Narnia extends PureComponent {
 };
 
 // == Export
-export default Narnia;
-
+export default Piwakawaka;

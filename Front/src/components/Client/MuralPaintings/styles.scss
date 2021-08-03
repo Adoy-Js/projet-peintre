@@ -13,7 +13,7 @@
 }
 
   &_image {
-  width: 1200px;
+  width: 90%;
   height: auto;
   padding: 2em;
   background-color: white;
@@ -40,6 +40,16 @@
   color: rgb(135, 170, 128);;
   width: 80%;
   border: 1px solid rgb(135, 170, 128);
+}
+
+.description{
+  margin: 2em;
+  line-height: 1.8em;
+  font-size: 1.6em;
+  justify-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  text-indent: 5%;
 }
 
 @media screen and (max-width: 767px) {

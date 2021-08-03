@@ -48,9 +48,38 @@
   &_footer {
     margin-top: 1.5em;
   }
+}
 
-  &_div{
-    font-size: large;
+@media screen and (max-width: 1024px) {
+  .contact {
+    font-size: 1.5rem;
+  
+  
+    &_footer,
+    &_message,
+    &_description,
+    &_descriptions_list,
+    &_footer_message {
+      text-align: center;
+    }
+  
+  
+    &_descriptions_text {
+      font-weight: bolder;
+      font-size: 1.2em;
+      padding: 0.4em;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+  
+    &_descriptions {
+      margin-top: 1.5em;
+      list-style: inside;
+      list-style-position: inside;
+    }
+  
+    &_footer {
+      margin-top: 1.5em;
+    }
   }
-
 }

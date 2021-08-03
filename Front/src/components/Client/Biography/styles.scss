@@ -1,8 +1,5 @@
 @use 'src/styles/vars';
 
-body{
-}
-
 .Biography {
   display: flex;
   justify-content: center;
@@ -10,7 +7,6 @@ body{
   width: 85%;
   margin: 0 auto;
   animation: apparition 0.8s ease-out;
-
 }
 
 
@@ -70,11 +66,15 @@ body{
 }
 
 @media screen and (max-width: 397px) {
+  .Biography h1 {
+    margin: 48px 0;
+  }
+  
   .biography_div {
     font-size: 1.2em;
   }
 
   .bioImage {
-    width: 100%;
+    width: 85%;
   }
 }

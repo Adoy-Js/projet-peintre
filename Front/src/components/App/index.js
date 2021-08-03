@@ -25,6 +25,10 @@ import Biography from 'src/components/Client/Biography';
 import Sketches from 'src/components/Client/Sketches';
 // Ajout du composant Narnia
 import Narnia from 'src/components/Client/MuralPaintings/Narnia';
+// Ajout du composant Durtal
+import Durtal from 'src/components/Client/MuralPaintings/Durtal';
+// Ajout du composant Piwakawaka
+import Piwakawaka from 'src/components/Client/MuralPaintings/Piwakawaka';
 
 
 
@@ -95,6 +99,13 @@ const App = () => (
 
       <Route path="/artwork/mural-painting/10" exact >
         <Narnia />
+      </Route>
+
+      <Route path="/artwork/mural-painting/9" exact >
+        <Durtal />
+      </Route>
+      <Route path="/artwork/mural-painting/11" exact >
+        <Piwakawaka />
       </Route>
       
     </BrowserRouter>

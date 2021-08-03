@@ -13,7 +13,7 @@ import './styles.scss';
 
 const Contact = ({ descriptions, messages, footermessages }) => (
     <div className="Contact">
-    <div className="cont">
+    <div className="contact">
       <div className="title">
           <h1>Contactez-moi</h1>
       </div>
