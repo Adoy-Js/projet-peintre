@@ -30,9 +30,9 @@ class Paintings extends PureComponent {
 
       <nav className="menu_paintings">
         <ul className="menu_links">
-          <li className="menu_item">Toutes les peintures</li>
-          <li className="menu_item">Peintures acryliques</ li>
-          <li className="menu_item">Peintures à l'huile</li>
+          <li className="menu_item"><a href="/artwork/painting">Toutes les peintures</a></li> 
+          <li className="menu_item"><a href="/artwork/painting">Peintures acryliques</ a></li>
+          <li className="menu_item"><a href="/artwork/painting">Peintures à l'huile</a></li>
         </ul>
       </nav>
 

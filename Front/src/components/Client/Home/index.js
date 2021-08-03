@@ -23,7 +23,7 @@ class Home extends PureComponent {
   render() {
     return (
       <div className="welcome">
-        <h1>Anaïs me terrorise au secours ! SOS</h1>
+        <h1>Anaïs est la meilleure</h1>
         <Carousel autoPlay interval={7000} infiniteLoop showStatus={false}>
         {this.state.images.map(image =>
         <img key={image.id_artist} className="Home_image"src={image.image} className="image_slider"/>)}
