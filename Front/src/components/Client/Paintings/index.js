@@ -28,14 +28,19 @@ class Paintings extends PureComponent {
 
         <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
 
-        <div className="painting">
+        <div className="painting_gallery">
+
           {this.state.images.map(image =>
-            <div className="painting_image" key={image.id_artwork}>
+            <div className="painting_div" key={image.id_artwork}>
+
               <img className="painting_image" src={image.image}></img>
-              <div className="painting_description">{image.name_artwork} {image.format} {image.date}</div>
-              </div>)}
+              <p className="painting_description">{image.name_artwork} {image.format} {image.date}</p>
+
+            </div>)}
+
         </div>
-      </div >
+
+      </div>
     )
   }
 };

@@ -38,7 +38,7 @@ class Portrait extends PureComponent {
               <p className="portrait_description">{image.description}{image.format}{image.date}</p>
             
           </div> )}
-          </div>
+        </div>
 
       </div >
     )

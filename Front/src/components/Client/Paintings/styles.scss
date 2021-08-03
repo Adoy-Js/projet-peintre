@@ -1,63 +1,27 @@
 .Paintings {
   animation: apparition 0.8s ease-out;
+  height: 100vh auto;
 }
 
-.painting {
+.painting_gallery {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  font-weight: normal;
-  
-  
-
-  &_image{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    transition: 1s;
-    margin: 1em;
-    cursor: pointer;
-    &:active{
-      transform: scale(2.2);
-    }
-  }
-
-  &_description{
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-    justify-content: left;
-  }
-
+  justify-content: center;
+  margin: 70px auto 150px;
 }
 
-@media screen and (max-width: 1024px) {
-  .menu_paintings {
-    flex-direction: row;
-    width: 90%;
-    margin: 0 auto;
-    height: 5vh;
-    align-items: center;
-    float: none;
-    border-left: none;
-  }
+.painting_div{
+  padding: 50px;
+}
 
-  .menu_links {
+.painting_image {
+  width: 400px;
+  height: auto;
+}
+
+@media screen and (max-width: 767px) {
+  .painting_image {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 2vh;
-  }
-
-  .menu_item {
-    padding: 1rem 2rem;
-  }
-
-  @media screen and (max-width: 767px) {
-    .menu_item {
-      font-size: 1rem;
-      padding: 0.8rem 1.8rem;
-    }
+    height: auto;
   }
 }
