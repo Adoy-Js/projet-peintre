@@ -12,6 +12,15 @@
 
 .portrait_div {
   padding: 50px;
+  transition: 1s;
+
+  cursor: pointer;
+}
+
+.portrait_div:active {
+  transform: scale(2);
+
+  background: rgba(0, 0, 0, 0.301);
 }
 
 .portrait_image {

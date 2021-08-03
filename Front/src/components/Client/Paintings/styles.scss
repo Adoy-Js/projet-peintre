@@ -12,6 +12,20 @@
 
 .painting_div{
   padding: 50px;
+  transition: 1s;
+
+  cursor: pointer;
+}
+
+.painting_div:active {
+  transform: scale(2);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+
+  background: rgba(0, 0, 0, 0.301);
 }
 
 .painting_image {
