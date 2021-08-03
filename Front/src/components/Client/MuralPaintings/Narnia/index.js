@@ -1,18 +1,18 @@
 // == Import de la lib React
 import React, { PureComponent } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import axios from 'axios';
 
 // == Imports locaux
 import './styles.scss';
 
-
-class MuralPaintings extends PureComponent {
+class Narnia extends PureComponent {
   state = {
     images: [],
   }
 
   componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting`)
+    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/10`)
       .then(res => {
         const images = res.data;
         this.setState({ images });
@@ -24,14 +24,14 @@ class MuralPaintings extends PureComponent {
       <div className="mural_paintings">
 
         <h1 className="title_mural">
-          Peinture murales
+          Narnia
         </h1>
 
         <div className="mural_gallery">
-          {this.state.images.map((image) => 
-          <div className="mural_div">
-           <a href={`/artwork/mural-painting/${image.id_artwork}`} className="link_muralPainting"><img className="mural_image" key={image.picture_id} src={image.main_picture}></img>{image.name_artwork}</a>
-          </div>)} 
+          {this.state.images.map((image) =>
+            <div className="mural_div">
+              <img className="mural_image" key={image.id_artwork} src={image.image}></img>
+            </div>)}
         </div>
 
       </div >
@@ -40,4 +40,5 @@ class MuralPaintings extends PureComponent {
 };
 
 // == Export
-export default MuralPaintings;
+export default Narnia;
+
