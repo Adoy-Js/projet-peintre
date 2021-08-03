@@ -2,46 +2,26 @@
   animation: apparition 0.8s ease-out;
 }
 
-.mural-painting {
-  margin-top: 2vh;
-
-  &_title {
-    margin: 1em;
-    font-size: 3em;
-    font-weight: bold;
-  }
-
-  &_description{
-  font-style: italic;
-  font-size: 1.5em;
-  margin: 1em;
-  }
-}
-
-.mural_image{
-  display: block;
-  flex-direction: column;
+.mural_gallery {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  margin: 3em;
-  width: 70%;
+  margin: 70px auto 150px;
 }
 
-.description_header_paintings {
-    padding: 1rem 0;
+.mural_div {
+  padding: 50px;
 }
 
-.content_mural_paintings {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 5vh;
+.mural_image {
+  width: 600px;
+  height: auto;
+}
+
+
+@media screen and (max-width: 767px) {
+  .mural_image{
     width: 100%;
     height: auto;
-}
-
-.image_mural_paintings {
-    border: 1px solid black;
-    width: 1200px;
-    height: 550px;
-    margin: 0 4rem 4rem;
+  }
 }

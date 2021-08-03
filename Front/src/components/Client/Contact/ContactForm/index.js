@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import axios from 'axios';
 
 import './styles.scss';
 
-class ContactForm extends React.Component {
+class ContactForm extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,6 +47,7 @@ class ContactForm extends React.Component {
       message: this.state.message,
     };
 
+    console.log(contact)
     axios.post(`http://localhost:5000/contact`, contact)
       .then(res => {
         console.log(res);
