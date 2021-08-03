@@ -4,29 +4,40 @@
 
 .painting {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   font-weight: normal;
-  
-  
+  width: 100%;
 
-  &_image{
+
+
+  &_image {
+    margin: 2em;
+    width: 30%;
+    float: inherit;
     display: flex;
     flex-direction: column;
-    width: 40%;
     transition: 1s;
-    margin: 1em;
     cursor: pointer;
-    &:active{
+    &:active {
       transform: scale(2.2);
     }
   }
 
-  &_description{
+  &_paint {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  &_description {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     width: 40%;
-    justify-content: left;
+    margin-left: 150px;
   }
 
 }
