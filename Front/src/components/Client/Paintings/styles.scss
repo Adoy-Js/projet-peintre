@@ -49,16 +49,19 @@
 }
 
 .menu_item {
-    padding: 1.5rem 0;
-    margin: 1rem 0;
-    border-bottom: 1px solid rgb(135, 170, 128);
+  padding: 1.5rem 0;
+  margin: 1rem 0;
+  border-bottom: 1px solid rgb(135, 170, 128);
 }
+
 
 .menu_item:hover {
   background-color: rgb(135, 170, 128);
   color: white;
   transition: 0.3s;
   cursor: pointer;
+
+  transition: 0.5s;
 }
 
 
@@ -105,12 +108,19 @@
     font-size: 1rem;
     padding: 0.8rem 1.8rem;
     margin: 0 0.5rem;
-}
-
+  }
 }
 
 @media screen and (max-width: 397px) {
+  .menu_links {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .menu_paintings {
+    margin: 80px auto;
+  }
   .menu_item {
-    border: none;
+    margin: 10px auto;
+    width: 80%;
   }
 }
