@@ -24,7 +24,7 @@ class MuralPaintings extends PureComponent {
       <div className="mural_paintings">
 
         <h1 className="title_mural">
-          Peinture murales
+          Peintures murales
         </h1>
 
         <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
