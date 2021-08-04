@@ -36,8 +36,7 @@ const Biography = () => (
           « J’aime étudier le corps humain, les visages, les expressions, complexes parfois et mystérieux… Cela me passionne, me questionne. La nature (végétation, arbres, plantes, nuages, montagnes, roche, eau, feu..) ainsi que les animaux, sont mes sources d’inspirations quotidienne. Elles font comme, partie de moi. »
         </div>
         <div className="biography_div">
-          Allez salut hein ! <br />
-          signé l'artiste moderne
+          Camille PAUL
         </div>
       </div>
     </div>

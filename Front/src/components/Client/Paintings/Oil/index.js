@@ -20,7 +20,7 @@ class Paintings extends PureComponent {
       <div className="Paintings">
 
         <h1>
-          Peintures
+          Peintures à l'huile
         </h1>
 
         <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>

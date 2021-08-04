@@ -11,11 +11,11 @@ import PropTypes from 'prop-types';
 // == Imports locaux
 import './styles.scss';
 
-const Contact = ({ descriptions, messages, footermessages }) => (
-    <div className="Contact">
+const Contact = ({ descriptions, messages }) => (
+  <div className="Contact">
     <div className="contact">
-      <div className="title">
-          <h1>Contactez-moi</h1>
+      <div>
+        <div className="title">Contactez-moi</div>
       </div>
       <div className='contact_div'>
         <div>
@@ -25,7 +25,7 @@ const Contact = ({ descriptions, messages, footermessages }) => (
         </div>
         <ul className="contact_descriptions">
 
-          <p className="contact_descriptions_text">Idées de projets réalisables (déjà réalisés) :</p>
+          <p className="contact_descriptions_text">Idées de projets réalisables :</p>
 
           {descriptions.map((description) => (
             <li
@@ -36,10 +36,11 @@ const Contact = ({ descriptions, messages, footermessages }) => (
             </li>
           ))}
         </ul>
-        <div className="contact_footer">
-          {footermessages.map((footermessage) => (
-            <p className="contact_footer_message" key={footermessage}>{footermessage}</p>
-          ))}
+        <div className="footer_contact">
+          <p> À Bientôt, <br />
+            <span className="contact_footer">Camille</span>
+          </p>
+
         </div>
       </div>
     </div>
@@ -53,7 +54,6 @@ const Contact = ({ descriptions, messages, footermessages }) => (
 Contact.propTypes = {
   descriptions: PropTypes.array.isRequired,
   messages: PropTypes.array.isRequired,
-  footermessages: PropTypes.array.isRequired,
 };
 
 

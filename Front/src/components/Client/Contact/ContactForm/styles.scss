@@ -43,7 +43,7 @@
     height: 84px;
     border-radius: 10px;
     width: 87%;
-    border: 2px solid rgb(224, 224, 224);
+    border: 3px solid rgb(135, 170, 128);
     color: rgb(42, 42, 42);
     font-size: 0.6em;
   }
@@ -54,6 +54,11 @@
     box-shadow: 0 0 40px 40px rgb(135, 170, 128) inset;
     cursor: pointer;
     border: none;
+  }
+
+  &_input_submit:active {
+    color:white;
+    background-color: rgb(59, 70, 28);
   }
 
 }

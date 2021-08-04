@@ -21,8 +21,6 @@ import News from 'src/components/Client/News';
 import Contact from 'src/components/Client/Contact';
 // Ajout du composant Biography
 import Biography from 'src/components/Client/Biography';
-// Ajout du composant Sketches
-import Sketches from 'src/components/Client/Sketches';
 // Ajout du composant Narnia
 import Narnia from 'src/components/Client/MuralPaintings/Narnia';
 // Ajout du composant Durtal
@@ -96,10 +94,6 @@ const App = () => (
       
       <Route path="/about" exact>
         <Biography />
-      </Route>
-
-      <Route path="/artwork/sketche" exact>
-        <Sketches />
       </Route>
 
       <Route path="/artwork/mural-painting/10" exact >
