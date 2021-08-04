@@ -48,7 +48,7 @@ class ContactForm extends PureComponent {
     };
 
     console.log(contact)
-    axios.post(`http://localhost:5000/contact`, contact)
+    axios.post(`https://projet-peintre.herokuapp.com/contact`, contact)
       .then(res => {
         console.log(res);
         console.log(res.data);

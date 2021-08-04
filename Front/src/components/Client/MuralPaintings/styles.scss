@@ -6,6 +6,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  color: rgba(65, 64, 64, 0.842);
 
 
   &_div {
@@ -13,7 +14,7 @@
   }
 
   &_image {
-    width: 90%;
+    width: 70%;
     height: auto;
     padding: 2em;
     background-color: white;
@@ -89,7 +90,6 @@
 .line {
   margin-top: 6em;
   color: rgb(135, 170, 128);
-  ;
   width: 80%;
   border: 1px solid rgb(135, 170, 128);
 }

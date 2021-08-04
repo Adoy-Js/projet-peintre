@@ -20,10 +20,10 @@ class Paintings extends PureComponent {
       <div className="Paintings">
 
         <h1>
-          Peintures
+          Peintures acryliques
         </h1>
 
-        <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
+        <h2>pas d'inspi déso</h2>
 
         <nav className="menu_paintings">
         <ul className="menu_links">

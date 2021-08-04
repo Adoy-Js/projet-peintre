@@ -20,14 +20,12 @@ class Narnia extends PureComponent {
     return (
       <div className="mural_paintings">
 
-        <h1 className="title_mural">
-          Narnia
-        </h1>
+        <h1>Narnia</h1>
 
         <div className="mural">
           {this.state.images.map((image) =>
-            <div className="mural_div">
-              <img className="mural_Narnia" key={image.id_artwork} src={image.image} />
+            <div key={image.id_artwork} className="mural_div">
+              {image.image.map(img => <img key={img} className="mural_Narnia" src={img} />)}
               <div className="description">{image.description}</div>
             </div>)}
         </div>

@@ -13,6 +13,7 @@ class Durtal extends PureComponent {
       .then(res => {
         const images = res.data;
         this.setState({ images });
+        
       })
   }
 
@@ -26,8 +27,8 @@ class Durtal extends PureComponent {
 
         <div className="mural_gallery">
           {this.state.images.map((image) =>
-            <div className="mural_div">
-              <img className="mural_Durtal" key={image.id_artwork} src={image.image}></img>
+            <div key={image.id_artwork} className="mural_div">
+              {image.image.map(img => <img key={img} className="mural_Durtal" src={img} />)}
               <div className="description">{image.description}</div>
             </div>)}
         </div>
