@@ -39,17 +39,13 @@
     padding: 2em;
     background-color: white;
     transition: 1s;
-
-    &:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
 
     &:active {
-      transform: scale(2);
+      transform: scale(2.5);
       display: flex;
-      position: absolute;
       flex-direction: column;
-      justify-content: center;
+      margin: 0 auto;
       background: rgba(0, 0, 0, 0.301);
     }
   }
@@ -58,7 +54,9 @@
     width: 50%;
     padding: 2em;
     background-color: white;
+    cursor: pointer;
     transition: 1s;
+    cursor: pointer;
 
     &:active {
       transform: scale(2);
@@ -66,7 +64,6 @@
       flex-direction: column;
       margin: 0 auto;
       background: rgba(0, 0, 0, 0.301);
-      
     }
   }
 
@@ -75,10 +72,11 @@
     width: 30%;
     padding: 2em;
     background-color: white;
+    cursor: pointer;
     transition: 1s;
 
     &:active {
-      transform: scale(2);
+      transform: scale(2.7);
       display: flex;
       flex-direction: column;
       justify-content: center;
