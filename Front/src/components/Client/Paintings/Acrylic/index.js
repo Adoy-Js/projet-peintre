@@ -8,7 +8,7 @@ class Paintings extends PureComponent {
   }
 
   componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/oil-painting`)
+    axios.get(`https://projet-peintre.herokuapp.com/artwork/acrylic-painting`)
       .then(res => {
         const images = res.data;
         this.setState({ images });

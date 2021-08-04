@@ -2,48 +2,111 @@
   animation: apparition 0.8s ease-out;
 }
 
-.mural{
+.mural {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 
 
   &_div {
-  padding: 50px;
-}
+    padding: 50px;
+  }
 
   &_image {
-  width: 1200px;
-  height: auto;
-  padding: 2em;
-  background-color: white;
-}
+    width: 90%;
+    height: auto;
+    padding: 2em;
+    background-color: white;
+  }
 
-  &_title{
+  &_title {
     font-size: xx-large;
     font-weight: bold;
     margin-bottom: 1em;
   }
 
 
-  &_information{
+  &_information {
     font-size: large;
     line-height: 1em;
     margin-top: 1em;
     display: flex;
     justify-content: center;
   }
+
+  &_Narnia {
+    width: 30%;
+    padding: 2em;
+    background-color: white;
+    transition: 1s;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(2.5);
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.301);
+    }
+  }
+
+  &_Durtal {
+    width: 50%;
+    padding: 2em;
+    background-color: white;
+    cursor: pointer;
+    transition: 1s;
+    cursor: pointer;
+
+    &:active {
+      transform: scale(2);
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.301);
+    }
+  }
+
+
+  &_Piwakawaka {
+    width: 30%;
+    padding: 2em;
+    background-color: white;
+    cursor: pointer;
+    transition: 1s;
+
+    &:active {
+      transform: scale(2.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
+      background: rgba(0, 0, 0, 0.301);
+    }
+  }
 }
 
-.line{
+.line {
   margin-top: 6em;
-  color: rgb(135, 170, 128);;
+  color: rgb(135, 170, 128);
+  ;
   width: 80%;
   border: 1px solid rgb(135, 170, 128);
 }
 
+.description {
+  margin: 2em;
+  line-height: 1.8em;
+  font-size: 1.6em;
+  justify-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  text-indent: 5%;
+  text-align: justify;
+}
+
 @media screen and (max-width: 767px) {
-  .mural_image{
+  .mural_image {
     width: 100%;
     height: auto;
   }

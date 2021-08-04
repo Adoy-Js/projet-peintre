@@ -6,16 +6,14 @@ import React from 'react';
 // == Imports locaux
 import './styles.scss';
 
-// Ajout du composant FormAddCell
-import AddCell from './FormAddCell';
 
 
 const ArrayHome = () => (
   <div className="arrayH">
     <div>
-      <h1>Oeuvre</h1>
-      <h1>Accueil</h1>
-      <h1>Actualité</h1>
+      <a href="" className="arrayH_menu">Oeuvre</a>
+      <a href=""  className="arrayH_menu">Accueil</a>
+      <a href=""  className="arrayH_menu">Actualité</a>
     </div>
 
     <div className="arrayHome">
@@ -34,8 +32,9 @@ const ArrayHome = () => (
           <tbody className="arrayHome_body">
             <tr>
               <td className="cell_body">coucou</td>
-              <td className="cell_body"><input className="cell_body_input_edit" type="submit" value="MODIFIER" /></td>
-              <td className="cell_body"><input className="cell_body_input_delete" type="submit" value="SUPPRIMER" /></td>
+              <td className="cell_body"><button className="cell_body_input_edit" type="submit" value="MODIFIER">MODIFIER</button></td>
+              <td className="cell_body"><button className="cell_body_input_delete" type="submit" value="SUPPRIMER">SUPPRIMER</button></td>
+
             </tr>
           </tbody>
         </table>
@@ -46,13 +45,13 @@ const ArrayHome = () => (
           <tbody className="arrayHome_body">
             <tr>
               <td className="cell_body">coucou</td>
-              <td className="cell_body"><input className="cell_body_input_edit" type="submit" value="MODIFIER" /></td>
-              <td className="cell_body"><input className="cell_body_input_delete" type="submit" value="SUPPRIMER" /></td>
+              <td className="cell_body"><button className="cell_body_input_edit" type="submit" placeholder="MODIFIER">MODIFIER</button></td>
+              <td className="cell_body"><button className="cell_body_input_delete" type="submit" placeholder="SUPPRIMER">SUPPRIMER</button></td>
+
             </tr>
           </tbody>
         </table>
       </form>
-      <AddCell />
     </div>
   </div >
 

@@ -5,15 +5,14 @@
   height: 100vh;
 }
 
-.underline {
-  border-bottom: 4px solid rgb(135, 170, 128);
-  transition: 0.5s;
+.underline{
+  border-bottom: px solid rgb(135, 170, 128);
+  margin-left: 42%;
+  margin-right: 42%;
 }
 
-.underline:hover {
-  background: rgb(135, 170, 128);
-  color: white;
-  transition: 0.5s;
+.underline:hover{
+  color: rgb(100, 122, 95);
 }
 
 .slide img {

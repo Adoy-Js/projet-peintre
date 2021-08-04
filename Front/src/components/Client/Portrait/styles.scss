@@ -1,6 +1,19 @@
 .Portraits {
   animation: apparition 0.8s ease-out;
+  
   height: 100vh auto;
+}
+
+@keyframes apparition {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
 
 .portrait_gallery {
@@ -19,8 +32,11 @@
 
 .portrait_div:active {
   transform: scale(2);
-
-  background: rgba(36, 51, 34, 0.37);
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.301);
 }
 
 .portrait_image {
