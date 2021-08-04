@@ -29,6 +29,11 @@ import Narnia from 'src/components/Client/MuralPaintings/Narnia';
 import Durtal from 'src/components/Client/MuralPaintings/Durtal';
 // Ajout du composant Piwakawaka
 import Piwakawaka from 'src/components/Client/MuralPaintings/Piwakawaka';
+// Ajout du composant Oil
+import Oil from 'src/components/Client/Paintings/Oil';
+// Ajout du composant Acrylic
+import Acrylic from 'src/components/Client/Paintings/Acrylic';
+
 
 
 
@@ -104,8 +109,17 @@ const App = () => (
       <Route path="/artwork/mural-painting/9" exact >
         <Durtal />
       </Route>
+
       <Route path="/artwork/mural-painting/11" exact >
         <Piwakawaka />
+      </Route>
+
+      <Route path="/artwork/oil-painting" exact >
+        <Oil />
+      </Route>
+
+      <Route path="/artwork/acrylic-painting" exact >
+        <Acrylic />
       </Route>
       
     </BrowserRouter>

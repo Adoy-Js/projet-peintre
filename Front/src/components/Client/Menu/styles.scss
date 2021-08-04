@@ -24,6 +24,7 @@
   }
 }
 
+
 .links_menu {
   display: flex;
 }
@@ -38,6 +39,11 @@
   color: white;
   transition: 0.3s;
 }
+
+.link_menu:active {
+  background-color: rgb(135, 170, 128);
+}
+
 .menu_burger {
   width: 40px;
   height: 40px;

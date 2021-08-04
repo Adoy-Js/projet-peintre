@@ -1,6 +1,7 @@
 // == Import de la lib React
 import React, { PureComponent } from 'react';
 import axios from 'axios';
+import { NavLink } from 'react-router-dom';
 
 // == Imports locaux
 import './styles.scss';
@@ -30,9 +31,9 @@ class Paintings extends PureComponent {
 
       <nav className="menu_paintings">
         <ul className="menu_links">
-          <li className="menu_item"><a href="/artwork/painting">Toutes les peintures</a></li> 
-          <li className="menu_item"><a href="/artwork/painting">Peintures acryliques</ a></li>
-          <li className="menu_item"><a href="/artwork/painting">Peintures à l'huile</a></li>
+          <li className="menu_item"><NavLink to="/artwork/painting" exact>Toutes les peintures</NavLink></li> 
+          <li className="menu_item"><NavLink to="/artwork/acrylic-painting" exact>Peintures acryliques</NavLink></li>
+          <li className="menu_item"><NavLink to="/artwork/oil-painting" exact>Peintures à l'huile</NavLink></li>
         </ul>
       </nav>
 
