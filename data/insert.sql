@@ -14,6 +14,7 @@ INSERT INTO picture (name_picture, image) VALUES
 ('Sur un air de guitare', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D1.%20Sur%20un%20air%20de%20musique%20HD%202017.jpg?alt=media&token=d9d1e9e3-9e50-4188-91a5-00547c342b83'),
 ('Portrait homme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35'),
 ('Portait femme', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D3.%20Portrait%202.jpg?alt=media&token=c1525ca6-4be7-4a86-b853-35cbb69c63c5'),
+('Camille sur un rocher', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_sur_rocher.jpg?alt=media&token=f8a301d1-3406-4511-a29d-cb5db6c60ffd'),
 ('Camille qui dessine avec un long crayon', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Camille_crayon.jpg?alt=media&token=89227e25-5195-4ed4-bed8-ad47409a0d18'),
 ('Chevalet devant une rivière', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Chevalet_riviere.jpg?alt=media&token=932f8e16-7377-4087-a662-37c2062c52e8'),
 ('Spirit','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/SPIRIT%20(1).jpg?alt=media&token=2a47b954-20bb-4c45-aa16-9648abdce949'),
@@ -147,7 +148,6 @@ INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES
 (11, 36);
 
 INSERT INTO artist_has_picture (artist_id, picture_id) VALUES
-(1, 4),
 (1, 5),
 (1, 6),
 (1, 12),
