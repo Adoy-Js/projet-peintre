@@ -20,9 +20,9 @@
 .painting_div:active {
   transform: scale(2);
   display: flex;
+  position: absolute;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto;
   background: rgba(0, 0, 0, 0.301);
 }
 
