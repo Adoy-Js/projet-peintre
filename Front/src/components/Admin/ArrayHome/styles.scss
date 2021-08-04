@@ -1,52 +1,49 @@
 @use 'src/styles/vars';
 
-.arrayHome {
-  margin-top: 5%;
-  margin-left: 20%;
-  font-size: large;
-  font-weight: bold;
-  border: 3px solid black;
-  width: 38.5em;
+.arrayH {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
+  &_menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+    margin-left: 2em;
+    line-height: .5em;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: rgb(87, 87, 87);
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
 
-.cell_picture{
-  border: 1px solid black;
-  padding: 1em;
-  padding-left: 2.93em;
-  padding-right: 2.93em;
+.arrayHome {
+  margin-top: 10em;
+  width: 60%;
+  margin-left: 15em;
+  margin-bottom: 5em;
 }
 
-.cell_edit, .cell_delete{
-  border: 1px solid black;
-  padding-left: 4em;
-  padding-right: 4.5em;
+table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.cell_body {
-  border: 1px solid black;
-  padding-left: 3.5em;
-  padding-right: 3.5em;
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
 }
 
-
-.cell_body_input_edit, .cell_body_input_delete{
-  border: 1px solid black;
-  padding-left: 1em;
-  padding-right: 1em;
-  margin: 1em;
-  background-color: rgb(192, 192, 192);
+th {
+  background-color: rgb(91, 107, 88);
+  color: white;
 }
 
-.cell_body_input_edit:hover{
-  background-color: rgb(224, 200, 255);
-  text-decoration: underline;
+tr:nth-child(odd) {
+  background-color: #eee;
 }
-
-.cell_body_input_delete:hover{
-  background-color: rgb(255, 170, 170);
-  text-decoration: underline;
-}
-
-
