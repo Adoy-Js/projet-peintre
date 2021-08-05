@@ -1,6 +1,10 @@
 // == Import de la lib React
 import React, { PureComponent } from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
+
+import './styles.scss';
 
 
 class Piwakawaka extends PureComponent {
@@ -18,23 +22,21 @@ class Piwakawaka extends PureComponent {
 
   render() {
     return (
-      <div className="mural_paintings">
-
+      <div className="welcome">
         <h1>Piwakawaka</h1>
-
-        <div className="mural">
-
-          {this.state.images.map((image) =>
-            <div key={image.id_artwork} className="mural_div">
+        
+        {this.state.images.map((image) =>
+        <div key={image.id_artwork} className="mural_div">
+          <Carousel autoPlay interval={6000} infiniteLoop showStatus={false}>   
               {image.image.map(img => <img key={img} className="mural_Piwakawaka" src={img} />)}
+              </Carousel>
               <div className="description">{image.description}</div>
             </div>)}
-
-        </div>
-      </div >
-    )
+        
+      </div>      
+    ) 
   }
-};
+}
 
 // == Export
 export default Piwakawaka;
