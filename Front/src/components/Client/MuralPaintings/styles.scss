@@ -9,7 +9,7 @@
   color: rgba(65, 64, 64, 0.842);
 
 
-  &_div {
+  &_all {
     padding: 50px;
   }
 
@@ -34,60 +34,7 @@
     display: flex;
     justify-content: center;
   }
-
-  &_Narnia {
-    width: 30%;
-    padding: 2em;
-    background-color: white;
-    transition: 1s;
-    cursor: pointer;
-
-    &:active {
-      transform: scale(2.5);
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.301);
-    }
-  }
-
-  &_Durtal {
-    width: 50%;
-    padding: 2em;
-    background-color: white;
-    cursor: pointer;
-    transition: 1s;
-    cursor: pointer;
-
-    &:active {
-      transform: scale(2);
-      display: flex;
-      flex-direction: column;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.301);
-    }
-  }
-
-
-  &_Piwakawaka {
-    width: 30%;
-    padding: 2em;
-    background-color: white;
-    cursor: pointer;
-    transition: 1s;
-
-    &:active {
-      transform: scale(2.7);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: 0 auto;
-      background: rgba(0, 0, 0, 0.301);
-    }
-  }
 }
-
-
 
 .line {
   margin-top: 6em;

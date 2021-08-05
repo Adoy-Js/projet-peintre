@@ -2,6 +2,7 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 
+import './styles.scss'
 
 class Narnia extends PureComponent {
   state = {

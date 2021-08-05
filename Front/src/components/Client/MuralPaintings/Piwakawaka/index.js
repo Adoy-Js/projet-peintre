@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import axios from 'axios';
 
+import './styles.scss'
 
 class Piwakawaka extends PureComponent {
   state = {
@@ -18,18 +19,20 @@ class Piwakawaka extends PureComponent {
   render() {
     return (
       <div className="welcome">
-        <h1>Piwakawaka</h1>
+        <h1 className="title_piwa">Piwakawaka</h1>
         
         {this.state.images.map((image) =>
         <div key={image.id_artwork} className="mural_div">
+            <div className="Piwaka">
               {image.image.map(img => <img key={img} className="mural_Piwakawaka" src={img} />)}
-              <div className="description">{image.description}</div>
+            </div>
+            <div className="description">{image.description}</div>
             </div>)}
         
-      </div>    
-    )
+      </div>      
+    ) 
   }
-};
+}
 
 // == Export
 export default Piwakawaka;

@@ -23,15 +23,13 @@ class MuralPaintings extends PureComponent {
     return (
       <div className="mural_paintings">
 
-        <h1 className="title_mural">
-          Peintures murales
-        </h1>
+        <h1>Peintures murales</h1>
 
         <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
 
         <div className="mural">
           {this.state.images.map((image) =>
-            <div className="mural_div">
+            <div className="mural_all">
 
               <h3 className="mural_title"> {image.name_artwork} </h3>
 

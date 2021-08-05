@@ -148,7 +148,6 @@ INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES
 (11, 36);
 
 INSERT INTO artist_has_picture (artist_id, picture_id) VALUES
-(1, 4),
 (1, 5),
 (1, 6),
 (1, 12),

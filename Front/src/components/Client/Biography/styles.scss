@@ -9,6 +9,11 @@
   animation: apparition 0.8s ease-out;
 }
 
+.logo_menu{
+  position: absolute;
+  width: 90px;
+  height: 70px;
+}
 
 .bioImage{
   width: 30%;
@@ -18,6 +23,10 @@
 
 
 .biography{
+
+  &_block{
+    margin-top: 4em;
+  }
 
   &_div {
   margin: 2em 0;
@@ -52,6 +61,10 @@
   .Biography {
     display: flex;
     flex-direction: column;
+  }
+
+  .logo_menu {
+    display: none;
   }
   
   .bioImage {

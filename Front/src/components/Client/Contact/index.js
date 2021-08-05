@@ -15,7 +15,7 @@ const Contact = ({ descriptions, messages }) => (
   <div className="Contact">
     <div className="contact">
       <div>
-        <div className="title">Contactez-moi</div>
+        <div className="title">Contact</div>
       </div>
       <div className='contact_div'>
         <div>
@@ -23,9 +23,10 @@ const Contact = ({ descriptions, messages }) => (
             <p className="contact_message" key={message}>{message}</p>
           ))}
         </div>
+        <br />
+        <p className="p">Je réalise sur commande :<span className="contact_line"></span></p>
+        
         <ul className="contact_descriptions">
-
-          <p className="contact_descriptions_text">Idées de projets réalisables :</p>
 
           {descriptions.map((description) => (
             <li
@@ -36,18 +37,12 @@ const Contact = ({ descriptions, messages }) => (
             </li>
           ))}
         </ul>
-        <div className="footer_contact">
-          <p> À Bientôt, <br />
-            <span className="contact_footer">Camille</span>
-          </p>
-
-        </div>
       </div>
     </div>
     <div className="ContactForm">
       <Form />
     </div>
-  </div>
+  </div >
 );
 
 // Validation des props

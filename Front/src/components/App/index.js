@@ -11,8 +11,6 @@ import Home from 'src/components/Client/Home';
 import Paintings from 'src/components/Client/Paintings';
 //Ajout du composant MuralPaintings
 import MuralPaintings from 'src/components/Client/MuralPaintings';
-// Ajout du composant Footer
-import Footer from 'src/components/Client/Footer';
 // Ajout du composant Portrait
 import Portrait from 'src/components/Client/Portrait';
 // Ajout du composant News
@@ -117,7 +115,6 @@ const App = () => (
       </Route>
       
     </BrowserRouter>
-    <Footer />
   </div>
 );
 

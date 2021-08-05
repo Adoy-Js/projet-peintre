@@ -6,7 +6,7 @@
 }
 
 .underline{
-  border-bottom: px solid rgb(135, 170, 128);
+  border-bottom: 2px solid rgb(135, 170, 128);
   margin-left: 42%;
   margin-right: 42%;
 }
@@ -86,6 +86,10 @@
     width: 100vw;
     height: 40vh;
     object-fit: cover;
+  }
+  .underline {
+    margin-left: 20%;
+    margin-right: 20%;
   }
 }
 

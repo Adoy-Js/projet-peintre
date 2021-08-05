@@ -3,15 +3,13 @@ export default {
   id: 1,
   title: 'Contact',
   messages:[
-    'Si vous souhaitez acheter une œuvre ou me présenter votre projet artistique, veuillez remplir ce formulaire pour me contacter.',
-    'J’étudierai cela tranquillement et reviendrai vers vous.'
+    'Si vous souhaitez acheter une œuvre ou me présenter vos idées de projets n\'hésitez pas à m\'écrire, j’étudierai cela tranquillement et reviendrai vers vous.'
     ],
 
   descriptions: [
-    
-    'Peinture Murale, Intérieur comme Extérieur',
-    'Commande de Portraits (Peintures, dessins)',
-    'Réalisation de portraits en live, pour un évènement spécial (enfants, adultes, personnes âgées, animaux…) '
+    'Peinture Murale (Intérieur / Extérieur)',
+    'Commande de Portraits (Peintures / dessins)',
+    'Réalisation de portrait en direct pour des événements (Anniversaires / après-midi jeunesse / rencontres professionnelles / soirées festives)'
   ],
 
 }

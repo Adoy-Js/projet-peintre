@@ -1,0 +1,22 @@
+.mural_gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.mural_Durtal {
+  width: auto;
+  height: 300px;
+  padding: 20px;
+  transition: 1s;
+
+  &:nth-child(4){
+    cursor: pointer;
+  }
+
+  &:nth-child(4n):active {
+    transform: scale(2.7);
+    background: rgba(0, 0, 0, 0.301);
+  }
+}

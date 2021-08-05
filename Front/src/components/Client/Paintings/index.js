@@ -43,7 +43,7 @@ class Paintings extends PureComponent {
             <div className="painting_div" key={image.id_artwork}>
 
               <img className="painting_image" src={image.image}></img>
-              <p className="painting_description">{image.name_artwork} {image.format} {image.date}</p>
+              <p className="painting_description">{image.name_artwork} <br /> {image.format} <br /> {image.date}</p>
 
             </div>)}
 
