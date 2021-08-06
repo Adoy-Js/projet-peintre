@@ -10,7 +10,7 @@ class Durtal extends PureComponent {
   }
 
   componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/9`)
+    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/10`)
       .then(res => {
         const images = res.data;
         this.setState({ images });

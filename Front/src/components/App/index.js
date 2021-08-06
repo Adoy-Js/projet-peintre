@@ -94,11 +94,11 @@ const App = () => (
         <Biography />
       </Route>
 
-      <Route path="/artwork/mural-painting/10" exact >
+      <Route path="/artwork/mural-painting/9" exact >
         <Narnia />
       </Route>
 
-      <Route path="/artwork/mural-painting/9" exact >
+      <Route path="/artwork/mural-painting/10" exact >
         <Durtal />
       </Route>
 

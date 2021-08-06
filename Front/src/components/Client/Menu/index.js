@@ -4,7 +4,6 @@ import { useState } from "react"
 
 // == Imports locaux
 import './styles.scss';
-import logo from './img/logo.png'
 
 function Menu () {
 
@@ -14,18 +13,20 @@ function Menu () {
     setShowLinks(!showLinks)
   }
 
+  console.log(showLinks);
+
   return (
     <nav className={`menu ${showLinks ? "show-nav" : "hide-nav"} `}>
-      
+      <a href="/" className="item_menu menu_logo"><img className="" src="" alt="" /></a>
       <ul className="links_menu">
-      <li className="item_menu slideInDown-2">
-      <a href="/about"><img className="logoMenu" src={logo} alt="" /></a>
-        </li>
-        <li className="item_menu slideInDown-3">
+        <li className="item_menu slideInDown-2">
           <a href="/" className="link_menu">Accueil</a>
         </li>
-        <li className="item_menu slideInDown-4">
-          <a href="/artwork/portrait" className="link_menu">Portraits</a>
+        <li className="item_menu slideInDown-2">
+          <a href="/artwork/sketche" className="link_menu">Croquis</a>
+        </li>
+        <li className="item_menu slideInDown-3">
+          <a href="/artwork/portrait" className="link_menu">Portrait</a>
         </li>
         <li className="item_menu slideInDown-4">
           <a href="/artwork/painting" className="link_menu">Peintures</a>

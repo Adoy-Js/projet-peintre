@@ -19,7 +19,7 @@ class Piwakawaka extends PureComponent {
   render() {
     return (
       <div className="welcome">
-        <h1 className="title_piwa">Piwakawaka</h1>
+        <h1 className="title_piwa">Narnia</h1>
         
         {this.state.images.map((image) =>
         <div key={image.id_artwork} className="mural_div">

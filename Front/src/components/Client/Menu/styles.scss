@@ -6,15 +6,10 @@
   justify-content: space-between;
   padding: .5em;
   width: 100%;
-  background-color: #f3f3f3;
+  background-color: #ebe9e9;
   color: rgb(42, 42, 42);
   font-size: 1.2em;
-  animation: apparition-menu 1.1s ease-out; 
-}
-
-.logoMenu{
-  width: 100px;
-  height: 70px;
+  animation: apparition-menu 1.1s ease-out;
 }
 
 @keyframes apparition-menu {
@@ -29,17 +24,13 @@
   }
 }
 
-
 .links_menu {
   display: flex;
-  margin-left: 20%;
 }
 
 .link_menu {
   padding: 1.6rem 1.4rem;
   color: inherit;
-  display: flex;
-  justify-content: center;
 }
 
 .link_menu:hover {
@@ -47,11 +38,6 @@
   color: white;
   transition: 0.3s;
 }
-
-.link_menu:active {
-  background-color: rgb(135, 170, 128);
-}
-
 .menu_burger {
   width: 40px;
   height: 40px;
