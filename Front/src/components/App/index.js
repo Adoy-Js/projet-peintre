@@ -33,16 +33,28 @@ import Acrylic from 'src/components/Client/Paintings/Acrylic';
 
 
 
+
 // Ajout du composant LoginForm
 import LoginForm from 'src/components/Admin/LoginForm';
 // Ajout du composant ArrayHome
 import ArrayHome from 'src/components/Admin/ArrayHome';
+// Ajout du composant ArrayArtwork
+import ArrayArtwork from 'src/components/Admin/ArrayArtwork';
+// Ajout du composant ArrayNew
+import ArrayNew from 'src/components/Admin/ArrayNew';
+// Ajout du composant MenuAdmin
+import MenuAdmin from 'src/components/Admin/MenuAdmin';
+
+
 
 
 
 
 // Ajout du composant contactData
 import contactData from 'src/data/contact';
+// Ajout du composant array
+import arrayData from 'src/data/array';
+
 
 
 import './styles.scss';
@@ -52,10 +64,29 @@ import './styles.scss';
 const App = () => (
   <div className="app">
     <Menu />
+
     <BrowserRouter>
+      <Route path="/admin/menu">
+        <MenuAdmin />
+      </Route>
 
       <Route path="/admin" exact>
         <LoginForm />
+      </Route>
+
+      <Route path="/admin/menu/artwork" exact>
+        <ArrayArtwork 
+        cell={arrayData.cell}
+        cellTitles={arrayData.cellTitles}
+        cellButtons={arrayData.cellButtons}/>
+      </Route>
+
+      <Route path="/admin/menu/home" exact>
+        <ArrayHome />
+      </Route>
+
+      <Route path="/admin/menu/new" exact>
+        <ArrayNew />
       </Route>
 
       <Route path="/artwork/painting" exact>
@@ -66,9 +97,6 @@ const App = () => (
         <MuralPaintings />
       </Route>
 
-      <Route path="/admin/artwork" exact>
-        <ArrayHome />
-      </Route>
 
       <Route path="/news" exact>
         <News />
@@ -89,7 +117,7 @@ const App = () => (
           footermessages={contactData.footermessages}
         />
       </Route>
-      
+
       <Route path="/about" exact>
         <Biography />
       </Route>
@@ -113,7 +141,7 @@ const App = () => (
       <Route path="/artwork/acrylic-painting" exact >
         <Acrylic />
       </Route>
-      
+
     </BrowserRouter>
   </div>
 );

@@ -1,21 +1,15 @@
 // == Import de la lib React
 import React from 'react';
 
-// == Import npm
-
 // == Imports locaux
+import Menu from '../MenuAdmin';
 import './styles.scss';
 
 
 
 const ArrayHome = () => (
-  <div className="arrayH">
-    <div>
-      <a href="" className="arrayH_menu">Oeuvre</a>
-      <a href=""  className="arrayH_menu">Accueil</a>
-      <a href=""  className="arrayH_menu">Actualité</a>
-    </div>
-
+  <div>
+  
     <div className="arrayHome">
       <table>
         <thead className="arrayHome_head">
@@ -47,7 +41,6 @@ const ArrayHome = () => (
               <td className="cell_body">coucou</td>
               <td className="cell_body"><button className="cell_body_input_edit" type="submit" placeholder="MODIFIER">MODIFIER</button></td>
               <td className="cell_body"><button className="cell_body_input_delete" type="submit" placeholder="SUPPRIMER">SUPPRIMER</button></td>
-
             </tr>
           </tbody>
         </table>

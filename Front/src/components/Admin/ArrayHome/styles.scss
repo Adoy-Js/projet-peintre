@@ -1,24 +1,8 @@
 @use 'src/styles/vars';
 
-.arrayH {
-  display: flex;
-  flex-direction: row;
-
-  &_menu {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.5em;
-    margin-left: 2em;
-    line-height: .5em;
-    font-size: 2.5em;
-    font-weight: bold;
-    color: rgb(87, 87, 87);
-
-    &:hover{
-      text-decoration: underline;
-    }
+.array_home{
+    margin-top: 2em;
   }
-}
 
 .arrayHome {
   margin-top: 10em;
@@ -42,6 +26,10 @@ td {
 th {
   background-color: rgb(93, 165, 121);
   color: white;
+}
+
+td {
+  padding-right: 3.5em;
 }
 
 tr:nth-child(odd) {

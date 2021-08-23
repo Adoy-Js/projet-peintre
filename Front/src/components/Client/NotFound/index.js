@@ -5,7 +5,7 @@ import React from 'react';
 import './styles.scss';
 
 // == Composant
-const NotFound = () => <div className="not-found">404</div>;
+const NotFound = () => <div className="not-found"> error 404</div>;
 
 // == Export
 export default NotFound;

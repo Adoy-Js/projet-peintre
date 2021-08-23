@@ -1,0 +1,41 @@
+@use 'src/styles/vars';
+
+.arrayArtwork{
+  float: right;
+  width: 85%;
+  margin-right: 2em;
+  margin-top: 5em;
+}
+
+
+.arrayHome {
+  margin-top: 10em;
+  width: 60%;
+  margin-left: 15em;
+  margin-bottom: 5em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: rgb(93, 165, 121);
+  color: white;
+}
+
+td {
+  padding-right: 3.5em;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
