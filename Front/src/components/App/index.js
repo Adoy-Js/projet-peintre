@@ -76,19 +76,19 @@ const App = () => (
 
       <Route path="/admin/menu/artwork" exact>
         <ArrayArtwork 
-        cells={arrayData.cells}
+        tables={arrayData.tables}
         cellTitles={arrayData.cellTitles} />
       </Route>
 
       <Route path="/admin/menu/home" exact>
-        <ArrayHome 
-        cells={arrayData.cells}
+        <ArrayHome
+        tables={arrayData.tables}
         cellTitles={arrayData.cellTitles} />
       </Route>
 
       <Route path="/admin/menu/new" exact>
         <ArrayNew 
-        cells={arrayData.cells}
+        tables={arrayData.tables}
         cellTitles={arrayData.cellTitles} />
       </Route>
 

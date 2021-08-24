@@ -1,17 +1,18 @@
 export default {
   id: 1,
   title: 'Array',
-  image: 'nom de la photo',
+  
+  tables:[
+    {image: 'nom de la photo',
+     modifyCell: 'MODIFIER',
+     deleteCell:  'SUPPRIMER',}
+  ],
+ 
 
   cellTitles: [
     'PHOTOS',
     'MODIFIER',
     'SUPPRIMER',
   ],
-
-  cells: [
-    'MODIFIER',
-    'SUPPRIMER',
-  ]
 
 }

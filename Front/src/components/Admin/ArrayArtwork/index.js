@@ -8,50 +8,57 @@ import PropTypes from 'prop-types';
 // == Imports locaux
 import './styles.scss';
 
+const ArrayArtwork = ({ tables, cellTitles, }) => {
 
-
-const ArrayArtwork = ({cells, cellTitles, image}) => (
-  <div>
-    <div className="arrayArtwork">
-      <table>
-        <thead className="arrayArtwork_head">
-          <tr>
-            {cellTitles.map((cellTitle) => (
-              <th className="cell" key={cellTitle}>
-                {cellTitle}
-              </th>
-            ))}
-          </tr>
-        </thead>
-      </table>
-
-      <form className="arrayArtwork_body">
+  return (
+    <div>
+      <div className="arrayArtwork">
         <table>
-        <td className="cell">{image}</td>
-      {cells.map((cell) => (
-               <td className="cell"><button type="submit" value={cells} key={cells}>
-                {cell}</button></td>
-            ))}
-        
-          <tbody className="arrayArtwork_body">
+          <thead className="arrayArtwork_head">
             <tr>
-             <td className="cell"><button>+</button></td>
-              
+              {cellTitles.map((cellTitle) => (
+                <th className="cell" key={cellTitle}>
+                  {cellTitle}
+                </th>
+              ))}
             </tr>
-          </tbody>
+          </thead>
         </table>
-      </form>
-    </div>
-  </div >
 
-);
+        <form className="arrayArtwork_body">
+
+          <table>
+            <tbody className="arrayArtwork_body">
+              {tables.map((table) => (
+                <tr>
+                  <td className="cell">{table.image}</td>
+
+                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.modifyCell}>
+                    {table.modifyCell}</button></td>
+
+                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.deleteCell}>
+                    {table.deleteCell}</button></td>
+                </tr>
+              ))}
+            </tbody>
+            <tbody className="arrayArtwork_body">
+              <tr>
+                <td className="cell"><a href="/menu/formAddImagaHome"><button type="submit">+</button></a></td>
+
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div >
+
+  )
+};
 
 // Validation des props
 ArrayArtwork.propTypes = {
-  image: PropTypes.string.isRequired,
-  cells: PropTypes.string.isRequired,
+  tables: PropTypes.array.isRequired,
   cellTitles: PropTypes.array.isRequired,
 };
-
 
 export default ArrayArtwork;
