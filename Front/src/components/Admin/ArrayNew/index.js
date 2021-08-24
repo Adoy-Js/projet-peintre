@@ -1,44 +1,42 @@
 // == Import de la lib React
 import React from 'react';
 
+// Ajout de la librairie de validation des props
+import PropTypes from 'prop-types';
+
+
 // == Imports locaux
 import './styles.scss';
 
 
 
-const ArrayNew = () => (
+const ArrayNew = ({cells, cellTitles, image}) => (
   <div>
-    <div className="arrayNew">
+    <div className="arrayArtwork">
       <table>
-        <thead className="arrayNew_head">
+        <thead className="arrayArtwork_head">
           <tr>
-            <th className="cell_picture">PHOTOS</th>
-            <th className="cell_edit">MODIFIER</th>
-            <th className="cell_delete">SUPPRIMER</th>
+            {cellTitles.map((cellTitle) => (
+              <th className="cell" key={cellTitle}>
+                {cellTitle}
+              </th>
+            ))}
           </tr>
         </thead>
       </table>
 
-      <form className="arrayNew_body">
+      <form className="arrayArtwork_body">
         <table>
-          <tbody className="arrayNew_body">
+        <td className="cell">{image}</td>
+      {cells.map((cell) => (
+               <td className="cell"><button type="submit" value={cells} key={cells}>
+                {cell}</button></td>
+            ))}
+        
+          <tbody className="arrayArtwork_body">
             <tr>
-              <td className="cell_body">coucou</td>
-              <td className="cell_body"><button className="cell_body_input_edit" type="submit" value="MODIFIER">MODIFIER</button></td>
-              <td className="cell_body"><button className="cell_body_input_delete" type="submit" value="SUPPRIMER">SUPPRIMER</button></td>
-
-            </tr>
-          </tbody>
-        </table>
-      </form>
-
-      <form className="arrayNew_body">
-        <table>
-          <tbody className="arrayNew_body">
-            <tr>
-              <td className="cell_body">coucou</td>
-              <td className="cell_body"><button className="cell_body_input_edit" type="submit" placeholder="MODIFIER">MODIFIER</button></td>
-              <td className="cell_body"><button className="cell_body_input_delete" type="submit" placeholder="SUPPRIMER">SUPPRIMER</button></td>
+             <td className="cell"><button>+</button></td>
+              
             </tr>
           </tbody>
         </table>
@@ -47,5 +45,13 @@ const ArrayNew = () => (
   </div >
 
 );
+
+// Validation des props
+ArrayNew.propTypes = {
+  image: PropTypes.string.isRequired,
+  cells: PropTypes.string.isRequired,
+  cellTitles: PropTypes.array.isRequired,
+};
+
 
 export default ArrayNew;

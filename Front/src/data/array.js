@@ -1,6 +1,7 @@
 export default {
   id: 1,
   title: 'Array',
+  image: 'nom de la photo',
 
   cellTitles: [
     'PHOTOS',
@@ -9,11 +10,8 @@ export default {
   ],
 
   cells: [
-    {
-      cell: 'png' ,
-      buttonModify: 'MODIFIER',
-      buttonDelete: 'SUPPRIMER',
-    }
+    'MODIFIER',
+    'SUPPRIMER',
   ]
 
 }

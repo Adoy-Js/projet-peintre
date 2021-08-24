@@ -10,14 +10,14 @@ import './styles.scss';
 
 
 
-const ArrayArtwork = ({cells, cellTitles}) => (
+const ArrayArtwork = ({cells, cellTitles, image}) => (
   <div>
     <div className="arrayArtwork">
       <table>
         <thead className="arrayArtwork_head">
           <tr>
             {cellTitles.map((cellTitle) => (
-              <th className="cell_picture" key={cellTitle}>
+              <th className="cell" key={cellTitle}>
                 {cellTitle}
               </th>
             ))}
@@ -26,14 +26,16 @@ const ArrayArtwork = ({cells, cellTitles}) => (
       </table>
 
       <form className="arrayArtwork_body">
-      {cells.map((cell) => (
-               <td className="cell_body"><button className="cell_body_input_delete" type="submit" value={cells} key={cells}>
-                {cells}</button></td>
-            ))}
         <table>
+        <td className="cell">{image}</td>
+      {cells.map((cell) => (
+               <td className="cell"><button type="submit" value={cells} key={cells}>
+                {cell}</button></td>
+            ))}
+        
           <tbody className="arrayArtwork_body">
             <tr>
-             <td className="cell_body">{cell}</td>
+             <td className="cell"><button>+</button></td>
               
             </tr>
           </tbody>
@@ -46,9 +48,9 @@ const ArrayArtwork = ({cells, cellTitles}) => (
 
 // Validation des props
 ArrayArtwork.propTypes = {
-  cell: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  cells: PropTypes.string.isRequired,
   cellTitles: PropTypes.array.isRequired,
-  cellButtons: PropTypes.array.isRequired,
 };
 
 
