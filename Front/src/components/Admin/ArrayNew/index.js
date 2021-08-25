@@ -1,14 +1,14 @@
 // == Import de la lib React
-import React from 'react';
+import React, { useState } from 'react';
 
 // Ajout de la librairie de validation des props
 import PropTypes from 'prop-types';
-
 
 // == Imports locaux
 import './styles.scss';
 
 const ArrayNew = ({ tables, cellTitles, }) => {
+
 
   return (
     <div>
@@ -33,18 +33,17 @@ const ArrayNew = ({ tables, cellTitles, }) => {
                 <tr>
                   <td className="cell">{table.image}</td>
 
-                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.modifyCell}>
+                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.id}>
                     {table.modifyCell}</button></td>
 
-                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.deleteCell}>
+                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.id}>
                     {table.deleteCell}</button></td>
                 </tr>
               ))}
             </tbody>
             <tbody className="arrayArtwork_body">
               <tr>
-                <td className="cell"><a href="/menu/formAddImagaHome"><button type="submit">+</button></a></td>
-
+                <td className="cell"><a href="/admin/menu/new/arrayNewForm" className="button">+</a></td>
               </tr>
             </tbody>
           </table>

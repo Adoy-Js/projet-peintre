@@ -3,6 +3,8 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 // == Import
+
+//CLIENT
 // Ajout du composant Menu
 import Menu from 'src/components/Client/Menu';
 // Ajout du composant Home
@@ -32,8 +34,7 @@ import Acrylic from 'src/components/Client/Paintings/Acrylic';
 
 
 
-
-
+//ADMIN
 // Ajout du composant LoginForm
 import LoginForm from 'src/components/Admin/LoginForm';
 // Ajout du composant ArrayHome
@@ -42,6 +43,8 @@ import ArrayHome from 'src/components/Admin/ArrayHome';
 import ArrayArtwork from 'src/components/Admin/ArrayArtwork';
 // Ajout du composant ArrayNew
 import ArrayNew from 'src/components/Admin/ArrayNew';
+// Ajout du composant ArrayNewForm
+import ArrayNewForm from 'src/components/Admin/ArrayNew/ArrayNewForm';
 // Ajout du composant MenuAdmin
 import MenuAdmin from 'src/components/Admin/MenuAdmin';
 
@@ -90,6 +93,10 @@ const App = () => (
         <ArrayNew 
         tables={arrayData.tables}
         cellTitles={arrayData.cellTitles} />
+      </Route>
+
+      <Route path="/admin/menu/new/arrayNewForm" exact>
+        <ArrayNewForm  />
       </Route>
 
       <Route path="/artwork/painting" exact>
