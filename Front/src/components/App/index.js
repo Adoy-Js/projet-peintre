@@ -45,6 +45,10 @@ import ArrayArtwork from 'src/components/Admin/ArrayArtwork';
 import ArrayNew from 'src/components/Admin/ArrayNew';
 // Ajout du composant ArrayNewForm
 import ArrayNewForm from 'src/components/Admin/ArrayNew/ArrayNewForm';
+// Ajout du composant ArrayArtworkForm
+import ArrayArtworkForm from 'src/components/Admin/ArrayArtwork/ArrayArtworkForm';
+// Ajout du composant ArrayHomeForm
+import ArrayHomeForm from 'src/components/Admin/ArrayHome/ArrayHomeForm';
 // Ajout du composant MenuAdmin
 import MenuAdmin from 'src/components/Admin/MenuAdmin';
 
@@ -83,10 +87,18 @@ const App = () => (
         cellTitles={arrayData.cellTitles} />
       </Route>
 
+      <Route path="/admin/menu/artwork/arrayArtworkForm" exact>
+        <ArrayArtworkForm  />
+      </Route>
+
       <Route path="/admin/menu/home" exact>
         <ArrayHome
         tables={arrayData.tables}
         cellTitles={arrayData.cellTitles} />
+      </Route>
+
+      <Route path="/admin/menu/home/ArrayHomeForm" exact>
+        <ArrayHomeForm  />
       </Route>
 
       <Route path="/admin/menu/new" exact>

@@ -1,19 +1,10 @@
 @use 'src/styles/vars';
 
-.arrayArtwork{
+.arrayHome{
   float: right;
   width: 85%;
   margin-right: 2em;
   margin-top: 5em;
-
-}
-
-
-.arrayHome {
-  margin-top: 10em;
-  width: 60%;
-  margin-left: 15em;
-  margin-bottom: 5em;
 }
 
 table {
@@ -25,6 +16,17 @@ table {
   width: 25%;
 }
 
+.button{
+  border: 1px solid rgba(0, 0, 0, 0.281);
+  border-radius: 8%;
+  padding: 0px 10px 0px 10px;
+  background-color: rgba(154, 158, 155, 0.103);
+  
+  &:hover{
+  background-color: rgba(154, 158, 155, 0.329);
+  }
+}
+
 th,
 td {
   padding: 10px;
@@ -34,7 +36,7 @@ td {
 }
 
 th {
-  background-color: rgb(93, 165, 121);
+  background-color: rgb(128, 163, 128);
   color: white;
 }
 

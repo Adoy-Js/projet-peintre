@@ -4,17 +4,17 @@ import React from 'react';
 // Ajout de la librairie de validation des props
 import PropTypes from 'prop-types';
 
-
 // == Imports locaux
 import './styles.scss';
 
 const ArrayHome = ({ tables, cellTitles, }) => {
 
+
   return (
     <div>
-      <div className="arrayArtwork">
+      <div className="arrayHome">
         <table>
-          <thead className="arrayArtwork_head">
+          <thead className="arrayHome_head">
             <tr>
               {cellTitles.map((cellTitle) => (
                 <th className="cell" key={cellTitle}>
@@ -25,26 +25,25 @@ const ArrayHome = ({ tables, cellTitles, }) => {
           </thead>
         </table>
 
-        <form className="arrayArtwork_body">
+        <form className="arrayHome_body">
 
           <table>
-            <tbody className="arrayArtwork_body">
+            <tbody className="arrayHome_body">
               {tables.map((table) => (
                 <tr>
                   <td className="cell">{table.image}</td>
 
-                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.modifyCell}>
+                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.id}>
                     {table.modifyCell}</button></td>
 
-                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.deleteCell}>
+                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.id}>
                     {table.deleteCell}</button></td>
                 </tr>
               ))}
             </tbody>
-            <tbody className="arrayArtwork_body">
+            <tbody className="arrayHome_body">
               <tr>
-                <td className="cell"><a href="/menu/formAddImagaHome"><button type="submit">+</button></a></td>
-
+                <td className="cell"><a href="/admin/menu/home/arrayHomeForm" className="button">+</a></td>
               </tr>
             </tbody>
           </table>

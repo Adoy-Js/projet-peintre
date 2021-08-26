@@ -1,4 +1,4 @@
-.arrayNewForm {
+.arrayArtworkForm {
   border: 10px solid rgb(128, 163, 128);
   margin: 1em 2em 2em 15em;
 
@@ -46,11 +46,16 @@
     margin-right: 1em;
   }
 
+  &_format {
+    margin-right: 1em;
+  }
+
   &_place {
-    margin-left: 13em;
+    margin-left: 1em;
   }
 
   &_date_input,
+  &_format_input,
   &_place_input {
     display: flex;
     margin: .7em;
@@ -63,7 +68,7 @@
 
   &_date {
     width: 17%;
-    margin-right: 6em;
+    margin-right: 31em;
     position: relative;
 
     &_text {
@@ -71,9 +76,29 @@
     }
   }
 
-  &_place_input {
+  &_place_input,
+  &_format_input {
     text-align: center;
     width: 90%;
+  }
+
+  &_category {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 40em;
+
+
+    &_select {
+      margin: .7em;
+      padding: .6em;
+      margin-left: 2em;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 10px 5px 5px rgb(226, 226, 226);
+      background-color: rgb(128, 163, 128);
+      color: rgb(255, 255, 255);
+    }
   }
 
   &_file {

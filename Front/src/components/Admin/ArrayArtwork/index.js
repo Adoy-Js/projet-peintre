@@ -4,11 +4,11 @@ import React from 'react';
 // Ajout de la librairie de validation des props
 import PropTypes from 'prop-types';
 
-
 // == Imports locaux
 import './styles.scss';
 
 const ArrayArtwork = ({ tables, cellTitles, }) => {
+
 
   return (
     <div>
@@ -33,18 +33,17 @@ const ArrayArtwork = ({ tables, cellTitles, }) => {
                 <tr>
                   <td className="cell">{table.image}</td>
 
-                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.modifyCell}>
+                  <td className="cell"><button type="submit" value={table.modifyCell} key={table.id}>
                     {table.modifyCell}</button></td>
 
-                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.deleteCell}>
+                  <td className="cell"><button type="submit" value={table.deleteCell} key={table.id}>
                     {table.deleteCell}</button></td>
                 </tr>
               ))}
             </tbody>
             <tbody className="arrayArtwork_body">
               <tr>
-                <td className="cell"><a href="/menu/formAddImagaHome"><button type="submit">+</button></a></td>
-
+                <td className="cell"><a href="/admin/menu/artwork/arrayArtworkForm" className="button">+</a></td>
               </tr>
             </tbody>
           </table>

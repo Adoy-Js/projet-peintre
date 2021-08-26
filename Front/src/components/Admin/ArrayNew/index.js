@@ -1,5 +1,5 @@
 // == Import de la lib React
-import React, { useState } from 'react';
+import React from 'react';
 
 // Ajout de la librairie de validation des props
 import PropTypes from 'prop-types';
@@ -12,9 +12,9 @@ const ArrayNew = ({ tables, cellTitles, }) => {
 
   return (
     <div>
-      <div className="arrayArtwork">
+      <div className="arrayNew">
         <table>
-          <thead className="arrayArtwork_head">
+          <thead className="arrayNew_head">
             <tr>
               {cellTitles.map((cellTitle) => (
                 <th className="cell" key={cellTitle}>
@@ -25,10 +25,10 @@ const ArrayNew = ({ tables, cellTitles, }) => {
           </thead>
         </table>
 
-        <form className="arrayArtwork_body">
+        <form className="arrayNew_body">
 
           <table>
-            <tbody className="arrayArtwork_body">
+            <tbody className="arrayNew_body">
               {tables.map((table) => (
                 <tr>
                   <td className="cell">{table.image}</td>
@@ -41,7 +41,7 @@ const ArrayNew = ({ tables, cellTitles, }) => {
                 </tr>
               ))}
             </tbody>
-            <tbody className="arrayArtwork_body">
+            <tbody className="arrayNew_body">
               <tr>
                 <td className="cell"><a href="/admin/menu/new/arrayNewForm" className="button">+</a></td>
               </tr>
