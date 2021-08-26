@@ -11,11 +11,11 @@ const ArrayHomeForm = () => {
   return (
     <div className="arrayHomeForm">
       <div className="arrayHomeForm_title">
-        Formulaire Actualités
+        Formulaire accueil
       </div>
       <form className="arrayHomeForm_form">
         <div className="arrayHomeForm_name">
-          Nom de l'oeuvre:
+          Nom de la photo d'accueil:
           <input className="arrayHomeForm_name_input" type="text" />
         </div>
       </form>

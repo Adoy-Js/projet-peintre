@@ -17,7 +17,7 @@ const ArrayNewForm = () => {
       </div>
       <form className="arrayNewForm_form">
         <div className="arrayNewForm_name">
-          Nom de l'oeuvre:
+          Nom de l'article:
           <input className="arrayNewForm_name_input" type="text" />
         </div>
       </form>
