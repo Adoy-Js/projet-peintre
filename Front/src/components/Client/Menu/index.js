@@ -22,9 +22,6 @@ function Menu () {
         <li className="item_menu slideInDown-2">
           <a href="/" className="link_menu">Accueil</a>
         </li>
-        <li className="item_menu slideInDown-2">
-          <a href="/artwork/sketche" className="link_menu">Croquis</a>
-        </li>
         <li className="item_menu slideInDown-3">
           <a href="/artwork/portrait" className="link_menu">Portrait</a>
         </li>
