@@ -35,19 +35,21 @@ const adminController = {
 
   isAdmin: async (req, res, next) => {
     console.log("je suis dans isAdmin");
-    next();
-    const authHeader = req.headers.Authorization;
+    // next();
+    const authHeader = req.headers['authorization'];
     if (authHeader) {
       const token = authHeader.split(" ")[1];
-      jwt.verify(token, jwtMiddleware.JWT_SIGN_SECRET, (err, user) => {
+      jwt.verify(token, process.env.JWT_SIGN_SECRET, (err, user) => {
         if (err) {
           return res.sendStatus(403);
         } else {
-          console.log("ça s est bien passé");
+          console.log("ça s'est bien passé");
           req.user = user;
           next();
         }
       });
+    }else{
+      console.log("pas de Header autorization");
     }
   },
 };

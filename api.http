@@ -39,6 +39,7 @@ content-type: application/json
 
 ### GET ADMIN HOME WITH ALL ARTWORK
 GET http://localhost:5000/admin/home
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzAzOTY0NTIsImV4cCI6MTYzMDQwMDA1Mn0.oIdG7WLN_loTTkGs6sSRX1ZcoYLDzEBcnnVPGTteUMw
 
 ### ADD PICTURE FOR HOME
 POST http://localhost:5000/admin/home
