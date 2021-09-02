@@ -1,5 +1,6 @@
 // == Import de la lib React
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 
 // Ajout de la librairie de validation des props
 import PropTypes from 'prop-types';
@@ -9,6 +10,15 @@ import './styles.scss';
 
 const ArrayHome = ({ tables, cellTitles, }) => {
 
+  const [images, setImages] = useState([]);
+
+  axios({
+    method: 'get',
+    url: "https://projet-peintre.herokuapp.com/about"
+  }).then(res => {
+    const images = res.data;
+    setImages(images);
+  })
 
   return (
     <div>
@@ -29,15 +39,19 @@ const ArrayHome = ({ tables, cellTitles, }) => {
 
           <table>
             <tbody className="arrayHome_body">
-              {tables.map((table) => (
+              {images.map(image => (
                 <tr>
-                  <td className="cell">{table.image}</td>
+                  <td key={image.id_artist} className="cell">{image.image}</td>
 
+                  {tables.map((table) => (
+                    <tr>
                   <td className="cell"><button type="submit" value={table.modifyCell} key={table.id}>
                     {table.modifyCell}</button></td>
 
                   <td className="cell"><button type="submit" value={table.deleteCell} key={table.id}>
                     {table.deleteCell}</button></td>
+                    </tr>
+                  ))}
                 </tr>
               ))}
             </tbody>
@@ -51,13 +65,13 @@ const ArrayHome = ({ tables, cellTitles, }) => {
       </div>
     </div >
 
-  )
-};
-
+  );
+}
 // Validation des props
 ArrayHome.propTypes = {
   tables: PropTypes.array.isRequired,
   cellTitles: PropTypes.array.isRequired,
 };
+
 
 export default ArrayHome;
