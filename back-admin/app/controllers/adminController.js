@@ -48,6 +48,9 @@ const adminController = {
           next();
         }
       });
+    }else{
+      console.log("pas de Header autorization");
+
     }
   },
 };
