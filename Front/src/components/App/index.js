@@ -38,17 +38,17 @@ import Acrylic from 'src/components/Client/Paintings/Acrylic';
 // Ajout du composant LoginForm
 import LoginForm from 'src/components/Admin/LoginForm';
 // Ajout du composant ArrayHome
-import ArrayHome from 'src/components/Admin/ArrayHome';
+import HomeArray from 'src/components/Admin/HomeArray';
 // Ajout du composant ArrayArtwork
-import ArrayArtwork from 'src/components/Admin/ArrayArtwork';
+import ArtworkArray from 'src/components/Admin/ArtworkArray';
 // Ajout du composant ArrayNew
-import ArrayNew from 'src/components/Admin/ArrayNew';
+import NewArray from 'src/components/Admin/NewArray';
 // Ajout du composant ArrayNewForm
-import ArrayNewForm from 'src/components/Admin/ArrayNew/ArrayNewForm';
+import FormNewArray from 'src/components/Admin/NewArray/formNewArray';
 // Ajout du composant ArrayArtworkForm
-import ArrayArtworkForm from 'src/components/Admin/ArrayArtwork/ArrayArtworkForm';
+import FormArtworkArray from 'src/components/Admin/ArtworkArray/formArtworkArray';
 // Ajout du composant ArrayHomeForm
-import ArrayHomeForm from 'src/components/Admin/ArrayHome/ArrayHomeForm';
+import FormHomeArray from 'src/components/Admin/HomeArray/formHomeArray';
 // Ajout du composant MenuAdmin
 import MenuAdmin from 'src/components/Admin/MenuAdmin';
 
@@ -82,33 +82,30 @@ const App = () => (
       </Route>
 
       <Route path="/admin/menu/artwork" exact>
-        <ArrayArtwork 
-        tables={arrayData.tables}
+        <ArtworkArray
         cellTitles={arrayData.cellTitles} />
       </Route>
 
-      <Route path="/admin/menu/artwork/arrayArtworkForm" exact>
-        <ArrayArtworkForm  />
+      <Route path="/admin/menu/artwork/formArtworkArray" exact>
+        <FormArtworkArray  />
       </Route>
 
       <Route path="/admin/menu/home" exact>
-        <ArrayHome
-        tables={arrayData.tables}
+        <HomeArray
         cellTitles={arrayData.cellTitles} />
       </Route>
 
-      <Route path="/admin/menu/home/ArrayHomeForm" exact>
-        <ArrayHomeForm  />
+      <Route path="/admin/menu/home/formHomeArray" exact>
+        <FormHomeArray  />
       </Route>
 
       <Route path="/admin/menu/new" exact>
-        <ArrayNew 
-        tables={arrayData.tables}
+        <NewArray
         cellTitles={arrayData.cellTitles} />
       </Route>
 
-      <Route path="/admin/menu/new/arrayNewForm" exact>
-        <ArrayNewForm  />
+      <Route path="/admin/menu/new/formNewArray" exact>
+        <FormNewArray />
       </Route>
 
       <Route path="/artwork/painting" exact>

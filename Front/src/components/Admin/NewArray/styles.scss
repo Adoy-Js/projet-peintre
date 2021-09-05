@@ -2,20 +2,25 @@
 
 .arrayNew{
   float: right;
-  width: 85%;
-  margin-right: 2em;
+  width: 70%;
+  margin-right: 12em;
   margin-top: 5em;
 
+  &_name{
+    width: 50%;
+  }
+  
+  &_cell{
+  width: 50%;
+}
 }
 
 table {
-  width: 100%;
+  width:100% ;
   border-collapse: collapse;
 }
 
-.cell{
-  width: 25%;
-}
+
 
 .button{
   border: 1px solid rgba(0, 0, 0, 0.281);
@@ -28,12 +33,12 @@ table {
   }
 }
 
+
 th,
 td {
   padding: 10px;
   text-align: left;
   border: 1px solid #ccc;
-  width: 80%;
 }
 
 th {

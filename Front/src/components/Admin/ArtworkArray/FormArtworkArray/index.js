@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import './styles.scss';
 import "react-datepicker/dist/react-datepicker.css";
 
-const ArrayArtworkForm = () => {
+const FormArtworkArray = () => {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
@@ -17,33 +17,34 @@ const ArrayArtworkForm = () => {
       </div>
       <form className="arrayArtworkForm_form">
         <div className="arrayArtworkForm_name">
-          Nom de l'oeuvre:
+          Nom de l'oeuvre :
           <input className="arrayArtworkForm_name_input" type="text" />
         </div>
       </form>
 
       <div className="arrayArtworkForm_informations">
-        <div className="arrayArtworkForm_date">
-          <div className="arrayArtworkForm_date_text">
+      <form className="arrayArtworkForm_formOne">
+        <div>
+          <div className="arrayArtworkForm_date">
             Date :
           </div>
-          <DatePicker className="arrayArtworkForm_date_input" selected={startDate} onChange={(date) => setStartDate(date)} />
+            <input className="arrayArtworkForm_date_input" type="text" placeholder="2021" />
         </div>
+        </form>
         <form className="arrayArtworkForm_formTwo">
           <div className="arrayArtworkForm_format">
-            Format de l'oeuvre:
+            Format de l'oeuvre :
             <input className="arrayArtworkForm_format_input" type="text" placeholder="cm x cm" />
           </div>
           <div className="arrayArtworkForm_place">
-            Lieu:
+            Lieu :
             <input className="arrayArtworkForm_place_input" type="text" />
           </div>
         </form>
 
         <div className="arrayArtworkForm_category">
-          Choisir la catégorie:
+          Choisir la catégorie :
           <select className="arrayArtworkForm_category_select">
-
             <option value="Peinture à l'huile">Peinture à l'huile</option>
             <option value="Peinture acrylique">Peinture acrylique</option>
             <option value="Peinture murale">Peinture murale</option>
@@ -58,8 +59,8 @@ const ArrayArtworkForm = () => {
         </div>
 
         <div className="arrayArtworkForm_description">
-          Histoire de l'oeuvre:
-          <input className="arrayArtworkForm_description_input" type="textarea" />
+          Histoire de l'oeuvre :
+          <textarea className="arrayArtworkForm_description_input" />
         </div>
       </form>
 
@@ -68,4 +69,4 @@ const ArrayArtworkForm = () => {
   );
 };
 
-export default ArrayArtworkForm;
+export default FormArtworkArray;
