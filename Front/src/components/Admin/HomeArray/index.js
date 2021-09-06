@@ -12,7 +12,7 @@ const HomeArray = () => {
   const [data, setData] = useState({
     name: "",
     image: "",
-  })
+  });
   
 
   axios({
@@ -23,8 +23,8 @@ const HomeArray = () => {
     setImages(images);
   })
 
-  function handleClick(e) {
-    e.preventDefault();
+  function handleClick(evt) {
+    evt.preventDefault();
 
     axios({
       method: 'patch',

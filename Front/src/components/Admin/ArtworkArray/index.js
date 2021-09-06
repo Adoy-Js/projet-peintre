@@ -1,16 +1,27 @@
 // == Import de la lib React
-import React from 'react';
+import React, { useState } from 'react';
+import axios from "axios";
 
 // == Imports locaux
 import './styles.scss';
 
 const ArtworkArray = () => {
 
+  const url = "https://projet-peintre.herokuapp.com/admin/artwork"
+  const [artwork, setArtwork] = useState([]);
+
+  axios({
+    method: 'get',
+    url,
+  }).then(res => {
+    const artwork = res.data;
+    setArtwork(artwork);
+  })
 
   return (
     <div>
       <div className="arrayArtwork">
-      <table>
+        <table>
           <thead className="arrayHome_head">
             <tr>
               <th className="arrayHome_name">
@@ -32,14 +43,19 @@ const ArtworkArray = () => {
         <form className="arrayArtwork_body">
 
           <table>
-            <tbody className="arrayArtwork_body">
-                <tr className="cellButton">
-                  <td className="cell"></td>
+            <tbody className="arrayHome_body">
+              {artwork.map(artwork => (
+                <tr>
+                  <td key={artwork.name_artwork}>{artwork.name_artwork}</td>
+                  <td key={artwork.name_category}>{artwork.name_category}</td>
+                  <td key={artwork.main_picture}>{artwork.main_picture}</td>
 
                   <td><button>MODIFIER</button></td>
 
                   <td><button>SUPPRIMER</button></td>
+
                 </tr>
+              ))}
             </tbody>
             <tbody className="arrayArtwork_body">
               <tr>
