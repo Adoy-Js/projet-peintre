@@ -60,6 +60,14 @@ const HomeArray = () => {
         <form className="arrayHome_body">
 
           <table>
+          <tbody className="arrayHome_body">
+              <tr>
+                <td className="cell"><a href="/admin/menu/home/formHomeArray" className="button">+</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
             <tbody className="arrayHome_body">
               {images.map(image => (
                 <tr>
@@ -73,11 +81,7 @@ const HomeArray = () => {
                 </tr>
               ))}
             </tbody>
-            <tbody className="arrayHome_body">
-              <tr>
-                <td className="cell"><a href="/admin/menu/home/formHomeArray" className="button">+</a></td>
-              </tr>
-            </tbody>
+            
           </table>
         </form>
       </div>

@@ -46,6 +46,15 @@ const ArtworkArray = () => {
         <form className="arrayArtwork_body">
 
           <table>
+          <tbody className="arrayArtwork_body">
+              <tr>
+                <td className="cell"><a href="/admin/menu/artwork/formArtworkArray" className="button">+</a></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
             <tbody>
               {artwork.map(artwork => (
                 <tr>
@@ -60,11 +69,7 @@ const ArtworkArray = () => {
                 </tr>
               ))}
             </tbody>
-            <tbody className="arrayArtwork_body">
-              <tr>
-                <td className="cell"><a href="/admin/menu/artwork/formArtworkArray" className="button">+</a></td>
-              </tr>
-            </tbody>
+            
           </table>
         </form>
       </div>
