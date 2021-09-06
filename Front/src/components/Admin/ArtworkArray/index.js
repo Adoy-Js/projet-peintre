@@ -22,18 +22,21 @@ const ArtworkArray = () => {
     <div>
       <div className="arrayArtwork">
         <table>
-          <thead className="arrayHome_head">
+          <thead className="arrayArtwork_head">
             <tr>
-              <th className="arrayHome_name">
+              <th className="arrayArtwork_name">
                 NOM
               </th>
-              <th className="arrayHome_urlPicture">
+              <th className="arrayArtwork_category">
+                CATÉGORIE
+              </th>
+              <th className="arrayArtwork_urlPicture">
                 PHOTOS
               </th>
-              <th className="arrayHome_modify">
+              <th className="arrayArtwork_modify">
                 MODIFIER
               </th>
-              <th className="arrayHome_delete">
+              <th className="arrayArtwork_delete">
                 SUPPRIMER
               </th>
             </tr>
@@ -43,16 +46,16 @@ const ArtworkArray = () => {
         <form className="arrayArtwork_body">
 
           <table>
-            <tbody className="arrayHome_body">
+            <tbody>
               {artwork.map(artwork => (
                 <tr>
                   <td key={artwork.name_artwork}>{artwork.name_artwork}</td>
-                  <td key={artwork.name_category}>{artwork.name_category}</td>
-                  <td key={artwork.main_picture}>{artwork.main_picture}</td>
+                  <td className="category" key={artwork.name_category}>{artwork.name_category}</td>
+                  <td key={artwork.main_picture}>{artwork.main_picture}{artwork.image}</td>
 
                   <td><button>MODIFIER</button></td>
 
-                  <td><button>SUPPRIMER</button></td>
+                  <td><button className="arrayArtwork_body_delete">SUPPRIMER</button></td>
 
                 </tr>
               ))}

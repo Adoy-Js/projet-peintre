@@ -48,7 +48,7 @@ const ArrayNew = () => {
 
                 <td><button>MODIFIER</button></td>
 
-                <td><button>SUPPRIMER</button></td>
+                <td><button className="arrayNew_body_delete">SUPPRIMER</button></td>
               </tr>
             </tbody>
             <tbody className="arrayNew_body">

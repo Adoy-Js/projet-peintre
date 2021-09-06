@@ -68,7 +68,7 @@ const HomeArray = () => {
                   <td key={image.image}>{image.image}</td>
                     <td><button onClick={handleClick}>MODIFIER</button></td>
 
-                  <td><button>SUPPRIMER</button></td>
+                  <td><button className="arrayHome_body_delete">SUPPRIMER</button></td>
 
                 </tr>
               ))}
