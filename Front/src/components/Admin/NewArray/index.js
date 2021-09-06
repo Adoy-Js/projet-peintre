@@ -42,6 +42,13 @@ const ArrayNew = () => {
         <form className="arrayNew_body">
 
           <table>
+          <tbody className="arrayNew_body">
+              <tr>
+                <td className="arrayNew_cell"><a href="/admin/menu/new/formNewArray" className="button">+</a></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
             <tbody className="arrayNew_body">
               <tr>
                 <td key={news} className="cell">{news}</td>
@@ -51,11 +58,7 @@ const ArrayNew = () => {
                 <td><button className="arrayNew_body_delete">SUPPRIMER</button></td>
               </tr>
             </tbody>
-            <tbody className="arrayNew_body">
-              <tr>
-                <td className="arrayNew_cell"><a href="/admin/menu/new/formNewArray" className="button">+</a></td>
-              </tr>
-            </tbody>
+            
           </table>
         </form>
       </div>

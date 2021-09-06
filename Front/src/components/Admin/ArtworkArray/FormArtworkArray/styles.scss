@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: row;
     position: absolute;
-    margin-right: 1em;
+    margin-left: 7em;
   }
 
   &_format {
@@ -63,32 +63,31 @@
     box-shadow: 10px 5px 5px rgb(226, 226, 226);
   }
 
-  &_date {
-    margin-right: 36em;
-
-    &_input{
-      width: 10%;
-      margin-right: 35em;
-    }
-  }
-
   &_place_input,
   &_format_input {
     text-align: center;
     width: 90%;
   }
 
+  &_date {
+    margin-right: 23em;
+    margin-left: 12em;
+
+    &_input{
+      width: 15%;
+    margin-left: 13em ;
+    }
+  }
+
   &_category {
     display: flex;
     flex-direction: column;
-    position: absolute;
-    margin-left: 40em;
+    margin-left: 10em;
 
 
     &_select {
       margin: .7em;
       padding: .6em;
-      margin-left: 2em;
       border: none;
       border-radius: 5px;
       box-shadow: 10px 5px 5px rgb(226, 226, 226);
