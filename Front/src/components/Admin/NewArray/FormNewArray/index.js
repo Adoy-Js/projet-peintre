@@ -1,14 +1,11 @@
 // == Import de la lib React
 import React, { useState } from "react";
-import DatePicker from "react-datepicker";
 
 
 // == Imports locaux
 import './styles.scss';
-import "react-datepicker/dist/react-datepicker.css";
 
-const ArrayNewForm = () => {
-  const [startDate, setStartDate] = useState(new Date());
+const formNewArray = () => {
 
   return (
     <div className="arrayNewForm">
@@ -17,21 +14,27 @@ const ArrayNewForm = () => {
       </div>
       <form className="arrayNewForm_form">
         <div className="arrayNewForm_name">
-          Nom de l'article:
+          Nom de l'article :
           <input className="arrayNewForm_name_input" type="text" />
         </div>
       </form>
 
       <div className="arrayNewForm_informations">
-        <div className="arrayNewForm_date">
-          <div className="arrayNewForm_date_text">
+        
+        <form className="arrayNewForm_formOne">
+        <div>
+          <div className="arrayNewForm_date">
             Date :
           </div>
-          <DatePicker className="arrayNewForm_date_input" selected={startDate} onChange={(date) => setStartDate(date)} />
+            <input className="arrayNewForm_date_input" type="text" placeholder="2021" />
         </div>
+        </form>
+
         <form className="arrayNewForm_formTwo">
+          <div>
           <div className="arrayNewForm_place">
-            Lieu:
+            Lieu :
+          </div>
             <input className="arrayNewForm_place_input" type="text" />
           </div>
         </form>
@@ -43,8 +46,8 @@ const ArrayNewForm = () => {
         </div>
 
         <div className="arrayNewForm_description">
-          Article:
-          <input className="arrayNewForm_description_input" type="textarea" />
+          Article :
+          <textarea className="arrayNewForm_description_input" />
         </div>
       </form>
 
@@ -53,4 +56,4 @@ const ArrayNewForm = () => {
   );
 };
 
-export default ArrayNewForm;
+export default formNewArray;

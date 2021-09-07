@@ -6,9 +6,9 @@ import React, { useState } from "react";
 // == Imports locaux
 import './styles.scss';
 
-const ArrayHomeForm = () => {
+const FormHomeArray = () => {
 
-  const url = "http://localhost:5000/admin/home"
+  const url = "https://projet-peintre.herokuapp.com/admin/home"
   const [data, setData] = useState({
     name: "",
     image: "",
@@ -39,7 +39,7 @@ const ArrayHomeForm = () => {
       </div>
       <form onSubmit={(e) => handleSubmit(e)} className="arrayHomeForm_form">
         <div className="arrayHomeForm_name">
-          Nom de la photo d'accueil:
+          Nom de la photo d'accueil :
           <input onChange={(e) => handle(e)} id="name" value={data.name} className="arrayHomeForm_name_input" type="text" />
         </div>
         <div className="arrayHomeForm_file">
@@ -52,4 +52,4 @@ const ArrayHomeForm = () => {
   );
 };
 
-export default ArrayHomeForm;
+export default FormHomeArray;
