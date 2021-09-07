@@ -1,21 +1,40 @@
 @use 'src/styles/vars';
 
-.arrayNew{
+.arrayArtwork{
   float: right;
   width: 85%;
   margin-right: 2em;
   margin-top: 5em;
 
+  &_name{
+    width: 10.35%;
+  }
+
+  &_category{
+    width: 9%;
+  }
+
+  &_urlPicture{
+    padding-right: 58.5em;
+  }
+
+  &_body{
+    &_delete{
+    background-color: rgba(204, 59, 59, 0.932);
+    color: white;
+    &:hover{
+      background-color: rgb(151, 23, 23);
+    }
+  }
+  
+  }
 }
 
 table {
-  width: 100%;
+  width:100% ;
   border-collapse: collapse;
 }
 
-.cell{
-  width: 25%;
-}
 
 .button{
   border: 1px solid rgba(0, 0, 0, 0.281);
@@ -28,12 +47,14 @@ table {
   }
 }
 
+.category{
+  padding-right: 3.3em;
+}
+
 th,
 td {
-  padding: 10px;
   text-align: left;
   border: 1px solid #ccc;
-  width: 80%;
 }
 
 th {

@@ -1,4 +1,4 @@
-.arrayArtworkForm {
+.arrayNewForm {
   border: 10px solid rgb(128, 163, 128);
   margin: 1em 2em 2em 15em;
 
@@ -38,67 +38,37 @@
     justify-content: center;
     margin-right: 10em;
   }
+  &_date{
+    padding-right: 6em;
+  }
 
   &_formTwo {
     display: flex;
     flex-direction: row;
-    position: absolute;
     margin-right: 1em;
   }
 
-  &_format {
-    margin-right: 1em;
+  &_date_input{
+    width: 40%;
+    margin-left: 2em ;
   }
 
-  &_place {
-    margin-left: 1em;
-  }
 
   &_date_input,
-  &_format_input,
   &_place_input {
+    text-align: center;
+    margin: 100px;
     display: flex;
     margin: .7em;
     padding: .6em;
-    width: 40%;
-    text-align: center;
     border-radius: 5px;
     box-shadow: 10px 5px 5px rgb(226, 226, 226);
   }
 
-  &_date {
-    width: 17%;
-    margin-right: 31em;
-    position: relative;
-
-    &_text {
-      margin-right: 11em;
-    }
-  }
-
-  &_place_input,
-  &_format_input {
+  &_place_input &_date_input {
     text-align: center;
-    width: 90%;
-  }
-
-  &_category {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    margin-left: 40em;
-
-
-    &_select {
-      margin: .7em;
-      padding: .6em;
-      margin-left: 2em;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 10px 5px 5px rgb(226, 226, 226);
-      background-color: rgb(128, 163, 128);
-      color: rgb(255, 255, 255);
-    }
+    width: 110%;
+    padding-right: 4em;
   }
 
   &_file {
