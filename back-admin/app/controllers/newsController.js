@@ -18,6 +18,22 @@ const newsController = {
     }
   },
 
+  getOne: async (req, res, next)=> {
+    const { id } = req.params;
+
+    try {
+      const results = await News.findOne(id);
+      if (results) {
+        res.json(results);
+      } else {
+        next();
+      }
+    } catch (err) {
+      console.error(err);
+      next();
+    }
+  },
+
   addNews: async (req, res, next) => {
     try {
       // on instancie la nouvelle actu

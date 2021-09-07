@@ -53,6 +53,7 @@ router.patch('/admin/home/:id', adminController.isAdmin, artistController.update
 //Artwork
 
 router.get('/admin/artwork', adminController.isAdmin, artworkController.getAll);
+router.get('/admin/artwork/:id', adminController.isAdmin, artworkController.getOne);
 router.post('/admin/artwork', adminController.isAdmin, artworkController.addArtwork);
 router.delete('/admin/artwork/:id', adminController.isAdmin, artworkController.deleteArtwork);
 router.patch('/admin/artwork/:id', adminController.isAdmin, artworkController.updateArtwork);
@@ -60,6 +61,7 @@ router.patch('/admin/artwork/:id', adminController.isAdmin, artworkController.up
 //News
 
 router.get('/admin/news', adminController.isAdmin, newsController.getAll);
+router.get('/admin/news/:id', adminController.isAdmin, newsController.getOne);
 router.post('/admin/news', adminController.isAdmin, newsController.addNews);
 router.delete('/admin/news/:id', adminController.isAdmin, newsController.deleteNews);
 router.patch('/admin/news/:id', adminController.isAdmin, newsController.updateNews);
