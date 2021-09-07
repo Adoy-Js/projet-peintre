@@ -32,6 +32,26 @@ class Artist {
     }
   }
 
+  static async findOne(id){
+    try {
+      const sqlQuery = {
+        text: "SELECT * FROM picture WHERE id_picture = $1;",
+        values: [id],
+      };
+
+      const { rows } = await db.query(sqlQuery);
+
+      return rows[0] ? new this(rows[0]) : new Error("not found");
+    } catch (err) {
+      console.error(err);
+      if (err.detail) {
+        throw new Error(err.detail);
+      } else {
+        throw err;
+      }
+    }
+  }
+
   static async findByMail(mail) {
     try {
       const query = {
