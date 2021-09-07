@@ -14,6 +14,22 @@ const artistController = {
     }
   },
 
+  getOne: async(req, res, next)=>{
+    const { id } = req.params;
+
+    try {
+      const results = await Artist.findOne(id);
+      if (results) {
+        res.json(results);
+      } else {
+        next();
+      }
+    } catch (err) {
+      console.error(err);
+      next();
+    }
+  },
+
   add: async (req, res, next) => {
 
     try {
