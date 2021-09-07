@@ -42,7 +42,7 @@ class Artwork {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN artwork_has_picture ON artwork_has_picture.artwork_id = artwork.id_artwork FULL JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE id_artwork = $1 GROUP BY id_artwork;",
+        text: "SELECT * FROM artwork WHERE id_artwork = $1;",
         values: [id],
       };
 

@@ -61,6 +61,9 @@ PATCH http://localhost:5000/admin/home/1
 ### GET ALL ARTWORK
 GET http://localhost:5000/admin/artwork
 
+### GET ONE ARTWORK
+GET http://localhost:5000/admin/artwork/5
+
 ### GET ALL ARTWORK OF ONE CATEGORY
 GET http://localhost:5000/admin/artwork/portrait
 
@@ -102,6 +105,9 @@ content-type: application/json
 
 ### GET ALL NEWS
 GET http://localhost:5000/admin/news
+
+### GET ONE NEWS
+GET http://localhost:5000/admin/news/1
 
 ### ADD NEWS
 POST http://localhost:5000/admin/news
