@@ -54,7 +54,7 @@ CREATE TABLE artwork_has_picture (
 );
 
 CREATE TABLE artist_has_picture (
-  id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  id_artist_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   artist_id INT REFERENCES artist(id_artist),
   picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
 );
