@@ -159,6 +159,21 @@ const artworkController = {
   },
 
   updateArtwork: async (req, res, next) => {
+
+      const { id } = req.params;
+  
+      try {
+        const results = await Artwork.findOne(id);
+        if (results) {
+          res.json(results);
+        } else {
+          next();
+        }
+      } catch (err) {
+        console.error(err);
+        next();
+      };
+
     try {
       const { id } = req.params;
 
