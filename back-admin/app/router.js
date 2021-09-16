@@ -45,6 +45,7 @@ router.post('/admin', adminController.login)
 //Artist Picture for home
 
 router.get('/admin/home', adminController.isAdmin, artistController.getAll);
+router.get('/admin/home/:id', adminController.isAdmin, artistController.getOne);
 router.post('/admin/home', adminController.isAdmin, artistController.add);
 router.delete('/admin/home/:id', adminController.isAdmin, artistController.delete);
 router.patch('/admin/home/:id', adminController.isAdmin, artistController.update);
