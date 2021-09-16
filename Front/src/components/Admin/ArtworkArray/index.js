@@ -18,6 +18,17 @@ const ArtworkArray = () => {
     setArtwork(artwork);
   })
 
+  function handleDelete( id) {
+
+    axios({
+      method: 'delete',
+      url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
+    }).then(res => {
+      const artwork = res.data;
+      setArtwork(artwork);
+    }).catch((err) => { console.log(err) })
+  }
+
   return (
     <div>
       <div className="arrayArtwork">
@@ -64,7 +75,10 @@ const ArtworkArray = () => {
 
                   <td><button>MODIFIER</button></td>
 
-                  <td><button className="arrayArtwork_body_delete">SUPPRIMER</button></td>
+                  <td><button onClick={(e) => {
+                    e.preventDefault()
+                    handleDelete(artwork.id_artwork);
+                  }} className="arrayArtwork_body_delete">SUPPRIMER</button></td>
 
                 </tr>
               ))}
