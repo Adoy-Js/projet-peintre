@@ -30,70 +30,22 @@
     }
   }
 
-  &_informations {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-    justify-content: center;
-    margin-right: 10em;
-  }
 
-  &_formTwo {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    margin-right: 1em;
-  }
-
-  &_place {
-    margin-left: 13em;
-  }
-
-  &_date_input,
-  &_place_input {
-    display: flex;
-    margin: .7em;
-    padding: .6em;
-    width: 40%;
-    text-align: center;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px rgb(226, 226, 226);
-  }
-
-  &_date {
-    width: 17%;
-    margin-right: 6em;
-    position: relative;
-
-    &_text {
-      margin-right: 11em;
-    }
-  }
-
-  &_place_input {
-    text-align: center;
-    width: 90%;
-  }
-
-  &_file {
+&_url {
     margin-top: 4em;
     margin-bottom: 4em;
-  }
-
-  &_description {
-    display: flex;
-    flex-direction: column;
-
-    &_input {
-      margin:1em auto 3em 26em;
-      width: 70em;
-      height: 15em;
-      border-radius: 10px;
+    &_input{
+      width: 60%;
+      padding: .6em;
+      margin: .5em;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
       box-shadow: 10px 5px 5px rgb(226, 226, 226);
     }
   }
+  
+
 
   &_ok{
     width: 5%;

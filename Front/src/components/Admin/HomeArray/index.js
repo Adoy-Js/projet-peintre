@@ -20,14 +20,14 @@ const HomeArray = () => {
   })
 
   function handleDelete(id) {
-
+    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
     axios({
       method: 'delete',
       url: `https://projet-peintre.herokuapp.com/admin/home/${id}`,
     }).then(res => {
       const images = res.data;
       setImages(images);
-    }).catch((err) => { console.log(err) })
+    }).catch((err) => { console.log(err) })}
   }
 
   return (
@@ -75,7 +75,7 @@ const HomeArray = () => {
                   <td><button onClick={(e) => {
                     e.preventDefault()
                     handleDelete(image.id_picture);
-                  }} className="arrayArtwork_body_delete">SUPPRIMER</button></td>
+                  }} className="arrayHome_body_delete">SUPPRIMER</button></td>
 
                 </tr>
               ))}

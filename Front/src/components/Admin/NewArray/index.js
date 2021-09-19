@@ -19,6 +19,17 @@ const ArrayNew = () => {
     setNews(news);
   })
 
+  function handleDelete( id) {
+    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
+
+    axios({
+      method: 'delete',
+      url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
+    }).then(res => {
+      const artwork = res.data;
+      setArtwork(artwork);
+    }).catch((err) => { console.log(err) })}
+  }
 
   return (
     <div>
@@ -55,7 +66,10 @@ const ArrayNew = () => {
 
                 <td><button>MODIFIER</button></td>
 
-                <td><button className="arrayNew_body_delete">SUPPRIMER</button></td>
+                <td><button onClick={(e) => {
+                    e.preventDefault()
+                    handleDelete(artwork);
+                  }} className="arrayNew_body_delete">SUPPRIMER</button></td>
               </tr>
             </tbody>
             

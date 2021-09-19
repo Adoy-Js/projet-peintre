@@ -44,11 +44,11 @@ import ArtworkArray from 'src/components/Admin/ArtworkArray';
 // Ajout du composant ArrayNew
 import NewArray from 'src/components/Admin/NewArray';
 // Ajout du composant ArrayNewForm
-import FormNewArray from 'src/components/Admin/NewArray/formNewArray';
+import FormNewArray from 'src/components/Admin/NewArray/FormNewArray';
 // Ajout du composant ArrayArtworkForm
-import FormArtworkArray from 'src/components/Admin/ArtworkArray/formArtworkArray';
+import FormArtworkArray from 'src/components/Admin/ArtworkArray/FormArtworkArray';
 // Ajout du composant ArrayHomeForm
-import FormHomeArray from 'src/components/Admin/HomeArray/formHomeArray';
+import FormHomeArray from 'src/components/Admin/HomeArray/FormHomeArray';
 // Ajout du composant MenuAdmin
 import MenuAdmin from 'src/components/Admin/MenuAdmin';
 

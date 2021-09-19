@@ -10,7 +10,7 @@
     font-size: xx-large;
   }
 
-  &_name {
+  &_name{
     display: flex;
     flex-direction: column;
     margin-top: 2em;
@@ -33,35 +33,26 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin-right: 6em;
   }
 
   &_formTwo {
     display: flex;
     flex-direction: row;
-    position: absolute;
-    margin-left: 7em;
+    justify-content: center;
   }
 
-  &_format {
-    margin-right: 1em;
-  }
-
-  &_place {
-    margin-left: 1em;
-  }
-
-  &_date_input,
+  &_category_input,
   &_format_input,
+  &_date_input,
   &_place_input {
     display: flex;
     margin: .7em;
     padding: .6em;
-    width: 40%;
     text-align: center;
     border-radius: 5px;
     box-shadow: 10px 5px 5px rgb(226, 226, 226);
   }
+
 
   &_place_input,
   &_format_input {
@@ -69,20 +60,10 @@
     width: 90%;
   }
 
-  &_date {
-    margin-right: 23em;
-    margin-left: 12em;
-
-    &_input{
-      width: 15%;
-    margin-left: 13em ;
-    }
-  }
 
   &_category {
     display: flex;
     flex-direction: column;
-    margin-left: 10em;
 
 
     &_select {
@@ -96,8 +77,10 @@
     }
   }
 
-  &_file {
-    margin-top: 4em;
+  &_url {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
     margin-bottom: 4em;
   }
 
@@ -106,7 +89,7 @@
     flex-direction: column;
 
     &_input {
-      margin:1em 29em 3em 29.4em;
+      margin:1em auto 3em auto;
       width: 70em;
       height: 15em;
       border-radius: 10px;

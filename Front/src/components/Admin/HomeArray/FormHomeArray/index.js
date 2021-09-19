@@ -14,19 +14,19 @@ const FormHomeArray = () => {
     image: "",
   })
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
 
-    axios.post(url,{
-      name: data.name,
-      image: data.image,
+    axios.post(url, {
+      name: "",
+      image: "",
     }).then(res => {
       console.log(res.data)
     })
   }
 
   function handle(e) {
-    const newdata = {...data}
+    const newdata = { ...data }
     newdata[e.target.id] = e.target.value
     setData(newdata)
     console.log(newdata)
@@ -43,7 +43,7 @@ const FormHomeArray = () => {
           <input onChange={(e) => handle(e)} id="name" value={data.name} className="arrayHomeForm_name_input" type="text" />
         </div>
         <div className="arrayHomeForm_file">
-          <input onChange={(e) => handle(e)} id="image" value={data.image} className="arrayHomeForm_file_input" type="file" accept="image/png, image/jpeg" />
+          <input onChange={(e) => handle(e)} id="image" value={data.image} className="arrayHomeForm_url_input" type="url" placeholder="https://firebasestorage..." required />
         </div>
 
         <button className="arrayHomeForm_ok">Valider</button>
