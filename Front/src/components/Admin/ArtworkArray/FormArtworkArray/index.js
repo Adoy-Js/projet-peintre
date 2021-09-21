@@ -1,6 +1,6 @@
 // == Import de la lib React
 import React, { useState } from "react";
-
+import axios from 'axios';
 
 // == Imports locaux
 import './styles.scss';
@@ -14,6 +14,7 @@ const FormArtworkArray = () => {
     format: "",
     place: "",
     image: "",
+    category: "",
     description: ""
   })
   const [values, setValues] = useState();
@@ -33,6 +34,7 @@ const FormArtworkArray = () => {
       format: "",
       place: "",
       image: "",
+      category: "",
       description: ""
     }).then(res => {
       console.log(res.data)
@@ -55,7 +57,7 @@ const FormArtworkArray = () => {
       <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_form">
         <div className="arrayArtworkForm_name">
           Nom de l'oeuvre :
-          <input onChange={(e) => handle(e)} value={data.name} className="arrayArtworkForm_name_input" type="text" />
+          <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayArtworkForm_name_input" type="text" />
         </div>
       </form>
 
@@ -65,17 +67,17 @@ const FormArtworkArray = () => {
             <div className="arrayArtworkForm_date">
               Date :
             </div>
-            <input value={data.date} onChange={(e) => handle(e)} className="arrayArtworkForm_date_input" type="text" placeholder="2021" />
+            <input value={data.date} onChange={(e) => handle(e)} id="date" className="arrayArtworkForm_date_input" type="text" placeholder="2021" />
           </div>
         </form>
         <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_formTwo">
           <div className="arrayArtworkForm_format">
             Format de l'oeuvre :
-            <input value={data.format} onChange={(e) => handle(e)} className="arrayArtworkForm_format_input" type="text" placeholder="cm x cm" />
+            <input value={data.format} onChange={(e) => handle(e)} id="format" className="arrayArtworkForm_format_input" type="text" placeholder="cm x cm" />
           </div>
           <div className="arrayArtworkForm_place">
             Lieu :
-            <input value={data.place} onChange={(e) => handle(e)} className="arrayArtworkForm_place_input" type="text" />
+            <input value={data.place} onChange={(e) => handle(e)} id="place" className="arrayArtworkForm_place_input" type="text" />
           </div>
         </form>
 
@@ -83,10 +85,10 @@ const FormArtworkArray = () => {
           <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
             Choisir la catégorie :
             <select className="arrayArtworkForm_category_select">
-              <option value="Peinture à l'huile">Peinture à l'huile</option>
-              <option value="Peinture acrylique">Peinture acrylique</option>
-              <option value="Peinture murale">Peinture murale</option>
-              <option value="Portrait">Portrait</option>
+              <option id="oil" value={data.category}>Peinture à l'huile</option>
+              <option id="acrylic" value={data.category}>Peinture acrylique</option>
+              <option id="mural" value={data.category}>Peinture murale</option>
+              <option id="portrait" value={data.category}>Portrait</option>
             </select>
           </div>
         </form>
@@ -95,12 +97,12 @@ const FormArtworkArray = () => {
       <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_formThree">
 
         <div className="arrayArtworkForm_file">
-          <input value={data.image} onChange={(e) => handle(e)} className="arrayArtworkForm_file_input" type="file" id="image" name="image" accept="image/png, image/jpeg" />
+          <input value={data.image} onChange={(e) => handle(e)} id="image" className="arrayArtworkForm_file_input" type="url" name="image" required />
         </div>
 
         <div className="arrayArtworkForm_description">
           Histoire de l'oeuvre :
-          <textarea value={data.description} onChange={(e) => handle(e)} className="arrayArtworkForm_description_input" />
+          <textarea value={data.description} id="description" onChange={(e) => handle(e)} className="arrayArtworkForm_description_input" />
         </div>
 
         <button className="arrayArtworkForm_ok">Valider</button>
