@@ -33,6 +33,8 @@ const artistController = {
   add: async (req, res, next) => {
 
     try {
+
+      console.log("controller : add picture for home");
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
