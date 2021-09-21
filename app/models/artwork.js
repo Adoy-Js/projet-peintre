@@ -7,14 +7,13 @@ class Artwork {
     }
   }
 
-  static async findAll(){
+  static async findAll() {
     try {
       const query = {
-        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON artwork_has_picture.picture_id = picture.id_picture;`
+        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON artwork_has_picture.picture_id = picture.id_picture;`,
       };
 
       const { rows } = await pool.query(query);
-
 
       return rows ? rows.map((row) => new this(row)) : false;
     } catch (error) {
@@ -42,7 +41,7 @@ class Artwork {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM artwork WHERE id_artwork = $1;",
+        text: "SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE id_artwork = $1 GROUP BY id_artwork;",
         values: [id],
       };
 
@@ -66,12 +65,31 @@ class Artwork {
       if (id) {
         sqlQuery = {
           text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, format=$4, description =$5, main_picture=$6, category_id=$7, artist_id=$8 WHERE id_artwork = $9",
-          values: [this.name_artwork, this.date, this.place, this.format, this.description, this.main_picture, this.category_id, this.artist_id, id],
+          values: [
+            this.name_artwork,
+            this.date,
+            this.place,
+            this.format,
+            this.description,
+            this.main_picture,
+            this.category_id,
+            this.artist_id,
+            id,
+          ],
         };
       } else {
         sqlQuery = {
           text: "INSERT INTO artwork(name_artwork, date, place, format, description, main_picture, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id_artwork;",
-          values: [this.name_artwork, this.date, this.place, this.format, this.description, this.main_picture, this.category_id, this.artist_id],
+          values: [
+            this.name_artwork,
+            this.date,
+            this.place,
+            this.format,
+            this.description,
+            this.main_picture,
+            this.category_id,
+            this.artist_id,
+          ],
         };
       }
 
@@ -110,19 +128,21 @@ class Artwork {
 
   static async findAllPaintings() {
     try {
-        const {rows} = await pool.query(`SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name_category IN ('oil-painting', 'acrylic-painting')` );
+      const { rows } = await pool.query(
+        `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name_category IN ('oil-painting', 'acrylic-painting')`
+      );
 
-        console.log(rows);
+      console.log(rows);
 
-        return rows.map(row => new Artwork(row));
+      return rows.map((row) => new Artwork(row));
     } catch (error) {
-        if (error.detail) {
-            throw new Error(error.detail);
-        } else {
-            throw error;
-        }
+      if (error.detail) {
+        throw new Error(error.detail);
+      } else {
+        throw error;
+      }
     }
-}
+  }
 }
 
 module.exports = Artwork;
