@@ -41,7 +41,6 @@ const artistController = {
 
       //Ajout de la relation avec l'artiste dans la table de liaison
       //l'id de lartiste sera toujours 1
-      const artist_id = 1;
       const picture_id = insertPicture.id_picture;
   
       const new_artist_has_picture = new Artist_has_picture({
