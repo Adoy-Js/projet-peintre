@@ -75,7 +75,7 @@ const HomeArray = () => {
                   <td><button onClick={(e) => {
                     e.preventDefault()
                     handleDelete(image.id_picture);
-                  }} className="arrayArtwork_body_delete">SUPPRIMER</button></td>
+                  }} className="arrayHome_body_delete">SUPPRIMER</button></td>
 
                 </tr>
               ))}

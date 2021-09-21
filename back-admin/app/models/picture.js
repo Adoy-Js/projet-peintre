@@ -41,7 +41,7 @@ class Picture {
           values: [this.name_picture, this.image+' ', id],
         };
       } else {
-        console.log("j'insere la nouvelle photo");
+        console.log("model : add picture for home");
         sqlQuery = {
           text: "INSERT INTO picture(name_picture, image) VALUES ($1,$2) RETURNING id_picture;",
           values: [this.name_picture, this.image+' ']

@@ -14,19 +14,19 @@ const FormHomeArray = () => {
     image: "",
   })
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
 
-    axios.post(url,{
-      name_picture: data.name_picture,
-      image: data.image,
+    axios.post(url, {
+      name_picture: "",
+      image: "",
     }).then(res => {
       console.log(res.data)
     })
   }
 
   function handle(e) {
-    const newdata = {...data}
+    const newdata = { ...data }
     newdata[e.target.id] = e.target.value
     setData(newdata)
     console.log(newdata)

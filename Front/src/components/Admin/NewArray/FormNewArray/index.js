@@ -5,7 +5,7 @@ import React, { useState } from "react";
 // == Imports locaux
 import './styles.scss';
 
-const formNewArray = () => {
+const FormNewArray = () => {
 
   return (
     <div className="arrayNewForm">
@@ -56,4 +56,4 @@ const formNewArray = () => {
   );
 };
 
-export default formNewArray;
+export default FormNewArray;

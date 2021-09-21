@@ -19,6 +19,7 @@ const ArtworkArray = () => {
   })
 
   function handleDelete( id) {
+    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
 
     axios({
       method: 'delete',
@@ -26,7 +27,7 @@ const ArtworkArray = () => {
     }).then(res => {
       const artwork = res.data;
       setArtwork(artwork);
-    }).catch((err) => { console.log(err) })
+    }).catch((err) => { console.log(err) })}
   }
 
   return (
