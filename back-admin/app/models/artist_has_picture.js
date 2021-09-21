@@ -35,7 +35,7 @@ class Artist_has_picture {
       let sqlQuery;
 
       sqlQuery = {
-        text: "INSERT INTO artist_has_picture (artist_id, picture_id) VALUES ($1,$2) RETURNING id;",
+        text: "INSERT INTO artist_has_picture (artist_id, picture_id) VALUES ($1,$2) RETURNING id_artist_has_picture;",
         values: [this.artist_id, this.picture_id],
       };
 
