@@ -91,8 +91,8 @@ const FormArtworkArray = () => {
           </div>
         </div>
 
-        <div className="arrayArtworkForm_file">
-          <input value={data.image} onChange={(e) => handle(e)} id="image" className="arrayArtworkForm_file_input" type="url" name="image" required />
+        <div className="arrayArtworkForm_url">
+          <input value={data.image} onChange={(e) => handle(e)} id="image" className="arrayArtworkForm_url_input" placeholder="https://firebasestorage..." type="url" name="image" required />
         </div>
 
         <div className="arrayArtworkForm_description">

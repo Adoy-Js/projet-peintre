@@ -35,11 +35,6 @@
     justify-content: center;
   }
 
-  &_formTwo {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
 
   &_category_input,
   &_format_input,
@@ -82,6 +77,17 @@
     justify-content: center;
     margin-top: 3em;
     margin-bottom: 4em;
+
+    &_input {
+      width: 50%;
+      padding: .6em;
+      margin: .5em;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+      box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    }
+
   }
 
   &_description {
