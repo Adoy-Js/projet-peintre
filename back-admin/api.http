@@ -50,8 +50,7 @@ content-type: application/json
 
 {
     "name_picture": "moi dans le désert",
-    "image" : "desert.png",
-    "description": "j'adore le désert"
+    "image" : "desert.png"
 }
 
 ### DELETE HOME PICTURE
