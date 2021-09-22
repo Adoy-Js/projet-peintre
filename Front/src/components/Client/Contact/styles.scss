@@ -89,14 +89,18 @@
 
 @media screen and (max-width: 1024px) {
  
-  .Contact,
   .contact,
   .contact_div,
-  .p,
-  .contact_descriptions
+  .p
    {
     width: 100%;
   }
+  .contact_descriptions_list, 
+  .contact_message{
+    text-align: justify;
+
+  }
+
   .title{
     margin: auto;
   }
