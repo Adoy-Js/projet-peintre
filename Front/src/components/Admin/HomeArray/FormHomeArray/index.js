@@ -10,23 +10,23 @@ const FormHomeArray = () => {
 
   const url = "https://projet-peintre.herokuapp.com/admin/home"
   const [data, setData] = useState({
-    name: "",
+    name_picture: "",
     image: "",
   })
 
-  function handleSubmit(e) {
+  function handleSubmit(e){
     e.preventDefault();
 
-    axios.post(url, {
-      name: "",
-      image: "",
+    axios.post(url,{
+      name_picture: data.name_picture,
+      image: data.image,
     }).then(res => {
       console.log(res.data)
     })
   }
 
   function handle(e) {
-    const newdata = { ...data }
+    const newdata = {...data}
     newdata[e.target.id] = e.target.value
     setData(newdata)
     console.log(newdata)
@@ -40,10 +40,10 @@ const FormHomeArray = () => {
       <form onSubmit={(e) => handleSubmit(e)} className="arrayHomeForm_form">
         <div className="arrayHomeForm_name">
           Nom de la photo d'accueil :
-          <input onChange={(e) => handle(e)} id="name" value={data.name} className="arrayHomeForm_name_input" type="text" />
+          <input onChange={(e) => handle(e)} id="name_picture" value={data.name_picture} className="arrayHomeForm_name_input" type="text" />
         </div>
-        <div className="arrayHomeForm_file">
-          <input onChange={(e) => handle(e)} id="image" value={data.image} className="arrayHomeForm_url_input" type="url" placeholder="https://firebasestorage..." required />
+        <div className="arrayHomeForm_url">
+          <input onChange={(e) => handle(e)} id="image" value={data.image} placeholder="https://firebasestorage..." className="arrayHomeForm_url_input" type="url" required />
         </div>
 
         <button className="arrayHomeForm_ok">Valider</button>

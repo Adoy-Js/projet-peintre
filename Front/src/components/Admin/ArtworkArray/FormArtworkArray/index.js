@@ -1,6 +1,6 @@
 // == Import de la lib React
 import React, { useState } from "react";
-
+import axios from 'axios';
 
 // == Imports locaux
 import './styles.scss';
@@ -14,7 +14,8 @@ const FormArtworkArray = () => {
     format: "",
     place: "",
     image: "",
-    description: "",
+    category_name: "",
+    description: ""
   })
   const [values, setValues] = useState();
 
@@ -28,12 +29,13 @@ const FormArtworkArray = () => {
     e.preventDefault();
 
     axios.post(url, {
-      name: data.name,
-      date: data.date,
-      format: data.format,
-      place: data.place,
-      image: data.image,
-      description: data.description,
+      name: "",
+      date: "",
+      format: "",
+      place: "",
+      image: "",
+      category_name: "",
+      description: ""
     }).then(res => {
       console.log(res.data)
     })
@@ -56,44 +58,46 @@ const FormArtworkArray = () => {
 
       <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_form">
         <div className="arrayArtworkForm_name">
-          Nom :
-          <input onChange={(e) => handle(e)} id="name" value={data.name} className="arrayArtworkForm_name_input" type="text" />
+          Nom de l'oeuvre :
+          <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayArtworkForm_name_input" type="text" />
         </div>
 
-        <div className="arrayArtworkForm_formTwo">
-          <div className="arrayArtworkForm_date">
-            Date:
-            <input onChange={(e) => handle(e)} id="date" value={data.date} className="arrayArtworkForm_date_input" type="text" placeholder="2021" />
+      <div className="arrayArtworkForm_informations">
+          <div>
+            <div className="arrayArtworkForm_date">
+              Date :
+            </div>
+            <input value={data.date} onChange={(e) => handle(e)} id="date" className="arrayArtworkForm_date_input" type="text" placeholder="2021" />
           </div>
 
           <div className="arrayArtworkForm_format">
             Format de l'oeuvre :
-            <input onChange={(e) => handle(e)} id="format" value={data.format} className="arrayArtworkForm_format_input" type="text" placeholder="cm x cm" />
+            <input value={data.format} onChange={(e) => handle(e)} id="format" className="arrayArtworkForm_format_input" type="text" placeholder="cm x cm" />
           </div>
 
           <div className="arrayArtworkForm_place">
-            Lieu:
-            <input onChange={(e) => handle(e)} id="place" value={data.place} className="arrayArtworkForm_place_input" type="text" />
+            Lieu :
+            <input value={data.place} onChange={(e) => handle(e)} id="place" className="arrayArtworkForm_place_input" type="text" />
           </div>
 
           <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
             Choisir la catégorie:
             <select className="arrayArtworkForm_category_select">
-              <option value="Peinture à l'huile">Peinture à l'huile</option>
-              <option value="Peinture acrylique">Peinture acrylique</option>
-              <option value="Peinture murale">Peinture murale</option>
-              <option value="Portrait">Portrait</option>
+              <option id="category_name" value={data.category_name}>Peinture à l'huile</option>
+              <option id="category_name" value={data.category_name}>Peinture acrylique</option>
+              <option id="category_name" value={data.category_name}>Peinture murale</option>
+              <option id="category_name" value={data.category_name}>Portrait</option>
             </select>
           </div>
         </div>
 
         <div className="arrayArtworkForm_url">
-          <input onChange={(e) => handle(e)} id="image" value={data.image} className="arrayHomeForm_url_input" type="url" placeholder="https://firebasestorage..." required />
+          <input value={data.image} onChange={(e) => handle(e)} id="image" className="arrayArtworkForm_url_input" placeholder="https://firebasestorage..." type="url" name="image" required />
         </div>
 
         <div className="arrayArtworkForm_description">
           Histoire de l'oeuvre :
-          <textarea onChange={(e) => handle(e)} id="description" value={data.description} className="arrayArtworkForm_description_input" />
+          <textarea value={data.description} id="description" onChange={(e) => handle(e)} className="arrayArtworkForm_description_input" />
         </div>
 
         <button className="arrayArtworkForm_ok">Valider</button>

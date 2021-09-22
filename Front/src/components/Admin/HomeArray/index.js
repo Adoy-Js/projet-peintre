@@ -20,7 +20,7 @@ const HomeArray = () => {
   })
 
   function handleDelete(id) {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
+  if( window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")){
     axios({
       method: 'delete',
       url: `https://projet-peintre.herokuapp.com/admin/home/${id}`,
@@ -29,6 +29,16 @@ const HomeArray = () => {
       setImages(images);
     }).catch((err) => { console.log(err) })}
   }
+
+  function handleModify(id) {
+      axios({
+        method: 'patch',
+        url: `https://projet-peintre.herokuapp.com/admin/home/${id}`,
+      }).then(res => {
+        const images = res.data;
+        setImages(images);
+      }).catch((err) => { console.log(err) })}
+    
 
   return (
     <div>
@@ -66,11 +76,14 @@ const HomeArray = () => {
             <tbody>
               {images.map(image => (
                 <tr>
-                  <td key={image.id_picture}>{image.name_picture}</td>
+                  <td key={image.name_picture}>{image.name_picture}</td>
 
                   <td key={image.image}>{image.image}</td>
 
-                  <td><button className="arrayHome_body_modify">MODIFIER</button></td>
+                  <td><button onClick={(e) => {
+                    e.preventDefault()
+                    handleModify(image.id_picture);
+                  }} className="arrayHome_body_modify">MODIFIER</button></td>
 
                   <td><button onClick={(e) => {
                     e.preventDefault()
