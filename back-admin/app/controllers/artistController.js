@@ -14,7 +14,7 @@ const artistController = {
     }
   },
 
-  getOne: async(req, res, next)=>{
+  getOne: async (req, res, next) => {
     const { id } = req.params;
 
     try {
@@ -31,43 +31,39 @@ const artistController = {
   },
 
   add: async (req, res, next) => {
-
     try {
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
       const insertPicture = await newPicture.save();
 
-
       //Ajout de la relation avec l'artiste dans la table de liaison
       //l'id de lartiste sera toujours 1
       const picture_id = insertPicture.id_picture;
-  
+
       const new_artist_has_picture = new Artist_has_picture({
         artist_id: 1,
-        picture_id
+        picture_id,
       });
 
       new_artist_has_picture.save();
 
-      res.json({newPicture, new_artist_has_picture});
-      
+      res.json({ newPicture, new_artist_has_picture });
     } catch (error) {
       console.error(error);
       next();
     }
   },
 
-  update:async(res, req, next)=>{
+  update: async (req, res, next) => {
     try {
+      const { id } = req.params;
 
-      const {id} = req.params;
+      console.log(id);
 
       const updatePicture = new Picture(req.body);
 
-      const results = await updatePicture.save(id)
-
-      
+      await updatePicture.save(id);
     } catch (error) {
       console.error(error);
       next();
@@ -83,10 +79,10 @@ const artistController = {
       console.log("result = ", pictureDeleted);
       // 2. on retrouve la ligne correspondante dans artiste_has_picture grace a l'id de la picture
       // const relation_picture = await Artist_has_picture.findByPictureId(id);
-      
+
       // 3. on supprime tout ça
       //on supprime la relation et non la photo, car elle peut etre utilisée autre part
-      
+
       pictureDeleted.delete();
       // relation_picture.delete();
     } catch (error) {
