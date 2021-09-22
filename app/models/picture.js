@@ -49,7 +49,6 @@ class Picture {
        
       }
       const { rows } = await pool.query(sqlQuery);
-      this.id_picture = rows[0].id_picture;
       return rows[0];
     } catch (err) {
       console.error(err);

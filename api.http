@@ -5,7 +5,7 @@ GET http://localhost:5000/
 GET http://localhost:5000/artwork/painting
 
 ### GET ONE CATEGORY
-GET http://localhost:5000/artwork/oil-painting
+GET http://localhost:5000/artwork/mural-painting
 
 ### GET ONE ARTWORK
 GET http://localhost:5000/artwork/mural-painting/10
@@ -57,7 +57,13 @@ content-type: application/json
 DELETE http://localhost:5000/admin/home/14
 
 ### UPDATE HOME PICTURE
-PATCH http://localhost:5000/admin/home/1
+PATCH http://localhost:5000/admin/home/5
+content-type: application/json
+
+{
+    "name_picture": "moi dans le désert",
+    "image" : "desert.png"
+}
 
 ### GET ALL ARTWORK
 GET http://localhost:5000/admin/artwork
@@ -80,11 +86,27 @@ content-type: application/json
     "description": "peinture sur du lin",
     "category_id": 2,
     "artist_id":1,
+    "name_picture": "image portrait",
     "image": "https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35"
 }
 
+### ADD MURAL PAINTING
+POST http://localhost:5000/admin/artwork
+content-type: application/json
+
+{
+    "name_artwork": "peinture murale test",
+    "date" : "2019",
+    "place": "Orleans",
+    "format": "30 x 30 cm",
+    "description": "peinture sur du lin",
+    "category_id": 5,
+    "artist_id":1,
+    "image": ["https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D2.%20Portrait%201.jpg?alt=media&token=5c6e3ad8-8916-4172-b8ab-47eb880c2e35", "https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/D3.%20Portrait%202.jpg?alt=media&token=c1525ca6-4be7-4a86-b853-35cbb69c63c5"]
+}
+
 ### DELETE ARTWORK BY CATEGORY
-DELETE http://localhost:5000/admin/artwork/14
+DELETE http://localhost:5000/admin/artwork/15
 
 ### UPDATE ARTWORK BY CATEGORY
 PATCH http://localhost:5000/admin/artwork/portrait/2
