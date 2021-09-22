@@ -41,7 +41,7 @@ class Artist_has_picture {
 
       const { rows } = await pool.query(sqlQuery);
 
-      this.id = rows[0].id;
+      this.id_artist_has_picture = rows[0].id_artist_has_picture;
 
       return rows ? true : false;
     } catch (err) {
