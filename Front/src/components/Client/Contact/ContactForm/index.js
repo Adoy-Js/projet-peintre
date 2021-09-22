@@ -57,7 +57,7 @@ class ContactForm extends PureComponent {
 
   render() {
     return (
-      <div className="contactForm">
+ <div className="contactForm">
         <form onSubmit={this.handleSubmit} className="contactForm_client">
           <div className="contactForm_connexion">
 
@@ -83,7 +83,7 @@ class ContactForm extends PureComponent {
 
           </div>
         </form>
-      </div>
+      </div>     
     );
   }
 }

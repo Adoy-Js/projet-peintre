@@ -67,3 +67,34 @@
 input, textarea{
   border: none;
 }
+
+@media screen and (max-width: 1024px) {
+.ContactForm{
+    width: 100%;
+}
+
+    .contactForm{
+    &_mail,
+    &_name,
+    &_firstName{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto auto 1em auto;
+    width: 80%;
+
+    }
+
+    &_input_message{
+      width: 20em;
+      height: 20vh;
+    }
+    &_input_submit{
+      background-color: rgb(135, 170, 128) ;
+      color: white;
+      width: 30%;
+      height: 10vh;
+    }
+  }
+
+}

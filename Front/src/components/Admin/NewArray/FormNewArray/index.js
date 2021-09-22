@@ -19,7 +19,7 @@ const FormNewArray = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-  axios.post("https://projet-peintre.herokuapp.com/news", {
+  axios.post("https://projet-peintre.herokuapp.com/admin/news", {
     name: data.name,
     date: data.date,
     place: data.place,
@@ -29,7 +29,8 @@ const FormNewArray = () => {
   
     .then(res => {
       console.log(res.data)
-    })}
+    }).catch(err => {console.log(err)}
+    )}
 
     function handle(e) {
       const newdata = { ...data }
@@ -75,9 +76,9 @@ const FormNewArray = () => {
           Article :
           <textarea onChange={(e) => handle(e)} value={data.description} id="description" className="arrayNewForm_description_input" />
         </div>
+        <button className="arrayNewForm_ok">Valider</button>
       </form>
-
-      <button className="arrayNewForm_ok">Valider</button>
+  
     </div>
   );
 };
