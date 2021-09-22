@@ -93,17 +93,19 @@ const artworkController = {
 
           //la 1ere image du tableau sera la main_picture
           if (image === req.body.image[0]) {
-            const newArtwork = new Artwork({
-              name_artwork: req.body.name_artwork,
-              date: req.body.date,
-              place: req.body.place,
-              format: req.body.format,
-              description: req.body.description,
-              main_picture : image,
-              category_id: req.body.category_id,
-              artist_id: req.body.artist_id,
-            });
+            // const newArtwork = new Artwork({
+            //   name_artwork: req.body.name_artwork,
+            //   date: req.body.date,
+            //   place: req.body.place,
+            //   format: req.body.format,
+            //   description: req.body.description,
+            //   main_picture : image,
+            //   category_id: req.body.category_id,
+            //   artist_id: req.body.artist_id,
+            // });
 
+            // await newArtwork.save(insert_artwork.id_artwork);
+            newArtwork.main_picture = image;
             await newArtwork.save(insert_artwork.id_artwork);
           }
 
@@ -159,20 +161,19 @@ const artworkController = {
   },
 
   updateArtwork: async (req, res, next) => {
+    const { id } = req.params;
 
-      const { id } = req.params;
-  
-      try {
-        const results = await Artwork.findOne(id);
-        if (results) {
-          res.json(results);
-        } else {
-          next();
-        }
-      } catch (err) {
-        console.error(err);
+    try {
+      const results = await Artwork.findOne(id);
+      if (results) {
+        res.json(results);
+      } else {
         next();
-      };
+      }
+    } catch (err) {
+      console.error(err);
+      next();
+    }
 
     try {
       const { id } = req.params;
