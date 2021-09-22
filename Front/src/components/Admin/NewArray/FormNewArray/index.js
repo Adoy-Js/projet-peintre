@@ -1,4 +1,5 @@
 // == Import de la lib React
+import axios from "axios";
 import React, { useState } from "react";
 
 
@@ -7,47 +8,72 @@ import './styles.scss';
 
 const FormNewArray = () => {
 
+  const [data, setData] = useState({
+    name: "",
+    date: "",
+    place: "",
+    description: "",
+    image: "",
+  });
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+  axios.post("https://projet-peintre.herokuapp.com/news", {
+    name: data.name,
+    date: data.date,
+    place: data.place,
+    description: data.description,
+    image: data.image,
+  })
+  
+    .then(res => {
+      console.log(res.data)
+    })}
+
+    function handle(e) {
+      const newdata = { ...data }
+      newdata[e.target.id] = e.target.value
+      setData(newdata)
+      console.log(newdata)
+    }
+
   return (
     <div className="arrayNewForm">
       <div className="arrayNewForm_title">
         Formulaire Actualités
       </div>
-      <form className="arrayNewForm_form">
+      <form onSubmit={(e) => handleSubmit(e)} className="arrayNewForm_form">
         <div className="arrayNewForm_name">
           Nom de l'article :
-          <input className="arrayNewForm_name_input" type="text" />
+          <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayNewForm_name_input" type="text" />
         </div>
-      </form>
+      
 
       <div className="arrayNewForm_informations">
-        
-        <form className="arrayNewForm_formOne">
-        <div>
-          <div className="arrayNewForm_date">
-            Date :
-          </div>
-            <input className="arrayNewForm_date_input" type="text" placeholder="2021" />
-        </div>
-        </form>
 
-        <form className="arrayNewForm_formTwo">
           <div>
-          <div className="arrayNewForm_place">
-            Lieu :
+            <div className="arrayNewForm_date">
+              Date :
+            </div>
+            <input onChange={(e) => handle(e)} value={data.date} id="date" className="arrayNewForm_date_input" type="text" placeholder="2021" />
           </div>
-            <input className="arrayNewForm_place_input" type="text" />
+
+          <div>
+            <div className="arrayNewForm_place">
+              Lieu :
+            </div>
+            <input onChange={(e) => handle(e)} value={data.place} id="place" className="arrayNewForm_place_input" type="text" />
           </div>
-        </form>
 
       </div>
-      <form className="arrayNewForm_formThree">
-        <div className="arrayNewForm_file">
-          <input className="arrayNewForm_file_input" type="file" id="image" name="image" accept="image/png, image/jpeg" />
+        <div className="arrayNewForm_url">
+          <input onChange={(e) => handle(e)} value={data.image} id="image" className="arrayNewForm_url_input" placeholder="https://firebasestorage..." type="url" />
         </div>
 
         <div className="arrayNewForm_description">
           Article :
-          <textarea className="arrayNewForm_description_input" />
+          <textarea onChange={(e) => handle(e)} value={data.description} id="description" className="arrayNewForm_description_input" />
         </div>
       </form>
 

@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    axios.post(`http://localhost:5000/admin`, admin)
+    axios.post(`https://projet-peintre.herokuapp.com/admin`, admin)
       .then(res => {
         localStorage.setItem('token', res.data.token)
         console.log(res);

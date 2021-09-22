@@ -40,19 +40,26 @@
   }
   &_date{
     padding-right: 6em;
-  }
-
-  &_formTwo {
-    display: flex;
-    flex-direction: row;
-    margin-right: 1em;
-  }
-
-  &_date_input{
+  
+  &_input{
     width: 40%;
     margin-left: 2em ;
   }
+}
 
+&_url{
+margin: 4em;
+
+    &_input {
+      width: 50%;
+      padding: .6em;
+      margin: .5em;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 5px;
+      box-shadow: 10px 5px 5px rgb(226, 226, 226);
+    }
+}
 
   &_date_input,
   &_place_input {
@@ -81,9 +88,9 @@
     flex-direction: column;
 
     &_input {
-      margin:1em auto 3em 26em;
-      width: 70em;
-      height: 15em;
+      margin: 1em auto 2em auto;
+      width: 80%;
+      height: 20vh;
       border-radius: 10px;
       box-shadow: 10px 5px 5px rgb(226, 226, 226);
     }

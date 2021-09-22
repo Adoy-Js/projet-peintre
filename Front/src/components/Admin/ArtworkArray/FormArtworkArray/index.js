@@ -14,7 +14,7 @@ const FormArtworkArray = () => {
     format: "",
     place: "",
     image: "",
-    category: "",
+    category_name: "",
     description: ""
   })
   const [values, setValues] = useState();
@@ -34,7 +34,7 @@ const FormArtworkArray = () => {
       format: "",
       place: "",
       image: "",
-      category: "",
+      category_name: "",
       description: ""
     }).then(res => {
       console.log(res.data)
@@ -83,10 +83,10 @@ const FormArtworkArray = () => {
           <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
             Choisir la catégorie:
             <select className="arrayArtworkForm_category_select">
-              <option id="oil" value={data.category}>Peinture à l'huile</option>
-              <option id="acrylic" value={data.category}>Peinture acrylique</option>
-              <option id="mural" value={data.category}>Peinture murale</option>
-              <option id="portrait" value={data.category}>Portrait</option>
+              <option id="category_name" value={data.category_name}>Peinture à l'huile</option>
+              <option id="category_name" value={data.category_name}>Peinture acrylique</option>
+              <option id="category_name" value={data.category_name}>Peinture murale</option>
+              <option id="category_name" value={data.category_name}>Portrait</option>
             </select>
           </div>
         </div>
