@@ -26,7 +26,6 @@ const FormNewArray = () => {
     description: data.description,
     image: data.image,
   })
-  
     .then(res => {
       console.log(res.data)
     }).catch(err => {console.log(err)}

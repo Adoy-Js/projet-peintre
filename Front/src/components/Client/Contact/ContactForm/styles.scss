@@ -70,7 +70,9 @@ input, textarea{
 
 @media screen and (max-width: 1024px) {
 .ContactForm{
-    width: 100%;
+  &_client{
+    
+  }
 }
 
     .contactForm{
@@ -81,7 +83,6 @@ input, textarea{
     flex-direction: column;
     align-items: center;
     margin: auto auto 1em auto;
-    width: 80%;
 
     }
 

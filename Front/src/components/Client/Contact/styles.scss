@@ -88,7 +88,9 @@
 }
 
 @media screen and (max-width: 1024px) {
- 
+ .ContactForm{
+   width: 100%;
+ }
   .contact,
   .contact_div,
   .p
@@ -97,7 +99,7 @@
   }
   .contact_descriptions_list, 
   .contact_message{
-    text-align: justify;
+    text-align: center;
 
   }
 
