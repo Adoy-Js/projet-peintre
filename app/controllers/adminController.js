@@ -29,13 +29,13 @@ const adminController = {
         return res.status(400).json({ error: "missing parameters" });
       }
 
+      if (email !== process.env.MAIL) {
+        throw new Error("Email faux");
+      }
+
       const artistFounded = await Artist.findByMail(email);
       if (artistFounded) {
         console.log(artistFounded);
-      }
-
-      if (email !== artistFounded.email) {
-        throw new Error("Email faux");
       }
 
       const compare = await bcrypt.compare(password, artistFounded.password);
@@ -54,7 +54,6 @@ const adminController = {
   },
 
   isAdmin: async (req, res, next) => {
-    
     const authHeader = req.headers["authorization"];
     const token = authHeader.split(" ")[1];
     if (!token) {
