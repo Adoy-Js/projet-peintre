@@ -14,6 +14,7 @@ const HomeArray = () => {
   axios({
     method: 'get',
     url: "https://projet-peintre.herokuapp.com/admin/home",
+    header: localStorage.getItem('token'),
   }).then(res => {
     const images = res.data;
     setImages(images);

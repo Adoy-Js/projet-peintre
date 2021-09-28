@@ -21,6 +21,7 @@ const FormHomeArray = () => {
       name_picture: data.name_picture,
       image: data.image,
     }).then(res => {
+      
       console.log(res.data)
     })
   }
