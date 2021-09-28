@@ -36,7 +36,11 @@ const FormArtworkArray = () => {
       image: "",
       category_name: "",
       description: ""
-    }).then(res => {
+  },
+  {headers: {
+    Authorization: "Bearer " + localStorage.getItem('token')
+ }},
+  ).then(res => {
       console.log(res.data)
     })
   }
