@@ -1,7 +1,7 @@
 BEGIN;
 
-INSERT INTO artist (email, password) 
-VAlUES ('camillepaul.pro@gmail.com', '1234');
+-- INSERT INTO artist (email, password) 
+-- VAlUES ('camillepaul.pro@gmail.com', '1234');
 
 INSERT INTO category (name_category) VALUES 
 ('sketch'),
