@@ -14,6 +14,7 @@ const ArrayNew = () => {
   axios({
     method: 'get',
     url: "https://projet-peintre.herokuapp.com/admin/news",
+    header: localStorage.getItem('token'),
   }).then(res => {
     console.log(res.data)
     setNews(news);

@@ -12,7 +12,9 @@ const ArtworkArray = () => {
 
   axios({
     method: 'get',
-    url,
+    url,    
+    header: localStorage.getItem('token'),
+
   }).then(res => {
     const artwork = res.data;
     setArtwork(artwork);
