@@ -12,12 +12,12 @@ import './styles.scss';
     isLogged: false,
   });
   
+  const header = 
 
   function handleSubmit(evt) {
     evt.preventDefault();
 
-    axios.post('https://projet-peintre.herokuapp.com/admin', data, {  withCredentials: false,
-  }
+    axios.post('https://projet-peintre.herokuapp.com/admin', data, header
       )
       .then(res => {
         localStorage.setItem('token', res.data.token)
