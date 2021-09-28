@@ -50,7 +50,7 @@ content-type: application/json
 ### GET ADMIN HOME WITH ALL ARTWORK
 GET http://localhost:5000/admin/home
 content-type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMyNzI5ODAyLCJleHAiOjE2MzI3MzM0MDJ9.oHIG74XqXy6w1m4ObWfiSdY0_rGhN6aGRKImlBgi3V4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMyODQ0MDIwLCJleHAiOjE2MzI4NDc2MjB9.HCGYX73IdnJkrYD_SqEufsVIN1BLFQbxa5_rdx3g1H8
 
 ### GET ONE PICTURE FROM HOME
 GET http://localhost:5000/admin/home/2
