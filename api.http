@@ -28,18 +28,29 @@ content-type: application/json
 
 #################ADMIN####################
 
+###ADD ADMIN
+POST http://localhost:5000/newAdmin
+content-type: application/json
+
+{
+    "email": "camillepaul.pro@gmail.com",
+    "password" : "Camillesiteinternet94"
+}
+
+
 ###LOGIN
 POST http://localhost:5000/admin
 content-type: application/json
 
 {
     "email": "camillepaul.pro@gmail.com",
-    "password" : "1234"
+    "password" : "Camillesiteinternet94"
 }
 
 ### GET ADMIN HOME WITH ALL ARTWORK
 GET http://localhost:5000/admin/home
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzAzOTY0NTIsImV4cCI6MTYzMDQwMDA1Mn0.oIdG7WLN_loTTkGs6sSRX1ZcoYLDzEBcnnVPGTteUMw
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMyODQ0MDIwLCJleHAiOjE2MzI4NDc2MjB9.HCGYX73IdnJkrYD_SqEufsVIN1BLFQbxa5_rdx3g1H8
 
 ### GET ONE PICTURE FROM HOME
 GET http://localhost:5000/admin/home/2
