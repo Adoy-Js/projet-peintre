@@ -1,51 +1,45 @@
-import React from 'react';
+import React, { useState } from "react";
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 import './styles.scss';
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-      isLogged: false,
-    };
+ const LoginForm  = () => {
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+    isLogged: false,
+  });
+  
 
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value });
-  }
-
-  handleSubmit(evt) {
+  function handleSubmit(evt) {
     evt.preventDefault();
-    const admin = {
-      email: this.state.email,
-      password: this.state.password
-    };
 
-    axios.post(`https://projet-peintre.herokuapp.com/admin`, admin)
+    axios.post('https://projet-peintre.herokuapp.com/admin', data, {  withCredentials: false,
+  }
+      )
       .then(res => {
         localStorage.setItem('token', res.data.token)
         console.log(res);
         console.log(res.data);
-        this.setState({ isLogged: true })
-      })
+        setData({ isLogged: true })
+      }).catch(err => {console.log(err)}
+      )
   }
 
-  render() {
+  
+  function handle(e) {
+    const newdata = { ...data }
+    newdata[e.target.id] = e.target.value
+    setData(newdata)
+    console.log(newdata)
+  }
+
+
     return (
-      this.state.isLogged ? <Redirect to="/admin/menu/artwork" /> :
-        <form onSubmit={this.handleSubmit} className="Form">
+      data.isLogged ? <Redirect to="/admin/menu/artwork" /> :
+        <form onSubmit={(e) => handleSubmit(e)} className="Form">
 
           <div className="Form_label">
             Bienvenue
@@ -53,11 +47,11 @@ class LoginForm extends React.Component {
           <div className="Form_connexion">
 
             <div className="Form_mail">
-              <input className="Form_input" name="mail" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
+              <input className="Form_input" id="email" name="mail" type="text" placeholder="E-mail" value={data.email} onChange={(e) => handle(e)} />
             </div>
 
             <div className="Form_password">
-              <input className="Form_input" name="password" type="password" placeholder="Mot de passe" value={this.state.password} onChange={this.handlePasswordChange} />
+              <input className="Form_input" id="password" name="password" type="password" placeholder="Mot de passe" value={data.password}  onChange={(e) => handle(e)} />
             </div>
 
             <div className="Form_submit">
@@ -68,6 +62,6 @@ class LoginForm extends React.Component {
         </form>
     );
   }
-}
+
 
 export default LoginForm;
