@@ -48,9 +48,6 @@ const HomeArray = () => {
               <th className="arrayHome_urlPicture">
                 PHOTOS
               </th>
-              <th className="arrayHome_modify">
-                MODIFIER
-              </th>
               <th className="arrayHome_delete">
                 SUPPRIMER
               </th>
@@ -65,7 +62,6 @@ const HomeArray = () => {
                 <td className="cell"><a href="/admin/menu/home/formHomeArray" className="button">+</a></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
             </tbody>
 
@@ -75,8 +71,6 @@ const HomeArray = () => {
                   <td key={image.name_picture}>{image.name_picture}</td>
 
                   <td key={image.image}>{image.image}</td>
-
-                  <td><button className="arrayHome_body_modify">MODIFIER</button></td>
 
                   <td><button onClick={(e) => {
                     e.preventDefault()

@@ -51,9 +51,6 @@ const ArtworkArray = () => {
               <th className="arrayArtwork_urlPicture">
                 PHOTOS
               </th>
-              <th className="arrayArtwork_modify">
-                MODIFIER
-              </th>
               <th className="arrayArtwork_delete">
                 SUPPRIMER
               </th>
@@ -70,7 +67,6 @@ const ArtworkArray = () => {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
               </tr>
             </tbody>
             <tbody>
@@ -79,8 +75,6 @@ const ArtworkArray = () => {
                   <td key={artwork.name_artwork}>{artwork.name_artwork}</td>
                   <td className="category" key={artwork.name_category}>{artwork.name_category}</td>
                   <td key={artwork.main_picture}>{artwork.main_picture}{artwork.image}</td>
-
-                  <td><button>MODIFIER</button></td>
 
                   <td><button onClick={(e) => {
                     e.preventDefault()

@@ -27,6 +27,8 @@ const FormHomeArray = () => {
       
       console.log(res.data)
     })
+    
+  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
   }
 
   function handle(e) {

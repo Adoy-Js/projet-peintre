@@ -17,20 +17,27 @@ class Piwakawaka extends PureComponent {
   }
 
   render() {
-    return (
+    return ( 
+      <div>
+      {this.state.images.map((image) =>
       <div className="welcome">
-        <h1 className="title_piwa">Narnia</h1>
+       
+        <h1 className="title_piwa">
+          {image.name_artwork}
+        </h1>
         
-        {this.state.images.map((image) =>
+        
         <div key={image.id_artwork} className="mural_div">
             <div className="Piwaka">
               {image.image.map(img => <img key={img} className="mural_Piwakawaka" src={img} />)}
             </div>
             <div className="description">{image.description}</div>
-            </div>)}
-        
-      </div>      
-    ) 
+            </div>
+
+      </div>
+      )}
+      </div>
+    )
   }
 }
 
