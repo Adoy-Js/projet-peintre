@@ -14,8 +14,9 @@ const ArrayNew = () => {
   axios({
     method: 'get',
     url: "https://projet-peintre.herokuapp.com/admin/news",
-    header: localStorage.getItem('token'),
-  }).then(res => {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem('token')
+   },  }).then(res => {
     console.log(res.data)
     setNews(news);
   })
@@ -26,6 +27,9 @@ const ArrayNew = () => {
     axios({
       method: 'delete',
       url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem('token')
+     },
     }).then(res => {
       const artwork = res.data;
       setArtwork(artwork);

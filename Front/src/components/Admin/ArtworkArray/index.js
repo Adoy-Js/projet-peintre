@@ -12,9 +12,10 @@ const ArtworkArray = () => {
 
   axios({
     method: 'get',
-    url,    
-    header: localStorage.getItem('token'),
-
+    url,
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem('token')
+   },
   }).then(res => {
     const artwork = res.data;
     setArtwork(artwork);
@@ -25,7 +26,10 @@ const ArtworkArray = () => {
 
     axios({
       method: 'delete',
-      url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem('token')
+     },
+    url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
     }).then(res => {
       const artwork = res.data;
       setArtwork(artwork);
