@@ -20,21 +20,26 @@ class Durtal extends PureComponent {
 
   render() {
     return (
+      <div>
+          {this.state.images.map((image) =>
       <div className="mural_paintings">
 
         <h1 className="title_mural">
-          Durtal
+          {image.name_artwork}
         </h1>
 
         <div className="mural_gallery">
-          {this.state.images.map((image) =>
+          
             <div key={image.id_artwork} className="mural_div">
               {image.image.map(img => <img key={img} className="mural_Durtal" src={img} />)}
               <div className="description">{image.description}</div>
-            </div>)}
+            </div>
         </div>
 
       </div >
+      )}
+      </div>
+    
     )
   }
 };
