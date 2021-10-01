@@ -57,7 +57,7 @@ INSERT INTO artwork (name_artwork, date, place, format, description, main_pictur
 ('Isthmus Peak', 2021, '', '60 x 120 cm', 'Peinture à l’huile sur toile de lin naturel', null, 3, 1),
 ('Castlemaine Bushes', 2021, '', '40 x 40 cm', 'Peinture à l’huile sur toile', null, 3, 1),
 ('The Grampians', 2021, '', '70 x 52 cm', 'Peinture à l’huile sur toile', null, 3, 1),
-('Projet Durtal', 2019, 'Durtal', '200 x 1500 cm', 'Voici la peinture du patrimoine historique de la ville de Durtal que j’ai réalisée en Septembre 2019 dans le jeu de boule du « Petit Tivoli » à Durtal. Représentant le Château, avec le pont fleuri traversant le Loir rejoignant la porte Véron.
+('Peinture du patrimoine de Durtal', 2019, 'Durtal', '200 x 1500 cm', 'Voici la peinture du patrimoine historique de la ville de Durtal que j’ai réalisée en Septembre 2019 dans le jeu de boule du « Petit Tivoli » à Durtal. Représentant le Château, avec le pont fleuri traversant le Loir rejoignant la porte Véron.
 On aperçoit dans ce paysage le barrage avec quelques oiseaux dans leur milieu naturel, martin pêcheur, aigrette, quelques canards et oiseaux dans les tours du château …
 J’ai réalisé cette peinture sur 3 semaines, entouré d’une ambiance chaleureuse et conviviale.
 Je vous invite à lire la photo de l’article de presse paru dans le courrier de l’ouest expliquant davantage l’histoire de ce projet.
