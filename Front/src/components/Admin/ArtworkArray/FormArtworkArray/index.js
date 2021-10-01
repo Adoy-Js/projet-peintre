@@ -43,6 +43,7 @@ const FormArtworkArray = () => {
   ).then(res => {
       console.log(res.data)
     })
+  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
   }
 
   function handle(e) {
