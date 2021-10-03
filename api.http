@@ -139,6 +139,8 @@ content-type: application/json
 
 ### GET ALL NEWS
 GET http://localhost:5000/admin/news
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjMzMjc0MTY4LCJleHAiOjE2MzMyNzc3Njh9.p7VJzuwvSqjwQ9mlJRzUIpuQrRMOtEUTWGtBVR0F8wU
 
 ### GET ONE NEWS
 GET http://localhost:5000/admin/news/1
