@@ -16,6 +16,26 @@ class Artist {
     }
   }
 
+  static async save(email, password) {
+    try {
+      const sqlQuery = {
+        text: "INSERT INTO artist(email, password) VALUES ($1,$2) RETURNING id_artist;",
+        values: [email, password],
+      };
+
+      const { rows } = await db.query(sqlQuery);
+
+      return rows[0];
+    } catch (err) {
+      console.error(err);
+      if (err.detail) {
+        throw new Error(err.detail);
+      } else {
+        throw err;
+      }
+    }
+  }
+
   static async findAll() {
     try {
       const { rows } = await db.query(
@@ -32,7 +52,7 @@ class Artist {
     }
   }
 
-  static async findOne(id){
+  static async findOne(id) {
     try {
       const sqlQuery = {
         text: "SELECT * FROM picture WHERE id_picture = $1;",

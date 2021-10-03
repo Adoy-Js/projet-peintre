@@ -5,6 +5,7 @@ import axios from 'axios';
 class Paintings extends PureComponent {
   state = {
     images: [],
+    title : '',
   }
 
   componentDidMount() {
@@ -23,7 +24,7 @@ class Paintings extends PureComponent {
           Peintures à l'huile
         </h1>
 
-        <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
+        <h2></h2>
 
         <nav className="menu_paintings">
         <ul className="menu_links">

@@ -46,4 +46,3 @@ class Durtal extends PureComponent {
 
 // == Export
 export default Durtal;
-

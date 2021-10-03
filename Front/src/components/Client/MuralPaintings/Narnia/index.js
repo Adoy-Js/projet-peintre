@@ -43,4 +43,3 @@ class Narnia extends PureComponent {
 
 // == Export
 export default Narnia;
-
