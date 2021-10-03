@@ -47,7 +47,7 @@ const newsController = {
       const insertNews = await newNews.save();
       console.log(insertNews);
       //si l'actu est accompagnée d'une photo, alors on instancie la photo, on l'insert dans la base
-      if (req.body.name_picture || req.body.image || req.body.description) {
+      if (name_picture && req.body.image) {
         const newPicture = new Picture({
           name_picture: req.body.name_picture,
           image: req.body.image
@@ -65,7 +65,7 @@ const newsController = {
           picture_id,
         });
 
-        const insertNews_has_picture = await new_news_has_picture.save();
+        await new_news_has_picture.save();
       }
     } catch (error) {
       console.error(error);
