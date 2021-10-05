@@ -26,13 +26,13 @@ const ArrayNew = () => {
 
     axios({
       method: 'delete',
-      url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
+      url: `https://projet-peintre.herokuapp.com/admin/news${id}`,
       headers: {
         Authorization: "Bearer " + localStorage.getItem('token')
      },
     }).then(res => {
-      const artwork = res.data;
-      setArtwork(artwork);
+      const news = res.data;
+      setArtwork(news);
     }).catch((err) => { console.log(err) })}
   }
 
