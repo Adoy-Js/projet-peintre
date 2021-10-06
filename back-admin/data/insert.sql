@@ -4,7 +4,6 @@ BEGIN;
 -- VAlUES ('camillepaul.pro@gmail.com', '1234');
 
 INSERT INTO category (name_category) VALUES 
-('sketch'),
 ('portrait'),
 ('oil-painting'),
 ('acrylic-painting'),
@@ -49,19 +48,19 @@ INSERT INTO picture (name_picture, image) VALUES
 ('piwakawaka6', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%206.jpg?alt=media&token=94c41dc5-003c-4422-b1a3-2244bd06e6f4');
 
 INSERT INTO artwork (name_artwork, date, place, format, description, main_picture, category_id, artist_id) VALUES
-('Sur un air de guitare', 2017, '','50 x 75 cm', 'Technique mixte sur papier Antaimoro', null, 4, 1),
-('Portait homme', 2018, '', '29.7 x 21 cm', 'Dessin au Crayon graphite', null, 2, 1),
-('Portait femme', 2018, '', '29.7 x 21 cm', 'Dessin au Crayon graphite',null, 2, 1),
-('Spirit', 2021, '', '80 x 130 cm', 'Pigment naturel et acrylique sur toile de lin naturel', null, 4, 1),
-('Greenstone Hike', 2021, '', '27 x 41 cm', 'Peinture à l’huile sur toile de lin naturel', null, 3, 1),
-('Isthmus Peak', 2021, '', '60 x 120 cm', 'Peinture à l’huile sur toile de lin naturel', null, 3, 1),
-('Castlemaine Bushes', 2021, '', '40 x 40 cm', 'Peinture à l’huile sur toile', null, 3, 1),
-('The Grampians', 2021, '', '70 x 52 cm', 'Peinture à l’huile sur toile', null, 3, 1),
+('Sur un air de guitare', 2017, '','50 x 75 cm', 'Technique mixte sur papier Antaimoro', null, 3, 1),
+('Portait homme', 2018, '', '29.7 x 21 cm', 'Dessin au Crayon graphite', null, 1, 1),
+('Portait femme', 2018, '', '29.7 x 21 cm', 'Dessin au Crayon graphite',null, 1, 1),
+('Spirit', 2021, '', '80 x 130 cm', 'Pigment naturel et acrylique sur toile de lin naturel', null, 3, 1),
+('Greenstone Hike', 2021, '', '27 x 41 cm', 'Peinture à l’huile sur toile de lin naturel', null, 2, 1),
+('Isthmus Peak', 2021, '', '60 x 120 cm', 'Peinture à l’huile sur toile de lin naturel', null, 2, 1),
+('Castlemaine Bushes', 2021, '', '40 x 40 cm', 'Peinture à l’huile sur toile', null, 2, 1),
+('The Grampians', 2021, '', '70 x 52 cm', 'Peinture à l’huile sur toile', null, 2, 1),
 ('Peinture du patrimoine de Durtal', 2019, 'Durtal', '200 x 1500 cm', 'Voici la peinture du patrimoine historique de la ville de Durtal que j’ai réalisée en Septembre 2019 dans le jeu de boule du « Petit Tivoli » à Durtal. Représentant le Château, avec le pont fleuri traversant le Loir rejoignant la porte Véron.
 On aperçoit dans ce paysage le barrage avec quelques oiseaux dans leur milieu naturel, martin pêcheur, aigrette, quelques canards et oiseaux dans les tours du château …
 J’ai réalisé cette peinture sur 3 semaines, entouré d’une ambiance chaleureuse et conviviale.
 Je vous invite à lire la photo de l’article de presse paru dans le courrier de l’ouest expliquant davantage l’histoire de ce projet.
-', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Durtal%201.jpg?alt=media&token=c45377d7-ded7-4956-ac13-19b7841f7723', 5, 1),
+', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Durtal%201.jpg?alt=media&token=c45377d7-ded7-4956-ac13-19b7841f7723', 4, 1),
 ('Dans le monde imaginaire de Narnia', 2020, 'Australie', '230 x 400 cm', 'L’histoire et déroulement du projet :
 
 Tout d’abord, pour commencer nous avons avec Carrie (la Maman) réfléchi aux différents éléments de composition de l’image : un paysage Printanier ensoleillé avec quelques éléments naturels (roche, végétation, fleur), Aslan le lion, et le château.
@@ -89,7 +88,7 @@ Je crois que quelque chose de magique s’est passé…
 Un grand merci à Carrie, David et leurs enfants pour leur accueil si chaleureux et cette incroyable expérience tous ensemble.
  
  
-Technique : Peinture acrylique sur mur', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Narnia%201.jpg?alt=media&token=e4bb17d6-ee20-4d59-9dd9-8ab5525f3b87', 5, 1),
+Technique : Peinture acrylique sur mur', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Narnia%201.jpg?alt=media&token=e4bb17d6-ee20-4d59-9dd9-8ab5525f3b87', 4, 1),
 ('Piwakawaka', 2018, 'Nouvelle-Zélande', '350 x 350 cm', 'Voici ma peinture du Piwakawaka, oiseau emblématique de la Nouvelle-Zélande. C’est le nom d’origine que les maoris lui ont attribué. Il est aussi connu sous le nom de Fantail ! 
  
 Après avoir étudié et peint une dizaine d’autres oiseaux Néo-zélandais sur les murs des chambres à Kinloch Lodge, le début du voyage commençait pour moi… l''apprentissage de la langue et de leur culture… 
@@ -104,7 +103,7 @@ Un grand merci à mon amie Martine (photographe) pour ses jolies photos et toute
  
  
 Technique : Peinture acrylique 
-Support : Bardage bois ', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%201.jpg?alt=media&token=f9c3981f-a70c-4669-9f9c-7d0526cec817', 5, 1);
+Support : Bardage bois ', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%201.jpg?alt=media&token=f9c3981f-a70c-4669-9f9c-7d0526cec817', 4, 1);
 
 -- INSERT INTO news (date, place, article) VALUES
 -- ('2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
