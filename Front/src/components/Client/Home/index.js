@@ -18,7 +18,6 @@ const Home = () => {
   const fetchRepoData = async () => {
     try {
       const response = await api.get("/");
-      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.log(error);

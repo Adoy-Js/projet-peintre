@@ -1,97 +1,95 @@
-// == Import de la lib React
-import React, { useState } from 'react';
-import axios from "axios";
+//Import de la lib React
+import React, { useEffect, useState } from "react";
+import api from "src/api";
+//Import locaux
+import "./styles.scss";
 
-// == Imports locaux
-import './styles.scss';
+import { NavLink } from "react-router-dom";
+
+// Ajout du composant MenuAdmin
+import MenuAdmin from "src/components/Admin/MenuAdmin";
 
 const ArtworkArray = () => {
-
-  const url = "https://projet-peintre.herokuapp.com/admin/artwork"
   const [artwork, setArtwork] = useState([]);
 
-  axios({
-    method: 'get',
-    url,
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-   },
-  }).then(res => {
-    const artwork = res.data;
-    setArtwork(artwork);
-  })
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/admin/artwork", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      setArtwork(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  function handleDelete( id) {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
+  useEffect(() => {
+    fetchData();
+  }, [artwork]);
 
-    axios({
-      method: 'delete',
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem('token')
-     },
-    url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
-    }).then(res => {
-      const artwork = res.data;
-      setArtwork(artwork);
-    }).catch((err) => { console.log(err) })}
-  }
+  const handleDelete = async (id) => {
+    try {
+      if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
+        const reponse = await api.delete(`admin/artwork/${id}`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
+      <MenuAdmin />
       <div className="arrayArtwork">
         <table>
           <thead className="arrayArtwork_head">
             <tr>
-              <th className="arrayArtwork_name">
-                NOM
-              </th>
-              <th className="arrayArtwork_category">
-                CATÉGORIE
-              </th>
-              <th className="arrayArtwork_urlPicture">
-                PHOTOS
-              </th>
-              <th className="arrayArtwork_delete">
-                SUPPRIMER
-              </th>
+              <th className="arrayArtwork_name">NOM</th>
+              <th className="arrayArtwork_category">CATÉGORIE</th>
+              <th className="arrayArtwork_delete">SUPPRIMER</th>
             </tr>
           </thead>
-        </table>
-
-        <form className="arrayArtwork_body">
-
-          <table>
           <tbody className="arrayArtwork_body">
-              <tr>
-                <td className="cell"><a href="/admin/menu/artwork/formArtworkArray" className="button">+</a></td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr>
+              <td className="cell">
+                <NavLink
+                  to="/admin/artwork/formArtworkArray"
+                  className="button"
+                >
+                  +
+                </NavLink>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            {artwork?.map((artwork) => (
+              <tr key={artwork.id_artwork}>
+                <td className="category">{artwork.name_artwork}</td>
+                <td className="category">{artwork.name_category}</td>
+
+                <td>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleDelete(artwork.id_artwork);
+                    }}
+                    className="arrayArtwork_body_delete"
+                  >
+                    SUPPRIMER
+                  </button>
+                </td>
               </tr>
-            </tbody>
-            <tbody>
-              {artwork.map(artwork => (
-                <tr>
-                  <td key={artwork.name_artwork}>{artwork.name_artwork}</td>
-                  <td className="category" key={artwork.name_category}>{artwork.name_category}</td>
-                  <td key={artwork.main_picture}>{artwork.main_picture}{artwork.image}</td>
-
-                  <td><button onClick={(e) => {
-                    e.preventDefault()
-                    handleDelete(artwork.id_artwork);
-                  }} className="arrayArtwork_body_delete">SUPPRIMER</button></td>
-
-                </tr>
-              ))}
-            </tbody>
-            
-          </table>
-        </form>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </div >
-
-  )
+    </div>
+  );
 };
-
 
 export default ArtworkArray;

@@ -10,7 +10,7 @@ class Artwork {
   static async findAll() {
     try {
       const query = {
-        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON artwork_has_picture.picture_id = picture.id_picture ORDER BY date DESC;`,
+        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category;` 
       };
 
       const { rows } = await pool.query(query);
@@ -47,7 +47,7 @@ class Artwork {
 
       const { rows } = await pool.query(sqlQuery);
 
-      return rows ? rows.map((row) => new this(row)) : false;
+      return rows[0];
     } catch (err) {
       console.error(err);
       if (err.detail) {
