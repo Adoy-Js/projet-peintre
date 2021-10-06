@@ -1,6 +1,8 @@
 // == Import de la lib React
 import React, { useState } from 'react';
 import axios from "axios";
+// Ajout du composant MenuAdmin
+import MenuAdmin from "src/components/Admin/MenuAdmin";
 
 
 // == Imports locaux
@@ -38,6 +40,7 @@ const HomeArray = () => {
 
   return (
     <div>
+      <MenuAdmin />
       <div className="arrayHome">
         <table>
           <thead className="arrayHome_head">

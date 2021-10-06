@@ -1,19 +1,19 @@
 //Import de la lib React
 import React, {useState, useEffect} from "react";
+import { useParams, NavLink } from "react-router-dom";
 //Import NPM
-import { NavLink } from "react-router-dom";
-import PropTypes from "prop-types";
-import api from "src/api";
+import api from 'src/api';
 
 //Import locaux
 import "./styles.scss";
 
-const Paintings = () => {
+const Painting = ({ prop1 }) => {
   const [data, setData] = useState([]);
+  const {painting_category} = useParams();
 
   const fetchData = async () => {
     try {
-      const response = await api.get("/artwork/painting");
+      const response = await api.get(`/artwork/${painting_category}`);
       console.log(response.data);
       setData(response.data);
     } catch (error) {
@@ -23,7 +23,8 @@ const Paintings = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [data]);
+
   return (
     <div className="Paintings">
       <h1>Peintures</h1>
@@ -64,12 +65,5 @@ const Paintings = () => {
   );
 };
 
-// Paintings.propTypes={
-// prop1:PropTypes.string
-// }
 
-// Paintings.defaultProps={
-// prop1:''
-// }
-
-export default Paintings;
+export default Painting;

@@ -1,48 +1,60 @@
-// == Import de la lib React
-import React, { PureComponent } from 'react';
-import axios from 'axios';
+//Import de la lib React
+import React, { useEffect, useState } from "react";
+//Import NPM
+import PropTypes from "prop-types";
+import api from "src/api";
 
-// == Imports locaux
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
 
-class Portrait extends PureComponent {
-  state = {
-    images: [],
-  }
+const Portrait = () => {
+  const [data, setData] = useState([]);
 
-  componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/portrait`)
-      .then(res => {
-        const images = res.data;
-        this.setState({ images });
-      })
-  }
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/artwork/portrait");
+      console.log(response.data);
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  render() {
-    return (
-      <div className="Portraits">
-
+  useEffect(() => {
+    fetchData();
+  }, []);
+  return (
+    <div className="Portraits">
       <div className="header_portrait">
-      <h1> Portraits</h1>
-
+        <h1> Portraits</h1>useState
         <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
       </div>
-        
-        
-        <div className="portrait_gallery">
-          {this.state.images.map(image =>
-          
-            <div className="portrait_div" key={image.id_artwork}>
-            
-              <img className="portrait_image" key={image.picture_id} src={image.image}></img>
-              <p className="portrait_description">{image.description} {image.format} {image.date}</p>
-              <hr></hr>
-          </div> )}
-        </div>
 
-      </div >
-    )
-  }
+      <div className="portrait_gallery">
+        {data.map((image) => (
+          <div className="portrait_div" key={image.id_artwork}>
+            <img
+              className="portrait_image"
+              key={image.picture_id}
+              src={image.image}
+            ></img>
+            <p className="portrait_description">
+              {image.description} {image.format} {image.date}
+            </p>
+            <hr></hr>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+Portrait.propTypes = {
+  prop1: PropTypes.string,
+};
+
+Portrait.defaultProps = {
+  prop1: "",
 };
 
 export default Portrait;

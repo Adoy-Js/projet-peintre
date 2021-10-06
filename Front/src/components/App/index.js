@@ -1,110 +1,89 @@
 // == Import npm
-import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
 // == Import
 
 //CLIENT
 // Ajout du composant Menu
-import Menu from 'src/components/Client/Menu';
+import Menu from "src/components/Client/Menu";
 // Ajout du composant Home
-import Home from 'src/components/Client/Home';
+import Home from "src/components/Client/Home";
 // Ajout du composant Paintings
-import Paintings from 'src/components/Client/Paintings';
+import Paintings from "src/components/Client/Paintings";
+
+import Painting from "src/components/Client/Paintings/Painting";
 //Ajout du composant MuralPaintings
-import MuralPaintings from 'src/components/Client/MuralPaintings';
+import MuralPaintings from "src/components/Client/MuralPaintings";
+// Ajout du composant MuralPainting
+import MuralPainting from "src/components/Client/MuralPaintings/MuralPainting";
 // Ajout du composant Portrait
-import Portrait from 'src/components/Client/Portrait';
+import Portrait from "src/components/Client/Portrait";
 // Ajout du composant News
-import News from 'src/components/Client/News';
+import News from "src/components/Client/News";
 // Ajout du composant Contact
-import Contact from 'src/components/Client/Contact';
+import Contact from "src/components/Client/Contact";
 // Ajout du composant Biography
-import Biography from 'src/components/Client/Biography';
-// Ajout du composant Narnia
-import Narnia from 'src/components/Client/MuralPaintings/Narnia';
-// Ajout du composant Durtal
-import Durtal from 'src/components/Client/MuralPaintings/Durtal';
-// Ajout du composant Piwakawaka
-import Piwakawaka from 'src/components/Client/MuralPaintings/Piwakawaka';
-// Ajout du composant Oil
-import Oil from 'src/components/Client/Paintings/Oil';
-// Ajout du composant Acrylic
-import Acrylic from 'src/components/Client/Paintings/Acrylic';
-
-
+import Biography from "src/components/Client/Biography";
 
 //ADMIN
 // Ajout du composant LoginForm
-import LoginForm from 'src/components/Admin/LoginForm';
+import LoginForm from "src/components/Admin/LoginForm";
 // Ajout du composant ArrayHome
-import HomeArray from 'src/components/Admin/HomeArray';
-// Ajout du composant ArrayArtwork
-import ArtworkArray from 'src/components/Admin/ArtworkArray';
+import HomeArray from "src/components/Admin/HomeArray";
+
 // Ajout du composant ArrayNew
-import NewArray from 'src/components/Admin/NewArray';
+import NewArray from "src/components/Admin/NewArray";
 // Ajout du composant ArrayNewForm
-import FormNewArray from 'src/components/Admin/NewArray/FormNewArray';
+import FormNewArray from "src/components/Admin/NewArray/FormNewArray";
 // Ajout du composant ArrayArtworkForm
-import FormArtworkArray from 'src/components/Admin/ArtworkArray/FormArtworkArray';
+import FormArtworkArray from "src/components/Admin/ArtworkArray/FormArtworkArray";
 // Ajout du composant ArrayHomeForm
-import FormHomeArray from 'src/components/Admin/HomeArray/FormHomeArray';
-// Ajout du composant MenuAdmin
-import MenuAdmin from 'src/components/Admin/MenuAdmin';
-
-
-
-
+import FormHomeArray from "src/components/Admin/HomeArray/FormHomeArray";
 
 
 // Ajout du composant contactData
-import contactData from 'src/data/contact';
+import contactData from "src/data/contact";
 // Ajout du composant array
-import arrayData from 'src/data/array';
+import arrayData from "src/data/array";
 
+import NotFound from "src/components/Client/NotFound";
 
-
-import './styles.scss';
-
+import "./styles.scss";
+import ArtworkArray from "src/components/Admin/ArtworkArray";
 
 // == Composant
 const App = () => (
   <div className="app">
     <Menu />
 
-    <BrowserRouter>
-      <Route path="/admin/menu">
-        <MenuAdmin />
-      </Route>
+    <Switch>
 
       <Route path="/admin" exact>
         <LoginForm />
       </Route>
 
-      <Route path="/admin/menu/artwork" exact>
-        <ArtworkArray
-        cellTitles={arrayData.cellTitles} />
+      <Route path="/admin/artwork/formArtworkArray" exact>
+        <FormArtworkArray />
       </Route>
 
-      <Route path="/admin/menu/artwork/formArtworkArray" exact>
-        <FormArtworkArray  />
+      <Route path="/admin/artwork" exact>
+        <ArtworkArray  />
       </Route>
 
-      <Route path="/admin/menu/home" exact>
-        <HomeArray
-        cellTitles={arrayData.cellTitles} />
+      <Route path="/admin/home" exact>
+        <HomeArray  />
       </Route>
 
-      <Route path="/admin/menu/home/formHomeArray" exact>
-        <FormHomeArray  />
+      <Route path="/admin/home/formHomeArray" exact>
+        <FormHomeArray />
       </Route>
 
-      <Route path="/admin/menu/new" exact>
-        <NewArray
-        cellTitles={arrayData.cellTitles} />
+      <Route path="/admin/new" exact>
+        <NewArray />
       </Route>
 
-      <Route path="/admin/menu/new/formNewArray" exact>
+      <Route path="/admin/new/formNewArray" exact>
         <FormNewArray />
       </Route>
 
@@ -115,7 +94,6 @@ const App = () => (
       <Route path="/artwork/mural-painting" exact>
         <MuralPaintings />
       </Route>
-
 
       <Route path="/news" exact>
         <News />
@@ -140,31 +118,21 @@ const App = () => (
       <Route path="/about" exact>
         <Biography />
       </Route>
-
-      <Route path="/artwork/mural-painting/9" exact >
-        <Narnia />
+      <Route path="/artwork/mural-painting/:id" exact>
+        <MuralPainting />
       </Route>
-
-      <Route path="/artwork/mural-painting/10" exact >
-        <Durtal />
+      <Route path="/artwork/painting" exact>
+        <Paintings />
       </Route>
-
-      <Route path="/artwork/mural-painting/11" exact >
-        <Piwakawaka />
+      <Route path="/artwork/painting/:painting_category" exact>
+        <Painting />
       </Route>
-
-      <Route path="/artwork/oil-painting" exact >
-        <Oil />
+      <Route>
+        <NotFound />
       </Route>
-
-      <Route path="/artwork/acrylic-painting" exact >
-        <Acrylic />
-      </Route>
-
-    </BrowserRouter>
+    </Switch>
   </div>
 );
-
 
 // == Export
 export default App;

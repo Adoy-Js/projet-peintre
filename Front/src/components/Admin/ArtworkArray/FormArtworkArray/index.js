@@ -1,111 +1,173 @@
-// == Import de la lib React
-import React, { useState } from "react";
-import axios from 'axios';
+//Import de la lib React
+import React, { useEffect, useState } from "react";
+//Import NPM
+import PropTypes from "prop-types";
+import api from "src/api";
 
-// == Imports locaux
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
 
 const FormArtworkArray = () => {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState(null);
+  const [format, setFormat] = useState("");
+  const [place, setPlace] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const [category_id, setCategory_id] = useState(1);
+  const [image, setImage] = useState([]);
+  const [description, setDescription] = useState("");
 
-  const url = "https://projet-peintre.herokuapp.com/admin/artwork"
-  const [data, setData] = useState({
-    name: "",
-    date: "",
-    format: "",
-    place: "",
-    image: "",
-    category_name: "",
-    description: ""
-  })
-  const [values, setValues] = useState();
+  useEffect(() => {
+    convertCategoryNameToCategoryId();
+  }, [categoryName]);
 
-  function handleChange(evt) {
-    const value = evt.target.value;
-    setValues(value);
-    console.log(values)
-  }
-
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log({
+      name_artwork: name,
+      date: date,
+      format: format,
+      place: place,
+      image: image,
+      category_id: category_id,
+      description: description,
+    });
+    try {
+      const response = await api.post(
+        "/admin/artwork",
+        {
+          name_artwork: name,
+          date: date,
+          format: format,
+          place: place,
+          image: image,
+          category_id: category_id,
+          description: description,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
+      alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-    axios.post(url, {
-      name: "",
-      date: "",
-      format: "",
-      place: "",
-      image: "",
-      category_name: "",
-      description: ""
-  },
-  {headers: {
-    Authorization: "Bearer " + localStorage.getItem('token')
- }},
-  ).then(res => {
-      console.log(res.data)
-    })
-  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
-  }
-
-  function handle(e) {
-    const newdata = { ...data }
-    newdata[e.target.id] = e.target.value
-    setData(newdata)
-    console.log(newdata)
-  }
-
+  const convertCategoryNameToCategoryId = () => {
+    switch (categoryName) {
+      case "portrait":
+        setCategory_id(1);
+        break;
+      case "oil-painting":
+        setCategory_id(2);
+        break;
+      case "acrylic-painting":
+        setCategory_id(3);
+        break;
+      case "mural-painting":
+        setCategory_id(4);
+        break;
+      default:
+        break;
+    }
+  };
 
   return (
     <div className="arrayArtworkForm">
-
-      <div className="arrayArtworkForm_title">
-        Formulaire oeuvre
-      </div>
+      <div className="arrayArtworkForm_title">Formulaire oeuvre</div>
 
       <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_form">
         <div className="arrayArtworkForm_name">
           Nom de l'oeuvre :
-          <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayArtworkForm_name_input" type="text" />
+          <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            id="name"
+            className="arrayArtworkForm_name_input"
+            type="text"
+          />
         </div>
 
-      <div className="arrayArtworkForm_informations">
+        <div className="arrayArtworkForm_informations">
           <div>
-            <div className="arrayArtworkForm_date">
-              Date :
-            </div>
-            <input value={data.date} onChange={(e) => handle(e)} id="date" className="arrayArtworkForm_date_input" type="text" placeholder="2021" />
+            <div className="arrayArtworkForm_date">Date :</div>
+            <input
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              id="date"
+              className="arrayArtworkForm_date_input"
+              type="text"
+              placeholder="2021"
+            />
           </div>
 
           <div className="arrayArtworkForm_format">
             Format de l'oeuvre :
-            <input value={data.format} onChange={(e) => handle(e)} id="format" className="arrayArtworkForm_format_input" type="text" placeholder="cm x cm" />
+            <input
+              value={format}
+              onChange={(e) => setFormat(e.target.value)}
+              id="format"
+              className="arrayArtworkForm_format_input"
+              type="text"
+              placeholder="cm x cm"
+            />
           </div>
 
           <div className="arrayArtworkForm_place">
             Lieu :
-            <input value={data.place} onChange={(e) => handle(e)} id="place" className="arrayArtworkForm_place_input" type="text" />
+            <input
+              value={place}
+              onChange={(e) => setPlace(e.target.value)}
+              id="place"
+              className="arrayArtworkForm_place_input"
+              type="text"
+            />
           </div>
 
-          <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
+          <div className="arrayArtworkForm_category">
             Choisir la catégorie:
-            <select className="arrayArtworkForm_category_select">
-              <option id="category_name" value={data.category_name}>Peinture à l'huile</option>
-              <option id="category_name" value={data.category_name}>Peinture acrylique</option>
-              <option id="category_name" value={data.category_name}>Peinture murale</option>
-              <option id="category_name" value={data.category_name}>Portrait</option>
+            <select
+              className="arrayArtworkForm_category_select"
+              value={categoryName}
+              onChange={(e) => setCategoryName(e.target.value)}
+            >
+              <option id="category_name">portrait</option>{" "}
+              <option id="category_name">oil-painting</option>
+              <option id="category_name">acrylic-painting</option>
+              <option id="category_name">mural-painting</option>
             </select>
           </div>
         </div>
 
         <div className="arrayArtworkForm_url">
-          <input value={data.image} onChange={(e) => handle(e)} id="image" className="arrayArtworkForm_url_input" placeholder="https://firebasestorage..." type="url" name="image" required />
+          <input
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            id="image"
+            className="arrayArtworkForm_url_input"
+            placeholder="https://firebasestorage..."
+            type="url"
+            name="image"
+            required
+          />
         </div>
 
         <div className="arrayArtworkForm_description">
           Histoire de l'oeuvre :
-          <textarea value={data.description} id="description" onChange={(e) => handle(e)} className="arrayArtworkForm_description_input" />
+          <textarea
+            value={description}
+            id="description"
+            onChange={(e) => setDescription(e.target.value)}
+            className="arrayArtworkForm_description_input"
+          />
         </div>
 
-        <button className="arrayArtworkForm_ok">Valider</button>
+        <button type="submit" className="arrayArtworkForm_ok">
+          Valider
+        </button>
       </form>
     </div>
   );
