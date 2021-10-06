@@ -26,11 +26,11 @@ const adminController = {
 
     try {
       if (email == null || password == null) {
-        return res.status(400).json({ error: "missing parameters" });
+        return res.json({ error: "remplissez tous les champs" });
       }
 
       if (email !== process.env.MAIL) {
-        throw new Error("Email faux");
+        return res.json({ error: "email faux" });
       }
 
       const artistFounded = await Artist.findByMail(email);
@@ -46,7 +46,7 @@ const adminController = {
           token: jwtService.generateToken(artistFounded),
         });
       } else {
-        throw new Error("Mot de passe faux");
+        return res.json({ error: "mot de passe faux" });
       }
     } catch (error) {
       console.log(error);
@@ -62,10 +62,8 @@ const adminController = {
     } else {
       jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
-          console.log("mauvais token");
           return res.sendStatus(401);
         } else {
-          console.log("bon token");
           req.user = user;
           next();
         }
