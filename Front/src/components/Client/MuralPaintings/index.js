@@ -1,5 +1,6 @@
 // == Import de la lib React
 import React, { PureComponent } from 'react';
+import { NavLink } from "react-router-dom";
 import axios from 'axios';
 
 // == Imports locaux
@@ -29,11 +30,11 @@ class MuralPaintings extends PureComponent {
 
         <div className="mural">
           {this.state.images.map((image) =>
-            <div className="mural_all">
+            <div className="mural_all" key={image.id_artwork}>
 
               <h3 className="mural_title"> {image.name_artwork} </h3>
 
-              <a href={`/artwork/mural-painting/${image.id_artwork}`} className="link_muralPainting"> <img className="mural_image" key={image.picture_id} src={image.main_picture} /></a>
+              <NavLink to={`/artwork/mural-painting/${image.id_artwork}`} className="link_muralPainting" exact> <img className="mural_image" key={image.picture_id} src={image.main_picture} /></NavLink>
 
               <div className="mural_information"> {image.place} {image.format} {image.date}</div>
 
