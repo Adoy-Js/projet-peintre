@@ -47,7 +47,7 @@ class Artwork {
 
       const { rows } = await pool.query(sqlQuery);
 
-      return rows[0];
+      return rows ? rows.map((row) => new this(row)) : false;
     } catch (err) {
       console.error(err);
       if (err.detail) {
