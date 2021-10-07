@@ -79,7 +79,7 @@ const App = () => (
         <FormHomeArray />
       </Route>
 
-      <Route path="/admin/new" exact>
+      <Route path="/admin/news" exact>
         <NewArray />
       </Route>
 

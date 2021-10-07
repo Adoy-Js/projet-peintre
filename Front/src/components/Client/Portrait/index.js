@@ -1,7 +1,6 @@
 //Import de la lib React
 import React, { useEffect, useState } from "react";
 //Import NPM
-import PropTypes from "prop-types";
 import api from "src/api";
 
 //Import locaux
@@ -24,9 +23,9 @@ const Portrait = () => {
     fetchData();
   }, []);
   return (
-    <div className="Portraits">
+    <div className="portraits">
       <div className="header_portrait">
-        <h1> Portraits</h1>useState
+        <h1> Portraits</h1>
         <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
       </div>
 
@@ -47,14 +46,6 @@ const Portrait = () => {
       </div>
     </div>
   );
-};
-
-Portrait.propTypes = {
-  prop1: PropTypes.string,
-};
-
-Portrait.defaultProps = {
-  prop1: "",
 };
 
 export default Portrait;

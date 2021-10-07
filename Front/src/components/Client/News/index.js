@@ -1,22 +1,53 @@
-// == Import de la lib React
-import React from "react";
-// Ajout du composant MenuAdmin
-import MenuAdmin from "src/components/Admin/MenuAdmin";
-// == Imports locaux
+//Import de la lib React
+import React, { useEffect, useState } from "react";
+
+import api from "src/api";
+
+//Import locaux
 import "./styles.scss";
 
-const News = () => (
-  <>
-    <MenuAdmin />
-    <div className="new">
-      <h1>Actualité</h1>
+const News = () => {
+  const [news, setNews] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/news");
+      setNews(response.data);
+      console.log(news);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  if(news.length===0){
+    return(
       <div className="news">
-        <div>Actualité à venir.</div>
-        <div className="news_footer">Camille</div>
+        <h1>Actualité à venir</h1>
       </div>
+    )
+  }
+
+  return (
+    <div className="news">
+      <h1>Actualités</h1>
+      {news.map((data) => (
+        <div className="new">
+          <h2 className="new_header">{new Date(data.date).getDate() + '-' + (new Date(data.date).getMonth() + 1) + '-' + new Date(data.date).getFullYear()} {data.place}</h2>
+          <p className="new_article">{data.article}</p>
+          <img
+            className="new_image"
+            key={data.picture_id}
+            src={data.image}
+          ></img>
+        </div>
+      ))}
+      <div className="news_footer">Camille</div>
     </div>
-  </>
-);
+  );
+};
 
 export default News;

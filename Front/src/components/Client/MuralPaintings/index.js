@@ -1,52 +1,62 @@
-// == Import de la lib React
-import React, { PureComponent } from 'react';
+//Import de la lib React
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
+//Import NPM
+import api from "src/api";
 
-// == Imports locaux
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
 
+const MuralPaintings = () => {
+  const [muralPaintings, setMuralPaintings] = useState([]);
 
-class MuralPaintings extends PureComponent {
-  state = {
-    images: [],
-  }
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/artwork/mural-painting");
+      setMuralPaintings(response.data);
+      console.log(response);
+    } catch (error) {}
+  };
 
-  componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/`)
-      .then(res => {
-        const images = res.data;
-        this.setState({ images });
-      })
-  }
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  render() {
-    return (
-      <div className="mural_paintings">
+  return (
+    <div className="mural_paintings">
+      <h1>Peintures murales</h1>
 
-        <h1>Peintures murales</h1>
+      <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
 
-        <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
+      <div className="mural">
+        {muralPaintings.map((muralPainting) => (
+          <div className="mural_all" key={muralPainting.id_artwork}>
+            <h3 className="mural_title"> {muralPainting.name_artwork} </h3>
 
-        <div className="mural">
-          {this.state.images.map((image) =>
-            <div className="mural_all" key={image.id_artwork}>
+            <NavLink
+              to={`/artwork/mural-painting/${muralPainting.id_artwork}`}
+              className="link_muralPainting"
+              exact
+            >
+              {" "}
+              <img
+                className="mural_image"
+                key={muralPainting.picture_id}
+                src={muralPainting.main_picture}
+              />
+            </NavLink>
 
-              <h3 className="mural_title"> {image.name_artwork} </h3>
-
-              <NavLink to={`/artwork/mural-painting/${image.id_artwork}`} className="link_muralPainting" exact> <img className="mural_image" key={image.picture_id} src={image.main_picture} /></NavLink>
-
-              <div className="mural_information"> {image.place} {image.format} {image.date}</div>
-
-              <hr className="line" />
+            <div className="mural_information">
+              {" "}
+              {muralPainting.place} {muralPainting.format} {muralPainting.date}
             </div>
-          )}
-        </div>
 
-      </div >
-    )
-  }
+            <hr className="line" />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
-// == Export
 export default MuralPaintings;

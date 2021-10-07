@@ -1,83 +1,118 @@
-// == Import de la lib React
-import axios from "axios";
-import React, { useState } from "react";
+//Import de la lib React
+import React, { useEffect, useState } from "react";
+//Import NPM
+import PropTypes from "prop-types";
+import api from "src/api";
 
-
-// == Imports locaux
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
 
 const FormNewArray = () => {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState(null);
+  const [place, setPlace] = useState("");
+  const [image, setImage] = useState([]);
+  const [article, setArticle] = useState("");
 
-  const [data, setData] = useState({
-    name: "",
-    date: "",
-    place: "",
-    description: "",
-    image: "",
-  });
-
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-  axios.post("https://projet-peintre.herokuapp.com/admin/news", {
-    name: data.name,
-    date: data.date,
-    place: data.place,
-    description: data.description,
-    image: data.image,
-  })
-    .then(res => {
-      console.log(res.data)
-    }).catch(err => {console.log(err)}
-    )}
-
-    function handle(e) {
-      const newdata = { ...data }
-      newdata[e.target.id] = e.target.value
-      setData(newdata)
-      console.log(newdata)
+    console.log({
+      name_news: name,
+      date: date,
+      place: place,
+      image: image,
+      article: article,
+    });
+    try {
+      const response = await api.post(
+        "/admin/news",
+        {
+          name_news: name,
+          date: date,
+          place: place,
+          image: image,
+          article: article,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
+      alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
+    } catch (error) {
+      console.log(error);
     }
+  };
 
   return (
-    <div className="arrayNewForm">
-      <div className="arrayNewForm_title">
-        Formulaire Actualités
-      </div>
-      <form onSubmit={(e) => handleSubmit(e)} className="arrayNewForm_form">
-        <div className="arrayNewForm_name">
-          Nom de l'article :
-          <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayNewForm_name_input" type="text" />
-        </div>
-      
+    <div className="arrayArtworkForm">
+      <div className="arrayArtworkForm_title">Formulaire oeuvre</div>
 
-      <div className="arrayNewForm_informations">
-
-          <div>
-            <div className="arrayNewForm_date">
-              Date :
-            </div>
-            <input onChange={(e) => handle(e)} value={data.date} id="date" className="arrayNewForm_date_input" type="text" placeholder="2021" />
-          </div>
-
-          <div>
-            <div className="arrayNewForm_place">
-              Lieu :
-            </div>
-            <input onChange={(e) => handle(e)} value={data.place} id="place" className="arrayNewForm_place_input" type="text" />
-          </div>
-
-      </div>
-        <div className="arrayNewForm_url">
-          <input onChange={(e) => handle(e)} value={data.image} id="image" className="arrayNewForm_url_input" placeholder="https://firebasestorage..." type="url" />
+      <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_form">
+        <div className="arrayArtworkForm_name">
+          Nom de la news :
+          <input
+            onChange={(e) => setName(e.target.value)}
+            value={name}
+            id="name"
+            className="arrayArtworkForm_name_input"
+            type="text"
+          />
         </div>
 
-        <div className="arrayNewForm_description">
+        <div className="arrayArtworkForm_informations">
+          <div>
+            <div className="arrayArtworkForm_date">Date :</div>
+            <input
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              id="date"
+              className="arrayArtworkForm_date_input"
+              type="date"
+              placeholder="2021"
+            />
+          </div>
+
+          <div className="arrayArtworkForm_place">
+            Lieu :
+            <input
+              value={place}
+              onChange={(e) => setPlace(e.target.value)}
+              id="place"
+              className="arrayArtworkForm_place_input"
+              type="text"
+            />
+          </div>
+        </div>
+
+        <div className="arrayArtworkForm_url">
+          <input
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            id="image"
+            className="arrayArtworkForm_url_input"
+            placeholder="https://firebasestorage..."
+            type="url"
+            name="image"
+            required
+          />
+        </div>
+
+        <div className="arrayArtworkForm_description">
           Article :
-          <textarea onChange={(e) => handle(e)} value={data.description} id="description" className="arrayNewForm_description_input" />
+          <textarea
+            value={article}
+            id="description"
+            onChange={(e) => setArticle(e.target.value)}
+            className="arrayArtworkForm_description_input"
+          />
         </div>
-        <button className="arrayNewForm_ok">Valider</button>
+
+        <button type="submit" className="arrayArtworkForm_ok">
+          Valider
+        </button>
       </form>
-  
     </div>
   );
 };
