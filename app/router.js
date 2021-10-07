@@ -49,11 +49,7 @@ router.delete(
   adminController.isAdmin,
   artistController.delete
 );
-router.patch(
-  "/admin/home/:id",
-  adminController.isAdmin,
-  artistController.update
-);
+
 
 //Artwork
 
@@ -73,11 +69,7 @@ router.delete(
   adminController.isAdmin,
   artworkController.deleteArtwork
 );
-router.patch(
-  "/admin/artwork/:id",
-  adminController.isAdmin,
-  artworkController.updateArtwork
-);
+
 
 //News
 
@@ -89,10 +81,6 @@ router.delete(
   adminController.isAdmin,
   newsController.deleteNews
 );
-router.patch(
-  "/admin/news/:id",
-  adminController.isAdmin,
-  newsController.updateNews
-);
+
 
 module.exports = router;

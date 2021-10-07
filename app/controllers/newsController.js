@@ -38,6 +38,7 @@ const newsController = {
     try {
       // on instancie la nouvelle actu
       const newNews = new News({
+        name_news : req.body.name_news,
         date: req.body.date,
         place: req.body.place,
         article: req.body.article,
@@ -47,9 +48,8 @@ const newsController = {
       const insertNews = await newNews.save();
       console.log(insertNews);
       //si l'actu est accompagnée d'une photo, alors on instancie la photo, on l'insert dans la base
-      if (name_picture && req.body.image) {
+      if (req.body.image) {
         const newPicture = new Picture({
-          name_picture: req.body.name_picture,
           image: req.body.image
         });
 
