@@ -1,7 +1,5 @@
 BEGIN;
 
--- INSERT INTO artist (email, password) 
--- VAlUES ('camillepaul.pro@gmail.com', '1234');
 
 INSERT INTO category (name_category) VALUES 
 ('portrait'),
@@ -23,7 +21,7 @@ INSERT INTO picture (name_picture, image) VALUES
 ('The Grampians','https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/THE%20GRAMPIANS%20(1).jpg?alt=media&token=78a4c7d1-9c73-426c-88c1-5ff4df57cf00'),
 ('Atelier', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/1.jpg?alt=media&token=4960c70b-7bc5-4387-beb9-4414569bab67'),
 ('Porte-manteau', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/3.jpg?alt=media&token=504441c0-3d7c-44cb-b240-980d9dbd20ef'),
-('Matériau', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/2.jpg?alt=media&token=5f6d52d1-f236-4e1a-b924-f36cdf0c94c2'),
+('Matériau', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/PHOTOPIGMENT.jpg?alt=media&token=46ec070e-fed1-45b0-ac27-c4024aa28a09'),
 ('durtal1', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Durtal%201.jpg?alt=media&token=c45377d7-ded7-4956-ac13-19b7841f7723'),
 ('durtal2', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Durtal%202.jpg?alt=media&token=7fc1216d-344d-4e0b-b082-8b822577c83b'),
 ('durtal3', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Durtal%203.jpg?alt=media&token=247ec0d4-3534-4370-a931-eb84b0f3ba66'),
@@ -105,14 +103,7 @@ Un grand merci à mon amie Martine (photographe) pour ses jolies photos et toute
 Technique : Peinture acrylique 
 Support : Bardage bois ', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%201.jpg?alt=media&token=f9c3981f-a70c-4669-9f9c-7d0526cec817', 4, 1);
 
--- INSERT INTO news (date, place, article) VALUES
--- ('2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
--- ('2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
 
-
-
--- INSERT INTO news_has_picture (news_id, picture_id) VALUES
--- (1, 3);
 
 INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES
 (1, 1),
