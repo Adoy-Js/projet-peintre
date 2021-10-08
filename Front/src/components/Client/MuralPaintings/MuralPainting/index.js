@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import {useParams} from 'react-router-dom';
+
 import axios from 'axios';
 
 import './styles.scss'
 
-const Piwakawaka = () => {
+const MuralPainting = () => {
 
   const [images, setImages] = useState([]);
+  const { id } = useParams();
 
   axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/${id}`) 
     .then(res => {
@@ -35,4 +38,4 @@ const Piwakawaka = () => {
 }
 
 // == Export
-export default Piwakawaka;
+export default MuralPainting;

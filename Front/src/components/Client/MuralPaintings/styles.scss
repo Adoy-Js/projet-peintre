@@ -18,6 +18,12 @@
     height: auto;
     padding: 2em;
     background-color: white;
+
+    &:hover {
+      transition: all 1s ease-out;
+      transform: scale(1.2);
+    }
+
   }
 
   &_title {

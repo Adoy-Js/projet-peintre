@@ -22,7 +22,7 @@ import Contact from 'src/components/Client/Contact';
 // Ajout du composant Biography
 import Biography from 'src/components/Client/Biography';
 // Ajout du composant Piwakawaka
-import Piwakawaka from 'src/components/Client/MuralPaintings/Piwakawaka';
+import MuralPainting from 'src/components/Client/MuralPaintings/MuralPainting';
 // Ajout du composant Oil
 import Oil from 'src/components/Client/Paintings/Oil';
 // Ajout du composant Acrylic
@@ -138,7 +138,7 @@ const App = () => (
       </Route>
 
       <Route path="/artwork/mural-painting/:id" exact >
-        <Piwakawaka />
+        <MuralPainting />
       </Route>
 
       <Route path="/artwork/oil-painting" exact >
