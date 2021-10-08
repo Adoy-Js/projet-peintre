@@ -88,15 +88,21 @@
 }
 
 @media screen and (max-width: 1024px) {
- 
-  .Contact,
+ .ContactForm{
+   width: 100%;
+ }
   .contact,
   .contact_div,
-  .p,
-  .contact_descriptions
+  .p
    {
     width: 100%;
   }
+  .contact_descriptions_list, 
+  .contact_message{
+    text-align: center;
+
+  }
+
   .title{
     margin: auto;
   }

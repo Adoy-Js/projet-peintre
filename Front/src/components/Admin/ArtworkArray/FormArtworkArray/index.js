@@ -88,9 +88,13 @@ const FormArtworkArray = () => {
             <input value={data.place} onChange={(e) => handle(e)} id="place" className="arrayArtworkForm_place_input" type="text" />
           </div>
 
-          <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
+          <div onChange={handleChange} value={values} className="arrayArtworkForm_category">
             Choisir la catégorie:
+<<<<<<< HEAD
             <Category />
+=======
+            <input value={data.category_name} onChange={(e) => handle(e)} id="category_name" className="arrayArtworkForm_place_input" type="text" />
+>>>>>>> develop
           </div>
         </div>
 

@@ -16,19 +16,14 @@ const FormHomeArray = () => {
 
   function handleSubmit(e){
     e.preventDefault();
-
+    
     axios.post(url,{
       name_picture: data.name_picture,
       image: data.image,
-    },
-    {headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-   }},).then(res => {
-      
+    }).then(res => {
       console.log(res.data)
-    })
-    
-  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
+    });
+    alert("Félicitations, vous avez bien ajouté votre contenu supplémentaire !")
   }
 
   function handle(e) {

@@ -8,6 +8,7 @@ import './styles.scss';
 
 const FormNewArray = () => {
 
+  const url = "https://projet-peintre.herokuapp.com/admin/news"
   const [data, setData] = useState({
     name: "",
     date: "",
@@ -19,21 +20,21 @@ const FormNewArray = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-  axios.post("https://projet-peintre.herokuapp.com/admin/news", {
+  axios.post(url, {
     name: data.name,
     date: data.date,
     place: data.place,
     description: data.description,
     image: data.image,
     headers: {
-    Authorization: "Bearer " + localStorage.getItem('token')
- }},)
-  
+      Authorization: "Bearer " + localStorage.getItem('token')
+    }
+  })
     .then(res => {
       console.log(res.data)
     }).catch(err => {console.log(err)}
     )
-  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
+    alert("Félicitations, vous avez bien ajouté votre contenu supplémentaire !")
   }
 
     function handle(e) {
@@ -80,9 +81,9 @@ const FormNewArray = () => {
           Article :
           <textarea onChange={(e) => handle(e)} value={data.description} id="description" className="arrayNewForm_description_input" />
         </div>
+
         <button className="arrayNewForm_ok">Valider</button>
       </form>
-  
     </div>
   );
 };

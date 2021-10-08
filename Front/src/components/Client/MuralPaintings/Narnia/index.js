@@ -21,7 +21,7 @@ class Narnia extends PureComponent {
     return (
       <div>
         {this.state.images.map((image) =>
-      <div className="mural_paintings">
+        <div className="mural_paintings">
 
         <h1>{image.name_artwork}</h1>
 
@@ -43,4 +43,3 @@ class Narnia extends PureComponent {
 
 // == Export
 export default Narnia;
-

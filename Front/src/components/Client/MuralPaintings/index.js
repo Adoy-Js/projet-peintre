@@ -25,7 +25,9 @@ class MuralPaintings extends PureComponent {
 
         <h1>Peintures murales</h1>
 
-        <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
+        <h2>“ Peindre sur un mur, c’est comme peindre sur une toile... 
+            <br />mais en plus grand “
+</h2>
 
         <div className="mural">
           {this.state.images.map((image) =>

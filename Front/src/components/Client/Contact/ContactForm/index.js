@@ -59,7 +59,6 @@ class ContactForm extends PureComponent {
     return (
  <div className="contactForm">
         <form onSubmit={this.handleSubmit} className="contactForm_client">
-          <div className="contactForm_connexion">
 
             <div className="contactForm_name">
               <input className="contactForm_input_name" name="name" type="text" placeholder="Nom" value={this.state.name} onChange={this.handleNameChange} />
@@ -81,7 +80,6 @@ class ContactForm extends PureComponent {
               <input className="contactForm_input_submit" type="submit" value="Envoyer" />
             </div>
 
-          </div>
         </form>
       </div>     
     );
