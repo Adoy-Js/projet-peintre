@@ -8,7 +8,7 @@ import './styles.scss';
 
 const menuAdmin = () => {
 
-   handleDisconnect = () => {
+  const handleDisconnect = () => {
      localStorage.removeItem('token')
      console.log('coucou')
    }
@@ -21,7 +21,7 @@ const menuAdmin = () => {
       <a href="/admin/menu/new"  className="array_menu">Actualité</a>
       </li>
       <li className="menuAdmin">
-      <a onClick={handleDisconnect()} href="/" className="link_menu_deconnexion">Déconnexion</a>
+      <a onClick={() => handleDisconnect()} href="/" className="link_menu_deconnexion">Déconnexion</a>
   </li>
   </div>
 
