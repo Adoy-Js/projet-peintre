@@ -27,7 +27,9 @@ class Paintings extends PureComponent {
           Peintures
         </h1>
 
-        <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
+        <h2>“ J’aime explorer, m’amuser… 
+            <br />me laisser simplement porter par la créativité ”
+</h2>
 
       <nav className="menu_paintings">
         <ul className="menu_links">
