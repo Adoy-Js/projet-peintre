@@ -9,7 +9,7 @@ class Piwakawaka extends PureComponent {
   }
 
   componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/11`)
+    axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/${id}`)
       .then(res => {
         const images = res.data;
         this.setState({ images });
