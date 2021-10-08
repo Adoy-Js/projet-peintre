@@ -88,7 +88,6 @@ const FormNewArray = () => {
             placeholder="https://firebasestorage..."
             type="url"
             name="image"
-            required
           />
         </div>
 
