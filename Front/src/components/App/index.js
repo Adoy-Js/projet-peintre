@@ -50,6 +50,7 @@ import NotFound from "src/components/Client/NotFound";
 
 import "./styles.scss";
 import ArtworkArray from "src/components/Admin/ArtworkArray";
+import Footer from "../Client/Footer";
 
 // == Composant
 const App = () => {
@@ -138,6 +139,7 @@ const App = () => {
           <NotFound />
         </Route>
       </Switch>
+      <Footer/>
     </div>
   );
 };

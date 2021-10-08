@@ -25,7 +25,10 @@ const MuralPaintings = () => {
     <div className="mural_paintings">
       <h1>Peintures murales</h1>
 
-      <h2>Quand je n'ai plus assez de peinture je peins plus vite</h2>
+      <h2>
+        “ Peindre sur un mur, c’est comme peindre sur une toile...
+        <br /> mais en plus grand “
+      </h2>
 
       <div className="mural">
         {muralPaintings.map((muralPainting) => (
@@ -48,6 +51,7 @@ const MuralPaintings = () => {
             <div className="mural_information">
               {" "}
               {muralPainting.place} {muralPainting.format} {muralPainting.date}
+              <br/>Cliquez sur la photo pour ouvrir le projet
             </div>
 
             <hr className="line" />

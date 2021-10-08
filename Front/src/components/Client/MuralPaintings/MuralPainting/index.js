@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 //Import NPM
 import api from "src/api";
-
+import { Carousel } from "react-responsive-carousel";
 //Import locaux
 import "./styles.scss";
 
@@ -22,7 +22,7 @@ const MuralPainting = ({}) => {
   useEffect(() => {
     fetchData();
   }, [id]);
-
+  muralPainting?.image?.push(muralPainting.image.shift());
   return (
     <div>
       <div className="mural_paintings">
@@ -31,7 +31,7 @@ const MuralPainting = ({}) => {
         <div className="mural_gallery">
           <div key={muralPainting.id_artwork} className="mural_div">
             {muralPainting?.image?.map((img) => (
-              <img key={img} className="mural_Durtal" src={img} />
+              <img key={img} className="mural_picture" src={img} />
             ))}
             <div className="description">{muralPainting.description}</div>
           </div>
