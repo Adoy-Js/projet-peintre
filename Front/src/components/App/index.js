@@ -1,5 +1,5 @@
 // == Import npm
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // == Import
@@ -55,6 +55,12 @@ import ArtworkArray from "src/components/Admin/ArtworkArray";
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
 
+  useEffect(()=>{
+    if(localStorage.getItem('token')){
+      setIsLogged(true);
+    }
+  }, [])
+
   return (
     <div className="app">
       <Menu isLogged={isLogged} onDisconnect={() => setIsLogged(false)} />
@@ -69,11 +75,11 @@ const App = () => {
         </Route>
 
         <Route path="/admin/artwork" exact>
-          <ArtworkArray />
+          <ArtworkArray isLogged={isLogged}  />
         </Route>
 
         <Route path="/admin/home" exact>
-          <HomeArray />
+          <HomeArray isLogged={isLogged}  />
         </Route>
 
         <Route path="/admin/home/formHomeArray" exact>
@@ -81,10 +87,10 @@ const App = () => {
         </Route>
 
         <Route path="/admin/news" exact>
-          <NewArray />
+          <NewArray isLogged={isLogged} />
         </Route>
 
-        <Route path="/admin/new/formNewArray" exact>
+        <Route path="/admin/news/formNewArray" exact>
           <FormNewArray />
         </Route>
 

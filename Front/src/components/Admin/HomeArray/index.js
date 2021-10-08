@@ -1,14 +1,16 @@
 //Import de la lib React
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 //Import NPM
 import MenuAdmin from "src/components/Admin/MenuAdmin";
+import Home from "src/components/Client/Home";
 import api from "src/api";
+import PropTypes from "prop-types";
 
 //Import locaux
 import "./styles.scss";
+import { NavLink, Redirect } from "react-router-dom";
 
-const HomeAray = ({ prop1 }) => {
-
+const HomeArray = ({ isLogged }) => {
   const [images, setImages] = useState([]);
 
   const fetchData = async () => {
@@ -24,12 +26,12 @@ const HomeAray = ({ prop1 }) => {
 
   useEffect(() => {
     fetchData();
-  }, [images]);
+  }, []);
 
   const handleDelete = async (id) => {
     try {
       if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
-        const reponse = await api.delete(`admin/home/${id}`, {
+        const response = await api.delete(`admin/home/${id}`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -41,7 +43,7 @@ const HomeAray = ({ prop1 }) => {
     }
   };
 
-  return (
+  return isLogged ? (
     <div>
       <MenuAdmin />
       <div className="arrayHome">
@@ -60,9 +62,9 @@ const HomeAray = ({ prop1 }) => {
             <tbody className="arrayHome_body">
               <tr>
                 <td className="cell">
-                  <a href="/admin/menu/home/formHomeArray" className="button">
+                  <NavLink to="/admin/home/formHomeArray" className="button">
                     +
-                  </a>
+                  </NavLink>
                 </td>
                 <td></td>
                 <td></td>
@@ -71,7 +73,7 @@ const HomeAray = ({ prop1 }) => {
 
             <tbody>
               {images.map((image) => (
-                <tr>
+                <tr key={image.id_picture}>
                   <td key={image.name_picture}>{image.name_picture}</td>
 
                   <td key={image.image}>{image.image}</td>
@@ -94,7 +96,17 @@ const HomeAray = ({ prop1 }) => {
         </form>
       </div>
     </div>
+  ) : (
+    <Redirect to="/" />
   );
 };
 
-export default HomeAray;
+HomeArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+HomeArray.defaultProps = {
+  isLogged: false,
+};
+
+export default HomeArray;

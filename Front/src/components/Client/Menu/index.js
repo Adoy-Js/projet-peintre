@@ -1,6 +1,6 @@
 // import NPM
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 // == Imports locaux
 import "./styles.scss";
@@ -19,51 +19,58 @@ const Menu = ({ isLogged, onDisconnect }) => {
 
   return (
     <nav className={`menu ${showLinks ? "show-nav" : "hide-nav"} `}>
-      <a href="/" className="item_menu menu_logo">
+      <NavLink to="/" className="item_menu menu_logo">
         <img className="" src="" alt="" />
-      </a>
+      </NavLink>
       <ul className="links_menu">
         <li className="item_menu slideInDown-2">
-          <a href="/" className="link_menu">
+          <NavLink to="/" className="link_menu">
             Accueil
-          </a>
+          </NavLink>
         </li>
         <li className="item_menu slideInDown-3">
-          <a href="/artwork/portrait" className="link_menu">
+          <NavLink to="/artwork/portrait" className="link_menu">
             Portrait
-          </a>
+          </NavLink>
         </li>
         <li className="item_menu slideInDown-4">
-          <a href="/artwork/painting" className="link_menu">
+          <NavLink to="/artwork/painting" className="link_menu">
             Peintures
-          </a>
+          </NavLink>
         </li>
         <li className="item_menu slideInDown-5">
-          <a href="/artwork/mural-painting" className="link_menu">
+          <NavLink to="/artwork/mural-painting" className="link_menu">
             Peintures murales
-          </a>
+          </NavLink>
         </li>
         <li className="item_menu slideInDown-6">
-          <a href="/news" className="link_menu">
+          <NavLink to="/news" className="link_menu">
             Actualités
-          </a>
+          </NavLink>
         </li>
         <li className="item_menu slideInDown-7">
-          <a href="/about" className="link_menu">
+          <NavLink to="/about" className="link_menu">
             Biographie
-          </a>
+          </NavLink>
         </li>
         <li className="item_menu slideInDown-8">
-          <a href="/contact" className="link_menu">
+          <NavLink to="/contact" className="link_menu">
             Contact
-          </a>
+          </NavLink>
         </li>
         {isLogged && (
-          <li className="item_menu disconnect">
-            <a href="/" className="link_menu" onClick={handleDisconnect}>
-              Déconnexion
-            </a>
-          </li>
+          <>
+            <li className="item_menu disconnect">
+              <NavLink to="/" className="link_menu" onClick={handleDisconnect}>
+                Déconnexion
+              </NavLink>
+            </li>
+            <li className="item_menu disconnect">
+              <NavLink to="/admin/artwork" className="link_menu">
+                Admin
+              </NavLink>
+            </li>
+          </>
         )}
       </ul>
 

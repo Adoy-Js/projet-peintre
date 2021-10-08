@@ -4,24 +4,24 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import api from "src/api";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect } from "react-router-dom";
 
 // Ajout du composant MenuAdmin
 import MenuAdmin from "src/components/Admin/MenuAdmin";
+import Home from "src/components/Client/Home";
 
 //Import locaux
 import "./styles.scss";
 
-const NewArray = () => {
+const NewArray = ({ isLogged }) => {
   const [news, setNews] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await api.get("/admin/news", {
-        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setNews(response.data);
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -29,12 +29,12 @@ const NewArray = () => {
 
   useEffect(() => {
     fetchData();
-  }, [news]);
+  }, []);
 
   const handleDelete = async (id) => {
     try {
       if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
-        const reponse = await api.delete(`admin/news/${id}`, {
+        const response = await api.delete(`admin/news/${id}`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -45,9 +45,8 @@ const NewArray = () => {
       console.log(error);
     }
   };
-  
 
-  return (
+  return isLogged ? (
     <div>
       <MenuAdmin />
       <div className="arrayArtwork">
@@ -61,10 +60,7 @@ const NewArray = () => {
           <tbody className="arrayArtwork_body">
             <tr>
               <td className="cell">
-                <NavLink
-                  to="/admin/new/formNewArray"
-                  className="button"
-                >
+                <NavLink to="/admin/news/formNewArray" className="button">
                   +
                 </NavLink>
               </td>
@@ -92,15 +88,17 @@ const NewArray = () => {
         </table>
       </div>
     </div>
+  ) : (
+    <Redirect to="/" />
   );
 };
 
 NewArray.propTypes = {
-  prop1: PropTypes.string,
+  isLogged: PropTypes.bool,
 };
 
 NewArray.defaultProps = {
-  prop1: "",
+  isLogged: false,
 };
 
 export default NewArray;

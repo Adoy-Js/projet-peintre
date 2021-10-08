@@ -3,14 +3,16 @@ import React, { useEffect, useState } from "react";
 import api from "src/api";
 //Import locaux
 import "./styles.scss";
-
-import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
+import { NavLink, Redirect } from "react-router-dom";
 
 // Ajout du composant MenuAdmin
 import MenuAdmin from "src/components/Admin/MenuAdmin";
+import Home from "src/components/Client/Home";
 
-const ArtworkArray = () => {
+const ArtworkArray = ({isLogged}) => {
   const [artwork, setArtwork] = useState([]);
+
 
   const fetchData = async () => {
     try {
@@ -25,12 +27,12 @@ const ArtworkArray = () => {
 
   useEffect(() => {
     fetchData();
-  }, [artwork]);
+  }, []);
 
   const handleDelete = async (id) => {
     try {
       if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
-        const reponse = await api.delete(`admin/artwork/${id}`, {
+        const response = await api.delete(`admin/artwork/${id}`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -42,7 +44,7 @@ const ArtworkArray = () => {
     }
   };
 
-  return (
+  return isLogged ? (
     <div>
       <MenuAdmin />
       <div className="arrayArtwork">
@@ -89,7 +91,17 @@ const ArtworkArray = () => {
         </table>
       </div>
     </div>
+  ) : (
+    <Redirect to="/" />
   );
+};
+
+ArtworkArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+ArtworkArray.defaultProps = {
+  isLogged: false,
 };
 
 export default ArtworkArray;
