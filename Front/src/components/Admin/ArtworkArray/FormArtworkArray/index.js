@@ -4,7 +4,6 @@ import axios from 'axios';
 
 // == Imports locaux
 import './styles.scss';
-import Category from './Category'
 
 const FormArtworkArray = () => {
 
@@ -61,7 +60,15 @@ const FormArtworkArray = () => {
     <div className="arrayArtworkForm">
 
       <div className="arrayArtworkForm_title">
-        Formulaire oeuvre
+        <div className="arrayArtworkForm_previous">
+          <a href='/admin/menu/artwork'>
+           ←  
+        </a>
+        </div>
+        
+        <div>
+          Formulaire oeuvre
+        </div>
       </div>
 
       <form onSubmit={(e) => handleSubmit(e)} className="arrayArtworkForm_form">
@@ -90,7 +97,12 @@ const FormArtworkArray = () => {
 
           <div onChange={handleChange} value={values} className="arrayArtworkForm_category">
             Choisir la catégorie:
-            <input value={data.category_name} onChange={(e) => handle(e)} id="category_name" className="arrayArtworkForm_place_input" type="text" />
+            <select className="arrayArtworkForm_category_select">
+              <option id="category_name" value={data.category_name}>Peinture à l'huile</option>
+              <option id="category_name" value={data.category_name}>Peinture acrylique</option>
+              <option id="category_name" value={data.category_name}>Peinture murale</option>
+              <option id="category_name" value={data.category_name}>Portrait</option>
+            </select>
           </div>
         </div>
 

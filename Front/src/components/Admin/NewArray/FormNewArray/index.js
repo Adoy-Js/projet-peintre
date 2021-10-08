@@ -47,7 +47,14 @@ const FormNewArray = () => {
   return (
     <div className="arrayNewForm">
       <div className="arrayNewForm_title">
-        Formulaire Actualités
+      <div className="arrayArtworkForm_previous">
+          <a href='/admin/menu/new'>
+           ←  
+        </a>
+        </div>
+        <div>
+          Formulaire Actualités
+        </div>
       </div>
       <form onSubmit={(e) => handleSubmit(e)} className="arrayNewForm_form">
         <div className="arrayNewForm_name">
