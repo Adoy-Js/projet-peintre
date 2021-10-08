@@ -36,14 +36,16 @@ const FormArtworkArray = () => {
       image: "",
       category_name: "",
       description: ""
-  },
-  {headers: {
-    Authorization: "Bearer " + localStorage.getItem('token')
- }},
-  ).then(res => {
+    },
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem('token')
+        }
+      },
+    ).then(res => {
       console.log(res.data)
     })
-  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
+    alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
   }
 
   function handle(e) {
@@ -67,7 +69,7 @@ const FormArtworkArray = () => {
           <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayArtworkForm_name_input" type="text" />
         </div>
 
-      <div className="arrayArtworkForm_informations">
+        <div className="arrayArtworkForm_informations">
           <div>
             <div className="arrayArtworkForm_date">
               Date :
@@ -85,14 +87,9 @@ const FormArtworkArray = () => {
             <input value={data.place} onChange={(e) => handle(e)} id="place" className="arrayArtworkForm_place_input" type="text" />
           </div>
 
-          <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
+          <div onChange={handleChange} value={values} className="arrayArtworkForm_category">
             Choisir la catégorie:
-            <select className="arrayArtworkForm_category_select">
-              <option id="category_name" value={data.category_name}>Peinture à l'huile</option>
-              <option id="category_name" value={data.category_name}>Peinture acrylique</option>
-              <option id="category_name" value={data.category_name}>Peinture murale</option>
-              <option id="category_name" value={data.category_name}>Portrait</option>
-            </select>
+            <input value={data.category_name} onChange={(e) => handle(e)} id="category_name" className="arrayArtworkForm_place_input" type="text" />
           </div>
         </div>
 

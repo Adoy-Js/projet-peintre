@@ -8,7 +8,7 @@ import './styles.scss';
 
 const ArrayNew = () => {
 
-  const [news, setNews] = useState([null]);
+  const [news, setNews] = useState([]);
 
 
   axios({
@@ -56,20 +56,23 @@ const ArrayNew = () => {
 
           <table>
           <tbody className="arrayNew_body">
+          
               <tr>
                 <td className="arrayNew_cell"><a href="/admin/menu/new/formNewArray" className="button">+</a></td>
                 <td></td>
               </tr>
             </tbody>
             <tbody className="arrayNew_body">
+              {news.map(news => (
               <tr>
-                <td key={news} className="cell">{news}</td>
+                <td key={news.name} className="cell">{news.name}</td>
 
                 <td><button onClick={(e) => {
                     e.preventDefault()
                     handleDelete(artwork);
                   }} className="arrayNew_body_delete">SUPPRIMER</button></td>
               </tr>
+              ))}
             </tbody>
             
           </table>
