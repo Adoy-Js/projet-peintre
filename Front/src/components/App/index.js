@@ -21,10 +21,6 @@ import News from 'src/components/Client/News';
 import Contact from 'src/components/Client/Contact';
 // Ajout du composant Biography
 import Biography from 'src/components/Client/Biography';
-// Ajout du composant Narnia
-import Narnia from 'src/components/Client/MuralPaintings/Narnia';
-// Ajout du composant Durtal
-import Durtal from 'src/components/Client/MuralPaintings/Durtal';
 // Ajout du composant Piwakawaka
 import Piwakawaka from 'src/components/Client/MuralPaintings/Piwakawaka';
 // Ajout du composant Oil
@@ -141,15 +137,7 @@ const App = () => (
         <Biography />
       </Route>
 
-      <Route path="/artwork/mural-painting/9" exact >
-        <Narnia />
-      </Route>
-
-      <Route path="/artwork/mural-painting/10" exact >
-        <Durtal />
-      </Route>
-
-      <Route path="/artwork/mural-painting/11" exact >
+      <Route path="/artwork/mural-painting/:id" exact >
         <Piwakawaka />
       </Route>
 
