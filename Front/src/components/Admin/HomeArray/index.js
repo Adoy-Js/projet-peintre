@@ -1,42 +1,45 @@
-// == Import de la lib React
-import React, { useState } from 'react';
-import axios from "axios";
-// Ajout du composant MenuAdmin
+//Import de la lib React
+import React, { useState } from "react";
+//Import NPM
 import MenuAdmin from "src/components/Admin/MenuAdmin";
+import api from "src/api";
 
+//Import locaux
+import "./styles.scss";
 
-// == Imports locaux
-import './styles.scss';
-
-const HomeArray = () => {
+const HomeAray = ({ prop1 }) => {
 
   const [images, setImages] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/admin/home", {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      });
+      setImages(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  axios({
-    method: 'get',
-    url: "https://projet-peintre.herokuapp.com/admin/home",
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-   },
-  }).then(res => {
-    const images = res.data;
-    setImages(images);
-  })
+  useEffect(() => {
+    fetchData();
+  }, [images]);
 
-  function handleDelete(id) {
-  if( window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")){
-    axios({
-      method: 'delete',
-      url: `https://projet-peintre.herokuapp.com/admin/home/${id}`,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem('token')
-     },
-    }).then(res => {
-      const images = res.data;
-      setImages(images);
-    }).catch((err) => { console.log(err) })}
-  }
+  const handleDelete = async (id) => {
+    try {
+      if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
+        const reponse = await api.delete(`admin/home/${id}`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -45,15 +48,9 @@ const HomeArray = () => {
         <table>
           <thead className="arrayHome_head">
             <tr>
-              <th className="arrayHome_name">
-                NOM
-              </th>
-              <th className="arrayHome_urlPicture">
-                PHOTOS
-              </th>
-              <th className="arrayHome_delete">
-                SUPPRIMER
-              </th>
+              <th className="arrayHome_name">NOM</th>
+              <th className="arrayHome_urlPicture">PHOTOS</th>
+              <th className="arrayHome_delete">SUPPRIMER</th>
             </tr>
           </thead>
         </table>
@@ -62,35 +59,42 @@ const HomeArray = () => {
           <table>
             <tbody className="arrayHome_body">
               <tr>
-                <td className="cell"><a href="/admin/menu/home/formHomeArray" className="button">+</a></td>
+                <td className="cell">
+                  <a href="/admin/menu/home/formHomeArray" className="button">
+                    +
+                  </a>
+                </td>
                 <td></td>
                 <td></td>
               </tr>
             </tbody>
 
             <tbody>
-              {images.map(image => (
+              {images.map((image) => (
                 <tr>
                   <td key={image.name_picture}>{image.name_picture}</td>
 
                   <td key={image.image}>{image.image}</td>
 
-                  <td><button onClick={(e) => {
-                    e.preventDefault()
-                    handleDelete(image.id_picture);
-                  }} className="arrayHome_body_delete">SUPPRIMER</button></td>
-
+                  <td>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleDelete(image.id_picture);
+                      }}
+                      className="arrayHome_body_delete"
+                    >
+                      SUPPRIMER
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </form>
-
       </div>
-    </div >
-
+    </div>
   );
-}
+};
 
-
-export default HomeArray;
+export default HomeAray;

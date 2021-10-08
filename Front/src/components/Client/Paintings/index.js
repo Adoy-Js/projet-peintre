@@ -14,7 +14,6 @@ const Paintings = () => {
   const fetchData = async () => {
     try {
       const response = await api.get("/artwork/painting");
-      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.log(error);

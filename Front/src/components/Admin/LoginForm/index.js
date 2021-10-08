@@ -5,15 +5,12 @@ import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import api from "src/api";
 
-
-
 //Import locaux
 import "./styles.scss";
 
-const LoginForm = ({}) => {
+const LoginForm = ({ isLogged, onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -31,8 +28,8 @@ const LoginForm = ({}) => {
         password: password,
       });
       if (response.data.userId && response.data.token) {
-        setIsLogged(true);
-        localStorage.setItem('token', response.data.token)
+        localStorage.setItem("token", response.data.token);
+        onLogin();
       } else if (response.data.error) {
         alert(response.data.error);
       }
@@ -42,7 +39,7 @@ const LoginForm = ({}) => {
   };
 
   return isLogged ? (
-    <Redirect to ="/admin/artwork" />
+    <Redirect to="/admin/artwork" />
   ) : (
     <form onSubmit={handleSubmit} className="Form">
       <div className="Form_label">Bienvenue</div>
@@ -77,18 +74,14 @@ const LoginForm = ({}) => {
   );
 };
 
-// LoginForm.propTypes = {
-//   email: PropTypes.string,
-//   password: PropTypes.string,
-//   isLogged: PropTypes.bool,
-//   onLogin: PropTypes.func,
-// };
+LoginForm.propTypes = {
+  isLogged: PropTypes.bool,
+  onLogin: PropTypes.func,
+};
 
-// LoginForm.defaultProps = {
-//   email: "",
-//   password: "",
-//   isLogged: false,
-//   onLogin: () => {},
-// };
+LoginForm.defaultProps = {
+  isLogged: false,
+  onLogin: () => {},
+};
 
 export default LoginForm;

@@ -7,6 +7,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 // Composants
 import App from 'src/components/App';
 
+console.log(localStorage);
+
 // == Render
 // 1. Élément React racine (celui qui contient l'ensemble de l'app)
 //    => crée une structure d'objets imbriqués (DOM virtuel)

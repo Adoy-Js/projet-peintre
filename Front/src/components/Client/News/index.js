@@ -13,7 +13,6 @@ const News = () => {
     try {
       const response = await api.get("/news");
       setNews(response.data);
-      console.log(news);
     } catch (error) {
       console.log(error);
     }
@@ -27,6 +26,7 @@ const News = () => {
     return(
       <div className="news">
         <h1>Actualité à venir</h1>
+        <div className="news_footer">Camille</div>
       </div>
     )
   }
@@ -35,7 +35,7 @@ const News = () => {
     <div className="news">
       <h1>Actualités</h1>
       {news.map((data) => (
-        <div className="new">
+        <div className="new" key={data.id_news}>
           <h2 className="new_header">{new Date(data.date).getDate() + '-' + (new Date(data.date).getMonth() + 1) + '-' + new Date(data.date).getFullYear()} {data.place}</h2>
           <p className="new_article">{data.article}</p>
           <img
@@ -45,7 +45,7 @@ const News = () => {
           ></img>
         </div>
       ))}
-      <div className="news_footer">Camille</div>
+      
     </div>
   );
 };

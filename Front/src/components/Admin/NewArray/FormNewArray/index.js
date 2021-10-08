@@ -16,13 +16,6 @@ const FormNewArray = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({
-      name_news: name,
-      date: date,
-      place: place,
-      image: image,
-      article: article,
-    });
     try {
       const response = await api.post(
         "/admin/news",

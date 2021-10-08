@@ -1,5 +1,5 @@
 // == Import npm
-import React from "react";
+import React, { useState } from "react";
 import { Route, Switch } from "react-router-dom";
 
 // == Import
@@ -41,7 +41,6 @@ import FormArtworkArray from "src/components/Admin/ArtworkArray/FormArtworkArray
 // Ajout du composant ArrayHomeForm
 import FormHomeArray from "src/components/Admin/HomeArray/FormHomeArray";
 
-
 // Ajout du composant contactData
 import contactData from "src/data/contact";
 // Ajout du composant array
@@ -53,86 +52,89 @@ import "./styles.scss";
 import ArtworkArray from "src/components/Admin/ArtworkArray";
 
 // == Composant
-const App = () => (
-  <div className="app">
-    <Menu />
+const App = () => {
+  const [isLogged, setIsLogged] = useState(false);
 
-    <Switch>
+  return (
+    <div className="app">
+      <Menu isLogged={isLogged} onDisconnect={() => setIsLogged(false)} />
 
-      <Route path="/admin" exact>
-        <LoginForm />
-      </Route>
+      <Switch>
+        <Route path="/admin" exact>
+          <LoginForm isLogged={isLogged} onLogin={() => setIsLogged(true)} />
+        </Route>
 
-      <Route path="/admin/artwork/formArtworkArray" exact>
-        <FormArtworkArray />
-      </Route>
+        <Route path="/admin/artwork/formArtworkArray" exact>
+          <FormArtworkArray />
+        </Route>
 
-      <Route path="/admin/artwork" exact>
-        <ArtworkArray  />
-      </Route>
+        <Route path="/admin/artwork" exact>
+          <ArtworkArray />
+        </Route>
 
-      <Route path="/admin/home" exact>
-        <HomeArray  />
-      </Route>
+        <Route path="/admin/home" exact>
+          <HomeArray />
+        </Route>
 
-      <Route path="/admin/home/formHomeArray" exact>
-        <FormHomeArray />
-      </Route>
+        <Route path="/admin/home/formHomeArray" exact>
+          <FormHomeArray />
+        </Route>
 
-      <Route path="/admin/news" exact>
-        <NewArray />
-      </Route>
+        <Route path="/admin/news" exact>
+          <NewArray />
+        </Route>
 
-      <Route path="/admin/new/formNewArray" exact>
-        <FormNewArray />
-      </Route>
+        <Route path="/admin/new/formNewArray" exact>
+          <FormNewArray />
+        </Route>
 
-      <Route path="/artwork/painting" exact>
-        <Paintings />
-      </Route>
+        <Route path="/artwork/painting" exact>
+          <Paintings />
+        </Route>
 
-      <Route path="/artwork/mural-painting" exact>
-        <MuralPaintings />
-      </Route>
+        <Route path="/artwork/mural-painting" exact>
+          <MuralPaintings />
+        </Route>
 
-      <Route path="/news" exact>
-        <News />
-      </Route>
+        <Route path="/news" exact>
+          <News />
+        </Route>
 
-      <Route path="/" exact>
-        <Home />
-      </Route>
+        <Route path="/" exact>
+          <Home />
+        </Route>
 
-      <Route path="/artwork/portrait" exact>
-        <Portrait />
-      </Route>
+        <Route path="/artwork/portrait" exact>
+          <Portrait />
+        </Route>
 
-      <Route path="/contact" exact>
-        <Contact
-          descriptions={contactData.descriptions}
-          messages={contactData.messages}
-          footermessages={contactData.footermessages}
-        />
-      </Route>
+        <Route path="/contact" exact>
+          <Contact
+            descriptions={contactData.descriptions}
+            messages={contactData.messages}
+            footermessages={contactData.footermessages}
+          />
+        </Route>
 
-      <Route path="/about" exact>
-        <Biography />
-      </Route>
-      <Route path="/artwork/mural-painting/:id" exact>
-        <MuralPainting />
-      </Route>
-      <Route path="/artwork/painting" exact>
-        <Paintings />
-      </Route>
-      <Route path="/artwork/painting/:painting_category" exact>
-        <Painting />
-      </Route>
-      <Route>
-        <NotFound />
-      </Route>
-    </Switch>
-  </div>
-);
+        <Route path="/about" exact>
+          <Biography />
+        </Route>
+        <Route path="/artwork/mural-painting/:id" exact>
+          <MuralPainting />
+        </Route>
+        <Route path="/artwork/painting" exact>
+          <Paintings />
+        </Route>
+        <Route path="/artwork/painting/:painting_category" exact>
+          <Painting />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+    </div>
+  );
+};
 
 // == Export
 export default App;

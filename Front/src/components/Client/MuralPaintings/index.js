@@ -14,7 +14,6 @@ const MuralPaintings = () => {
     try {
       const response = await api.get("/artwork/mural-painting");
       setMuralPaintings(response.data);
-      console.log(response);
     } catch (error) {}
   };
 

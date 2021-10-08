@@ -143,6 +143,7 @@ const newsController = {
       //on supprime la relation et non la photo, car elle peut etre utilisée autre part
       // relation_picture.delete();
       newsDeleted.delete();
+      res.json({message : "L'actualité à bien été supprimé"})
 
     } catch (error) {
       console.error(error);
