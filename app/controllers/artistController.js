@@ -87,6 +87,7 @@ const artistController = {
 
       pictureDeleted.delete();
       // relation_picture.delete();
+      res.json({message : "La photo à bien été supprimé"})
     } catch (error) {
       console.error(error);
       next();

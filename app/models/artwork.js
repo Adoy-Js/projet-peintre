@@ -30,8 +30,6 @@ class Artwork {
 
       const { rows } = await pool.query(query);
 
-      console.log(rows);
-
       return rows ? rows.map((row) => new this(row)) : false;
     } catch (error) {
       console.log(error);
@@ -131,8 +129,6 @@ class Artwork {
       const { rows } = await pool.query(
         `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name_category IN ('oil-painting', 'acrylic-painting') ORDER BY date DESC;`
       );
-
-      console.log(rows);
 
       return rows.map((row) => new Artwork(row));
     } catch (error) {
