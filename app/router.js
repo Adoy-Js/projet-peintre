@@ -53,7 +53,7 @@ router.delete(
 
 //Artwork
 
-router.get("/admin/artwork", /*adminController.isAdmin,*/ artworkController.getAll);
+router.get("/admin/artwork", adminController.isAdmin, artworkController.getAll);
 router.get(
   "/admin/artwork/:id",
   adminController.isAdmin,
