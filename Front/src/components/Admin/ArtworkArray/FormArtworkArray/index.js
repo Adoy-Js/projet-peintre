@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // == Imports locaux
 import './styles.scss';
+import Category from './Category'
 
 const FormArtworkArray = () => {
 
@@ -36,14 +37,16 @@ const FormArtworkArray = () => {
       image: "",
       category_name: "",
       description: ""
-  },
-  {headers: {
-    Authorization: "Bearer " + localStorage.getItem('token')
- }},
-  ).then(res => {
+    },
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem('token')
+        }
+      },
+    ).then(res => {
       console.log(res.data)
     })
-  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
+    alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
   }
 
   function handle(e) {
@@ -67,7 +70,7 @@ const FormArtworkArray = () => {
           <input onChange={(e) => handle(e)} value={data.name} id="name" className="arrayArtworkForm_name_input" type="text" />
         </div>
 
-      <div className="arrayArtworkForm_informations">
+        <div className="arrayArtworkForm_informations">
           <div>
             <div className="arrayArtworkForm_date">
               Date :
@@ -87,12 +90,7 @@ const FormArtworkArray = () => {
 
           <div value={values} onChange={handleChange} className="arrayArtworkForm_category">
             Choisir la catégorie:
-            <select className="arrayArtworkForm_category_select">
-              <option id="category_name" value={data.category_name}>Peinture à l'huile</option>
-              <option id="category_name" value={data.category_name}>Peinture acrylique</option>
-              <option id="category_name" value={data.category_name}>Peinture murale</option>
-              <option id="category_name" value={data.category_name}>Portrait</option>
-            </select>
+            <Category />
           </div>
         </div>
 
