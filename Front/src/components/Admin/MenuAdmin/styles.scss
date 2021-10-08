@@ -22,3 +22,26 @@
     }
   }}
 
+  .menuAdmin {
+    display: flex;
+    position: absolute;
+    flex-wrap: nowrap ;
+    padding: .5em 2em;
+    width: 100%;
+    background-color: #ebe9e9;
+    font-size: 1.2em;
+    animation: apparition-menu 1.1s ease-out;
+    cursor: pointer;
+  }
+  
+  .link_menu_deconnexion{
+    background-color: rgb(128, 163, 128);
+    color: white;
+    padding: .5em;
+    border-radius: 10px;
+    &:hover{
+      background-color: rgb(72, 100, 72);
+      cursor: pointer;
+    }
+  }
+

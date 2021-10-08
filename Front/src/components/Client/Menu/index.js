@@ -40,9 +40,6 @@ function Menu () {
         <li className="item_menu slideInDown-8">
           <a href="/contact" className="link_menu">Contact</a>
         </li>
-        <li className="item_menu slideInDown-8">
-          <a href="/contact" className="link_menu_deconnexion">Déconnexion</a>
-        </li>
       </ul>
 
       <button className="menu_burger" onClick={handleShowLinks}>
