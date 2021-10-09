@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Ajout du composant Menu
 import Menu from 'src/components/Client/Menu';
 // Ajout du composant Footer
-import Footer from 'src/components/Client/Footer';
+import Footer from 'src/components/Footer';
 // Ajout du composant NotFound
 import NotFound from 'src/components/Client/NotFound';
 // Ajout du composant Home
@@ -73,11 +73,11 @@ const App = () => (
     <Menu />
 
     <BrowserRouter>
-      <Switch>
-        <Route path="/admin/menu">
-          <MenuAdmin />
-        </Route>
 
+      <Route path="/admin/menu">
+        <MenuAdmin />
+      </Route>
+      <Switch>
         <Route path="/admin" exact>
           <LoginForm />
         </Route>
@@ -108,6 +108,7 @@ const App = () => (
         <Route path="/admin/menu/new/formNewArray" exact>
           <FormNewArray />
         </Route>
+
 
         <Route path="/artwork/painting" exact>
           <Paintings />
@@ -154,7 +155,7 @@ const App = () => (
           <Acrylic />
         </Route>
 
-        <Route>
+        <Route path="/*">
           <NotFound />
         </Route>
       </Switch>
