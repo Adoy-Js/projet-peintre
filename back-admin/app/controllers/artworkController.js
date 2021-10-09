@@ -1,5 +1,6 @@
 const Artwork = require("../models/artwork");
 const Picture = require("../models/picture");
+const Category = require("../models/category");
 const Artwork_has_picture = require("../models/artwork_has_picture");
 
 const artworkController = {
@@ -68,8 +69,11 @@ const artworkController = {
 
   addArtwork: async (req, res, next) => {
     try {
+      const result = await Category.findIdByName(req.body.category_name);
+      const id_category = result.id_category;
+      console.log(id_category);
       //si on veut ajouter une peinture murale, alors on reçoit plusieurs images et une image principale.
-      if (req.body.category_id === 5) {
+      if (req.body.category_name === "mural-painting") {
         //Instanciation et insertion du nouvel artwork
         const newArtwork = new Artwork({
           name_artwork: req.body.name_artwork,
@@ -77,7 +81,7 @@ const artworkController = {
           place: req.body.place,
           format: req.body.format,
           description: req.body.description,
-          category_id: req.body.category_id,
+          category_id: id_category,
           artist_id: req.body.artist_id,
         });
 
@@ -129,7 +133,7 @@ const artworkController = {
           place: req.body.place,
           format: req.body.format,
           description: req.body.description,
-          category_id: req.body.category_id,
+          category_id: id_category,
           artist_id: req.body.artist_id,
         });
 

@@ -10,10 +10,13 @@ import { NavLink, Redirect } from "react-router-dom";
 import MenuAdmin from "src/components/Admin/MenuAdmin";
 import Home from "src/components/Client/Home";
 
-const ArtworkArray = ({isLogged}) => {
+const ArtworkArray = ({ isLogged }) => {
   const [artwork, setArtwork] = useState([]);
 
-
+  useEffect(() => {
+    fetchData();
+  }, [artwork]);
+  
   const fetchData = async () => {
     try {
       const response = await api.get("/admin/artwork", {
@@ -24,10 +27,6 @@ const ArtworkArray = ({isLogged}) => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   const handleDelete = async (id) => {
     try {

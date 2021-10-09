@@ -26,7 +26,7 @@ const HomeArray = ({ isLogged }) => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [images]);
 
   const handleDelete = async (id) => {
     try {

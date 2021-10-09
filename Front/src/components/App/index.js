@@ -56,11 +56,11 @@ import Footer from "../Client/Footer";
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
 
-  useEffect(()=>{
-    if(localStorage.getItem('token')){
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
       setIsLogged(true);
     }
-  }, [])
+  }, []);
 
   return (
     <div className="app">
@@ -76,11 +76,11 @@ const App = () => {
         </Route>
 
         <Route path="/admin/artwork" exact>
-          <ArtworkArray isLogged={isLogged}  />
+          <ArtworkArray isLogged={isLogged} />
         </Route>
 
         <Route path="/admin/home" exact>
-          <HomeArray isLogged={isLogged}  />
+          <HomeArray isLogged={isLogged} />
         </Route>
 
         <Route path="/admin/home/formHomeArray" exact>
@@ -97,22 +97,27 @@ const App = () => {
 
         <Route path="/artwork/painting" exact>
           <Paintings />
+          <Footer />
         </Route>
 
         <Route path="/artwork/mural-painting" exact>
           <MuralPaintings />
+          <Footer />
         </Route>
 
         <Route path="/news" exact>
           <News />
+          <Footer />
         </Route>
 
         <Route path="/" exact>
           <Home />
+          <Footer />
         </Route>
 
         <Route path="/artwork/portrait" exact>
           <Portrait />
+          <Footer />
         </Route>
 
         <Route path="/contact" exact>
@@ -121,25 +126,30 @@ const App = () => {
             messages={contactData.messages}
             footermessages={contactData.footermessages}
           />
+          <Footer />
         </Route>
 
         <Route path="/about" exact>
           <Biography />
+          <Footer />
         </Route>
         <Route path="/artwork/mural-painting/:id" exact>
           <MuralPainting />
+          <Footer />
         </Route>
         <Route path="/artwork/painting" exact>
           <Paintings />
+          <Footer />
         </Route>
         <Route path="/artwork/painting/:painting_category" exact>
           <Painting />
+          <Footer />
         </Route>
         <Route>
           <NotFound />
+          <Footer />
         </Route>
       </Switch>
-      <Footer/>
     </div>
   );
 };

@@ -1,6 +1,8 @@
 //Import de la lib React
 import React, { useState } from "react";
 import api from "src/api";
+import { Redirect } from "react-router-dom";
+import { storage } from "src/utils/firebase";
 //Import locaux
 import "./styles.scss";
 
@@ -24,6 +26,7 @@ const FormHomeArray = ({ prop1 }) => {
         }
       );
       alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
+      <Redirect to="/admin/artwork" />;
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +41,7 @@ const FormHomeArray = ({ prop1 }) => {
           <input
             onChange={(e) => setNamePicture(e.target.value)}
             id="name_picture"
-            value={data.name_picture}
+            value={name_picture}
             className="arrayHomeForm_name_input"
             type="text"
           />
@@ -47,7 +50,7 @@ const FormHomeArray = ({ prop1 }) => {
           <input
             onChange={(e) => setImage(e.target.value)}
             id="image"
-            value={data.image}
+            value={image}
             placeholder="https://firebasestorage..."
             className="arrayHomeForm_url_input"
             type="url"

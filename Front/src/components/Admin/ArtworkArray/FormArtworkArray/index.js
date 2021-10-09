@@ -1,7 +1,7 @@
 //Import de la lib React
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
 //Import NPM
-import PropTypes from "prop-types";
 import api from "src/api";
 
 //Import locaux
@@ -12,36 +12,22 @@ const FormArtworkArray = () => {
   const [date, setDate] = useState(null);
   const [format, setFormat] = useState("");
   const [place, setPlace] = useState("");
-  const [categoryName, setCategoryName] = useState("");
-  const [category_id, setCategory_id] = useState(1);
+  const [categoryName, setCategoryName] = useState("portrait");
   const [image, setImage] = useState([]);
   const [description, setDescription] = useState("");
 
-  useEffect(() => {
-    convertCategoryNameToCategoryId();
-  }, [categoryName]);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({
-      name_artwork: name,
-      date: date,
-      format: format,
-      place: place,
-      image: image,
-      category_id: category_id,
-      description: description,
-    });
     try {
-      const response = await api.post(
+      await api.post(
         "/admin/artwork",
         {
           name_artwork: name,
-          date: date,
+          date: parseInt(date, 10),
           format: format,
           place: place,
           image: image,
-          category_id: category_id,
+          category_name: categoryName,
           description: description,
         },
         {
@@ -51,27 +37,9 @@ const FormArtworkArray = () => {
         }
       );
       alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
+      <Redirect to="/admin/artwork" />;
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const convertCategoryNameToCategoryId = () => {
-    switch (categoryName) {
-      case "portrait":
-        setCategory_id(1);
-        break;
-      case "oil-painting":
-        setCategory_id(2);
-        break;
-      case "acrylic-painting":
-        setCategory_id(3);
-        break;
-      case "mural-painting":
-        setCategory_id(4);
-        break;
-      default:
-        break;
     }
   };
 
