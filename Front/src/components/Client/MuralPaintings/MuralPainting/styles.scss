@@ -6,13 +6,13 @@
 }
 
 .mural_Piwakawaka {
-  width: 600px;
+  width: 700px;
   height: auto;
   padding: 50px;
   transition: 1s;
   &:hover{
     transform: scale(1.3);
-    cursor: pointer;
+    cursor: zoom-in;
   }
   &:active{
     transform: scale(1.8);

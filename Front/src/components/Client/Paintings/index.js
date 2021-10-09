@@ -4,6 +4,7 @@ import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 class Paintings extends PureComponent {
@@ -50,7 +51,7 @@ class Paintings extends PureComponent {
             </div>)}
 
         </div>
-
+<Footer />
       </div>
     )
   }

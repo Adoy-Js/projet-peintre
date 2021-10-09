@@ -3,6 +3,7 @@ import {useParams} from 'react-router-dom';
 
 import axios from 'axios';
 
+import Footer from '../../Footer'
 import './styles.scss'
 
 const MuralPainting = () => {
@@ -25,10 +26,11 @@ const MuralPainting = () => {
 
 
           <div key={image.id_artwork} className="mural_div">
-            <div className="Piwaka">
+            <div>
               {image.image.map(img => <img key={img} className="mural_Piwakawaka" src={img} />)}
             </div>
             <div className="description">{image.description}</div>
+            <Footer />
           </div>
 
         </div>

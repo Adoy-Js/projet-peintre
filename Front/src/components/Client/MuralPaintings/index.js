@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 
@@ -43,7 +44,7 @@ class MuralPaintings extends PureComponent {
             </div>
           )}
         </div>
-
+<Footer />
       </div >
     )
   }

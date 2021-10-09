@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 class Portrait extends PureComponent {
@@ -40,7 +41,7 @@ class Portrait extends PureComponent {
               <hr></hr>
           </div> )}
         </div>
-
+<Footer />
       </div >
     )
   }

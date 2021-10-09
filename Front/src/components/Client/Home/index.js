@@ -4,6 +4,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import axios from 'axios';
 
+import Footer from '../Footer'
 import './styles.scss';
 
 // == Composant
@@ -22,14 +23,18 @@ class Home extends PureComponent {
 
   render() {
     return (
-      <div className="welcome">
-        <a href="/about"><h1 className="underline">Camille Paul</h1></a>
-        <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
-        {this.state.images.map(image =>
-        <img key={image.id_artist} className="Home_image"src={image.image} className="image_slider"/>)}
-      </Carousel>
-      </div>      
-    )  
+      <div>
+        <div className="welcome">
+          <a href="/about"><h1 className="underline">Camille Paul</h1></a>
+          <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
+            {this.state.images.map(image =>
+              <img key={image.id_artist} className="Home_image" src={image.image} className="image_slider" />)}
+          </Carousel>
+        </div>
+        <Footer />
+      </div>
+
+    )
   }
 }
 

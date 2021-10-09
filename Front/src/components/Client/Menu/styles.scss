@@ -13,6 +13,12 @@
   cursor: pointer;
 }
 
+.logo{
+  cursor: default;
+  position: absolute;
+  width: 5%;
+}
+
 @keyframes apparition-menu {
   from {
     opacity: 0;

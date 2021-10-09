@@ -19,11 +19,6 @@
     padding: 2em;
     background-color: white;
 
-    &:hover {
-      transition: all 1s ease-out;
-      transform: scale(1.2);
-    }
-
   }
 
   &_title {
@@ -52,7 +47,7 @@
 .description {
   margin: 2em;
   line-height: 1.8em;
-  font-size: 1.6em;
+  font-size: 1.2em;
   justify-content: center;
   margin-right: 15%;
   margin-left: 15%;

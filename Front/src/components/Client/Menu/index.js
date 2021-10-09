@@ -40,6 +40,9 @@ function Menu () {
         <li className="item_menu slideInDown-8">
           <a href="/contact" className="link_menu">Contact</a>
         </li>
+        <li className="item_menu slideInDown-8">
+          <a href="/admin"><img src="https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/LOGODERNIERsans%20fond%20(1).png?alt=media&token=4b28bdaf-4134-450b-b4ce-62ff9ab52bc6" alt="logo" className="logo" /> </a>
+        </li>
       </ul>
 
       <button className="menu_burger" onClick={handleShowLinks}>

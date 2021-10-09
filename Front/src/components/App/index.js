@@ -7,8 +7,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //CLIENT
 // Ajout du composant Menu
 import Menu from 'src/components/Client/Menu';
-// Ajout du composant Footer
-import Footer from 'src/components/Footer';
 // Ajout du composant NotFound
 import NotFound from 'src/components/Client/NotFound';
 // Ajout du composant Home
@@ -160,8 +158,6 @@ const App = () => (
         </Route>
       </Switch>
     </BrowserRouter>
-
-    <Footer />
   </div>
 );
 

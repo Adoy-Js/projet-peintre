@@ -3,6 +3,7 @@ import React from 'react';
 import bioImage from './img/accueil.jpg'
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 const Biography = () => (
@@ -36,6 +37,7 @@ const Biography = () => (
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 
 );
