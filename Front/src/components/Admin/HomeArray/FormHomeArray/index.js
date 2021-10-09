@@ -2,22 +2,29 @@
 import React, { useState } from "react";
 import api from "src/api";
 import { Redirect } from "react-router-dom";
-import { storage } from "src/utils/firebase";
+import storage from "src/utils/firebase";
 //Import locaux
 import "./styles.scss";
 
 const FormHomeArray = ({ prop1 }) => {
   const [name_picture, setNamePicture] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    //firebase
+    await storage.ref(`${name_picture}`).put(image);
+
+    const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
+
+    //BDD
     try {
-      const response = await api.post(
+      await api.post(
         "/admin/home",
         {
           name_picture: name_picture,
-          image: image,
+          image: urlImage,
         },
         {
           headers: {
@@ -25,7 +32,7 @@ const FormHomeArray = ({ prop1 }) => {
           },
         }
       );
-      alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
+      alert("contenu ajouté");
       <Redirect to="/admin/artwork" />;
     } catch (error) {
       console.log(error);
@@ -48,17 +55,18 @@ const FormHomeArray = ({ prop1 }) => {
         </div>
         <div className="arrayHomeForm_url">
           <input
-            onChange={(e) => setImage(e.target.value)}
+            onChange={(e) => setImage(e.target.files[0])}
             id="image"
-            value={image}
             placeholder="https://firebasestorage..."
             className="arrayHomeForm_url_input"
-            type="url"
+            type="file"
             required
           />
         </div>
 
-        <button className="arrayHomeForm_ok">Valider</button>
+        <button type="submit" className="arrayHomeForm_ok">
+          Valider
+        </button>
       </form>
     </div>
   );

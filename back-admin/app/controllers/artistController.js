@@ -34,6 +34,7 @@ const artistController = {
     try {
 
       console.log("controller : add picture for home");
+      console.log(req.body);
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
