@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import Footer from '../../Footer'
+
 
 class Paintings extends PureComponent {
   state = {
@@ -45,7 +47,7 @@ class Paintings extends PureComponent {
             </div>)}
 
         </div>
-
+<Footer />
       </div>
     )
   }

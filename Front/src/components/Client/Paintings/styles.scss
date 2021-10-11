@@ -14,7 +14,7 @@
   padding: 50px;
   transition: 1s;
 
-  cursor: pointer;
+  cursor: zoom-in ;
 }
 
 .painting_div:active {
@@ -56,7 +56,7 @@
   background-color: rgb(135, 170, 128);
   color: white;
   transition: 0.3s;
-  cursor: pointer;
+  cursor: zoom-in;
 
   transition: 0.5s;
 }

@@ -1,12 +1,14 @@
 // == Import npm
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // == Import
 
 //CLIENT
 // Ajout du composant Menu
 import Menu from 'src/components/Client/Menu';
+// Ajout du composant NotFound
+import NotFound from 'src/components/Client/NotFound';
 // Ajout du composant Home
 import Home from 'src/components/Client/Home';
 // Ajout du composant Paintings
@@ -21,12 +23,8 @@ import News from 'src/components/Client/News';
 import Contact from 'src/components/Client/Contact';
 // Ajout du composant Biography
 import Biography from 'src/components/Client/Biography';
-// Ajout du composant Narnia
-import Narnia from 'src/components/Client/MuralPaintings/Narnia';
-// Ajout du composant Durtal
-import Durtal from 'src/components/Client/MuralPaintings/Durtal';
 // Ajout du composant Piwakawaka
-import Piwakawaka from 'src/components/Client/MuralPaintings/Piwakawaka';
+import MuralPainting from 'src/components/Client/MuralPaintings/MuralPainting';
 // Ajout du composant Oil
 import Oil from 'src/components/Client/Paintings/Oil';
 // Ajout du composant Acrylic
@@ -73,94 +71,92 @@ const App = () => (
     <Menu />
 
     <BrowserRouter>
+
       <Route path="/admin/menu">
         <MenuAdmin />
       </Route>
+      <Switch>
+        <Route path="/admin" exact>
+          <LoginForm />
+        </Route>
 
-      <Route path="/admin" exact>
-        <LoginForm />
-      </Route>
+        <Route path="/admin/menu/artwork" exact>
+          <ArtworkArray
+            cellTitles={arrayData.cellTitles} />
+        </Route>
 
-      <Route path="/admin/menu/artwork" exact>
-        <ArtworkArray
-        cellTitles={arrayData.cellTitles} />
-      </Route>
+        <Route path="/admin/menu/artwork/formArtworkArray" exact>
+          <FormArtworkArray />
+        </Route>
 
-      <Route path="/admin/menu/artwork/formArtworkArray" exact>
-        <FormArtworkArray  />
-      </Route>
+        <Route path="/admin/menu/home" exact>
+          <HomeArray
+            cellTitles={arrayData.cellTitles} />
+        </Route>
 
-      <Route path="/admin/menu/home" exact>
-        <HomeArray
-        cellTitles={arrayData.cellTitles} />
-      </Route>
+        <Route path="/admin/menu/home/formHomeArray" exact>
+          <FormHomeArray />
+        </Route>
 
-      <Route path="/admin/menu/home/formHomeArray" exact>
-        <FormHomeArray  />
-      </Route>
+        <Route path="/admin/menu/new" exact>
+          <NewArray
+            cellTitles={arrayData.cellTitles} />
+        </Route>
 
-      <Route path="/admin/menu/new" exact>
-        <NewArray
-        cellTitles={arrayData.cellTitles} />
-      </Route>
-
-      <Route path="/admin/menu/new/formNewArray" exact>
-        <FormNewArray />
-      </Route>
-
-      <Route path="/artwork/painting" exact>
-        <Paintings />
-      </Route>
-
-      <Route path="/artwork/mural-painting" exact>
-        <MuralPaintings />
-      </Route>
+        <Route path="/admin/menu/new/formNewArray" exact>
+          <FormNewArray />
+        </Route>
 
 
-      <Route path="/news" exact>
-        <News />
-      </Route>
+        <Route path="/artwork/painting" exact>
+          <Paintings />
+        </Route>
 
-      <Route path="/" exact>
-        <Home />
-      </Route>
+        <Route path="/artwork/mural-painting" exact>
+          <MuralPaintings />
+        </Route>
 
-      <Route path="/artwork/portrait" exact>
-        <Portrait />
-      </Route>
 
-      <Route path="/contact" exact>
-        <Contact
-          descriptions={contactData.descriptions}
-          messages={contactData.messages}
-          footermessages={contactData.footermessages}
-        />
-      </Route>
+        <Route path="/news" exact>
+          <News />
+        </Route>
 
-      <Route path="/about" exact>
-        <Biography />
-      </Route>
+        <Route path="/" exact>
+          <Home />
+        </Route>
 
-      <Route path="/artwork/mural-painting/9" exact >
-        <Narnia />
-      </Route>
+        <Route path="/artwork/portrait" exact>
+          <Portrait />
+        </Route>
 
-      <Route path="/artwork/mural-painting/10" exact >
-        <Durtal />
-      </Route>
+        <Route path="/contact" exact>
+          <Contact
+            descriptions={contactData.descriptions}
+            messages={contactData.messages}
+            footermessages={contactData.footermessages}
+          />
+        </Route>
 
-      <Route path="/artwork/mural-painting/11" exact >
-        <Piwakawaka />
-      </Route>
+        <Route path="/about" exact>
+          <Biography />
+        </Route>
 
-      <Route path="/artwork/oil-painting" exact >
-        <Oil />
-      </Route>
+        <Route path="/artwork/mural-painting/:id" exact >
+          <MuralPainting />
+        </Route>
 
-      <Route path="/artwork/acrylic-painting" exact >
-        <Acrylic />
-      </Route>
+        <Route path="/artwork/oil-painting" exact >
+          <Oil />
+        </Route>
 
+        <Route path="/artwork/acrylic-painting" exact >
+          <Acrylic />
+        </Route>
+
+        <Route path="/*">
+          <NotFound />
+        </Route>
+      </Switch>
     </BrowserRouter>
   </div>
 );

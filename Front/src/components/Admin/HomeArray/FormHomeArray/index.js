@@ -14,10 +14,10 @@ const FormHomeArray = () => {
     image: "",
   })
 
-  function handleSubmit(e){
+  function handleSubmit(e) {
     e.preventDefault();
-    
-    axios.post(url,{
+
+    axios.post(url, {
       name_picture: data.name_picture,
       image: data.image,
     },
@@ -32,16 +32,24 @@ const FormHomeArray = () => {
   }
 
   function handle(e) {
-    const newdata = {...data}
+    const newdata = { ...data }
     newdata[e.target.id] = e.target.value
     setData(newdata)
     console.log(newdata)
   }
 
   return (
+    
     <div className="arrayHomeForm">
       <div className="arrayHomeForm_title">
-        Formulaire accueil
+      <div className="arrayArtworkForm_previous">
+          <a href='/admin/menu/home'>
+           ←  
+        </a>
+        </div>
+        <div>
+          Formulaire accueil
+        </div>
       </div>
       <form onSubmit={(e) => handleSubmit(e)} className="arrayHomeForm_form">
         <div className="arrayHomeForm_name">

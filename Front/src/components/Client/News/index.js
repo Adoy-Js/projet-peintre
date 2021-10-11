@@ -2,6 +2,7 @@
 import React from 'react';
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 const News = () => (
@@ -18,6 +19,7 @@ const News = () => (
          Camille 
         </div>
       </div>
+      <Footer />
   </div>
 
 );

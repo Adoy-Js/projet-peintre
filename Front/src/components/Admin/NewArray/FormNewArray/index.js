@@ -8,6 +8,7 @@ import './styles.scss';
 
 const FormNewArray = () => {
 
+  const url = "https://projet-peintre.herokuapp.com/admin/news"
   const [data, setData] = useState({
     name: "",
     date: "",
@@ -19,21 +20,31 @@ const FormNewArray = () => {
   function handleSubmit(e) {
     e.preventDefault();
 
-  axios.post("https://projet-peintre.herokuapp.com/admin/news", {
+  axios.post(url, {
     name: data.name,
     date: data.date,
     place: data.place,
     description: data.description,
     image: data.image,
     headers: {
+<<<<<<< HEAD
     Authorization: "Bearer " + localStorage.getItem('token')
  }},)
   
+=======
+      Authorization: "Bearer " + localStorage.getItem('token')
+    }
+  })
+>>>>>>> 576b39fa2c2051e2de8228fca760fbb4cdf38286
     .then(res => {
       console.log(res.data)
     }).catch(err => {console.log(err)}
     )
+<<<<<<< HEAD
   alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
+=======
+    alert("Félicitations, vous avez bien ajouté votre contenu supplémentaire !")
+>>>>>>> 576b39fa2c2051e2de8228fca760fbb4cdf38286
   }
 
     function handle(e) {
@@ -46,7 +57,14 @@ const FormNewArray = () => {
   return (
     <div className="arrayNewForm">
       <div className="arrayNewForm_title">
-        Formulaire Actualités
+      <div className="arrayArtworkForm_previous">
+          <a href='/admin/menu/new'>
+           ←  
+        </a>
+        </div>
+        <div>
+          Formulaire Actualités
+        </div>
       </div>
       <form onSubmit={(e) => handleSubmit(e)} className="arrayNewForm_form">
         <div className="arrayNewForm_name">
@@ -80,9 +98,9 @@ const FormNewArray = () => {
           Article :
           <textarea onChange={(e) => handle(e)} value={data.description} id="description" className="arrayNewForm_description_input" />
         </div>
+
         <button className="arrayNewForm_ok">Valider</button>
       </form>
-  
     </div>
   );
 };

@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 const Contact = ({ descriptions, messages }) => (
@@ -42,6 +43,7 @@ const Contact = ({ descriptions, messages }) => (
     <div className="ContactForm">
       <Form />
     </div>
+    <Footer />
   </div >
 );
 

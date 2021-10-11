@@ -3,6 +3,7 @@ import React, { PureComponent } from 'react';
 import axios from 'axios';
 
 // == Imports locaux
+import Footer from '../Footer'
 import './styles.scss';
 
 class Portrait extends PureComponent {
@@ -25,7 +26,8 @@ class Portrait extends PureComponent {
       <div className="header_portrait">
       <h1> Portraits</h1>
 
-        <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
+        <h2> “ Le portrait c’est avant tout une rencontre, une histoire qui se raconte 
+            <br />prenant forme spontanément en un instant “</h2>
       </div>
         
         
@@ -39,7 +41,7 @@ class Portrait extends PureComponent {
               <hr></hr>
           </div> )}
         </div>
-
+<Footer />
       </div >
     )
   }
