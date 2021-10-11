@@ -27,24 +27,14 @@ const FormNewArray = () => {
     description: data.description,
     image: data.image,
     headers: {
-<<<<<<< HEAD
-    Authorization: "Bearer " + localStorage.getItem('token')
- }},)
-  
-=======
       Authorization: "Bearer " + localStorage.getItem('token')
     }
   })
->>>>>>> 576b39fa2c2051e2de8228fca760fbb4cdf38286
     .then(res => {
       console.log(res.data)
     }).catch(err => {console.log(err)}
     )
-<<<<<<< HEAD
-  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
-=======
     alert("Félicitations, vous avez bien ajouté votre contenu supplémentaire !")
->>>>>>> 576b39fa2c2051e2de8228fca760fbb4cdf38286
   }
 
     function handle(e) {

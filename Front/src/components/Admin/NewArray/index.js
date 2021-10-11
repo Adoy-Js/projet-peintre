@@ -65,11 +65,7 @@ const ArrayNew = () => {
             <tbody className="arrayNew_body">
               {news.map(news => (
               <tr>
-<<<<<<< HEAD
-                <td key={news} className="cell">{news}</td>
-=======
                 <td key={news.name} className="cell">{news.name}</td>
->>>>>>> 576b39fa2c2051e2de8228fca760fbb4cdf38286
 
                 <td><button onClick={(e) => {
                     e.preventDefault()
