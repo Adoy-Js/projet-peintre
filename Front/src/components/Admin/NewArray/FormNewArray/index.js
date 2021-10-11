@@ -1,13 +1,14 @@
 //Import de la lib React
-import React, { useEffect, useState } from "react";
-//Import NPM
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+//Import NPM
 import api from "src/api";
 
 //Import locaux
 import "./styles.scss";
 
-const FormNewArray = () => {
+const FormNewArray = ({ isLogged }) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState(null);
   const [place, setPlace] = useState("");
@@ -17,13 +18,19 @@ const FormNewArray = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await api.post(
+      //firebase
+      await storage.ref(`${name_picture}`).put(image);
+
+      const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
+
+      //BDD
+      await api.post(
         "/admin/news",
         {
           name_news: name,
           date: date,
           place: place,
-          image: image,
+          image: urlImage,
           article: article,
         },
         {
@@ -38,7 +45,7 @@ const FormNewArray = () => {
     }
   };
 
-  return (
+  return isLogged ? (
     <div className="arrayArtworkForm">
       <div className="arrayArtworkForm_title">Formulaire oeuvre</div>
 
@@ -106,7 +113,17 @@ const FormNewArray = () => {
         </button>
       </form>
     </div>
+  ) : (
+    <Redirect to="/" />
   );
+};
+
+FormNewArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+FormNewArray.defaultProps = {
+  isLogged: false,
 };
 
 export default FormNewArray;

@@ -1,25 +1,25 @@
 //Import de la lib React
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import api from "src/api";
 import { Redirect } from "react-router-dom";
 import storage from "src/utils/firebase";
 //Import locaux
 import "./styles.scss";
 
-const FormHomeArray = ({ prop1 }) => {
+const FormHomeArray = ({ isLogged }) => {
   const [name_picture, setNamePicture] = useState("");
   const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    //firebase
-    await storage.ref(`${name_picture}`).put(image);
-
-    const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
-
-    //BDD
     try {
+      //firebase
+      await storage.ref(`${name_picture}`).put(image);
+
+      const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
+      //BDD
       await api.post(
         "/admin/home",
         {
@@ -33,13 +33,12 @@ const FormHomeArray = ({ prop1 }) => {
         }
       );
       alert("contenu ajouté");
-      <Redirect to="/admin/artwork" />;
     } catch (error) {
       console.log(error);
     }
   };
 
-  return (
+  return isLogged ? (
     <div className="arrayHomeForm">
       <div className="arrayHomeForm_title">Formulaire accueil</div>
       <form onSubmit={(e) => handleSubmit(e)} className="arrayHomeForm_form">
@@ -69,7 +68,17 @@ const FormHomeArray = ({ prop1 }) => {
         </button>
       </form>
     </div>
+  ) : (
+    <Redirect to="/" />
   );
+};
+
+FormHomeArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+FormHomeArray.defaultProps = {
+  isLogged: false,
 };
 
 export default FormHomeArray;

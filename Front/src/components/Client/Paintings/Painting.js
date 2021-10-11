@@ -7,14 +7,13 @@ import api from 'src/api';
 //Import locaux
 import "./styles.scss";
 
-const Painting = ({ prop1 }) => {
+const Painting = () => {
   const [data, setData] = useState([]);
   const {painting_category} = useParams();
 
   const fetchData = async () => {
     try {
       const response = await api.get(`/artwork/${painting_category}`);
-      console.log(response.data);
       setData(response.data);
     } catch (error) {
       console.log(error);
@@ -23,7 +22,7 @@ const Painting = ({ prop1 }) => {
 
   useEffect(() => {
     fetchData();
-  }, [data]);
+  }, [painting_category]);
 
   return (
     <div className="Paintings">

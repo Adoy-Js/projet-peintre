@@ -39,6 +39,7 @@ const NewArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
+        setNews(news.filter((oneNew) => oneNew.id_news !== id));
         alert(response.data.message);
       }
     } catch (error) {

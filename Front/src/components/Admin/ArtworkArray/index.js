@@ -11,22 +11,22 @@ import MenuAdmin from "src/components/Admin/MenuAdmin";
 import Home from "src/components/Client/Home";
 
 const ArtworkArray = ({ isLogged }) => {
-  const [artwork, setArtwork] = useState([]);
+  const [artworks, setArtworks] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, [artwork]);
-  
   const fetchData = async () => {
     try {
       const response = await api.get("/admin/artwork", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
-      setArtwork(response.data);
+      setArtworks(response.data);
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleDelete = async (id) => {
     try {
@@ -36,6 +36,7 @@ const ArtworkArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
+        setArtworks(artworks.filter((artwork) => artwork.id_artwrok !== id));
         alert(response.data.message);
       }
     } catch (error) {
@@ -68,7 +69,7 @@ const ArtworkArray = ({ isLogged }) => {
             </tr>
           </tbody>
           <tbody>
-            {artwork?.map((artwork) => (
+            {artworks?.map((artwork) => (
               <tr key={artwork.id_artwork}>
                 <td className="category">{artwork.name_artwork}</td>
                 <td className="category">{artwork.name_category}</td>

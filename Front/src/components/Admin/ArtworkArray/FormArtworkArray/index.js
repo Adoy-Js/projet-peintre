@@ -1,13 +1,14 @@
 //Import de la lib React
 import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 //Import NPM
 import api from "src/api";
 
 //Import locaux
 import "./styles.scss";
 
-const FormArtworkArray = () => {
+const FormArtworkArray = ({ isLogged }) => {
   const [name, setName] = useState("");
   const [date, setDate] = useState(null);
   const [format, setFormat] = useState("");
@@ -19,6 +20,12 @@ const FormArtworkArray = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      //firebase
+      await storage.ref(`${name_picture}`).put(image);
+
+      const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
+
+      //BDD
       await api.post(
         "/admin/artwork",
         {
@@ -26,7 +33,7 @@ const FormArtworkArray = () => {
           date: parseInt(date, 10),
           format: format,
           place: place,
-          image: image,
+          image: urlImage,
           category_name: categoryName,
           description: description,
         },
@@ -37,13 +44,12 @@ const FormArtworkArray = () => {
         }
       );
       alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
-      <Redirect to="/admin/artwork" />;
     } catch (error) {
       console.log(error);
     }
   };
 
-  return (
+  return isLogged ? (
     <div className="arrayArtworkForm">
       <div className="arrayArtworkForm_title">Formulaire oeuvre</div>
 
@@ -138,7 +144,17 @@ const FormArtworkArray = () => {
         </button>
       </form>
     </div>
+  ) : (
+    <Redirect to="/" />
   );
+};
+
+FormArtworkArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+FormArtworkArray.defaultProps = {
+  isLogged: false,
 };
 
 export default FormArtworkArray;

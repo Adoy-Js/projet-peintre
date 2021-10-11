@@ -26,7 +26,7 @@ const HomeArray = ({ isLogged }) => {
 
   useEffect(() => {
     fetchData();
-  }, [images]);
+  }, []);
 
   const handleDelete = async (id) => {
     try {
@@ -36,6 +36,7 @@ const HomeArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
+        setImages(images.filter((image) => image.id_picture !== id));
         alert(response.data.message);
       }
     } catch (error) {
@@ -72,7 +73,7 @@ const HomeArray = ({ isLogged }) => {
             </tbody>
 
             <tbody>
-              {images.map((image) => (
+              {images?.map((image) => (
                 <tr key={image.id_picture}>
                   <td key={image.name_picture}>{image.name_picture}</td>
 

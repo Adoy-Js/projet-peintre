@@ -72,7 +72,7 @@ const App = () => {
         </Route>
 
         <Route path="/admin/artwork/formArtworkArray" exact>
-          <FormArtworkArray />
+          <FormArtworkArray isLogged={isLogged} />
         </Route>
 
         <Route path="/admin/artwork" exact>
@@ -84,7 +84,7 @@ const App = () => {
         </Route>
 
         <Route path="/admin/home/formHomeArray" exact>
-          <FormHomeArray />
+          <FormHomeArray isLogged={isLogged} />
         </Route>
 
         <Route path="/admin/news" exact>
@@ -92,7 +92,7 @@ const App = () => {
         </Route>
 
         <Route path="/admin/news/formNewArray" exact>
-          <FormNewArray />
+          <FormNewArray isLogged={isLogged} />
         </Route>
 
         <Route path="/artwork/painting" exact>
