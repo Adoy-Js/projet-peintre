@@ -14,7 +14,9 @@ const ArrayNew = () => {
   axios({
     method: 'get',
     url: "https://projet-peintre.herokuapp.com/admin/news",
-  }).then(res => {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem('token')
+   },  }).then(res => {
     console.log(res.data)
     setNews(news);
   })
@@ -25,6 +27,9 @@ const ArrayNew = () => {
     axios({
       method: 'delete',
       url: `https://projet-peintre.herokuapp.com/admin/artwork/${id}`,
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem('token')
+     },
     }).then(res => {
       const artwork = res.data;
       setArtwork(artwork);
@@ -40,9 +45,6 @@ const ArrayNew = () => {
               <th className="arrayNew_name">
                 NOM
               </th>
-              <th className="arrayNew_modify">
-                MODIFIER
-              </th>
               <th className="arrayNew_delete">
                 SUPPRIMER
               </th>
@@ -57,14 +59,11 @@ const ArrayNew = () => {
               <tr>
                 <td className="arrayNew_cell"><a href="/admin/menu/new/formNewArray" className="button">+</a></td>
                 <td></td>
-                <td></td>
               </tr>
             </tbody>
             <tbody className="arrayNew_body">
               <tr>
                 <td key={news} className="cell">{news}</td>
-
-                <td><button>MODIFIER</button></td>
 
                 <td><button onClick={(e) => {
                     e.preventDefault()

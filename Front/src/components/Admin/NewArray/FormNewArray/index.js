@@ -25,11 +25,16 @@ const FormNewArray = () => {
     place: data.place,
     description: data.description,
     image: data.image,
-  })
+    headers: {
+    Authorization: "Bearer " + localStorage.getItem('token')
+ }},)
+  
     .then(res => {
       console.log(res.data)
     }).catch(err => {console.log(err)}
-    )}
+    )
+  alert('Félicitations, vous avez bien ajouté votre contenu ! :)')
+  }
 
     function handle(e) {
       const newdata = { ...data }
