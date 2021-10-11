@@ -1,45 +1,18 @@
-import React, { PureComponent } from 'react';
-import axios from 'axios';
+//Import de la lib React
+import React, { useState } from "react";
 
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
+import api from "src/api";
 
-class ContactForm extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      name: '',
-      firstname: '',
-      message: '',
-    };
+const ContactForm = () => {
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [message, setMessage] = useState("");
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleFirstNameChange = this.handleFirstNameChange.bind(this);
-    this.handleMessageChange = this.handleMessageChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    
-
-  }
-
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
-
-  handleNameChange(event) {
-    this.setState({ name: event.target.value });
-  }
-
-  handleMessageChange(event) {
-    this.setState({ message: event.target.value });
-  }
-
-  handleFirstNameChange(event) {
-    this.setState({ firstname: event.target.value });
-  }
-
-  handleSubmit(evt) {
-    evt.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const contact = {
       email: this.state.email,
       name: this.state.name,
@@ -47,43 +20,70 @@ class ContactForm extends PureComponent {
       message: this.state.message,
     };
 
-    console.log(contact)
-    axios.post(`https://projet-peintre.herokuapp.com/contact`, contact)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-  }
+    try {
+      await api.post(`/contact`, contact);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  render() {
-    return (
- <div className="contactForm">
-        <form onSubmit={this.handleSubmit} className="contactForm_client">
+  return (
+    <div className="contactForm">
+      <form onSubmit={handleSubmit} className="contactForm_client">
+        <div className="contactForm_name">
+          <input
+            className="contactForm_input_name"
+            name="name"
+            type="text"
+            placeholder="Nom"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
 
-            <div className="contactForm_name">
-              <input className="contactForm_input_name" name="name" type="text" placeholder="Nom" value={this.state.name} onChange={this.handleNameChange} />
-            </div>
+        <div className="contactForm_firstName">
+          <input
+            className="contactForm_input_firstName"
+            name="firstName"
+            type="text"
+            placeholder="Prénom"
+            value={firstname}
+            onChange={(e) => setFirstName(e.target.value)}
+          />
+        </div>
 
-            <div className="contactForm_firstName">
-              <input className="contactForm_input_firstName" name="firstName" type="text" placeholder="Prénom" value={this.state.firstname} onChange={this.handleFirstNameChange} />
-            </div>
+        <div className="contactForm_mail">
+          <input
+            className="contactForm_input_mail"
+            name="email"
+            type="text"
+            placeholder="E-mail"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-            <div className="contactForm_mail">
-              <input className="contactForm_input_mail" name="email" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
-            </div>
+        <div className="contactForm_message">
+          <textarea
+            className="contactForm_input_message"
+            name="message"
+            type="textarea"
+            placeholder="Votre message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+        </div>
 
-            <div className="contactForm_message">
-              <textarea className="contactForm_input_message" name="message" type="textarea" placeholder="Votre message" value={this.state.message} onChange={this.handleMessageChange} />
-            </div>
-
-            <div className="contactForm_submit">
-              <input className="contactForm_input_submit" type="submit" value="Envoyer" />
-            </div>
-
-        </form>
-      </div>     
-    );
-  }
-}
+        <div className="contactForm_submit">
+          <input
+            className="contactForm_input_submit"
+            type="submit"
+            value="Envoyer"
+          />
+        </div>
+      </form>
+    </div>
+  );
+};
 
 export default ContactForm;

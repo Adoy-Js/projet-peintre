@@ -1,10 +1,9 @@
 //Import de la lib React
 import React, { useEffect, useState } from "react";
-//Import NPM
-import api from "src/api";
 
 //Import locaux
 import "./styles.scss";
+import api from "src/api";
 
 const Portrait = () => {
   const [data, setData] = useState([]);
@@ -21,6 +20,7 @@ const Portrait = () => {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <div className="portraits">
       <div className="header_portrait">

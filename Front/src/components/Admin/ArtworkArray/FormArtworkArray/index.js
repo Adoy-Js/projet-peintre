@@ -14,7 +14,7 @@ const FormArtworkArray = ({ isLogged }) => {
   const [format, setFormat] = useState("");
   const [place, setPlace] = useState("");
   const [categoryName, setCategoryName] = useState("portrait");
-  const [image, setImage] = useState([]);
+  const [image, setImage] = useState(null);
   const [description, setDescription] = useState("");
 
   const handleSubmit = async (e) => {
@@ -119,11 +119,11 @@ const FormArtworkArray = ({ isLogged }) => {
         <div className="arrayArtworkForm_url">
           <input
             value={image}
-            onChange={(e) => setImage(e.target.value)}
+            onChange={(e) => setImage(e.target.files[0])}
             id="image"
             className="arrayArtworkForm_url_input"
             placeholder="https://firebasestorage..."
-            type="url"
+            type="file"
             name="image"
             required
           />
