@@ -127,7 +127,13 @@ class Artwork {
   static async findAllPaintings() {
     try {
       const { rows } = await pool.query(
-        `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name_category IN ('oil-painting', 'acrylic-painting') ORDER BY date DESC;`
+        `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image 
+        FROM artwork 
+        JOIN category ON artwork.category_id = category.id_category 
+        JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id 
+        JOIN picture ON picture.id_picture = artwork_has_picture.picture_id 
+        WHERE category.name_category IN ('oil-painting', 'acrylic-painting') 
+        ORDER BY date DESC;`
       );
 
       return rows.map((row) => new Artwork(row));
