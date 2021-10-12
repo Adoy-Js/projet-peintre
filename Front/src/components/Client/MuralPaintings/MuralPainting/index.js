@@ -20,7 +20,7 @@ const MuralPainting = () => {
     
   return (
     <div>
-      {images.map(image =>
+      {images.map((image) =>
         <div className="welcome">
           <h1 className="title_piwa">{image.name_artwork}</h1>
 
@@ -30,12 +30,12 @@ const MuralPainting = () => {
               {image.image.map(img => <img key={img} className="mural_Piwakawaka" src={img} />)}
             </div>
             <div className="description">{image.description}</div>
-           
+            <Footer />
           </div>
-          <Footer />
+
         </div>
       )}
-    </div> 
+    </div>
   )
 }
 
