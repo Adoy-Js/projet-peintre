@@ -10,10 +10,10 @@ const FormArtworkArray = () => {
   const url = "https://projet-peintre.herokuapp.com/admin/artwork"
   const [data, setData] = useState({
     name: "",
-    date: null,
+    date: "",
     format: "",
     place: "",
-    image: null,
+    image: "",
     category_name: "portrait",
     description: ""
   })
@@ -29,13 +29,13 @@ const FormArtworkArray = () => {
     e.preventDefault();
 
     axios.post(url, {
-      name: "",
-      date: null,
-      format: "",
-      place: "",
-      image: null,
-      category_name: "portrait",
-      description: ""
+      name: data.name,
+      date: data.date,
+      format: data.format,
+      place: data.place,
+      image: data.image,
+      category_name: data.category_name,
+      description: data.description
     },
       {
         headers: {
