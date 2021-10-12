@@ -42,7 +42,6 @@ router.post("/admin", adminController.login);
 //Artist Picture for home
 
 router.get("/admin/home", adminController.isAdmin, artistController.getAll);
-router.get("/admin/home/:id", adminController.isAdmin, artistController.getOne);
 router.post("/admin/home", adminController.isAdmin, artistController.add);
 router.delete(
   "/admin/home/:id",
@@ -54,11 +53,6 @@ router.delete(
 //Artwork
 
 router.get("/admin/artwork", adminController.isAdmin, artworkController.getAll);
-router.get(
-  "/admin/artwork/:id",
-  adminController.isAdmin,
-  artworkController.getOne
-);
 router.post(
   "/admin/artwork",
   adminController.isAdmin,
@@ -74,7 +68,6 @@ router.delete(
 //News
 
 router.get("/admin/news", adminController.isAdmin, newsController.getAll);
-router.get("/admin/news/:id", adminController.isAdmin, newsController.getOne);
 router.post("/admin/news", adminController.isAdmin, newsController.addNews);
 router.delete(
   "/admin/news/:id",
