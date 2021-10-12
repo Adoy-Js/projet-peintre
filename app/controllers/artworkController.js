@@ -159,61 +159,12 @@ const artworkController = {
         await new_artwork_has_picture.save();
       }
 
-      res.json({message : "contenu ajouté !"})
+      res.json({ message: "contenu ajouté !" });
     } catch (error) {
       console.error(error);
       next();
     }
   },
-
-  // updateArtwork: async (req, res, next) => {
-  //   const { id } = req.params;
-
-  //   try {
-  //     const results = await Artwork.findOne(id);
-  //     if (results) {
-  //       res.json(results);
-  //     } else {
-  //       next();
-  //     }
-  //   } catch (err) {
-  //     console.error(err);
-  //     next();
-  //   }
-
-  //   try {
-  //     const { id } = req.params;
-
-  //     //on instancie le nouvel artwork et on l'insert en bdd
-  //     const update_artwork = new Artwork({
-  //       name_artwork: req.body.name_artwork,
-  //       date: req.body.date,
-  //       place: req.body.place,
-  //       format: req.body.format,
-  //       description: req.body.description,
-  //       main_picture: req.body.main_picture,
-  //       category_id: req.body.category_id,
-  //       artist_id: req.body.artist_id,
-  //     });
-
-  //     const insert_artwork = update_artwork.save(id);
-
-  //     //si l'admin modifie la photo
-  //     if (req.body.name_picture && req.body.image) {
-  //       //on instancie et insert la nouvelle photo
-  //       const update_picture = new Picture({
-  //         name_picture: req.body.name_picture,
-  //         image: req.body.image,
-  //       });
-  //       //pour l'update, on a besoin de son id, on va le trouver dans la table de liaison
-  //       const picture_associate = await Artwork_has_picture.findByArtworkId(id);
-  //       const insert_picture = update_picture.save(picture_associate.id);
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     next();
-  //   }
-  // },
 
   deleteArtwork: async (req, res, next) => {
     const { id } = req.params;
