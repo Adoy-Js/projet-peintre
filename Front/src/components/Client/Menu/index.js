@@ -18,54 +18,54 @@ const Menu = ({ isLogged, onDisconnect }) => {
 
   return (
     <nav className={`menu ${showLinks ? "show-nav" : "hide-nav"} `}>
-      <a to="/" className="item_menu menu_logo">
+      <a href="/" className="item_menu menu_logo">
         <img className="" src="" alt="" />
       </a>
       <ul className="links_menu">
         <li className="item_menu slideInDown-2">
-          <a to="/" className="link_menu">
+          <a href="/" className="link_menu">
             Accueil
           </a>
         </li>
         <li className="item_menu slideInDown-3">
-          <a to="/artwork/portrait" className="link_menu">
+          <a href="/artwork/portrait" className="link_menu">
             Portrait
           </a>
         </li>
         <li className="item_menu slideInDown-4">
-          <a to="/artwork/painting" className="link_menu">
+          <a href="/artwork/painting" className="link_menu">
             Peintures
           </a>
         </li>
         <li className="item_menu slideInDown-5">
-          <a to="/artwork/mural-painting" className="link_menu">
+          <a href="/artwork/mural-painting" className="link_menu">
             Peintures murales
           </a>
         </li>
         <li className="item_menu slideInDown-6">
-          <a to="/news" className="link_menu">
+          <a href="/news" className="link_menu">
             Actualités
           </a>
         </li>
         <li className="item_menu slideInDown-7">
-          <a to="/about" className="link_menu">
+          <a href="/about" className="link_menu">
             Biographie
           </a>
         </li>
         <li className="item_menu slideInDown-8">
-          <a to="/contact" className="link_menu">
+          <a href="/contact" className="link_menu">
             Contact
           </a>
         </li>
         {isLogged && (
           <>
             <li className="item_menu disconnect">
-              <a to="/" className="link_menu" onClick={handleDisconnect}>
+              <a href="/" className="link_menu" onClick={handleDisconnect}>
                 Déconnexion
               </a>
             </li>
             <li className="item_menu disconnect">
-              <a to="/admin/artwork" className="link_menu">
+              <a href="/admin/artwork" className="link_menu">
                 Admin
               </a>
             </li>
