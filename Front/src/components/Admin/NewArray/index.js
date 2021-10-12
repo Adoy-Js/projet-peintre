@@ -22,7 +22,7 @@ const ArrayNew = () => {
   })
 
   function handleDelete( id) {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
+    if (window.confirm('Êtes-vous sûr de vouloir sup primer cette ligne ?')){
 
     axios({
       method: 'delete',

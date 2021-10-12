@@ -20,11 +20,10 @@ const FormHomeArray = () => {
     axios.post(url, {
       name_picture: data.name_picture,
       image: data.image,
-    },
-    {headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-   }},).then(res => {
-      
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem('token')
+      }
+    }).then(res => {
       console.log(res.data)
     })
     
