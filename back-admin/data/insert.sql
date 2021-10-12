@@ -1,7 +1,6 @@
 BEGIN;
 
--- INSERT INTO artist (email, password) 
--- VAlUES ('camillepaul.pro@gmail.com', '1234');
+
 
 INSERT INTO category (name_category) VALUES 
 ('portrait'),
@@ -105,15 +104,7 @@ Un grand merci à mon amie Martine (photographe) pour ses jolies photos et toute
 Technique : Peinture acrylique 
 Support : Bardage bois ', 'https://firebasestorage.googleapis.com/v0/b/projet-peintre.appspot.com/o/Projet%20Piwakawaka%201.jpg?alt=media&token=f9c3981f-a70c-4669-9f9c-7d0526cec817', 4, 1);
 
-INSERT INTO news (name_news, date, place, article) VALUES
-('expo paris', '2019-05-17'::TIMESTAMP, 'Paris', 'j''ai fait une expo'),
-('rencontre pro', '2019-12-10'::TIMESTAMP, 'Nantes', 'Rencontre entre pro');
 
-
-
-INSERT INTO news_has_picture (news_id, picture_id) VALUES
-(1, 3),
-(2, 2);
 
 INSERT INTO artwork_has_picture (artwork_id, picture_id) VALUES
 (1, 1),

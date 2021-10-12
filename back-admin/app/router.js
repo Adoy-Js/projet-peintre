@@ -29,6 +29,7 @@ router.get("/news", newsController.getAll);
 
 router.get("/about", artistController.getAll);
 
+
 //Contact
 
 router.post("/contact", contactController.sendMessage);
@@ -49,6 +50,7 @@ router.delete(
   artistController.delete
 );
 
+
 //Artwork
 
 router.get("/admin/artwork", adminController.isAdmin, artworkController.getAll);
@@ -68,6 +70,7 @@ router.delete(
   artworkController.deleteArtwork
 );
 
+
 //News
 
 router.get("/admin/news", adminController.isAdmin, newsController.getAll);
@@ -78,5 +81,6 @@ router.delete(
   adminController.isAdmin,
   newsController.deleteNews
 );
+
 
 module.exports = router;

@@ -10,7 +10,10 @@ class Artwork {
   static async findAll() {
     try {
       const query = {
+
         text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category;` 
+
+
       };
 
       const { rows } = await pool.query(query);
