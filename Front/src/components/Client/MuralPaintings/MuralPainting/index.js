@@ -13,7 +13,7 @@ const MuralPainting = () => {
 
   axios.get(`https://projet-peintre.herokuapp.com/artwork/mural-painting/${id}`) 
     .then(res => {
-      const images = res.data;
+      const images = [res.data];
       setImages(images);
     })
 
