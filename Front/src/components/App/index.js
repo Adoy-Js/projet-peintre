@@ -63,94 +63,86 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
-      <Menu isLogged={isLogged} onDisconnect={() => setIsLogged(false)} />
+    <>
+      <div className="app">
+        <Menu isLogged={isLogged} onDisconnect={() => setIsLogged(false)} />
 
-      <Switch>
-        <Route path="/admin" exact>
-          <LoginForm isLogged={isLogged} onLogin={() => setIsLogged(true)} />
-        </Route>
+        <Switch>
+          <Route path="/admin" exact>
+            <LoginForm isLogged={isLogged} onLogin={() => setIsLogged(true)} />
+          </Route>
 
-        <Route path="/admin/artwork/formArtworkArray" exact>
-          <FormArtworkArray isLogged={isLogged} />
-        </Route>
+          <Route path="/admin/artwork/formArtworkArray" exact>
+            <FormArtworkArray isLogged={isLogged} />
+          </Route>
 
-        <Route path="/admin/artwork" exact>
-          <ArtworkArray isLogged={isLogged} />
-        </Route>
+          <Route path="/admin/artwork" exact>
+            <ArtworkArray isLogged={isLogged} />
+          </Route>
 
-        <Route path="/admin/home" exact>
-          <HomeArray isLogged={isLogged} />
-        </Route>
+          <Route path="/admin/home" exact>
+            <HomeArray isLogged={isLogged} />
+          </Route>
 
-        <Route path="/admin/home/formHomeArray" exact>
-          <FormHomeArray isLogged={isLogged} />
-        </Route>
+          <Route path="/admin/home/formHomeArray" exact>
+            <FormHomeArray isLogged={isLogged} />
+          </Route>
 
-        <Route path="/admin/news" exact>
-          <NewArray isLogged={isLogged} />
-        </Route>
+          <Route path="/admin/news" exact>
+            <NewArray isLogged={isLogged} />
+          </Route>
 
-        <Route path="/admin/news/formNewArray" exact>
-          <FormNewArray isLogged={isLogged} />
-        </Route>
+          <Route path="/admin/news/formNewArray" exact>
+            <FormNewArray isLogged={isLogged} />
+          </Route>
 
-        <Route path="/artwork/painting" exact>
-          <Paintings />
-          <Footer />
-        </Route>
+          <Route path="/artwork/painting" exact>
+            <Paintings />
+          </Route>
 
-        <Route path="/artwork/mural-painting" exact>
-          <MuralPaintings />
-          <Footer />
-        </Route>
+          <Route path="/artwork/mural-painting" exact>
+            <MuralPaintings />
+          </Route>
 
-        <Route path="/news" exact>
-          <News />
-          <Footer />
-        </Route>
+          <Route path="/news" exact>
+            <News />
+          </Route>
 
-        <Route path="/" exact>
-          <Home />
-          <Footer />
-        </Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
 
-        <Route path="/artwork/portrait" exact>
-          <Portrait />
-          <Footer />
-        </Route>
+          <Route path="/artwork/portrait" exact>
+            <Portrait />
+          </Route>
 
-        <Route path="/contact" exact>
-          <Contact
-            descriptions={contactData.descriptions}
-            messages={contactData.messages}
-            footermessages={contactData.footermessages}
-          />
-          <Footer />
-        </Route>
+          <Route path="/contact" exact>
+            <Contact
+              descriptions={contactData.descriptions}
+              messages={contactData.messages}
+              footermessages={contactData.footermessages}
+            />
+          </Route>
 
-        <Route path="/about" exact>
-          <Biography />
-          <Footer />
-        </Route>
-        <Route path="/artwork/mural-painting/:id" exact>
-          <MuralPainting />
-          <Footer />
-        </Route>
-        <Route path="/artwork/painting" exact>
-          <Paintings />
-          <Footer />
-        </Route>
-        <Route path="/artwork/painting/:painting_category" exact>
-          <Painting />
-          <Footer />
-        </Route>
-        <Route>
-          <NotFound />
-          <Footer />
-        </Route>
-      </Switch>
-    </div>
+          <Route path="/about" exact>
+            <Biography />
+          </Route>
+          <Route path="/artwork/mural-painting/:id" exact>
+            <MuralPainting />
+          </Route>
+          <Route path="/artwork/painting" exact>
+            <Paintings />
+          </Route>
+          <Route path="/artwork/painting/:painting_category" exact>
+            <Painting />
+          </Route>
+          <Route>
+            <NotFound />
+          </Route>
+        </Switch>
+      </div>
+      <Footer />
+    </>
   );
 };
 
