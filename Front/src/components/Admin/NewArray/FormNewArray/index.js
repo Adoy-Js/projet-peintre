@@ -9,13 +9,13 @@ import './styles.scss';
 const FormNewArray = () => {
 
   const url = "https://projet-peintre.herokuapp.com/admin/news"
-  const [data, setData] = useState([{
+  const [data, setData] = useState({
     name: "",
     date: "",
     place: "",
     description: "",
     image: "",
-  }]);
+  });
 
   function handleSubmit(e) {
     e.preventDefault();
