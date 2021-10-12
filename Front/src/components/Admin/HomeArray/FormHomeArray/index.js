@@ -13,14 +13,13 @@ const FormHomeArray = ({ isLogged }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       //firebase
       await storage.ref(`${name_picture}`).put(image);
 
       const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
       //BDD
-      await api.post(
+      const response = await api.post(
         "/admin/home",
         {
           name_picture: name_picture,
@@ -32,7 +31,9 @@ const FormHomeArray = ({ isLogged }) => {
           },
         }
       );
-      alert("contenu ajouté");
+      alert(response.data.message);
+      e.target.reset();
+      setNamePicture("")
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +42,10 @@ const FormHomeArray = ({ isLogged }) => {
   return isLogged ? (
     <div className="arrayHomeForm">
       <div className="arrayHomeForm_title">Formulaire accueil</div>
-      <form onSubmit={(e) => handleSubmit(e)} className="arrayHomeForm_form">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className="arrayHomeForm_form"
+      >
         <div className="arrayHomeForm_name">
           Nom de la photo d'accueil :
           <input
@@ -56,7 +60,6 @@ const FormHomeArray = ({ isLogged }) => {
           <input
             onChange={(e) => setImage(e.target.files[0])}
             id="image"
-            placeholder="https://firebasestorage..."
             className="arrayHomeForm_url_input"
             type="file"
             required

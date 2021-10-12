@@ -66,6 +66,8 @@ const newsController = {
         });
 
         await new_news_has_picture.save();
+
+        res.json({message : "contenu ajouté !"})
       }
     } catch (error) {
       console.error(error);

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
+import storage from "src/utils/firebase";
 //Import NPM
 import api from "src/api";
 
@@ -19,12 +20,12 @@ const FormNewArray = ({ isLogged }) => {
     e.preventDefault();
     try {
       //firebase
-      await storage.ref(`${name_picture}`).put(image);
+      await storage.ref(`${name}`).put(image);
 
-      const urlImage = await storage.ref(`${name_picture}`).getDownloadURL();
+      const urlImage = await storage.ref(`${name}`).getDownloadURL();
 
       //BDD
-      await api.post(
+      const response = await api.post(
         "/admin/news",
         {
           name_news: name,
@@ -39,7 +40,7 @@ const FormNewArray = ({ isLogged }) => {
           },
         }
       );
-      alert("Félicitations, vous avez bien ajouté votre contenu ! :)");
+      alert(response.data.message);
     } catch (error) {
       console.log(error);
     }
@@ -65,7 +66,6 @@ const FormNewArray = ({ isLogged }) => {
           <div>
             <div className="arrayArtworkForm_date">Date :</div>
             <input
-              value={date}
               onChange={(e) => setDate(e.target.value)}
               id="date"
               className="arrayArtworkForm_date_input"
@@ -88,11 +88,9 @@ const FormNewArray = ({ isLogged }) => {
 
         <div className="arrayArtworkForm_url">
           <input
-            value={image}
             onChange={(e) => setImage(e.target.files[0])}
             id="image"
             className="arrayArtworkForm_url_input"
-            placeholder="https://firebasestorage..."
             type="file"
             name="image"
           />

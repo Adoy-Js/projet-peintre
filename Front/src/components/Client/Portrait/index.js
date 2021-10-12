@@ -32,7 +32,7 @@ const Portrait = () => {
       </div>
 
       <div className="portrait_gallery">
-        {data.map((image) => (
+        {data?.map((image) => (
           <div className="portrait_div" key={image.id_artwork}>
             <img
               className="portrait_image"

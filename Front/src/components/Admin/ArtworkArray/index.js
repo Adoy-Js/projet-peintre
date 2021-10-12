@@ -36,7 +36,7 @@ const ArtworkArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
-        setArtworks(artworks.filter((artwork) => artwork.id_artwrok !== id));
+        setArtworks(artworks.filter((artwork) => artwork.id_artwork !== id));
         alert(response.data.message);
       }
     } catch (error) {

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 //Import NPM
 import MenuAdmin from "src/components/Admin/MenuAdmin";
-import Home from "src/components/Client/Home";
+
 import api from "src/api";
 import PropTypes from "prop-types";
 

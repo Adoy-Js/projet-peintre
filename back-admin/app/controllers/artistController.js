@@ -32,9 +32,6 @@ const artistController = {
 
   add: async (req, res, next) => {
     try {
-
-      console.log("controller : add picture for home");
-      console.log(req.body);
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
@@ -51,7 +48,7 @@ const artistController = {
 
       new_artist_has_picture.save();
 
-      res.json({ newPicture, new_artist_has_picture });
+      res.json({message : "contenu ajouté !"})
     } catch (error) {
       console.error(error);
       next();

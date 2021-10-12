@@ -158,6 +158,8 @@ const artworkController = {
 
         await new_artwork_has_picture.save();
       }
+
+      res.json({message : "contenu ajouté !"})
     } catch (error) {
       console.error(error);
       next();
@@ -215,12 +217,7 @@ const artworkController = {
 
   deleteArtwork: async (req, res, next) => {
     const { id } = req.params;
-    console.log(id);
     try {
-      // 1. on retrouve l'artwork
-      //const artworkDeleted = await Artwork.findOne(id);
-      //console.log(artworkDeleted);
-
       await Artwork.delete(id);
       res.json({ message: "Oeuvre supprimée" });
     } catch (error) {

@@ -8,7 +8,7 @@ import { NavLink, Redirect } from "react-router-dom";
 
 // Ajout du composant MenuAdmin
 import MenuAdmin from "src/components/Admin/MenuAdmin";
-import Home from "src/components/Client/Home";
+
 
 //Import locaux
 import "./styles.scss";
