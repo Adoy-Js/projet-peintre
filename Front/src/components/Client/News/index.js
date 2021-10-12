@@ -22,12 +22,15 @@ const News = () => {
     fetchData();
   }, []);
 
-  if(news.length===0){
-    return(
-      <div className="news">
-        <h1>Actualité à venir</h1>
-        <div className="news_footer">Camille</div>
+  if (news.length === 0) {
+    return (
+      <div>
+        <h1>Actualités</h1><div className="news">
+          <h2>Actualité à venir</h2>
+          <div className="news_footer">Camille</div>
+        </div>
       </div>
+
     )
   }
 
@@ -45,7 +48,7 @@ const News = () => {
           ></img>
         </div>
       ))}
-      
+
     </div>
   );
 };

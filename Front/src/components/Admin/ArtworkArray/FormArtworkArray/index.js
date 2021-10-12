@@ -19,6 +19,7 @@ const FormArtworkArray = ({ isLogged }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(res.data)
     try {
       //firebase
       await storage.ref(`${name_picture}`).put(image);
