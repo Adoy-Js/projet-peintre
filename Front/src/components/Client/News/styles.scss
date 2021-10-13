@@ -1,19 +1,18 @@
-@use "src/styles/vars";
+@use 'src/styles/vars';
 
-.news {
+.new {
+  animation: apparition 0.8s ease-out;
+  height: 100vh;
+}
+
+.news{
   text-align: justify;
   font-size: 1.5em;
   margin: 0 auto;
   width: 70%;
 
-  .new {
-    animation: apparition 0.8s ease-out;
-    &_image{
-      
-    }
-  }
-  &_footer {
-    padding: 0.2em;
+  &_footer{
+    padding: .2em;
     margin-top: 1.5em;
   }
 }

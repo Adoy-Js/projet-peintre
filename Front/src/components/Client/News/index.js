@@ -25,7 +25,7 @@ const News = () => {
   if(news.length===0){
     return(
       <div className="news">
-        <h1>Actualité à venir</h1>
+        <h2>Actualité à venir</h2>
         <div className="news_footer">Camille</div>
       </div>
     )
