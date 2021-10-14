@@ -21,6 +21,8 @@ const FormNewArray = () => {
     e.preventDefault();
 
   axios.post(url, {
+
+  
     name: data.name,
     date: data.date,
     place: data.place,
