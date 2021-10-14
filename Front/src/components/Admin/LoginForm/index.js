@@ -29,7 +29,6 @@ const LoginForm = ({ isLogged, onLogin }) => {
       });
       if (response.data.userId && response.data.token) {
         localStorage.setItem("token", response.data.token);
-        console.log(localStorage.getItem("token"));
         onLogin();
       } else if (response.data.error) {
         alert(response.data.error);

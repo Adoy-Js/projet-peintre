@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 import api from "src/api";
+import Footer from "../Footer";
 
 //Import locaux
 import "./styles.scss";
@@ -22,13 +23,13 @@ const News = () => {
     fetchData();
   }, []);
 
-  if(news.length===0){
-    return(
+  if (news.length === 0) {
+    return (
       <div className="news">
         <h2>Actualité à venir</h2>
         <div className="news_footer">Camille</div>
       </div>
-    )
+    );
   }
 
   return (
@@ -36,7 +37,14 @@ const News = () => {
       <h1>Actualités</h1>
       {news.map((data) => (
         <div className="new" key={data.id_news}>
-          <h2 className="new_header">{new Date(data.date).getDate() + '-' + (new Date(data.date).getMonth() + 1) + '-' + new Date(data.date).getFullYear()} {data.place}</h2>
+          <h2 className="new_header">
+            {new Date(data.date).getDate() +
+              "-" +
+              (new Date(data.date).getMonth() + 1) +
+              "-" +
+              new Date(data.date).getFullYear()}{" "}
+            {data.place}
+          </h2>
           <p className="new_article">{data.article}</p>
           <img
             className="new_image"
@@ -45,7 +53,6 @@ const News = () => {
           ></img>
         </div>
       ))}
-      
     </div>
   );
 };
