@@ -8,7 +8,7 @@ import './styles.scss';
 
 const ArrayNew = () => {
 
-  const [news, setNews] = useState([]);
+  const [actualities, setActualities] = useState([]);
 
 
   axios({
@@ -17,8 +17,8 @@ const ArrayNew = () => {
     headers: {
       Authorization: "Bearer " + localStorage.getItem('token')
    },  }).then(res => {
-    console.log(res.data)
-    setNews(news);
+    const actualities = res.data;
+    setActualities(actualities);
   })
 
   function handleDelete( id) {
@@ -26,13 +26,13 @@ const ArrayNew = () => {
 
     axios({
       method: 'delete',
-      url: `https://projet-peintre.herokuapp.com/admin/news${id}`,
+      url: `https://projet-peintre.herokuapp.com/admin/news/${id}`,
       headers: {
         Authorization: "Bearer " + localStorage.getItem('token')
      },
     }).then(res => {
-      const news = res.data;
-      setArtwork(news);
+      const actualities = res.data;
+      setActualities(actualities);
     }).catch((err) => { console.log(err) })}
   }
 
@@ -62,19 +62,19 @@ const ArrayNew = () => {
                 <td></td>
               </tr>
             </tbody>
+              {actualities.map(actuality => (
             <tbody className="arrayNew_body">
-              {news.map(news => (
               <tr>
-                <td key={news.name} className="cell">{news.name}</td>
+                <td key={actuality.name_news} className="cell">{actuality.place}</td>
 
                 <td><button onClick={(e) => {
                     e.preventDefault()
-                    handleDelete(artwork);
+                    handleDelete(actualities.id_news);
                   }} className="arrayNew_body_delete">SUPPRIMER</button></td>
               </tr>
-              ))}
             </tbody>
-            
+                          ))}
+
           </table>
         </form>
       </div>
