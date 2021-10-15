@@ -10,7 +10,7 @@ GET http://localhost:5000/artwork/mural-painting
 ### GET ONE ARTWORK
 GET http://localhost:5000/artwork/mural-painting/10
 ### GET ALL NEWS
-GET http://localhost:5000/news/
+GET http://localhost:5000/news
 
 ### GET INFO ARTIST
 GET http://localhost:5000/about

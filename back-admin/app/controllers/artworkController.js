@@ -1,5 +1,6 @@
 const Artwork = require("../models/artwork");
 const Picture = require("../models/picture");
+const Category = require("../models/category");
 const Artwork_has_picture = require("../models/artwork_has_picture");
 
 const artworkController = {
@@ -68,8 +69,11 @@ const artworkController = {
 
   addArtwork: async (req, res, next) => {
     try {
+      const result = await Category.findIdByName(req.body.category_name);
+      const id_category = result.id_category;
+      console.log(id_category);
       //si on veut ajouter une peinture murale, alors on reçoit plusieurs images et une image principale.
-      if (req.body.category_id === 5) {
+      if (req.body.category_name === "mural-painting") {
         //Instanciation et insertion du nouvel artwork
         const newArtwork = new Artwork({
           name_artwork: req.body.name_artwork,
@@ -77,7 +81,7 @@ const artworkController = {
           place: req.body.place,
           format: req.body.format,
           description: req.body.description,
-          category_id: req.body.category_id,
+          category_id: id_category,
           artist_id: req.body.artist_id,
         });
 
@@ -129,7 +133,7 @@ const artworkController = {
           place: req.body.place,
           format: req.body.format,
           description: req.body.description,
-          category_id: req.body.category_id,
+          category_id: id_category,
           artist_id: req.body.artist_id,
         });
 
@@ -154,55 +158,8 @@ const artworkController = {
 
         await new_artwork_has_picture.save();
       }
-    } catch (error) {
-      console.error(error);
-      next();
-    }
-  },
 
-  updateArtwork: async (req, res, next) => {
-    const { id } = req.params;
-
-    try {
-      const results = await Artwork.findOne(id);
-      if (results) {
-        res.json(results);
-      } else {
-        next();
-      }
-    } catch (err) {
-      console.error(err);
-      next();
-    }
-
-    try {
-      const { id } = req.params;
-
-      //on instancie le nouvel artwork et on l'insert en bdd
-      const update_artwork = new Artwork({
-        name_artwork: req.body.name_artwork,
-        date: req.body.date,
-        place: req.body.place,
-        format: req.body.format,
-        description: req.body.description,
-        main_picture: req.body.main_picture,
-        category_id: req.body.category_id,
-        artist_id: req.body.artist_id,
-      });
-
-      const insert_artwork = update_artwork.save(id);
-
-      //si l'admin modifie la photo
-      if (req.body.name_picture && req.body.image) {
-        //on instancie et insert la nouvelle photo
-        const update_picture = new Picture({
-          name_picture: req.body.name_picture,
-          image: req.body.image,
-        });
-        //pour l'update, on a besoin de son id, on va le trouver dans la table de liaison
-        const picture_associate = await Artwork_has_picture.findByArtworkId(id);
-        const insert_picture = update_picture.save(picture_associate.id);
-      }
+      res.json({ message: "contenu ajouté !" });
     } catch (error) {
       console.error(error);
       next();
@@ -211,13 +168,9 @@ const artworkController = {
 
   deleteArtwork: async (req, res, next) => {
     const { id } = req.params;
-    console.log(id);
     try {
-      // 1. on retrouve l'artwork
-      //const artworkDeleted = await Artwork.findOne(id);
-      //console.log(artworkDeleted);
-
       await Artwork.delete(id);
+      res.json({ message: "Oeuvre supprimée" });
     } catch (error) {
       console.error(error);
       next();

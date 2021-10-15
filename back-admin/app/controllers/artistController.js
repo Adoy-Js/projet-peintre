@@ -14,26 +14,8 @@ const artistController = {
     }
   },
 
-  getOne: async (req, res, next) => {
-    const { id } = req.params;
-
-    try {
-      const results = await Artist.findOne(id);
-      if (results) {
-        res.json(results);
-      } else {
-        next();
-      }
-    } catch (err) {
-      console.error(err);
-      next();
-    }
-  },
-
   add: async (req, res, next) => {
     try {
-
-      console.log("controller : add picture for home");
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
@@ -50,7 +32,7 @@ const artistController = {
 
       new_artist_has_picture.save();
 
-      res.json({ newPicture, new_artist_has_picture });
+      res.json({ message: "contenu ajouté !" });
     } catch (error) {
       console.error(error);
       next();
@@ -87,6 +69,7 @@ const artistController = {
 
       pictureDeleted.delete();
       // relation_picture.delete();
+      res.json({ message: "La photo à bien été supprimé" });
     } catch (error) {
       console.error(error);
       next();

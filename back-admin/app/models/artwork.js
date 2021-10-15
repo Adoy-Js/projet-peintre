@@ -10,7 +10,10 @@ class Artwork {
   static async findAll() {
     try {
       const query = {
-        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON artwork_has_picture.picture_id = picture.id_picture ORDER BY date DESC;`,
+
+        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category;` 
+
+
       };
 
       const { rows } = await pool.query(query);
@@ -24,13 +27,11 @@ class Artwork {
   static async findByCategory(category) {
     try {
       const query = {
-        text: `SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name_category = $1 GROUP BY id_artwork ORDER BY date DESC;`,
+        text: `SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name_category = $1 AND id_artwork IS NOT NULL GROUP BY id_artwork ORDER BY date DESC;`,
         values: [category],
       };
 
       const { rows } = await pool.query(query);
-
-      console.log(rows);
 
       return rows ? rows.map((row) => new this(row)) : false;
     } catch (error) {
@@ -47,7 +48,7 @@ class Artwork {
 
       const { rows } = await pool.query(sqlQuery);
 
-      return rows ? rows.map((row) => new this(row)) : false;
+      return rows[0];
     } catch (err) {
       console.error(err);
       if (err.detail) {
@@ -114,7 +115,7 @@ class Artwork {
         text: "DELETE FROM artwork WHERE id_artwork=$1",
         values: [id],
       };
-      const { rows } = await pool.query(sqlQuery);
+      await pool.query(sqlQuery);
       return true;
     } catch (error) {
       console.error(err);
@@ -129,10 +130,14 @@ class Artwork {
   static async findAllPaintings() {
     try {
       const { rows } = await pool.query(
-        `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON picture.id_picture = artwork_has_picture.picture_id WHERE category.name_category IN ('oil-painting', 'acrylic-painting') ORDER BY date DESC;`
+        `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image 
+        FROM artwork 
+        JOIN category ON artwork.category_id = category.id_category 
+        JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id 
+        JOIN picture ON picture.id_picture = artwork_has_picture.picture_id 
+        WHERE category.name_category IN ('oil-painting', 'acrylic-painting') 
+        ORDER BY date DESC;`
       );
-
-      console.log(rows);
 
       return rows.map((row) => new Artwork(row));
     } catch (error) {

@@ -52,13 +52,13 @@ class News {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE news SET date = $1, place = $2, article = $3 WHERE id_news = $4",
-          values: [this.date, this.place, this.article, id],
+          text: "UPDATE news SET name_news = $1, date = $2, place = $3, article = $4 WHERE id_news = $5",
+          values: [this.name_news, this.date, this.place, this.article, id],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO news(date, place, article) VALUES ($1,$2,$3) RETURNING id_news;",
-          values: [this.date, this.place, this.article],
+          text: "INSERT INTO news(name_news, date, place, article) VALUES ($1,$2,$3,$4) RETURNING id_news;",
+          values: [this.name_news, this.date, this.place, this.article],
         };
       }
 
