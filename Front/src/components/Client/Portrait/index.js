@@ -37,10 +37,10 @@ const Portrait = () => {
             <img
               className="portrait_image"
               key={image.picture_id}
-              src={image.image}
+              src={image.image[0]}
             ></img>
             <p className="portrait_description">
-              {image.description} {image.format} {image.date}
+              {image.description} {image.format} cm {image.date}
             </p>
             <hr></hr>
           </div>

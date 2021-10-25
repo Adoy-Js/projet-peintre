@@ -20,9 +20,11 @@ const FormNewArray = ({ isLogged }) => {
     e.preventDefault();
     try {
       //firebase
-      await storage.ref(`${name}`).put(image);
+      if (image) {
+        await storage.ref(`${name}`).put(image);
 
-      const urlImage = await storage.ref(`${name}`).getDownloadURL();
+        var urlImage = await storage.ref(`${name}`).getDownloadURL();
+      }
 
       //BDD
       const response = await api.post(

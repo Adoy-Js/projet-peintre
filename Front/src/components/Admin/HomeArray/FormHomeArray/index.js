@@ -24,6 +24,7 @@ const FormHomeArray = ({ isLogged }) => {
         {
           name_picture: name_picture,
           image: urlImage,
+          artist_id: 1,
         },
         {
           headers: {
@@ -33,7 +34,7 @@ const FormHomeArray = ({ isLogged }) => {
       );
       alert(response.data.message);
       e.target.reset();
-      setNamePicture("")
+      setNamePicture("");
     } catch (error) {
       console.log(error);
     }
@@ -42,10 +43,7 @@ const FormHomeArray = ({ isLogged }) => {
   return isLogged ? (
     <div className="arrayHomeForm">
       <div className="arrayHomeForm_title">Formulaire accueil</div>
-      <form
-        onSubmit={(e) => handleSubmit(e)}
-        className="arrayHomeForm_form"
-      >
+      <form onSubmit={(e) => handleSubmit(e)} className="arrayHomeForm_form">
         <div className="arrayHomeForm_name">
           Nom de la photo d'accueil :
           <input

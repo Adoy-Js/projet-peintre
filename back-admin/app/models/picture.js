@@ -39,8 +39,8 @@ class Picture {
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO picture(name_picture, image) VALUES ($1,$2) RETURNING id_picture;",
-          values: [this.name_picture, this.image],
+          text: "INSERT INTO picture(name_picture, image, artwork_id, artist_id, news_id) VALUES ($1,$2,$3,$4,$5) RETURNING id_picture;",
+          values: [this.name_picture, this.image, this.artwork_id, this.artist_id, this.news_id],
         };
       }
       const { rows } = await pool.query(sqlQuery);

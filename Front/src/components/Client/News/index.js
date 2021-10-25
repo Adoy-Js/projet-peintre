@@ -46,11 +46,13 @@ const News = () => {
             {data.place}
           </h2>
           <p className="new_article">{data.article}</p>
-          <img
+          {data.image && (
+            <img
             className="new_image"
             key={data.picture_id}
             src={data.image}
           ></img>
+          )}
         </div>
       ))}
     </div>

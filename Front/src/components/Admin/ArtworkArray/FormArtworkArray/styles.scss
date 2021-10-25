@@ -55,6 +55,20 @@
     width: 90%;
   }
 
+  &_numberPicture{
+    display: flex;
+    flex-direction: column;
+
+    &_select{
+      margin: .7em;
+      padding: .6em;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 10px 5px 5px rgb(226, 226, 226);
+      background-color: rgb(128, 163, 128);
+      color: rgb(255, 255, 255);
+    }
+  }
 
   &_category {
     display: flex;

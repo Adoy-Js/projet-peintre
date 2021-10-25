@@ -14,12 +14,6 @@ CREATE TABLE category (
   name_category VARCHAR(50) NOT NULL UNIQUE
 );
 
-CREATE TABLE picture (
-  id_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  name_picture VARCHAR(50),
-  image text NOT NULL
-);
-
 CREATE TABLE artwork (
   id_artwork INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name_artwork VARCHAR(50) NOT NULL,
@@ -28,8 +22,7 @@ CREATE TABLE artwork (
   format varchar(50),
   description TEXT,
   main_picture TEXT,
-  category_id INT REFERENCES category(id_category),
-  artist_id INT REFERENCES artist(id_artist)
+  category_id INT REFERENCES category(id_category) 
 );
 
 CREATE TABLE news (
@@ -40,24 +33,13 @@ CREATE TABLE news (
   article TEXT NOT NULL
 );
 
-
-
-CREATE TABLE news_has_picture (
-  id_news_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  news_id INT REFERENCES news(id_news) ON DELETE CASCADE,
-  picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
-);
-
-CREATE TABLE artwork_has_picture (
-  id_artwork_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+CREATE TABLE picture (
+  id_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  name_picture VARCHAR(50),
+  image text [] NOT NULL,
   artwork_id INT REFERENCES artwork(id_artwork) ON DELETE CASCADE,
-  picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
-);
-
-CREATE TABLE artist_has_picture (
-  id_artist_has_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-  artist_id INT REFERENCES artist(id_artist),
-  picture_id INT REFERENCES picture(id_picture) ON DELETE CASCADE
+  artist_id INT REFERENCES artist(id_artist) ON DELETE CASCADE,
+  news_id INT REFERENCES news(id_news) ON DELETE CASCADE
 );
 
 COMMIT;

@@ -27,7 +27,7 @@ class Artwork {
   static async findByCategory(category) {
     try {
       const query = {
-        text: `SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork FULL JOIN category ON artwork.category_id = category.id_category FULL JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id FULL JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE category.name_category = $1 AND id_artwork IS NOT NULL GROUP BY id_artwork ORDER BY date DESC;`,
+        text: `SELECT *, array_agg(image) as image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN picture ON picture.artwork_id = artwork.id_artwork WHERE category.name_category = $1 AND id_artwork IS NOT NULL GROUP BY id_artwork, id_category, id_picture ORDER BY date DESC;`,
         values: [category],
       };
 
@@ -42,7 +42,7 @@ class Artwork {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id JOIN picture ON artwork_has_picture.picture_id = picture.id_picture WHERE id_artwork = $1 GROUP BY id_artwork;",
+        text: "SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN picture ON artwork.id_artwork = picture.artwork_id WHERE id_artwork = $1 GROUP BY id_artwork;",
         values: [id],
       };
 
@@ -65,7 +65,7 @@ class Artwork {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, format=$4, description =$5, main_picture=$6, category_id=$7, artist_id=$8 WHERE id_artwork = $9",
+          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, format=$4, description =$5, main_picture=$6, category_id=$7 WHERE id_artwork = $9",
           values: [
             this.name_artwork,
             this.date,
@@ -74,13 +74,12 @@ class Artwork {
             this.description,
             this.main_picture,
             this.category_id,
-            this.artist_id,
             id,
           ],
         };
       } else {
         sqlQuery = {
-          text: "INSERT INTO artwork(name_artwork, date, place, format, description, main_picture, category_id, artist_id) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id_artwork;",
+          text: "INSERT INTO artwork(name_artwork, date, place, format, description, main_picture, category_id) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING id_artwork;",
           values: [
             this.name_artwork,
             this.date,
@@ -89,7 +88,6 @@ class Artwork {
             this.description,
             this.main_picture,
             this.category_id,
-            this.artist_id,
           ],
         };
       }
@@ -132,9 +130,8 @@ class Artwork {
       const { rows } = await pool.query(
         `SELECT id_artwork, name_artwork, date, place, format, description, name_category, name_picture, image 
         FROM artwork 
-        JOIN category ON artwork.category_id = category.id_category 
-        JOIN artwork_has_picture ON artwork.id_artwork = artwork_has_picture.artwork_id 
-        JOIN picture ON picture.id_picture = artwork_has_picture.picture_id 
+        JOIN category ON artwork.category_id = category.id_category  
+        JOIN picture ON picture.artwork_id = artwork.id_artwork
         WHERE category.name_category IN ('oil-painting', 'acrylic-painting') 
         ORDER BY date DESC;`
       );
