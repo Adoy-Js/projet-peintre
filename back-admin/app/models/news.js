@@ -10,7 +10,7 @@ class News {
   static async findAll() {
     try {
       const sqlQuery =
-        "SELECT * FROM news FULL JOIN picture ON picture.news_id = news.id_news ORDER BY date DESC;";
+        "SELECT * FROM news LEFT JOIN picture ON picture.news_id = news.id_news ORDER BY date DESC;";
 
       const { rows } = await pool.query(sqlQuery);
 

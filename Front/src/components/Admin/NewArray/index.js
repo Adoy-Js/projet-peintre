@@ -1,5 +1,6 @@
 //Import de la lib React
 import React, { useEffect, useState } from "react";
+import storage from "src/utils/firebase";
 //Import NPM
 import PropTypes from "prop-types";
 
@@ -31,7 +32,7 @@ const NewArray = ({ isLogged }) => {
     fetchData();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, name) => {
     try {
       if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
         const response = await api.delete(`admin/news/${id}`, {
@@ -39,6 +40,7 @@ const NewArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
+        await storage.ref(`${name}`).delete();
         setNews(news.filter((oneNew) => oneNew.id_news !== id));
         alert(response.data.message);
       }
@@ -76,7 +78,7 @@ const NewArray = ({ isLogged }) => {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      handleDelete(data.id_news);
+                      handleDelete(data.id_news, data.name_news);
                     }}
                     className="arrayArtwork_body_delete"
                   >

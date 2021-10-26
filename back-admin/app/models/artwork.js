@@ -11,7 +11,7 @@ class Artwork {
     try {
       const query = {
 
-        text: `SELECT * FROM artwork JOIN category ON artwork.category_id = category.id_category;` 
+        text: `SELECT id_artwork, name_artwork, name_category, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN picture ON artwork.id_artwork = picture.artwork_id GROUP BY artwork.id_artwork, name_category;` 
 
 
       };
@@ -27,7 +27,7 @@ class Artwork {
   static async findByCategory(category) {
     try {
       const query = {
-        text: `SELECT *, array_agg(image) as image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN picture ON picture.artwork_id = artwork.id_artwork WHERE category.name_category = $1 AND id_artwork IS NOT NULL GROUP BY id_artwork, id_category, id_picture ORDER BY date DESC;`,
+        text: `SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN picture ON picture.artwork_id = artwork.id_artwork WHERE category.name_category = $1 AND id_artwork IS NOT NULL GROUP BY id_artwork ORDER BY date DESC;`,
         values: [category],
       };
 

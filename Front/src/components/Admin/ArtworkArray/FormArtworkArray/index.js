@@ -24,8 +24,20 @@ const FormArtworkArray = ({ isLogged }) => {
     e.preventDefault();
     try {
       //firebase
-      for (const image of images) {
-        await storage.ref(`${name}`).put(image);
+      if (categoryName === "mural-painting") {
+        let compteur = 1;
+        for (const image of images) {
+          await storage.ref(`${name}-${compteur}`).put(image);
+
+          const urlImage = await storage
+            .ref(`${name}-${compteur}`)
+            .getDownloadURL();
+
+          urlArray.push(urlImage);
+          compteur++;
+        }
+      } else {
+        await storage.ref(`${name}`).put(images[0]);
 
         const urlImage = await storage.ref(`${name}`).getDownloadURL();
 
@@ -61,6 +73,11 @@ const FormArtworkArray = ({ isLogged }) => {
     }
   };
 
+  const onChangeFile = (e) => {
+    setImages([...images, e.target.files[0]]);
+    console.log(images);
+  };
+  
   const getFileElement = (number) => {
     let content = [];
     for (let index = 0; index < number; index++) {
@@ -79,11 +96,7 @@ const FormArtworkArray = ({ isLogged }) => {
     return content;
   };
 
-  const onChangeFile = (e) => {
-    let arrayFile = [];
-    arrayFile.push(e.target.files[0]);
-    setImages(arrayFile);
-  };
+
 
   const handleCategory = (e) => {
     setCategoryName(e.target.value);

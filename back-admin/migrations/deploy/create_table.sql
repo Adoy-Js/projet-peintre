@@ -36,7 +36,7 @@ CREATE TABLE news (
 CREATE TABLE picture (
   id_picture INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   name_picture VARCHAR(50),
-  image text [] NOT NULL,
+  image text NOT NULL,
   artwork_id INT REFERENCES artwork(id_artwork) ON DELETE CASCADE,
   artist_id INT REFERENCES artist(id_artist) ON DELETE CASCADE,
   news_id INT REFERENCES news(id_news) ON DELETE CASCADE

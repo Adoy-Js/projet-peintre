@@ -1,6 +1,7 @@
 //Import de la lib React
 import React, { useEffect, useState } from "react";
 import api from "src/api";
+import storage from "src/utils/firebase";
 //Import locaux
 import "./styles.scss";
 import PropTypes from "prop-types";
@@ -28,7 +29,8 @@ const ArtworkArray = ({ isLogged }) => {
     fetchData();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, name, category, images) => {
+    console.log(category);
     try {
       if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
         const response = await api.delete(`admin/artwork/${id}`, {
@@ -36,6 +38,13 @@ const ArtworkArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
+        if (category === "mural-painting") {
+          for (let i = 0; i < images.length; i++) {
+            await storage.ref(`${name}-${i+1}`).delete();
+          }
+        } else {
+          await storage.ref(`${name}`).delete();
+        }
         setArtworks(artworks.filter((artwork) => artwork.id_artwork !== id));
         alert(response.data.message);
       }
@@ -78,7 +87,12 @@ const ArtworkArray = ({ isLogged }) => {
                   <button
                     onClick={(e) => {
                       e.preventDefault();
-                      handleDelete(artwork.id_artwork);
+                      handleDelete(
+                        artwork.id_artwork,
+                        artwork.name_artwork,
+                        artwork.name_category,
+                        artwork.image
+                      );
                     }}
                     className="arrayArtwork_body_delete"
                   >

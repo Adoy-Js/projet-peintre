@@ -40,7 +40,7 @@ const Portrait = () => {
               src={image.image[0]}
             ></img>
             <p className="portrait_description">
-              {image.description} {image.format} cm {image.date}
+              {image.name_artwork} {image.format} cm {image.date}
             </p>
             <hr></hr>
           </div>

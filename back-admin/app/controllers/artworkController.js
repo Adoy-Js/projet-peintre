@@ -117,7 +117,7 @@ const artworkController = {
         
         const newPicture = new Picture({
           name_picture: req.body.name_artwork,
-          image: req.body.image,
+          image: req.body.image[0],
           artwork_id: insertArtwork.id_artwork,
         });
 

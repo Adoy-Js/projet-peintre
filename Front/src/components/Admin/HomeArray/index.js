@@ -1,5 +1,6 @@
 //Import de la lib React
 import React, { useState, useEffect } from "react";
+import storage from "src/utils/firebase";
 //Import NPM
 import MenuAdmin from "src/components/Admin/MenuAdmin";
 
@@ -28,7 +29,7 @@ const HomeArray = ({ isLogged }) => {
     fetchData();
   }, []);
 
-  const handleDelete = async (id) => {
+  const handleDelete = async (id, name) => {
     try {
       if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
         const response = await api.delete(`admin/home/${id}`, {
@@ -36,6 +37,7 @@ const HomeArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
+        await storage.ref(`${name}`).delete();
         setImages(images.filter((image) => image.id_picture !== id));
         alert(response.data.message);
       }
@@ -83,7 +85,7 @@ const HomeArray = ({ isLogged }) => {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        handleDelete(image.id_picture);
+                        handleDelete(image.id_picture, image.name_picture);
                       }}
                       className="arrayHome_body_delete"
                     >
