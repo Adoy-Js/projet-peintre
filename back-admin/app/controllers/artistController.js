@@ -14,6 +14,16 @@ const artistController = {
     }
   },
 
+  getPictureToHome: async (req, res, next) => {
+    try {
+      const results = await Artist.findPictureToHome();
+      res.json(results);
+    } catch (error) {
+      console.error(error);
+      next();
+    }
+  },
+
   add: async (req, res, next) => {
     try {
       console.log(req.body);
@@ -22,7 +32,6 @@ const artistController = {
 
       await newPicture.save();
 
-
       res.json({ message: "contenu ajouté !" });
     } catch (error) {
       console.error(error);
@@ -30,15 +39,18 @@ const artistController = {
     }
   },
 
-  update: async (req, res, next) => {
+  updateArtist: async (req, res, next) => {
+    console.log("controller update");
     try {
-      const { id } = req.params;
+    
+      const { id_artist, biography } = req.body;
 
-      console.log(id);
+      const artist = await Artist.findOne(id_artist);
 
-      const updatePicture = new Picture(req.body);
+      artist.biography = biography;
 
-      await updatePicture.save(id);
+      await artist.save(1);
+      res.json({ message: "contenu modifié" });
     } catch (error) {
       console.error(error);
       next();
@@ -50,9 +62,9 @@ const artistController = {
     try {
       // 1. on retrouve la picture
       const pictureDeleted = await Picture.findOne(id);
-      
+
       pictureDeleted.delete();
-      
+
       res.json({ message: "La photo à bien été supprimé" });
     } catch (error) {
       console.error(error);

@@ -45,7 +45,6 @@ const HomeArray = ({ isLogged }) => {
       console.log(error);
     }
   };
-
   return isLogged ? (
     <div>
       <MenuAdmin />
@@ -76,7 +75,7 @@ const HomeArray = ({ isLogged }) => {
 
             <tbody>
               {images?.map((image) => (
-                <tr key={image.id_picture}>
+                <tr key={image.image}>
                   <td key={image.name_picture}>{image.name_picture}</td>
 
                   <td key={image.image}>{image.image}</td>

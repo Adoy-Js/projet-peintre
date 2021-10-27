@@ -40,6 +40,8 @@ import FormNewArray from "src/components/Admin/NewArray/FormNewArray";
 import FormArtworkArray from "src/components/Admin/ArtworkArray/FormArtworkArray";
 // Ajout du composant ArrayHomeForm
 import FormHomeArray from "src/components/Admin/HomeArray/FormHomeArray";
+//Import component BiographyAdmin
+import BiographyAdmin from "src/components/Admin/BiographyAdmin";
 
 // Ajout du composant contactData
 import contactData from "src/data/contact";
@@ -135,6 +137,9 @@ const App = () => {
           </Route>
           <Route path="/artwork/painting/:painting_category" exact>
             <Painting />
+          </Route>
+          <Route path="/admin/biography" exact>
+            <BiographyAdmin />
           </Route>
           <Route>
             <NotFound />

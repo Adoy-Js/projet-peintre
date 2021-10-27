@@ -33,8 +33,8 @@ const MuralPainting = ({}) => {
             {muralPainting?.image?.map((img) => (
               <img key={img} className="mural_picture" src={img} />
             ))}
-            <div className="description">{muralPainting.description}</div>
           </div>
+          <div className="description">{muralPainting.description}</div>
         </div>
       </div>
     </div>

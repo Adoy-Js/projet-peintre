@@ -36,7 +36,7 @@ const Home = () => {
       <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
         {data.map((result) => (
           <img
-            key={result.id_artist}
+            key={result.id_picture}
             className="Home_image"
             src={result.image}
             className="image_slider"
