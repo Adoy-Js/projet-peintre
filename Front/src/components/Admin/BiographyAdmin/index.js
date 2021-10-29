@@ -9,14 +9,16 @@ import MenuAdmin from "src/components/Admin/MenuAdmin";
 import "./styles.scss";
 
 const BiographyAdmin = () => {
-  const [biography, setBiography] = useState("");
+  const [biography, setBiography] = useState([]);
   const [idArtist, setIdArtist] = useState(null);
+  const [paragraphNumber, setParagraphNumber] = useState(null);
 
   const fetchData = async () => {
     try {
       const response = await api.get("/about");
       setBiography(response.data[0].biography);
       setIdArtist(response.data[0].id_artist);
+      setParagraphNumber(response.data[0].biography.length);
     } catch (error) {
       console.log(error);
     }
@@ -47,16 +49,51 @@ const BiographyAdmin = () => {
     }
   };
 
+  const onChangeBiography = (e, index) => {
+    let array = [...biography];
+    array[index] = e.target.value;
+    setBiography(array);
+  };
+
+  const onClickDeleteParagraph = (e, index) => {
+    let array = [...biography];
+    array.splice(index, 1);
+    setBiography(array);
+  };
+
+  const onClickAddParagraph = ()=>{
+    let array = [...biography];
+    array.push("");
+    setBiography(array);
+  }
+
   return (
     <div className="biography">
       <MenuAdmin />
       <h1>Biography</h1>
-      <form className="biography_form" onSubmit={handleSubmit}>
-        <textarea
-          className="biography_form_textarea"
-          value={biography}
-          onChange={(e) => setBiography(e.target.value)}
+      <div className="biography_number">
+        Nombre de paragraphe
+        <input
+          type="number"
+          value={paragraphNumber}
+          onChange={(e) => setParagraphNumber(e.target.value)}
         />
+      </div>
+
+      <form className="biography_form" onSubmit={handleSubmit}>
+        {biography.map((paragraphe, i) => (
+          <div className="biography_form_paragraph">
+            <textarea
+              className="biography_form_textarea"
+              value={paragraphe}
+              onChange={(e) => onChangeBiography(e, i)}
+            />
+            <button type="button" onClick={(e) => onClickDeleteParagraph(e, i)}>
+              Supprimer le paragraphe
+            </button>
+          </div>
+        ))}
+        <button type="button" onClick={onClickAddParagraph}>Ajouter un paragraphe</button>
         <button className="biography_form_submit" type="submit">
           Valider
         </button>

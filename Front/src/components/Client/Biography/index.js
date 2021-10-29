@@ -8,7 +8,7 @@ import api from "src/api";
 import "./styles.scss";
 
 const Biography = () => {
-  const [biography, setBiography] = useState("");
+  const [biography, setBiography] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -30,9 +30,12 @@ const Biography = () => {
       <div className="biography">
         <img className="bioImage" src={bioImage} alt="biographie"></img>
         <div className="biography_block">
-          <div className="biography_div">
-            {biography}
+          {biography.map((paragraph)=>(
+            <div className="biography_div">
+            {paragraph}
           </div>
+          ))}
+          
 
         </div>
       </div>

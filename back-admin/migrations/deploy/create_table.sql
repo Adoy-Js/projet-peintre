@@ -7,7 +7,7 @@ CREATE TABLE artist (
   id_artist INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
   email VARCHAR(50) NOT NULL UNIQUE,
   password VARCHAR(500) NOT NULL,
-  biography TEXT NOT NULL
+  biography TEXT [] NOT NULL
 );
 
 CREATE TABLE category (
