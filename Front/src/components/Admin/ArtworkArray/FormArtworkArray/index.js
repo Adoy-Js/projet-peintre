@@ -16,7 +16,7 @@ const FormArtworkArray = ({ isLogged }) => {
   const [place, setPlace] = useState("");
   const [categoryName, setCategoryName] = useState("portrait");
   const [images, setImages] = useState([]);
-  const [description, setDescription] = useState(null);
+  const [description, setDescription] = useState([]);
   const [numberPicture, setNumberPicture] = useState(1);
 
   const handleSubmit = async (e) => {
@@ -66,7 +66,7 @@ const FormArtworkArray = ({ isLogged }) => {
       e.target.reset();
       setFormat("");
       setPlace("");
-      setDescription("");
+      setDescription([]);
       setName("");
     } catch (error) {
       console.log(error);
@@ -77,7 +77,7 @@ const FormArtworkArray = ({ isLogged }) => {
     setImages([...images, e.target.files[0]]);
     console.log(images);
   };
-  
+
   const getFileElement = (number) => {
     let content = [];
     for (let index = 0; index < number; index++) {
@@ -96,11 +96,27 @@ const FormArtworkArray = ({ isLogged }) => {
     return content;
   };
 
-
-
   const handleCategory = (e) => {
     setCategoryName(e.target.value);
     setNumberPicture(1);
+  };
+
+  const onChangeDescription = (e, index) => {
+    let array = [...description];
+    array[index] = e.target.value;
+    setDescription(array);
+  };
+
+  const onClickAddParagraph = () => {
+    let array = [...description];
+    array.push("");
+    setDescription(array);
+  };
+
+  const onClickDeleteParagraph = (e, index) => {
+    let array = [...description];
+    array.splice(index, 1);
+    setDescription(array);
   };
 
   return isLogged ? (
@@ -181,16 +197,30 @@ const FormArtworkArray = ({ isLogged }) => {
         </div>
 
         {getFileElement(numberPicture)}
+        {categoryName === "mural-painting" &&
+          description.map((paragraphe, i) => (
+            <div className="arrayArtworkForm_description" key={i}>
+              Histoire de l'oeuvre :
+              <textarea
+                value={paragraphe}
+                id="description"
+                onChange={(e) => onChangeDescription(e, i)}
+                className="arrayArtworkForm_description_input"
+              />
+              <button
+                className="arrayArtworkForm_description_buttonDelete"
+                type="button"
+                onClick={(e) => onClickDeleteParagraph(e, i)}
+                key={i}
+              >
+                Supprimer le paragraphe
+              </button>
+            </div>
+          ))}
         {categoryName === "mural-painting" && (
-          <div className="arrayArtworkForm_description">
-            Histoire de l'oeuvre :
-            <textarea
-              value={description}
-              id="description"
-              onChange={(e) => setDescription(e.target.value)}
-              className="arrayArtworkForm_description_input"
-            />
-          </div>
+          <button className="arrayArtworkForm_buttonAddParagraph" type="button" onClick={onClickAddParagraph}>
+            Ajouter un paragraphe
+          </button>
         )}
 
         <button type="submit" className="arrayArtworkForm_ok">

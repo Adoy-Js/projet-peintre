@@ -21,7 +21,7 @@ CREATE TABLE artwork (
   date INT NOT NULL,
   place VARCHAR(100), 
   format varchar(50),
-  description TEXT,
+  description TEXT [],
   main_picture TEXT,
   category_id INT REFERENCES category(id_category) 
 );

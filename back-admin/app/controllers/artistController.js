@@ -40,7 +40,7 @@ const artistController = {
   },
 
   updateArtist: async (req, res, next) => {
-    console.log("controller update");
+
     try {
     
       const { id_artist, biography } = req.body;

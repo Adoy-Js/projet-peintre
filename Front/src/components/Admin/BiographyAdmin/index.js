@@ -11,14 +11,12 @@ import "./styles.scss";
 const BiographyAdmin = () => {
   const [biography, setBiography] = useState([]);
   const [idArtist, setIdArtist] = useState(null);
-  const [paragraphNumber, setParagraphNumber] = useState(null);
 
   const fetchData = async () => {
     try {
       const response = await api.get("/about");
       setBiography(response.data[0].biography);
       setIdArtist(response.data[0].id_artist);
-      setParagraphNumber(response.data[0].biography.length);
     } catch (error) {
       console.log(error);
     }
@@ -71,18 +69,10 @@ const BiographyAdmin = () => {
     <div className="biography">
       <MenuAdmin />
       <h1>Biography</h1>
-      <div className="biography_number">
-        Nombre de paragraphe
-        <input
-          type="number"
-          value={paragraphNumber}
-          onChange={(e) => setParagraphNumber(e.target.value)}
-        />
-      </div>
 
       <form className="biography_form" onSubmit={handleSubmit}>
         {biography.map((paragraphe, i) => (
-          <div className="biography_form_paragraph">
+          <div className="biography_form_paragraph" key={i}>
             <textarea
               className="biography_form_textarea"
               value={paragraphe}

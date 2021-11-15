@@ -21,7 +21,6 @@ class Artist {
       let sqlQuery;
 
       if (id) {
-        console.log("update");
         sqlQuery = {
           text: "UPDATE artist SET email=$1, password=$2, biography=$3 WHERE id_artist=$4;",
           values: [this.email, this.password, this.biography, id],

@@ -34,7 +34,9 @@ const MuralPainting = ({}) => {
               <img key={img} className="mural_picture" src={img} />
             ))}
           </div>
-          <div className="description">{muralPainting.description}</div>
+          {muralPainting?.description?.map((paragraph, i) => (
+            <div className="description" key={i}>{paragraph}</div>
+          ))}
         </div>
       </div>
     </div>

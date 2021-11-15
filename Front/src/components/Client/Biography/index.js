@@ -30,8 +30,8 @@ const Biography = () => {
       <div className="biography">
         <img className="bioImage" src={bioImage} alt="biographie"></img>
         <div className="biography_block">
-          {biography.map((paragraph)=>(
-            <div className="biography_div">
+          {biography.map((paragraph, i)=>(
+            <div className="biography_div" key={i}>
             {paragraph}
           </div>
           ))}
