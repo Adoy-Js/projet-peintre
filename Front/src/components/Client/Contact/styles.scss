@@ -1,4 +1,4 @@
-@use 'src/styles/vars';
+@use "src/styles/vars";
 
 .Contact {
   margin: 0 auto;
@@ -13,10 +13,10 @@
 .title {
   margin-top: 1em;
   margin-right: 4em;
-  margin-bottom: .7em;
+  margin-bottom: 0.7em;
   font-size: 1.8em;
   font-weight: 600;
-  color: rgb(87, 87, 87);
+  color: rgb(135, 170, 128);
 }
 
 .p {
@@ -43,6 +43,7 @@
 
   &_div {
     margin-top: 1em;
+    color: rgb(128, 126, 126);
   }
 
   &_message {
@@ -54,10 +55,9 @@
   &_description,
   &_descriptions_list,
   &_footer_message {
-    padding: .2em;
+    padding: 0.2em;
     text-align: left;
   }
-
 
   &_descriptions_text {
     font-weight: 600;
@@ -88,26 +88,24 @@
 }
 
 @media screen and (max-width: 1024px) {
- .ContactForm{
-   width: 100%;
- }
-  .contact,
-  .contact_div,
-  .p
-   {
+  .ContactForm {
     width: 100%;
   }
-  .contact_descriptions_list, 
-  .contact_message{
+  .contact,
+  .contact_div,
+  .p {
+    width: 100%;
+  }
+  .contact_descriptions_list,
+  .contact_message {
     text-align: center;
-
   }
 
-  .title{
+  .title {
     margin: auto;
   }
 
-  .p{
+  .p {
     padding: 1px;
   }
 }

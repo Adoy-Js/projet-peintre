@@ -7,12 +7,14 @@ const adminController = {
   addAdmin: async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+    const biography = req.body.biography;
 
     const salt = 10;
 
     try {
       bcrypt.hash(password, salt, async function (err, hash) {
-        await Artist.save(email, hash);
+        const newArtist = new Artist({ email, password: hash, biography });
+        newArtist.save();
       });
     } catch (error) {
       console.log(error);
@@ -20,23 +22,19 @@ const adminController = {
   },
 
   login: async (req, res, next) => {
-    console.log("je suis dans admincontroller");
     const password = req.body.password;
     const email = req.body.email;
 
     try {
       if (email == null || password == null) {
-        return res.status(400).json({ error: "missing parameters" });
+        return res.json({ error: "remplissez tous les champs" });
       }
 
       if (email !== process.env.MAIL) {
-        throw new Error("Email faux");
+        return res.json({ error: "email faux" });
       }
 
       const artistFounded = await Artist.findByMail(email);
-      if (artistFounded) {
-        console.log(artistFounded);
-      }
 
       const compare = await bcrypt.compare(password, artistFounded.password);
 
@@ -46,7 +44,7 @@ const adminController = {
           token: jwtService.generateToken(artistFounded),
         });
       } else {
-        throw new Error("Mot de passe faux");
+        return res.json({ error: "mot de passe faux" });
       }
     } catch (error) {
       console.log(error);
@@ -57,15 +55,12 @@ const adminController = {
     const authHeader = req.headers["authorization"];
     const token = authHeader.split(" ")[1];
     if (!token) {
-      console.log("pas de token");
       res.sendStatus(401);
     } else {
       jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
-          console.log("mauvais token");
           return res.sendStatus(401);
         } else {
-          console.log("bon token");
           req.user = user;
           next();
         }

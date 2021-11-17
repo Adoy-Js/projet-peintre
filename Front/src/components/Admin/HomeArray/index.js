@@ -1,56 +1,60 @@
-// == Import de la lib React
-import React, { useState } from 'react';
-import axios from "axios";
+//Import de la lib React
+import React, { useState, useEffect } from "react";
+import storage from "src/utils/firebase";
+//Import NPM
+import MenuAdmin from "src/components/Admin/MenuAdmin";
 
+import api from "src/api";
+import PropTypes from "prop-types";
 
-// == Imports locaux
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
+import { NavLink, Redirect } from "react-router-dom";
 
-const HomeArray = () => {
-
+const HomeArray = ({ isLogged }) => {
   const [images, setImages] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/admin/home", {
+        headers: { Authorization: "Bearer " + localStorage.getItem("token") },
+      });
+      setImages(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  axios({
-    method: 'get',
-    url: "https://projet-peintre.herokuapp.com/admin/home",
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-   },
-  }).then(res => {
-    const images = res.data;
-    setImages(images);
-  })
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  function handleDelete(id) {
-  if( window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")){
-    axios({
-      method: 'delete',
-      url: `https://projet-peintre.herokuapp.com/admin/home/${id}`,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem('token')
-     },
-    }).then(res => {
-      const images = res.data;
-      setImages(images);
-    }).catch((err) => { console.log(err) })}
-  }
-
-  return (
+  const handleDelete = async (id, name) => {
+    try {
+      if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
+        const response = await api.delete(`admin/home/${id}`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+        await storage.ref(`${name}`).delete();
+        setImages(images.filter((image) => image.id_picture !== id));
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return isLogged ? (
     <div>
+      <MenuAdmin />
       <div className="arrayHome">
         <table>
           <thead className="arrayHome_head">
             <tr>
-              <th className="arrayHome_name">
-                NOM
-              </th>
-              <th className="arrayHome_urlPicture">
-                PHOTOS
-              </th>
-              <th className="arrayHome_delete">
-                SUPPRIMER
-              </th>
+              <th className="arrayHome_name">NOM</th>
+              <th className="arrayHome_urlPicture">PHOTOS</th>
+              <th className="arrayHome_delete">SUPPRIMER</th>
             </tr>
           </thead>
         </table>
@@ -59,35 +63,52 @@ const HomeArray = () => {
           <table>
             <tbody className="arrayHome_body">
               <tr>
-                <td className="cell"><a href="/admin/menu/home/formHomeArray" className="button">+</a></td>
+                <td className="cell">
+                  <NavLink to="/admin/home/formHomeArray" className="button">
+                    +
+                  </NavLink>
+                </td>
                 <td></td>
                 <td></td>
               </tr>
             </tbody>
 
             <tbody>
-              {images.map(image => (
-                <tr>
+              {images?.map((image) => (
+                <tr key={image.image}>
                   <td key={image.name_picture}>{image.name_picture}</td>
 
                   <td key={image.image}>{image.image}</td>
 
-                  <td><button onClick={(e) => {
-                    e.preventDefault()
-                    handleDelete(image.id_picture);
-                  }} className="arrayHome_body_delete">SUPPRIMER</button></td>
-
+                  <td>
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleDelete(image.id_picture, image.name_picture);
+                      }}
+                      className="arrayHome_body_delete"
+                    >
+                      SUPPRIMER
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </form>
-
       </div>
-    </div >
-
+    </div>
+  ) : (
+    <Redirect to="/" />
   );
-}
+};
 
+HomeArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+HomeArray.defaultProps = {
+  isLogged: false,
+};
 
 export default HomeArray;

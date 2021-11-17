@@ -14,58 +14,43 @@ const artistController = {
     }
   },
 
-  getOne: async (req, res, next) => {
-    const { id } = req.params;
-
+  getPictureToHome: async (req, res, next) => {
     try {
-      const results = await Artist.findOne(id);
-      if (results) {
-        res.json(results);
-      } else {
-        next();
-      }
-    } catch (err) {
-      console.error(err);
-      next();
-    }
-  },
-
-  add: async (req, res, next) => {
-    try {
-
-      console.log("controller : add picture for home");
-      //Instenciation et insertion de la nouvelle photo
-      const newPicture = new Picture(req.body);
-
-      const insertPicture = await newPicture.save();
-
-      //Ajout de la relation avec l'artiste dans la table de liaison
-      //l'id de lartiste sera toujours 1
-      const picture_id = insertPicture.id_picture;
-
-      const new_artist_has_picture = new Artist_has_picture({
-        artist_id: 1,
-        picture_id,
-      });
-
-      new_artist_has_picture.save();
-
-      res.json({ newPicture, new_artist_has_picture });
+      const results = await Artist.findPictureToHome();
+      res.json(results);
     } catch (error) {
       console.error(error);
       next();
     }
   },
 
-  update: async (req, res, next) => {
+  add: async (req, res, next) => {
     try {
-      const { id } = req.params;
+      console.log(req.body);
+      //Instenciation et insertion de la nouvelle photo
+      const newPicture = new Picture(req.body);
 
-      console.log(id);
+      await newPicture.save();
 
-      const updatePicture = new Picture(req.body);
+      res.json({ message: "contenu ajouté !" });
+    } catch (error) {
+      console.error(error);
+      next();
+    }
+  },
 
-      await updatePicture.save(id);
+  updateArtist: async (req, res, next) => {
+
+    try {
+    
+      const { id_artist, biography } = req.body;
+
+      const artist = await Artist.findOne(id_artist);
+
+      artist.biography = biography;
+
+      await artist.save(1);
+      res.json({ message: "contenu modifié" });
     } catch (error) {
       console.error(error);
       next();
@@ -74,19 +59,13 @@ const artistController = {
 
   delete: async (req, res, next) => {
     const { id } = req.params;
-    console.log(id);
     try {
       // 1. on retrouve la picture
       const pictureDeleted = await Picture.findOne(id);
-      console.log("result = ", pictureDeleted);
-      // 2. on retrouve la ligne correspondante dans artiste_has_picture grace a l'id de la picture
-      // const relation_picture = await Artist_has_picture.findByPictureId(id);
-
-      // 3. on supprime tout ça
-      //on supprime la relation et non la photo, car elle peut etre utilisée autre part
 
       pictureDeleted.delete();
-      // relation_picture.delete();
+
+      res.json({ message: "La photo à bien été supprimé" });
     } catch (error) {
       console.error(error);
       next();

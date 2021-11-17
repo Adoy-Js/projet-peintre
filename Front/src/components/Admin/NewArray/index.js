@@ -1,83 +1,107 @@
-// == Import de la lib React
-import React, { useState } from 'react';
-import axios from 'axios';
+//Import de la lib React
+import React, { useEffect, useState } from "react";
+import storage from "src/utils/firebase";
+//Import NPM
+import PropTypes from "prop-types";
+
+import api from "src/api";
+import { NavLink, Redirect } from "react-router-dom";
+
+// Ajout du composant MenuAdmin
+import MenuAdmin from "src/components/Admin/MenuAdmin";
 
 
-// == Imports locaux
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
 
-const ArrayNew = () => {
+const NewArray = ({ isLogged }) => {
+  const [news, setNews] = useState([]);
 
-  const [news, setNews] = useState([null]);
+  const fetchData = async () => {
+    try {
+      const response = await api.get("/admin/news", {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      setNews(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  axios({
-    method: 'get',
-    url: "https://projet-peintre.herokuapp.com/admin/news",
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem('token')
-   },  }).then(res => {
-    console.log(res.data)
-    setNews(news);
-  })
+  const handleDelete = async (id, name) => {
+    try {
+      if (window.confirm("Êtes-vous sûr de vouloir supprimer cette ligne ?")) {
+        const response = await api.delete(`admin/news/${id}`, {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        });
+        await storage.ref(`${name}`).delete();
+        setNews(news.filter((oneNew) => oneNew.id_news !== id));
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  function handleDelete( id) {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')){
-
-    axios({
-      method: 'delete',
-      url: `https://projet-peintre.herokuapp.com/admin/news${id}`,
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem('token')
-     },
-    }).then(res => {
-      const news = res.data;
-      setArtwork(news);
-    }).catch((err) => { console.log(err) })}
-  }
-
-  return (
+  return isLogged ? (
     <div>
-      <div className="arrayNew">
+      <MenuAdmin />
+      <div className="arrayArtwork">
         <table>
-          <thead className="arrayNew_head">
+          <thead className="arrayArtwork_head">
             <tr>
-              <th className="arrayNew_name">
-                NOM
-              </th>
-              <th className="arrayNew_delete">
-                SUPPRIMER
-              </th>
+              <th className="arrayArtwork_name">NOM</th>
+              <th className="arrayArtwork_delete">SUPPRIMER</th>
             </tr>
           </thead>
+          <tbody className="arrayArtwork_body">
+            <tr>
+              <td className="cell">
+                <NavLink to="/admin/news/formNewArray" className="button">
+                  +
+                </NavLink>
+              </td>
+            </tr>
+          </tbody>
+          <tbody>
+            {news?.map((data) => (
+              <tr key={data.id_news}>
+                <td className="category">{data.name_news}</td>
+
+                <td>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleDelete(data.id_news, data.name_news);
+                    }}
+                    className="arrayArtwork_body_delete"
+                  >
+                    SUPPRIMER
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-
-        <form className="arrayNew_body">
-
-          <table>
-          <tbody className="arrayNew_body">
-              <tr>
-                <td className="arrayNew_cell"><a href="/admin/menu/new/formNewArray" className="button">+</a></td>
-                <td></td>
-              </tr>
-            </tbody>
-            <tbody className="arrayNew_body">
-              <tr>
-                <td key={news} className="cell">{news}</td>
-
-                <td><button onClick={(e) => {
-                    e.preventDefault()
-                    handleDelete(artwork);
-                  }} className="arrayNew_body_delete">SUPPRIMER</button></td>
-              </tr>
-            </tbody>
-            
-          </table>
-        </form>
       </div>
-    </div >
-
-  )
+    </div>
+  ) : (
+    <Redirect to="/" />
+  );
 };
 
-export default ArrayNew;
+NewArray.propTypes = {
+  isLogged: PropTypes.bool,
+};
+
+NewArray.defaultProps = {
+  isLogged: false,
+};
+
+export default NewArray;

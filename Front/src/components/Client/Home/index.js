@@ -1,39 +1,51 @@
 // == Import npm
-import React, { PureComponent } from 'react';
+// import React, { PureComponent, useEffect } from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
-import axios from 'axios';
+import { Carousel } from "react-responsive-carousel";
+import api from "src/api";
 
-import './styles.scss';
+import "./styles.scss";
 
-// == Composant
-class Home extends PureComponent {
-  state = {
-    images: [],
-  }
+//Import de la lib React
+import React, { useEffect, useState } from "react";
 
-  componentDidMount() {
-    axios.get(`https://projet-peintre.herokuapp.com/about`)
-      .then(res => {
-        const images = res.data;
-        this.setState({ images });
-      })
-  }
+//Import locaux
+import "./styles.scss";
 
-  render() {
-    return (
-      <div className="welcome">
-        <a href="/about"><h1 className="underline">Camille Paul</h1></a>
-        <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
-        {this.state.images.map(image =>
-        <img key={image.id_artist} className="Home_image"src={image.image} className="image_slider"/>)}
+const Home = () => {
+  const [data, setData] = useState([]);
+
+  const fetchRepoData = async () => {
+    try {
+      const response = await api.get("/");
+      setData(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRepoData();
+  }, []);
+
+  return (
+    <div className="welcome">
+      <a href="/about">
+        <h1 className="underline">Camille Paul</h1>
+      </a>
+      <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
+        {data.map((result) => (
+          <img
+            key={result.id_picture}
+            className="Home_image"
+            src={result.image}
+            className="image_slider"
+          />
+        ))}
       </Carousel>
-      </div>      
-    )  
-  }
-}
+    </div>
+  );
+};
 
-
-// == Export
 export default Home;
 

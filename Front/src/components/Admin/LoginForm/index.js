@@ -1,73 +1,87 @@
-import React from 'react';
-import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+//Import de la lib React
+import React, { useState } from "react";
+//Import NPM
+import PropTypes from "prop-types";
+import { Redirect } from "react-router-dom";
+import api from "src/api";
 
-import './styles.scss';
+//Import locaux
+import "./styles.scss";
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      password: '',
-      isLogged: false,
-    };
+const LoginForm = ({ isLogged, onLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
 
-  handleEmailChange(event) {
-    this.setState({ email: event.target.value });
-  }
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
 
-  handlePasswordChange(event) {
-    this.setState({ password: event.target.value });
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await api.post("/admin", {
+        email: email,
+        password: password,
+      });
+      if (response.data.userId && response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        onLogin();
+      } else if (response.data.error) {
+        alert(response.data.error);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  handleSubmit(evt) {
-    evt.preventDefault();
-    const admin = {
-      email: this.state.email,
-      password: this.state.password
-    };
+  return isLogged ? (
+    <Redirect to="/admin/artwork" />
+  ) : (
+    <form onSubmit={handleSubmit} className="Form">
+      <div className="Form_label">Bienvenue</div>
+      <div className="Form_connexion">
+        <div className="Form_mail">
+          <input
+            className="Form_input"
+            name="mail"
+            type="text"
+            placeholder="E-mail"
+            value={email}
+            onChange={handleEmailChange}
+          />
+        </div>
 
-    axios.post(`https://projet-peintre.herokuapp.com/admin`, admin)
-      .then(res => {
-        localStorage.setItem('token', res.data.token)
-        console.log(res);
-        console.log(res.data);
-        this.setState({ isLogged: true })
-      })
-  }
+        <div className="Form_password">
+          <input
+            className="Form_input"
+            name="password"
+            type="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+        </div>
 
-  render() {
-    return (
-      this.state.isLogged ? <Redirect to="/admin/menu/artwork" /> :
-        <form onSubmit={this.handleSubmit} className="Form">
+        <div className="Form_submit">
+          <input className="Form_input" type="submit" value="Connexion" />
+        </div>
+      </div>
+    </form>
+  );
+};
 
-          <div className="Form_label">
-            Bienvenue
-          </div>
-          <div className="Form_connexion">
+LoginForm.propTypes = {
+  isLogged: PropTypes.bool,
+  onLogin: PropTypes.func,
+};
 
-            <div className="Form_mail">
-              <input className="Form_input" name="mail" type="text" placeholder="E-mail" value={this.state.email} onChange={this.handleEmailChange} />
-            </div>
-
-            <div className="Form_password">
-              <input className="Form_input" name="password" type="password" placeholder="Mot de passe" value={this.state.password} onChange={this.handlePasswordChange} />
-            </div>
-
-            <div className="Form_submit">
-              <input className="Form_input" type="submit" value="Connexion" />
-            </div>
-
-          </div>
-        </form>
-    );
-  }
-}
+LoginForm.defaultProps = {
+  isLogged: false,
+  onLogin: () => {},
+};
 
 export default LoginForm;
