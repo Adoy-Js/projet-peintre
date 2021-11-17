@@ -1,5 +1,4 @@
 const Artist = require("../models/artist");
-const Artist_has_picture = require("../models/artist_has_picture");
 const Picture = require("../models/picture");
 
 const artistController = {
@@ -27,6 +26,7 @@ const artistController = {
   add: async (req, res, next) => {
     try {
       console.log(req.body);
+
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
@@ -40,9 +40,7 @@ const artistController = {
   },
 
   updateArtist: async (req, res, next) => {
-
     try {
-    
       const { id_artist, biography } = req.body;
 
       const artist = await Artist.findOne(id_artist);

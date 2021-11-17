@@ -1,7 +1,6 @@
 const Artwork = require("../models/artwork");
 const Picture = require("../models/picture");
 const Category = require("../models/category");
-const Artwork_has_picture = require("../models/artwork_has_picture");
 
 const artworkController = {
   getAllByCategory: async (req, res, next) => {
