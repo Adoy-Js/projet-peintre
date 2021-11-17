@@ -1,5 +1,4 @@
 const Artist = require("../models/artist");
-const Artist_has_picture = require("../models/artist_has_picture");
 const Picture = require("../models/picture");
 
 const artistController = {
@@ -14,23 +13,24 @@ const artistController = {
     }
   },
 
+  getPictureToHome: async (req, res, next) => {
+    try {
+      const results = await Artist.findPictureToHome();
+      res.json(results);
+    } catch (error) {
+      console.error(error);
+      next();
+    }
+  },
+
   add: async (req, res, next) => {
     try {
+      console.log(req.body);
+
       //Instenciation et insertion de la nouvelle photo
       const newPicture = new Picture(req.body);
 
-      const insertPicture = await newPicture.save();
-
-      //Ajout de la relation avec l'artiste dans la table de liaison
-      //l'id de lartiste sera toujours 1
-      const picture_id = insertPicture.id_picture;
-
-      const new_artist_has_picture = new Artist_has_picture({
-        artist_id: 1,
-        picture_id,
-      });
-
-      new_artist_has_picture.save();
+      await newPicture.save();
 
       res.json({ message: "contenu ajouté !" });
     } catch (error) {
@@ -39,15 +39,16 @@ const artistController = {
     }
   },
 
-  update: async (req, res, next) => {
+  updateArtist: async (req, res, next) => {
     try {
-      const { id } = req.params;
+      const { id_artist, biography } = req.body;
 
-      console.log(id);
+      const artist = await Artist.findOne(id_artist);
 
-      const updatePicture = new Picture(req.body);
+      artist.biography = biography;
 
-      await updatePicture.save(id);
+      await artist.save(1);
+      res.json({ message: "contenu modifié" });
     } catch (error) {
       console.error(error);
       next();
@@ -56,19 +57,12 @@ const artistController = {
 
   delete: async (req, res, next) => {
     const { id } = req.params;
-    console.log(id);
     try {
       // 1. on retrouve la picture
       const pictureDeleted = await Picture.findOne(id);
-      console.log("result = ", pictureDeleted);
-      // 2. on retrouve la ligne correspondante dans artiste_has_picture grace a l'id de la picture
-      // const relation_picture = await Artist_has_picture.findByPictureId(id);
-
-      // 3. on supprime tout ça
-      //on supprime la relation et non la photo, car elle peut etre utilisée autre part
 
       pictureDeleted.delete();
-      // relation_picture.delete();
+
       res.json({ message: "La photo à bien été supprimé" });
     } catch (error) {
       console.error(error);

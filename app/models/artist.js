@@ -16,12 +16,21 @@ class Artist {
     }
   }
 
-  static async save(email, password) {
+  async save(id = null) {
     try {
-      const sqlQuery = {
-        text: "INSERT INTO artist(email, password) VALUES ($1,$2) RETURNING id_artist;",
-        values: [email, password],
-      };
+      let sqlQuery;
+
+      if (id) {
+        sqlQuery = {
+          text: "UPDATE artist SET email=$1, password=$2, biography=$3 WHERE id_artist=$4;",
+          values: [this.email, this.password, this.biography, id],
+        };
+      } else {
+        sqlQuery = {
+          text: "INSERT INTO artist(email, password, biography) VALUES ($1,$2,$3) RETURNING id_artist;",
+          values: [this.email, this.password, this.biography],
+        };
+      }
 
       const { rows } = await db.query(sqlQuery);
 
@@ -39,7 +48,23 @@ class Artist {
   static async findAll() {
     try {
       const { rows } = await db.query(
-        "SELECT id_artist, id_picture, name_picture, array_agg(image) as image FROM artist JOIN artist_has_picture ON artist_has_picture.artist_id = artist.id_artist JOIN picture ON picture.id_picture = artist_has_picture.picture_id GROUP BY id_artist, id_picture"
+        "SELECT id_artist, biography, id_picture, name_picture, array_agg(image) as image FROM artist LEFT JOIN picture ON picture.artist_id = artist.id_artist GROUP BY id_artist, id_picture"
+      );
+
+      return rows.map((row) => new Artist(row));
+    } catch (error) {
+      if (error.detail) {
+        throw new Error(error.detail);
+      } else {
+        throw error;
+      }
+    }
+  }
+
+  static async findPictureToHome() {
+    try {
+      const { rows } = await db.query(
+        "SELECT id_picture, name_picture, image FROM picture WHERE artist_id IS NOT NULL;"
       );
 
       return rows.map((row) => new Artist(row));
@@ -55,7 +80,7 @@ class Artist {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT * FROM picture WHERE id_picture = $1;",
+        text: "SELECT * FROM artist WHERE id_artist = $1;",
         values: [id],
       };
 

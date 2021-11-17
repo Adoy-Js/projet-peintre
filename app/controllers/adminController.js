@@ -7,12 +7,14 @@ const adminController = {
   addAdmin: async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
+    const biography = req.body.biography;
 
     const salt = 10;
 
     try {
       bcrypt.hash(password, salt, async function (err, hash) {
-        await Artist.save(email, hash);
+        const newArtist = new Artist({ email, password: hash, biography });
+        newArtist.save();
       });
     } catch (error) {
       console.log(error);

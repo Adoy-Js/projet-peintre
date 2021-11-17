@@ -35,6 +35,7 @@ const newsController = {
   },
 
   addNews: async (req, res, next) => {
+    console.log(req.body);
     try {
       // on instancie la nouvelle actu
       const newNews = new News({
@@ -46,30 +47,21 @@ const newsController = {
 
       // on l'insert dans la base
       const insertNews = await newNews.save();
-      console.log(insertNews);
       //si l'actu est accompagnée d'une photo, alors on instancie la photo, on l'insert dans la base
+      const news_id = insertNews.id_news;
 
       if (req.body.image) {
         const newPicture = new Picture({
           image: req.body.image,
+          name_picture: req.body.name_news,
+          news_id: news_id,
         });
 
-        const insertPicture = await newPicture.save();
-
-        const news_id = insertNews.id_news;
-        const picture_id = insertPicture.id_picture;
-
-        //on insert la relation entre l'actu et la photo dans la table de liaison
-        console.log(news_id);
-        const new_news_has_picture = new News_has_picture({
-          news_id,
-          picture_id,
-        });
-
-        await new_news_has_picture.save();
-
-        res.json({ message: "contenu ajouté !" });
+        await newPicture.save();
       }
+
+      res.json({ message: "contenu ajouté !" });
+
     } catch (error) {
       console.error(error);
       next();
