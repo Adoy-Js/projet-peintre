@@ -40,7 +40,7 @@ const ArtworkArray = ({ isLogged }) => {
         });
         if (category === "mural-painting") {
           for (let i = 0; i < images.length; i++) {
-            await storage.ref(`${name}-${i+1}`).delete();
+            await storage.ref(`${name}-${i + 1}`).delete();
           }
         } else {
           await storage.ref(`${name}`).delete();
@@ -63,6 +63,7 @@ const ArtworkArray = ({ isLogged }) => {
               <th className="arrayArtwork_name">NOM</th>
               <th className="arrayArtwork_category">CATÉGORIE</th>
               <th className="arrayArtwork_delete">SUPPRIMER</th>
+              <th className="arrayArtwork_edit">MODIFIER</th>
             </tr>
           </thead>
           <tbody className="arrayArtwork_body">
@@ -98,6 +99,14 @@ const ArtworkArray = ({ isLogged }) => {
                   >
                     SUPPRIMER
                   </button>
+                </td>
+                <td className="arrayArtwork_body_edit">
+                  <NavLink
+                    to={`/admin/artwork/EditFormArtworkArray/${artwork.id_artwork}`}
+                    className="button"
+                  >
+                    MODIFIER
+                  </NavLink>
                 </td>
               </tr>
             ))}

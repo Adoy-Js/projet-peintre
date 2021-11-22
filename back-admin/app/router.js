@@ -29,7 +29,6 @@ router.get("/news", newsController.getAll);
 
 router.get("/about", artistController.getAll);
 
-
 //Contact
 
 router.post("/contact", contactController.sendMessage);
@@ -41,7 +40,11 @@ router.post("/admin", adminController.login);
 
 //Artist Picture for home
 
-router.get("/admin/home", adminController.isAdmin, artistController.getPictureToHome);
+router.get(
+  "/admin/home",
+  adminController.isAdmin,
+  artistController.getPictureToHome
+);
 router.post("/admin/home", adminController.isAdmin, artistController.add);
 router.delete(
   "/admin/home/:id",
@@ -49,10 +52,14 @@ router.delete(
   artistController.delete
 );
 
-
 //Artwork
 
-router.get("/admin/artwork", adminController.isAdmin, artworkController.getAll);
+router.get("/admin/artwork", /*adminController.isAdmin,*/ artworkController.getAll);
+router.get(
+  "/admin/artwork/:id",
+  /*adminController.isAdmin,*/
+  artworkController.getOne
+);
 router.post(
   "/admin/artwork",
   adminController.isAdmin,
@@ -63,7 +70,6 @@ router.delete(
   adminController.isAdmin,
   artworkController.deleteArtwork
 );
-
 
 //News
 
@@ -77,7 +83,6 @@ router.delete(
 
 //Biography
 
-router.patch("/admin/biography", artistController.updateArtist)
-
+router.patch("/admin/biography", artistController.updateArtist);
 
 module.exports = router;

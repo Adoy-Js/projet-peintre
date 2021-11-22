@@ -38,6 +38,8 @@ import NewArray from "src/components/Admin/NewArray";
 import FormNewArray from "src/components/Admin/NewArray/FormNewArray";
 // Ajout du composant ArrayArtworkForm
 import FormArtworkArray from "src/components/Admin/ArtworkArray/FormArtworkArray";
+//Import component EditFormArray
+import EditFormArtworkArray from 'src/components/Admin/ArtworkArray/EditFormArtworkArray';
 // Ajout du composant ArrayHomeForm
 import FormHomeArray from "src/components/Admin/HomeArray/FormHomeArray";
 //Import component BiographyAdmin
@@ -76,6 +78,10 @@ const App = () => {
 
           <Route path="/admin/artwork/formArtworkArray" exact>
             <FormArtworkArray isLogged={isLogged} />
+          </Route>
+
+          <Route path="/admin/artwork/editFormArtworkArray/:id" exact>
+            <EditFormArtworkArray isLogged={isLogged} />
           </Route>
 
           <Route path="/admin/artwork" exact>

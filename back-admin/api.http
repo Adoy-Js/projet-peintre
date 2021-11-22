@@ -83,9 +83,6 @@ GET http://localhost:5000/admin/artwork
 ### GET ONE ARTWORK
 GET http://localhost:5000/admin/artwork/5
 
-### GET ALL ARTWORK OF ONE CATEGORY
-GET http://localhost:5000/admin/artwork/portrait
-
 ### ADD ARTWORK 
 POST http://localhost:5000/admin/artwork
 content-type: application/json
