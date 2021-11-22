@@ -114,7 +114,7 @@ const artworkController = {
         const insertArtwork = await newArtwork.save();
 
         //Instanciation et insertion de la nouvelle picture lié à l'artwork
-        
+
         const newPicture = new Picture({
           name_picture: req.body.name_artwork,
           image: req.body.image[0],
@@ -129,6 +129,41 @@ const artworkController = {
       console.error(error);
       next();
     }
+  },
+
+  updateArtwork: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      console.log(req.body);
+      const result = await Category.findIdByName(req.body.category_name);
+      const id_category = result.id_category;
+
+      //tout d'abord, je retrouve l'artwork concerné
+
+      const artwork = await Artwork.findOne(id);
+      const { name_artwork, date, format, place, image, description } =
+        req.body;
+
+      //je mets a jour avec les données du body
+      artwork.name_artwork = name_artwork;
+      artwork.date = date;
+      artwork.format = format;
+      artwork.place = place;
+      artwork.category_id = id_category;
+      artwork.description = description;
+      if (image.length) {
+        artwork.image = image;
+      }
+      console.log(artwork);
+      //je save en BDD
+      await artwork.save(id);
+
+      res.json({ message: "contenu ajouté !" });
+    } catch (error) {
+      console.log(error);
+    }
+
+    //Je mets à jour l'image
   },
 
   deleteArtwork: async (req, res, next) => {

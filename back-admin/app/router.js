@@ -65,6 +65,7 @@ router.post(
   adminController.isAdmin,
   artworkController.addArtwork
 );
+router.patch("/admin/artwork/:id", adminController.isAdmin, artworkController.updateArtwork)
 router.delete(
   "/admin/artwork/:id",
   adminController.isAdmin,

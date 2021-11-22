@@ -75,7 +75,6 @@ const FormArtworkArray = ({ isLogged }) => {
 
   const onChangeFile = (e) => {
     setImages([...images, e.target.files[0]]);
-    console.log(images);
   };
 
   const getFileElement = (number) => {

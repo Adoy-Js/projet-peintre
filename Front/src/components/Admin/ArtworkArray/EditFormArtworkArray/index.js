@@ -45,70 +45,64 @@ const EditFormArtworkArray = ({ isLogged }) => {
 
   useEffect(() => {
     fetchData();
-    console.log(artwork);
   }, []);
 
-  // const handleSubmit = async (e) => {
-  //   let urlArray = [];
-  //   e.preventDefault();
-  //   try {
-  //     //firebase
-  //     if (categoryName === "mural-painting") {
-  //       let compteur = 1;
-  //       for (const image of images) {
-  //         await storage.ref(`${name}-${compteur}`).put(image);
+  const handleSubmit = async (e) => {
+    let urlArray = [];
+    e.preventDefault();
+    try {
+      // //firebase
+      // if (categoryName === "mural-painting") {
+      //   let compteur = 1;
+      //   for (const image of images) {
+      //     await storage.ref(`${name}-${compteur}`).put(image);
 
-  //         const urlImage = await storage
-  //           .ref(`${name}-${compteur}`)
-  //           .getDownloadURL();
+      //     const urlImage = await storage
+      //       .ref(`${name}-${compteur}`)
+      //       .getDownloadURL();
 
-  //         urlArray.push(urlImage);
-  //         compteur++;
-  //       }
-  //     } else {
-  //       await storage.ref(`${name}`).put(images[0]);
+      //     urlArray.push(urlImage);
+      //     compteur++;
+      //   }
+      // } else {
+      //   await storage.ref(`${name}`).put(images[0]);
 
-  //       const urlImage = await storage.ref(`${name}`).getDownloadURL();
+      //   const urlImage = await storage.ref(`${name}`).getDownloadURL();
 
-  //       urlArray.push(urlImage);
-  //     }
+      //   urlArray.push(urlImage);
+      // }
 
-  //     //BDD
-  //     const response = await api.post(
-  //       "/admin/artwork",
-  //       {
-  //         name_artwork: name,
-  //         date: parseInt(date, 10),
-  //         format: format,
-  //         place: place,
-  //         image: urlArray,
-  //         category_name: categoryName,
-  //         description: description,
-  //       },
-  //       {
-  //         headers: {
-  //           Authorization: "Bearer " + localStorage.getItem("token"),
-  //         },
-  //       }
-  //     );
-  //     alert(response.data.message);
-  //     e.target.reset();
-  //     setFormat("");
-  //     setPlace("");
-  //     setDescription([]);
-  //     setName("");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  const getFileValue = () =>{
-
-  }
+      //BDD
+      const response = await api.patch(
+        `/admin/artwork/${id}`,
+        {
+          name_artwork: name,
+          date: parseInt(date, 10),
+          format: format,
+          place: place,
+          image: urlArray,
+          category_name: categoryName,
+          description: description,
+        },
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
+      alert(response.data.message);
+      e.target.reset();
+      setFormat("");
+      setPlace("");
+      setDescription([]);
+      setName("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const onChangeFile = (e) => {
     setImages([...images, e.target.files[0]]);
-    console.log(images);
   };
 
   const getFileElement = (number) => {
@@ -117,12 +111,10 @@ const EditFormArtworkArray = ({ isLogged }) => {
       content.push(
         <div className="arrayArtworkForm_url" key={index}>
           <input
-            value={getFileValue}
             onChange={onChangeFile}
             id="image"
             className="arrayArtworkForm_url_input"
             type="file"
-            required
           />
         </div>
       );
