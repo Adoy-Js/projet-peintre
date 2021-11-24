@@ -140,25 +140,39 @@ const artworkController = {
 
       //tout d'abord, je retrouve l'artwork concerné
 
-      const artwork = await Artwork.findOne(id);
+      // const artwork = await Artwork.findOne(id);
       const { name_artwork, date, format, place, image, description } =
         req.body;
 
-      //je mets a jour avec les données du body
-      artwork.name_artwork = name_artwork;
-      artwork.date = date;
-      artwork.format = format;
-      artwork.place = place;
-      artwork.category_id = id_category;
-      artwork.description = description;
-      if (image.length) {
-        artwork.image = image;
-      }
-      console.log(artwork);
-      //je save en BDD
-      await artwork.save(id);
+      //j'instancie l'artwork mis a jour
+      const updateArtwork = new Artwork({
+        name_artwork,
+        date,
+        format,
+        place,
+        description,
+        category_id: id_category,
+      });
 
-      res.json({ message: "contenu ajouté !" });
+      //je save en BDD
+      await updateArtwork.save(id);
+
+      //je recherche son id deja en BDD grace à l'id de l'artwork
+      const pictureToUpdate = await Picture.findByArtworkId(id);
+
+      //je mets à jour l'image si il y'en a une dans la requete
+      if (image.length) {
+        const updateImage = new Picture({
+          name_picture: req.body.name_artwork,
+          image: req.body.image[0],
+          artwork_id: updateArtwork.id_artwork,
+        });
+
+        //je save en BDD
+        updateImage.save(pictureToUpdate.id_picture);
+      }
+
+      res.json({ message: "contenu modifié !" });
     } catch (error) {
       console.log(error);
     }

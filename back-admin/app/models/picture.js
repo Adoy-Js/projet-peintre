@@ -8,10 +8,29 @@ class Picture {
   }
 
   static async findOne(id) {
-    console.log(id);
     try {
       const sqlQuery = {
         text: "SELECT * FROM picture WHERE id_picture=$1;",
+        values: [id],
+      };
+
+      const { rows } = await pool.query(sqlQuery);
+      const result = new Picture(rows[0]);
+      return new Picture(rows[0]);
+    } catch (err) {
+      console.error(err);
+      if (err.detail) {
+        throw new Error(err.detail);
+      } else {
+        throw err;
+      }
+    }
+  }
+
+  static async findByArtworkId(id) {
+    try {
+      const sqlQuery = {
+        text: "SELECT * FROM picture WHERE artwork_id=$1;",
         values: [id],
       };
 

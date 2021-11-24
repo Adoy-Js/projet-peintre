@@ -14,12 +14,13 @@ const EditFormArtworkArray = ({ isLogged }) => {
   const { id } = useParams();
 
   const [name, setName] = useState("");
+  const [oldName, setOldName] = useState("");
   const [date, setDate] = useState("");
   const [format, setFormat] = useState("");
   const [place, setPlace] = useState("");
   const [categoryName, setCategoryName] = useState("");
   const [images, setImages] = useState([]);
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState([]);
   const [numberPicture, setNumberPicture] = useState(null);
 
   const [artwork, setArtwork] = useState({});
@@ -31,11 +32,11 @@ const EditFormArtworkArray = ({ isLogged }) => {
       });
       setArtwork(response.data);
       setName(response.data.name_artwork);
+      setOldName(response.data.name_artwork);
       setDate(response.data.date);
       setFormat(response.data.format);
       setPlace(response.data.place);
       setCategoryName(response.data.name_category);
-      setImages(response.data.image);
       setDescription(response.data.description);
       setNumberPicture(response.data.image.length);
     } catch (error) {
@@ -48,29 +49,31 @@ const EditFormArtworkArray = ({ isLogged }) => {
   }, []);
 
   const handleSubmit = async (e) => {
-    let urlArray = [];
-    e.preventDefault();
     try {
-      // //firebase
-      // if (categoryName === "mural-painting") {
-      //   let compteur = 1;
-      //   for (const image of images) {
-      //     await storage.ref(`${name}-${compteur}`).put(image);
+      e.preventDefault();
+      let urlArray = [];
+      if (images.length) {
+        //firebase
+        if (categoryName === "mural-painting") {
+          let compteur = 1;
+          for (const image of images) {
+            await storage.ref(`${name}-${compteur}`).put(image);
 
-      //     const urlImage = await storage
-      //       .ref(`${name}-${compteur}`)
-      //       .getDownloadURL();
+            const urlImage = await storage
+              .ref(`${name}-${compteur}`)
+              .getDownloadURL();
 
-      //     urlArray.push(urlImage);
-      //     compteur++;
-      //   }
-      // } else {
-      //   await storage.ref(`${name}`).put(images[0]);
+            urlArray.push(urlImage);
+            compteur++;
+          }
+        } else {
+          await storage.ref(`${name}`).put(images[0]);
+          await storage.ref(`${oldName}`).delete();
+          const urlImage = await storage.ref(`${name}`).getDownloadURL();
 
-      //   const urlImage = await storage.ref(`${name}`).getDownloadURL();
-
-      //   urlArray.push(urlImage);
-      // }
+          urlArray.push(urlImage);
+        }
+      }
 
       //BDD
       const response = await api.patch(
@@ -103,6 +106,7 @@ const EditFormArtworkArray = ({ isLogged }) => {
 
   const onChangeFile = (e) => {
     setImages([...images, e.target.files[0]]);
+    console.log(images);
   };
 
   const getFileElement = (number) => {
@@ -120,6 +124,18 @@ const EditFormArtworkArray = ({ isLogged }) => {
       );
     }
     return content;
+  };
+
+  const onClickAddParagraph = () => {
+    let array = [...description];
+    array.push("");
+    setDescription(array);
+  };
+
+  const onClickDeleteParagraph = (e, index) => {
+    let array = [...description];
+    array.splice(index, 1);
+    setDescription(array);
   };
 
   return isLogged ? (
