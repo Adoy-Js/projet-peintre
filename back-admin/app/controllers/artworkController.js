@@ -70,7 +70,6 @@ const artworkController = {
     console.log(req.body);
     try {
       const result = await Category.findIdByName(req.body.category_name);
-      console.log(result);
       const id_category = result.id_category;
       //si on veut ajouter une peinture murale, alors on reçoit plusieurs images et une image principale.
       if (req.body.category_name === "mural-painting") {
