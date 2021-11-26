@@ -134,42 +134,90 @@ const artworkController = {
   updateArtwork: async (req, res, next) => {
     try {
       const { id } = req.params;
-      console.log(req.body);
       const result = await Category.findIdByName(req.body.category_name);
       const id_category = result.id_category;
-
-      //tout d'abord, je retrouve l'artwork concerné
 
       // const artwork = await Artwork.findOne(id);
       const { name_artwork, date, format, place, image, description } =
         req.body;
 
-      //j'instancie l'artwork mis a jour
-      const updateArtwork = new Artwork({
-        name_artwork,
-        date,
-        format,
-        place,
-        description,
-        category_id: id_category,
-      });
+      //si l'artwork est une peinture murale
+      if (req.body.category_name === "mural-painting") {
+        //on recherche la peinture murale en BDD pour récupérer sa main picture
+        const artworkBDD = await Artwork.findOne(id);
 
-      //je save en BDD
-      await updateArtwork.save(id);
+        let main_picture;
+        if (image.length) {
+          main_picture = image[0];
+        } else {
+          main_picture = artworkBDD.main_picture;
+        }
 
-      //je recherche son id deja en BDD grace à l'id de l'artwork
-      const pictureToUpdate = await Picture.findByArtworkId(id);
-
-      //je mets à jour l'image si il y'en a une dans la requete
-      if (image.length) {
-        const updateImage = new Picture({
-          name_picture: req.body.name_artwork,
-          image: req.body.image[0],
-          artwork_id: updateArtwork.id_artwork,
+        //j'instancie l'artwork mis a jour
+        const updateArtwork = new Artwork({
+          name_artwork,
+          date,
+          format,
+          place,
+          description,
+          category_id: id_category,
+          main_picture,
         });
 
         //je save en BDD
-        updateImage.save(pictureToUpdate.id_picture);
+        await updateArtwork.save(id);
+
+        //je mets à jour l'image si il y'en a une dans la requete
+        if (image.length) {
+          //je recherche l'image deja en BDD grace à l'id de l'artwork
+          const pictureToUpdate = await Picture.findByArtworkId(id);
+
+          for (const picture of pictureToUpdate) {
+            await Picture.delete(picture.id_picture);
+          }
+
+          //on parcourt le tableau d'image afin de toutes les insérer en base
+          for (const image of req.body.image) {
+            let compteur = 1;
+            //Instanciation et insertion de la nouvelle picture lié à l'artwork
+            const newPicture = new Picture({
+              name_picture: req.body.name_artwork + "-" + compteur,
+              image: image,
+              artwork_id: id,
+            });
+
+            await newPicture.save();
+
+            compteur++;
+          }
+        }
+      } else {
+        //j'instancie l'artwork mis a jour
+        const updateArtwork = new Artwork({
+          name_artwork,
+          date,
+          format,
+          place,
+          description,
+          category_id: id_category,
+        });
+
+        //je save en BDD
+        await updateArtwork.save(id);
+
+        //je mets à jour l'image si il y'en a une dans la requete
+        if (image.length) {
+          //je recherche l'image deja en BDD grace à l'id de l'artwork
+          const pictureToUpdate = await Picture.findByArtworkId(id);
+          const updateImage = new Picture({
+            name_picture: req.body.name_artwork,
+            image: req.body.image[0],
+            artwork_id: id,
+          });
+
+          //je save en BDD
+          await updateImage.save(pictureToUpdate[0].id_picture);
+        }
       }
 
       res.json({ message: "contenu modifié !" });

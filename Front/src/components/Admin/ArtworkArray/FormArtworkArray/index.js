@@ -218,7 +218,11 @@ const FormArtworkArray = ({ isLogged }) => {
             </div>
           ))}
         {categoryName === "mural-painting" && (
-          <button className="arrayArtworkForm_buttonAddParagraph" type="button" onClick={onClickAddParagraph}>
+          <button
+            className="arrayArtworkForm_buttonAddParagraph"
+            type="button"
+            onClick={onClickAddParagraph}
+          >
             Ajouter un paragraphe
           </button>
         )}

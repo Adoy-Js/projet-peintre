@@ -15,7 +15,7 @@ const EditFormArtworkArray = ({ isLogged }) => {
 
   const [name, setName] = useState("");
   const [oldName, setOldName] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(null);
   const [format, setFormat] = useState("");
   const [place, setPlace] = useState("");
   const [categoryName, setCategoryName] = useState("");
@@ -23,14 +23,11 @@ const EditFormArtworkArray = ({ isLogged }) => {
   const [description, setDescription] = useState([]);
   const [numberPicture, setNumberPicture] = useState(null);
 
-  const [artwork, setArtwork] = useState({});
-
   const fetchData = async () => {
     try {
       const response = await api.get(`/admin/artwork/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
-      setArtwork(response.data);
       setName(response.data.name_artwork);
       setOldName(response.data.name_artwork);
       setDate(response.data.date);
@@ -59,6 +56,9 @@ const EditFormArtworkArray = ({ isLogged }) => {
           for (const image of images) {
             await storage.ref(`${name}-${compteur}`).put(image);
 
+            // storage.ref(`${oldName}`) &&
+            //   (await storage.ref(`${oldName}`).delete());
+
             const urlImage = await storage
               .ref(`${name}-${compteur}`)
               .getDownloadURL();
@@ -68,7 +68,10 @@ const EditFormArtworkArray = ({ isLogged }) => {
           }
         } else {
           await storage.ref(`${name}`).put(images[0]);
-          await storage.ref(`${oldName}`).delete();
+
+          storage.ref(`${oldName}`) &&
+            (await storage.ref(`${oldName}`).delete());
+
           const urlImage = await storage.ref(`${name}`).getDownloadURL();
 
           urlArray.push(urlImage);
@@ -135,6 +138,12 @@ const EditFormArtworkArray = ({ isLogged }) => {
   const onClickDeleteParagraph = (e, index) => {
     let array = [...description];
     array.splice(index, 1);
+    setDescription(array);
+  };
+
+  const onChangeDescription = (e, index) => {
+    let array = [...description];
+    array[index] = e.target.value;
     setDescription(array);
   };
 
