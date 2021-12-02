@@ -10,10 +10,7 @@ class Artwork {
   static async findAll() {
     try {
       const query = {
-
-        text: `SELECT id_artwork, name_artwork, name_category, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN picture ON artwork.id_artwork = picture.artwork_id GROUP BY artwork.id_artwork, name_category;` 
-
-
+        text: `SELECT id_artwork, name_artwork, name_category, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN category ON artwork.category_id = category.id_category JOIN picture ON artwork.id_artwork = picture.artwork_id GROUP BY artwork.id_artwork, name_category;`,
       };
 
       const { rows } = await pool.query(query);
@@ -42,7 +39,7 @@ class Artwork {
   static async findOne(id) {
     try {
       const sqlQuery = {
-        text: "SELECT id_artwork, name_artwork, date, place, format, description, main_picture, array_agg(image) as image FROM artwork JOIN picture ON artwork.id_artwork = picture.artwork_id WHERE id_artwork = $1 GROUP BY id_artwork;",
+        text: "SELECT id_artwork, name_artwork, date, place, format, description, name_category, main_picture, array_agg(image) as image FROM artwork JOIN picture ON artwork.id_artwork = picture.artwork_id JOIN category ON category.id_category = artwork.category_id WHERE id_artwork = $1 GROUP BY id_artwork, name_category;",
         values: [id],
       };
 
@@ -65,7 +62,7 @@ class Artwork {
 
       if (id) {
         sqlQuery = {
-          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, format=$4, description =$5, main_picture=$6, category_id=$7 WHERE id_artwork = $9",
+          text: "UPDATE artwork SET name_artwork=$1, date=$2, place=$3, format=$4, description =$5, main_picture=$6, category_id=$7 WHERE id_artwork = $8",
           values: [
             this.name_artwork,
             this.date,

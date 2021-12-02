@@ -8,7 +8,6 @@ class Picture {
   }
 
   static async findOne(id) {
-    console.log(id);
     try {
       const sqlQuery = {
         text: "SELECT * FROM picture WHERE id_picture=$1;",
@@ -18,6 +17,25 @@ class Picture {
       const { rows } = await pool.query(sqlQuery);
       const result = new Picture(rows[0]);
       return new Picture(rows[0]);
+    } catch (err) {
+      console.error(err);
+      if (err.detail) {
+        throw new Error(err.detail);
+      } else {
+        throw err;
+      }
+    }
+  }
+
+  static async findByArtworkId(id) {
+    try {
+      const sqlQuery = {
+        text: "SELECT * FROM picture WHERE artwork_id=$1;",
+        values: [id],
+      };
+
+      const { rows } = await pool.query(sqlQuery);
+      return rows ? rows.map((row) => new this(row)) : false;
     } catch (err) {
       console.error(err);
       if (err.detail) {
@@ -40,7 +58,13 @@ class Picture {
       } else {
         sqlQuery = {
           text: "INSERT INTO picture(name_picture, image, artwork_id, artist_id, news_id) VALUES ($1,$2,$3,$4,$5) RETURNING id_picture;",
-          values: [this.name_picture, this.image, this.artwork_id, this.artist_id, this.news_id],
+          values: [
+            this.name_picture,
+            this.image,
+            this.artwork_id,
+            this.artist_id,
+            this.news_id,
+          ],
         };
       }
       const { rows } = await pool.query(sqlQuery);
@@ -55,9 +79,8 @@ class Picture {
     }
   }
 
-  async delete() {
+  static async delete(id) {
     try {
-      const id = this.id_picture;
       const sqlQuery = {
         text: "DELETE FROM picture WHERE id_picture = $1",
         values: [id],

@@ -1,52 +1,86 @@
 //Import de la lib React
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
-import PropTypes from "prop-types";
-import storage from "src/utils/firebase";
+import { useParams } from "react-router-dom";
 //Import NPM
+import PropTypes from "prop-types";
 import api from "src/api";
+import storage from "src/utils/firebase";
 
 //Import locaux
 import "./styles.scss";
 
-const FormArtworkArray = ({ isLogged }) => {
+const EditFormArtworkArray = ({ isLogged }) => {
+  const { id } = useParams();
+
   const [name, setName] = useState("");
+  const [oldName, setOldName] = useState("");
   const [date, setDate] = useState(null);
   const [format, setFormat] = useState("");
   const [place, setPlace] = useState("");
-  const [categoryName, setCategoryName] = useState("portrait");
+  const [categoryName, setCategoryName] = useState("");
   const [images, setImages] = useState([]);
   const [description, setDescription] = useState([]);
-  const [numberPicture, setNumberPicture] = useState(1);
+  const [numberPicture, setNumberPicture] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await api.get(`/admin/artwork/${id}`, {
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      setName(response.data.name_artwork);
+      setOldName(response.data.name_artwork);
+      setDate(response.data.date);
+      setFormat(response.data.format);
+      setPlace(response.data.place);
+      setCategoryName(response.data.name_category);
+      setDescription(response.data.description);
+      setNumberPicture(response.data.image.length);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const handleSubmit = async (e) => {
-    let urlArray = [];
-    e.preventDefault();
     try {
-      //firebase
-      if (categoryName === "mural-painting") {
-        let compteur = 1;
-        for (const image of images) {
-          await storage.ref(`${name}-${compteur}`).put(image);
+      e.preventDefault();
+      let urlArray = [];
+      if (images.length) {
+        //firebase
+        if (categoryName === "mural-painting") {
+          let compteur = 1;
+          for (const image of images) {
+            await storage.ref(`${name}-${compteur}`).put(image);
 
-          const urlImage = await storage
-            .ref(`${name}-${compteur}`)
-            .getDownloadURL();
+            // storage.ref(`${oldName}`) &&
+            //   (await storage.ref(`${oldName}`).delete());
+
+            const urlImage = await storage
+              .ref(`${name}-${compteur}`)
+              .getDownloadURL();
+
+            urlArray.push(urlImage);
+            compteur++;
+          }
+        } else {
+          await storage.ref(`${name}`).put(images[0]);
+
+          storage.ref(`${oldName}`) &&
+            (await storage.ref(`${oldName}`).delete());
+
+          const urlImage = await storage.ref(`${name}`).getDownloadURL();
 
           urlArray.push(urlImage);
-          compteur++;
         }
-      } else {
-        await storage.ref(`${name}`).put(images[0]);
-
-        const urlImage = await storage.ref(`${name}`).getDownloadURL();
-
-        urlArray.push(urlImage);
       }
 
       //BDD
-      const response = await api.post(
-        "/admin/artwork",
+      const response = await api.patch(
+        `/admin/artwork/${id}`,
         {
           name_artwork: name,
           date: parseInt(date, 10),
@@ -88,23 +122,11 @@ const FormArtworkArray = ({ isLogged }) => {
             id="image"
             className="arrayArtworkForm_url_input"
             type="file"
-            required
           />
         </div>
       );
     }
     return content;
-  };
-
-  const handleCategory = (e) => {
-    setCategoryName(e.target.value);
-    setNumberPicture(1);
-  };
-
-  const onChangeDescription = (e, index) => {
-    let array = [...description];
-    array[index] = e.target.value;
-    setDescription(array);
   };
 
   const onClickAddParagraph = () => {
@@ -116,6 +138,12 @@ const FormArtworkArray = ({ isLogged }) => {
   const onClickDeleteParagraph = (e, index) => {
     let array = [...description];
     array.splice(index, 1);
+    setDescription(array);
+  };
+
+  const onChangeDescription = (e, index) => {
+    let array = [...description];
+    array[index] = e.target.value;
     setDescription(array);
   };
 
@@ -144,6 +172,7 @@ const FormArtworkArray = ({ isLogged }) => {
               className="arrayArtworkForm_date_input"
               type="text"
               placeholder="2021"
+              value={date}
             />
           </div>
 
@@ -175,7 +204,7 @@ const FormArtworkArray = ({ isLogged }) => {
             <select
               className="arrayArtworkForm_category_select"
               value={categoryName}
-              onChange={handleCategory}
+              onChange={(e) => setCategoryName(e.target.value)}
             >
               <option id="category_name">portrait</option>{" "}
               <option id="category_name">oil-painting</option>
@@ -237,12 +266,12 @@ const FormArtworkArray = ({ isLogged }) => {
   );
 };
 
-FormArtworkArray.propTypes = {
+EditFormArtworkArray.propTypes = {
   isLogged: PropTypes.bool,
 };
 
-FormArtworkArray.defaultProps = {
+EditFormArtworkArray.defaultProps = {
   isLogged: false,
 };
 
-export default FormArtworkArray;
+export default EditFormArtworkArray;
