@@ -8,7 +8,7 @@ GET http://localhost:5000/artwork/portrait
 GET http://localhost:5000/artwork/mural-painting
 
 ### GET ONE ARTWORK
-GET http://localhost:5000/artwork/mural-painting/10
+GET http://localhost:5000/artwork/mural-painting/2
 ### GET ALL NEWS
 GET http://localhost:5000/news
 

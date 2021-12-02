@@ -2,12 +2,13 @@ import firebase from "firebase/app";
 import "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAgdxBzpudKAWTEE9-zka7vMs6rsofeQ-E",
-  authDomain: "camillepaul-8656d.firebaseapp.com",
-  projectId: "camillepaul-8656d",
-  storageBucket: "camillepaul-8656d.appspot.com",
-  messagingSenderId: "1036128713901",
-  appId: "1:1036128713901:web:a5260054c19fc7bc685a24",
+  apiKey: "AIzaSyB5pCb8vqwualJGuXpHqIcGRyyFOM1GGqA",
+  authDomain: "projet-peintre.firebaseapp.com",
+  projectId: "projet-peintre",
+  storageBucket: "projet-peintre.appspot.com",
+  messagingSenderId: "391977575187",
+  appId: "1:391977575187:web:499a064b99707ccd5170e6",
+  measurementId: "G-SX5YVMTR89",
 };
 
 firebase.initializeApp(firebaseConfig);

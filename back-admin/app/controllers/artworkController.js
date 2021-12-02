@@ -86,8 +86,8 @@ const artworkController = {
 
         const insert_artwork = await newArtwork.save();
         //on parcourt le tableau d'image afin de toutes les insérer en base
+        let compteur = 1;
         for (const image of req.body.image) {
-          let compteur = 1;
           //Instanciation et insertion de la nouvelle picture lié à l'artwork
           const newPicture = new Picture({
             name_picture: req.body.name_artwork + "-" + compteur,
