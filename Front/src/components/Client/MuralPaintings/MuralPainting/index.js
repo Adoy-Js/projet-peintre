@@ -1,8 +1,6 @@
 //Import de la lib React
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
-import ReactDOM from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
@@ -14,6 +12,15 @@ import "./styles.scss";
 const MuralPainting = ({}) => {
   const [muralPainting, setMuralPainting] = useState({});
   const { id } = useParams();
+
+  const carouselProperties = {
+    autoPlay: true,
+    infiniteLoop: true,
+    interval: "4000",
+    transitionTime: "600",
+    centerMode: true,
+    showStatus: false,
+  };
 
   const fetchData = async () => {
     try {
@@ -33,7 +40,7 @@ const MuralPainting = ({}) => {
         <h1 className="title_mural">{muralPainting.name_artwork}</h1>
         <div className="mural_gallery">
           <div key={muralPainting.id_artwork} className="mural_div">
-            <Carousel autoPlay infiniteLoop interval="4000" transitionTime="500">
+            <Carousel {...carouselProperties}>
               {muralPainting?.image?.map((img) => (
                 <img src={img} key={img} />
               ))}

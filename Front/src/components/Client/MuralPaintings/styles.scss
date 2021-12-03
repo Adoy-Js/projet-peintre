@@ -2,7 +2,7 @@
   animation: apparition 0.8s ease-out;
 }
 
-br{
+br {
   margin-top: 20px;
 }
 
@@ -12,13 +12,12 @@ br{
   justify-content: center;
   color: rgba(65, 64, 64, 0.842);
 
-
   &_all {
     padding: 50px;
   }
 
   &_image {
-    width: 70%;
+    width: 860px;
     height: auto;
     padding: 2em;
     background-color: white;
@@ -29,7 +28,6 @@ br{
     font-weight: bold;
     margin-bottom: 1em;
   }
-
 
   &_information {
     font-size: large;
