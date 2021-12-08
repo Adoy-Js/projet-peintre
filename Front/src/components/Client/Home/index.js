@@ -36,8 +36,6 @@ const Home = () => {
     <div className="welcome">
       <a href="/about">
         <h1 className="underline">Camille Paul</h1>
-        <img src= />
-        
       </a>
       <div>
         <Carousel {...carouselProperties}>
