@@ -34,7 +34,7 @@ const News = () => {
 
   return (
     <div className="news">
-      <h1>Actualités</h1>
+      <h1 className="news_title">Actualités</h1>
       {news.map((data) => (
         <div className="new" key={data.id_news}>
           <h2 className="new_header">

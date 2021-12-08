@@ -10,7 +10,6 @@ import { NavLink, Redirect } from "react-router-dom";
 // Ajout du composant MenuAdmin
 import MenuAdmin from "src/components/Admin/MenuAdmin";
 
-
 //Import locaux
 import "./styles.scss";
 
@@ -40,7 +39,10 @@ const NewArray = ({ isLogged }) => {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
         });
-        await storage.ref(`${name}`).delete();
+        const new_deleted = news.filter((result) => (result.id_news = id));
+        if (new_deleted.image) {
+          await storage.ref(`${name}`).delete();
+        }
         setNews(news.filter((oneNew) => oneNew.id_news !== id));
         alert(response.data.message);
       }

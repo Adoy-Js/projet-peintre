@@ -29,12 +29,12 @@ const MuralPaintings = () => {
         “ Peindre sur un mur, c’est comme peindre sur une toile...
         <br /> mais en plus grand “
       </h2>
-
+      <em className="clickForPicture">Cliquez pour ouvrir le projet</em>
       <div className="mural">
         {muralPaintings.map((muralPainting) => (
           <div className="mural_all" key={muralPainting.id_artwork}>
-            <h3 className="mural_title"> {muralPainting.name_artwork} </h3>
-
+            <h3 className="mural_title">- {muralPainting.name_artwork} -</h3>
+            <h3 className="mural_place">{muralPainting.place}</h3>
             <NavLink
               to={`/artwork/mural-painting/${muralPainting.id_artwork}`}
               className="link_muralPainting"
@@ -49,9 +49,7 @@ const MuralPaintings = () => {
             </NavLink>
 
             <div className="mural_information">
-              {" "}
-              {muralPainting.place} {muralPainting.format} {muralPainting.date}
-              <br/>Cliquez sur la photo pour ouvrir le projet
+              {muralPainting.format} <br /> {muralPainting.date}
             </div>
 
             <hr className="line" />

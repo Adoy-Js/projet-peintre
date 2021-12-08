@@ -40,7 +40,8 @@ const Contact = ({ descriptions, messages }) => (
             Le plus important pour moi lors d’un projet, une collaboration ou
             une commande est avant tout la rencontre, l’échange, le partage de
             nos idées afin de créer quelque chose ensemble.
-            <br /> A bientôt, Camille
+            <br /> <br /> A bientôt, <br /> <br />
+            Camille
           </p>
         </div>
       </div>

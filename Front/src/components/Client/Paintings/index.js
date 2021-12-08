@@ -26,12 +26,13 @@ const Paintings = () => {
   return (
     <div className="Paintings">
       <h1>Peintures</h1>
-
-      <h2>
-        “ J’aime explorer, m’amuser…
-        <br /> me laisser simplement porter par la créativité ”
+      <h2 className="paintingQuote1">“ J’aime explorer, m’amuser…</h2>
+      <h2 className="paintingQuote2">
+        me laisser simplement porter par la créativité ”
       </h2>
-
+      <em className="clickForPicture">
+        Cliquez et maintenez pour agrandir l’image
+      </em>
       <nav className="menu_paintings">
         <ul className="menu_links">
           <li className="menu_item">
