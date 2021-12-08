@@ -151,6 +151,7 @@ const App = () => {
             <NotFound />
           </Route>
         </Switch>
+        <Footer/>
       </div>
     </>
   );

@@ -58,10 +58,8 @@ const artistController = {
   delete: async (req, res, next) => {
     const { id } = req.params;
     try {
-      // 1. on retrouve la picture
-      const pictureDeleted = await Picture.findOne(id);
 
-      pictureDeleted.delete();
+      Picture.delete(id);
 
       res.json({ message: "La photo à bien été supprimé" });
     } catch (error) {

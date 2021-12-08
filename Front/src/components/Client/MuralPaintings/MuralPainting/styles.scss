@@ -14,6 +14,19 @@
   transition: 1s;
 }
 
+.description {
+  margin: 2em 0;
+  line-height: 1.5em;
+  font-size: 1.5em;
+  text-align: left;
+  justify-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  text-indent: 5%;
+  text-align: justify;
+  color: rgb(128, 126, 126);
+}
+
 @media screen and (max-width: 1024px) {
   .mural_div {
     margin: 0 auto;
@@ -29,12 +42,6 @@
     height: auto;
   }
 
-  .description {
-    padding: 0;
-    margin: 15px auto;
-    text-align: center;
-    width: 100%;
-  }
 }
 
 @media screen and (max-width: 369px) {

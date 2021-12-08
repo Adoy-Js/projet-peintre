@@ -6,9 +6,9 @@ import React from "react";
 import "./styles.scss";
 
 const Footer = () => (
-  <div className="footer">
+  <footer className="footer">
     <p>© 2021, Camille PAUL</p>
-  </div>
+  </footer>
 );
 
 export default Footer;

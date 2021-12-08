@@ -24,11 +24,15 @@ const Portrait = () => {
   return (
     <div className="portraits">
       <div className="header_portrait">
-        <h1> Portraits</h1>
+        <h1>Portraits</h1>
         <h2>
           "Le portrait c’est avant tout une rencontre, une histoire qui se
-          raconte<br /> prenant forme spontanément en un instant"
+          raconte
+          <br /> prenant forme spontanément en un instant"
         </h2>
+        <em className="clickForPicture">
+          Cliquez et maintenez pour agrandir l’image
+        </em>
       </div>
 
       <div className="portrait_gallery">
@@ -40,7 +44,7 @@ const Portrait = () => {
               src={image.image[0]}
             ></img>
             <p className="portrait_description">
-              {image.name_artwork} {image.format} cm {image.date}
+              {image.name_artwork} <br /> {image.format} cm <br /> {image.date}
             </p>
             <hr></hr>
           </div>

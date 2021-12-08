@@ -1,15 +1,15 @@
 //Import de la lib React
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, NavLink } from "react-router-dom";
 //Import NPM
-import api from 'src/api';
+import api from "src/api";
 
 //Import locaux
 import "./styles.scss";
 
 const Painting = () => {
   const [data, setData] = useState([]);
-  const {painting_category} = useParams();
+  const { painting_category } = useParams();
 
   const fetchData = async () => {
     try {
@@ -27,9 +27,11 @@ const Painting = () => {
   return (
     <div className="Paintings">
       <h1>Peintures</h1>
-
-      <h2>Pourquoi vous contenter d'un selfie quand le dessin existe ?</h2>
-
+      <h2 className="paintingQuote1">“ J’aime explorer, m’amuser…</h2>
+      <h2 className="paintingQuote2">me laisser simplement porter par la créativité ”</h2>
+      <em className="clickForPicture">
+        Cliquez et maintenez pour agrandir l’image
+      </em>
       <nav className="menu_paintings">
         <ul className="menu_links">
           <li className="menu_item">
@@ -49,7 +51,6 @@ const Painting = () => {
           </li>
         </ul>
       </nav>
-
       <div className="painting_gallery">
         {data.map((image) => (
           <div className="painting_div" key={image.id_artwork}>
@@ -63,6 +64,5 @@ const Painting = () => {
     </div>
   );
 };
-
 
 export default Painting;
