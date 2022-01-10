@@ -7,7 +7,7 @@ import "./styles.scss";
 
 const Footer = () => (
   <footer className="footer">
-    <p>© 2021, Camille PAUL</p>
+    <div>© 2021, Camille PAUL</div>
   </footer>
 );
 

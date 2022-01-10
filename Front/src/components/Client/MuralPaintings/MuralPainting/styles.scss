@@ -4,14 +4,8 @@
   justify-content: center;
   img {
     height: auto;
-    width: auto;
+    width: 100%;
   }
-}
-
-.mural_picture {
-  width: 60%;
-  padding: 50px;
-  transition: 1s;
 }
 
 .description {
@@ -41,7 +35,6 @@
     width: 100%;
     height: auto;
   }
-
 }
 
 @media screen and (max-width: 369px) {
