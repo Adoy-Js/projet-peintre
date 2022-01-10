@@ -42,7 +42,7 @@ const MuralPainting = ({}) => {
           <div key={muralPainting.id_artwork} className="mural_div">
             <Carousel {...carouselProperties}>
               {muralPainting?.image?.map((img) => (
-                <img src={img} key={img} />
+                <img className="mural_picture" src={img} key={img} />
               ))}
             </Carousel>
           </div>
